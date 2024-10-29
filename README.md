@@ -38,7 +38,7 @@ I am a student majoring in Information Systems (IS) at the Nurul Fikri Integrate
 
 ## 📌 My Git Commits:
 <div align="left">
-  <img src="https://github-readme-activity-graph.vercel.app/graph?username=fatkhur03&radius=16&theme=react&area=true&order=5" height="auto" alt="activity-graph graph"  />
+  <img src="https://github-readme-activity-graph.vercel.app/graph?username=fatkhurrhn&radius=16&theme=react&area=true&order=5" height="auto" alt="activity-graph graph"  />
 
 
 
