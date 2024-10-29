@@ -15,7 +15,6 @@ I am a student majoring in Information Systems (IS) at the Nurul Fikri Integrate
 
 <!-- snake graph -->
 <div align="center">
-  <h2>🐍 Snake eating my contribution 🐍</h2>
   <picture>
     <source media="(prefers-color-scheme: dark)" srcset="https://github.com/fatkhurrhn/fatkhurrhn/blob/main/github-contribution-grid-snake-dark.svg" />
     <source media="(prefers-color-scheme: light), (prefers-color-scheme: no-preference)" srcset="https://github.com/fatkhurrhn/fatkhurrhn/blob/main/github-contribution-grid-snake.svg" />
