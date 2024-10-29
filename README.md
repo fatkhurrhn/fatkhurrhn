@@ -13,30 +13,16 @@ I am a student majoring in Information Systems (IS) at the Nurul Fikri Integrate
 - **Frontend Development:** HTML/CSS3, JavaScript, Bootstrap
 - **Tools and Design:** VSCode, Git, GitHub
 
-## 🧑🏻‍💻 My Tech Stack:
-
-<div align="left">
-  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original-wordmark.svg" height="41" alt="java logo"  />
-  <img width="12" />
-  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" height="41" alt="PostgreSQL logo"  />
-  <img width="12" />
-  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" height="41" alt="html5 logo"  />
-  <img width="12" />
-  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" height="41" alt="css3 logo"  />
-  <img width="12" />
-  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" height="41" alt="JavaScript logo"  />
-  <img width="12" />
-  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-original.svg" height="41" alt="bootstrap logo"  />
-  <img width="12" />
-  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" height="41" alt="git logo"  />
-  <img width="12" />
-  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg" height="41" alt="vscode logo"  />
-  <img width="12" />
-  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/gitlab/gitlab-original.svg" height="41" alt="gitlab logo"  />
+<!-- snake graph -->
+<div align="center">
+  <h2>🐍 Snake eating my contribution 🐍</h2>
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://github.com/fatkhurrhn/fatkhurrhn/blob/main/github-contribution-grid-snake-dark.svg" />
+    <source media="(prefers-color-scheme: light), (prefers-color-scheme: no-preference)" srcset="https://github.com/fatkhurrhn/fatkhurrhn/blob/main/github-contribution-grid-snake.svg" />
+    <img src="https://github.com/fatkhurrhn/fatkhurrhn/blob/main/github-contribution-grid-snake.svg" alt="github-snake" />
+  </picture>
 </div>
-<br clear="both">
-
-## 📌 My Git Commits:
+<br>
 <div align="left">
   <img src="https://github-readme-activity-graph.vercel.app/graph?username=fatkhurrhn&radius=16&theme=react&area=true&order=5" height="auto" alt="activity-graph graph"  />
 
