@@ -9,8 +9,8 @@ I am a student majoring in Information Systems (IS) at the Nurul Fikri Integrate
  
 ## 💻 Technical Skills:
 
-- **Frontend Development:** HTML/CSS3, JavaScript, Bootstrap
-- **Tools and Design:** VSCode, GitHub
+- **Frontend Development:** HTML/CSS3, JavaScript, Bootstrap :v
+- **Tools and Design:** VSCode, GitHub and Figma
 
 <!-- snake graph -->
 <div align="center">
