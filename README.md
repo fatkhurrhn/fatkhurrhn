@@ -2,7 +2,7 @@
 
 # Hi 👋! I'm Fathur
 
-I am a student majoring in Information Systems (IS) at the Nurul Fikri Integrated Technology College. I have a great passion in technology and always want to follow the latest developments in this world. In addition, I also have an interest in creating creative content on social media. I enjoy making educational videos about technology, sharing tips and tricks, and also exploring various new applications and platforms. You can find my resume <a href="https://drive.google.com/file/d/1T96IuSPGw_c2pvHDbXcGErriir_eRNFt/view?usp=sharing" target="_blank">Here</a>. update May 25, 2024
+Hey guys, I'm Fathur, a 5th semester student majoring in Information Systems at Nurul Fikri Integrated Technology College. I have a huge passion for technology and always want to keep up with the latest trends in the world. Btw, I have a lot of followers on social media, hehe. On Instagram, I have over 90K followers, on LinkedIn over 500, and on TikTok over 3K. Let's be friends, hehe. 
 
 ## 🌐 Socials:
 [![Instagram](https://img.shields.io/badge/Instagram-%23E4405F.svg?logo=Instagram&logoColor=white)](https://instagram.com/story.thur) [![LinkedIn](https://img.shields.io/badge/LinkedIn-%230077B5.svg?logo=linkedin&logoColor=white)](https://www.linkedin.com/in/fatkhurrhn/) 
