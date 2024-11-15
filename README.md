@@ -3,14 +3,13 @@
 # Hi 👋! I'm Fathur
 
 As a 5th semester student majoring in Information Systems at Nurul Fikri Integrated Technology College, I have a huge passion for technology and am always eager to stay updated on the latest trends in the world. Oh, and I also have a lot of followers on social media! On Instagram, I have over 90K followers, on LinkedIn over 500, and on TikTok over 3K. Let's be friends! 
-
-## 🌐 Socials:
+<!-- ## 🌐 Socials: -->
 [![Instagram](https://img.shields.io/badge/Instagram-%23E4405F.svg?logo=Instagram&logoColor=white)](https://instagram.com/story.thur) [![LinkedIn](https://img.shields.io/badge/LinkedIn-%230077B5.svg?logo=linkedin&logoColor=white)](https://www.linkedin.com/in/fatkhurrhn/) 
  
-## 💻 Technical Skills:
+<!-- ## 💻 Technical Skills:
 
 - **Frontend Development:** HTML/CSS3, JavaScript, Bootstrap :v
-- **Tools and Design:** VSCode, GitHub and Figma
+- **Tools and Design:** VSCode, GitHub and Figma -->
 
 <!-- snake graph -->
 <div align="center">
