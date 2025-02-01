@@ -1,14 +1,17 @@
 <p align="left"> <img src="https://komarev.com/ghpvc/?username=fatkhur03&label=Profile%20views&color=0e75b6&style=flat" alt="" /> </p>
 
-# Hi 👋! I'm Fathur
+# 👋 Hi there! I'm Fathur
 
-As a 5th semester student majoring in Information Systems at Nurul Fikri Integrated Technology College, I have a huge passion for technology and am always eager to stay updated on the latest trends in the world. Oh, and I also have a lot of followers on social media! On Instagram, I have over 90K followers, on LinkedIn over 500 connections, and on TikTok over 3K folllowers. Let's be friends! 
+I'm an Information Systems student who is passionate about coding and the world of IT, especially in Front-End Development. I enjoy turning ideas into interactive and visually appealing experiences, focusing on clean, efficient, and user-friendly code.
+- 💻 Always exploring the latest web technologies
+- 🚀 Passionate about learning and building innovative projects
+- 🎯 Striving to create seamless and engaging user experiences
+ 
 <!-- ## 🌐 Socials: -->
 <!-- [![Instagram](https://img.shields.io/badge/Instagram-%23E4405F.svg?logo=Instagram&logoColor=white)](https://instagram.com/story.thur) [![LinkedIn](https://img.shields.io/badge/LinkedIn-%230077B5.svg?logo=linkedin&logoColor=white)](https://www.linkedin.com/in/fatkhurrhn/)  -->
 
 [![Instagram](https://img.shields.io/badge/Instagram-%23E4405F.svg?logo=Instagram&logoColor=white)](https://www.instagram.com/story.thur) [![LinkedIn](https://img.shields.io/badge/LinkedIn-%230077B5.svg?logo=linkedin&logoColor=white)](https://www.linkedin.com/in/fatkhurrhn) [![TikTok](https://img.shields.io/badge/TikTok-%23000000.svg?logo=TikTok&logoColor=white)](https://www.tiktok.com/@fatkhurrhnn)
 
---
 
 <p align="left">
 <a href="https://github.com/penuliscode">
@@ -16,7 +19,6 @@ As a 5th semester student majoring in Information Systems at Nurul Fikri Integra
 <img height="180em" src="https://github-readme-stats-eight-theta.vercel.app/api/top-langs/?username=fatkhurrhn&layout=compact&theme=algolia"/>
 </a>
 </p>
-
  
 <!-- ## 💻 Technical Skills:
 
