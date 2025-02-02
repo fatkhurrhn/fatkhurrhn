@@ -9,6 +9,8 @@ I'm an Information Systems student passionate about Front-End Development, turni
 
 [![Instagram](https://img.shields.io/badge/Instagram-%23E4405F.svg?logo=Instagram&logoColor=white)](https://www.instagram.com/story.thur) [![LinkedIn](https://img.shields.io/badge/LinkedIn-%230077B5.svg?logo=linkedin&logoColor=white)](https://www.linkedin.com/in/fatkhurrhn) [![TikTok](https://img.shields.io/badge/TikTok-%23000000.svg?logo=TikTok&logoColor=white)](https://www.tiktok.com/@fatkhurrhnn)
 
+![image](https://github.com/freekmurze/freekmurze/blob/master/dino.gif)
+
 <p align="left">
 <a href="https://github.com/penuliscode">
 <img height="180em" src="https://github-readme-stats-eight-theta.vercel.app/api?username=fatkhurrhn&show_icons=true&theme=algolia&include_all_commits=true&count_private=true"/>
