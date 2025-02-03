@@ -5,6 +5,10 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link
+    href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css"
+    rel="stylesheet"
+/>
     <title>Fatkhurrhn</title>
     <meta name="description"
         content="Full stack developer and a leader based in UK with over 10 years of experience working mostly with startups and scaleups." />
@@ -17,12 +21,14 @@
             text-align: center;
             margin-bottom: 40px;
         }
+
         .skills-title {
             font-size: 0.9rem;
             font-weight: 500;
             text-transform: capitalize;
             margin-bottom: 20px;
         }
+
         .skills-list {
             display: flex;
             flex-wrap: wrap;
@@ -32,6 +38,7 @@
             list-style: none;
             padding: 0;
         }
+
         .skill-item {
             background: rgba(255, 255, 255, 0.1);
             color: rgba(255, 255, 255, 0.9);
@@ -42,9 +49,168 @@
             opacity: 0;
             transform: translateY(50px);
         }
+
         .skill-item:hover {
             background: rgba(255, 255, 255, 0.2);
         }
+
+        /* Section Styling */
+#projects {
+    text-align: center;
+    padding: 50px 20px;
+}
+
+#projects h2 {
+    font-size: 2rem;
+    margin-bottom: 30px;
+    color: #ffffff; /* White title */
+}
+
+/* Project Container */
+.projects-container {
+    max-width: 1100px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    max-width: 900px;
+    margin: auto;
+}
+
+/* Individual Project */
+.project {
+    display: flex;
+    align-items: center;
+    background: #1e1e1e; /* Dark card background */
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(255, 255, 255, 0.1); /* Soft white glow */
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: transform 0.3s ease-in-out, background 0.3s ease-in-out;
+}
+
+.project:nth-child(even) {
+    flex-direction: row-reverse;
+}
+
+.project:hover {
+    transform: translateY(-5px);
+    background: #292929; /* Slightly lighter on hover */
+}
+
+/* Project Image */
+.project-image {
+    width: 50%;
+}
+
+.project img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px 0 0 10px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.project:hover img {
+    transform: scale(1.05);
+}
+
+/* Project Content */
+.project-content {
+    width: 50%;
+    padding: 20px;
+    text-align: left;
+}
+
+.project h3 {
+    font-size: 1.5;
+    margin-bottom: 10px;
+    color: #ffffff;
+}
+
+.project p {
+    color: #b0b0b0; /* Lighter gray text */
+    margin-bottom: 15px;
+    font-size: 1rem;
+    
+}
+
+.project-buttons {
+    display: flex;
+    gap: 10px; /* Jarak antar button */
+    margin-top: 16px;
+}
+
+.btn {
+    background: rgba(255, 255, 255, 0.15); /* Transparan putih agar kontras dengan dark bg */
+    color: rgba(255, 255, 255, 0.95); /* Teks putih lebih terang */
+    border: 1px solid rgba(255, 255, 255, 0.3); /* Border putih semi-transparan */
+    border-radius: 7px;
+    padding: 1px 19px; /* Lebih besar agar nyaman di klik */
+    font-size: 14px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    transition: background 0.3s ease, transform 0.3s ease;
+    opacity: 1; /* Langsung terlihat */
+    transform: translateY(0); /* Tidak ada efek masuk dari bawah */
+}
+
+/* Efek Hover */
+.btn:hover {
+    background: rgba(255, 255, 255, 0.3); /* Lebih terang saat hover */
+    color: black; /* Ubah warna teks agar kontras saat hover */
+}
+
+/* Untuk Button View dan Detail */
+.view-project {
+    background: #007bff33; /* Warna biru gelap transparan */
+    border-color: rgba(0, 123, 255, 0.5);
+}
+
+.view-project:hover {
+    background: rgba(0, 123, 255, 0.4);
+    color: white;
+}
+
+.detail-project {
+    background: rgba(255, 193, 7, 0.2); /* Warna kuning transparan */
+    border-color: rgba(255, 193, 7, 0.5);
+}
+
+.detail-project:hover {
+    background: rgba(255, 193, 7, 0.4);
+    color: black;
+}
+
+/* Atur posisi button agar berdampingan */
+.button-group {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+
+/* Responsive Design (Mobile) */
+@media (max-width: 768px) {
+    .projects-container {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .project {
+        flex-direction: column; /* Stack jadi gambar di atas teks */
+        text-align: center;
+    }
+
+    .project-image {
+        display: none; /* Hides image on mobile */
+    }
+
+    .project-content {
+        width: 100%;
+    }
+}
     </style>
 </head>
 
@@ -73,38 +239,38 @@
                     var A = Object.defineProperty;
                     var g = (i, o, a) =>
                         o in i ?
-                        A(i, o, {
-                            enumerable: !0,
-                            configurable: !0,
-                            writable: !0,
-                            value: a,
-                        }) :
-                        (i[o] = a);
+                            A(i, o, {
+                                enumerable: !0,
+                                configurable: !0,
+                                writable: !0,
+                                value: a,
+                            }) :
+                            (i[o] = a);
                     var d = (i, o, a) => g(i, typeof o != "symbol" ? o + "" : o, a); {
                         let i = {
-                                0: (t) => m(t),
-                                1: (t) => a(t),
-                                2: (t) => new RegExp(t),
-                                3: (t) => new Date(t),
-                                4: (t) => new Map(a(t)),
-                                5: (t) => new Set(a(t)),
-                                6: (t) => BigInt(t),
-                                7: (t) => new URL(t),
-                                8: (t) => new Uint8Array(t),
-                                9: (t) => new Uint16Array(t),
-                                10: (t) => new Uint32Array(t),
-                            },
+                            0: (t) => m(t),
+                            1: (t) => a(t),
+                            2: (t) => new RegExp(t),
+                            3: (t) => new Date(t),
+                            4: (t) => new Map(a(t)),
+                            5: (t) => new Set(a(t)),
+                            6: (t) => BigInt(t),
+                            7: (t) => new URL(t),
+                            8: (t) => new Uint8Array(t),
+                            9: (t) => new Uint16Array(t),
+                            10: (t) => new Uint32Array(t),
+                        },
                             o = (t) => {
                                 let [l, e] = t;
                                 return l in i ? i[l](e) : void 0;
                             },
                             a = (t) => t.map(o),
                             m = (t) =>
-                            typeof t != "object" || t === null ?
-                            t :
-                            Object.fromEntries(
-                                Object.entries(t).map(([l, e]) => [l, o(e)])
-                            );
+                                typeof t != "object" || t === null ?
+                                    t :
+                                    Object.fromEntries(
+                                        Object.entries(t).map(([l, e]) => [l, o(e)])
+                                    );
                         class y extends HTMLElement {
                             constructor() {
                                 super(...arguments);
@@ -115,8 +281,8 @@
                                     if (!this.hydrator || !this.isConnected) return;
                                     let e =
                                         (b = this.parentElement) == null ?
-                                        void 0 :
-                                        b.closest("astro-island[ssr]");
+                                            void 0 :
+                                            b.closest("astro-island[ssr]");
                                     if (e) {
                                         e.addEventListener("astro:hydrate", this.hydrate, {
                                             once: !0,
@@ -133,9 +299,9 @@
                                         s != null &&
                                             s.isSameNode(this) &&
                                             ((n[
-                                                    r.getAttribute("data-astro-template") ||
-                                                    "default"
-                                                ] = r.innerHTML),
+                                                r.getAttribute("data-astro-template") ||
+                                                "default"
+                                            ] = r.innerHTML),
                                                 r.remove());
                                     }
                                     for (let r of c) {
@@ -164,8 +330,8 @@
                                     }
                                     let u;
                                     await this.hydrator(this)(this.Component, p, n, {
-                                            client: this.getAttribute("client"),
-                                        }),
+                                        client: this.getAttribute("client"),
+                                    }),
                                         this.removeAttribute("ssr"),
                                         this.dispatchEvent(new CustomEvent("astro:hydrate"));
                                 });
@@ -176,14 +342,14 @@
                             }
                             disconnectedCallback() {
                                 document.removeEventListener(
-                                        "astro:after-swap",
-                                        this.unmount
-                                    ),
+                                    "astro:after-swap",
+                                    this.unmount
+                                ),
                                     document.addEventListener(
                                         "astro:after-swap",
                                         this.unmount, {
-                                            once: !0
-                                        }
+                                        once: !0
+                                    }
                                     );
                             }
                             connectedCallback() {
@@ -195,20 +361,20 @@
                                     this.childrenConnectedCallback();
                                 else {
                                     let e = () => {
-                                            document.removeEventListener("DOMContentLoaded", e),
-                                                c.disconnect(),
-                                                this.childrenConnectedCallback();
-                                        },
+                                        document.removeEventListener("DOMContentLoaded", e),
+                                            c.disconnect(),
+                                            this.childrenConnectedCallback();
+                                    },
                                         c = new MutationObserver(() => {
                                             var n;
                                             ((n = this.lastChild) == null ? void 0 : n.nodeType) ===
-                                            Node.COMMENT_NODE &&
+                                                Node.COMMENT_NODE &&
                                                 this.lastChild.nodeValue === "astro:end" &&
                                                 (this.lastChild.remove(), e());
                                         });
                                     c.observe(this, {
-                                            childList: !0
-                                        }),
+                                        childList: !0
+                                    }),
                                         document.addEventListener("DOMContentLoaded", e);
                                 }
                             }
@@ -228,25 +394,25 @@
                                 try {
                                     await Astro[c](
                                         async () => {
-                                                let n = this.getAttribute("renderer-url"),
-                                                    [h, {
-                                                        default: p
-                                                    }] = await Promise.all([
-                                                        import(this.getAttribute("component-url")),
-                                                        n ? import(n) : () => () => {},
-                                                    ]),
-                                                    u =
+                                            let n = this.getAttribute("renderer-url"),
+                                                [h, {
+                                                    default: p
+                                                }] = await Promise.all([
+                                                    import(this.getAttribute("component-url")),
+                                                    n ? import(n) : () => () => { },
+                                                ]),
+                                                u =
                                                     this.getAttribute("component-export") || "default";
-                                                if (!u.includes(".")) this.Component = h[u];
-                                                else {
-                                                    this.Component = h;
-                                                    for (let f of u.split("."))
-                                                        this.Component = this.Component[f];
-                                                }
-                                                return (this.hydrator = p), this.hydrate;
-                                            },
-                                            e,
-                                            this
+                                            if (!u.includes(".")) this.Component = h[u];
+                                            else {
+                                                this.Component = h;
+                                                for (let f of u.split("."))
+                                                    this.Component = this.Component[f];
+                                            }
+                                            return (this.hydrator = p), this.hydrate;
+                                        },
+                                        e,
+                                        this
                                     );
                                 } catch (n) {
                                     console.error(
@@ -280,7 +446,6 @@
                         </svg><span> </span>
                     </button>
                 </div>
-                <!--astro:end-->
             </astro-island>
             <div class="hidden items-center gap-6 sm:flex">
                 <a class="relative flex items-center gap-2 py-3 pr-1 text-sm transition-colors hover:text-zinc-300 sm:text-base"
@@ -320,10 +485,9 @@
                     </svg>Posts</a>
             </div>
             <a class="relative flex items-center gap-2 py-3 pr-1 text-sm transition-colors hover:text-zinc-300 sm:text-base"
-                href="/cdn-cgi/l/email-protection#97fcf6fae5f6f9f6fffaf2f3b9e4f2d7f0faf6fefbb9f4f8fa" target="_self"
-                data-astro-prefetch="load"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                    stroke-linejoin="round" class="lucide lucide-message-circle">
+                href="#" target="_self" data-astro-prefetch="load"><svg xmlns="http://www.w3.org/2000/svg" width="16"
+                    height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-message-circle">
                     <path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"></path>
                 </svg>Say Hi</a>
         </div>
@@ -370,7 +534,7 @@
                 </p>
                 <p class="my-3 flex flex-col flex-wrap gap-2 sm:my-5 sm:flex-row sm:gap-6">
                     <a class="flex items-center gap-2 font-normal no-underline sm:underline underline-offset-4 transition-colors hover:text-zinc-200 sm:bg-transparent bg-zinc-800 rounded-lg py-1.5 sm:py-0 sm:px-0 px-3"
-                        href="https://github.com/fatkhurrhn target=" _blank">
+                        href="https://github.com/fatkhurrhn" target="_blank">
                         <svg role="img" class="h-[20px] w-[20px]" viewBox="0 0 24 24"
                             xmlns="http://www.w3.org/2000/svg">
                             <path
@@ -422,11 +586,133 @@
                         Email
                     </a>
                 </p>
-                <p class="mt-2 text-sm sm:mt-3 sm:text-lg">If you want to get in touch, feel free to <a href="#" class="font-medium underline decoration-2 underline-offset-2 transition-colors hover:text-zinc-200">email me</a>.</p>
             </div>
 
-            <!-- template skills -->
-             <br>
+            <div class="row about-timelines" data-animate-block>
+
+                <div class="column lg-6 tab-12">
+
+                    <h2 class="text-pretitle" data-animate-el>
+                        Experience
+                    </h2>
+
+                    <div class="timeline" data-animate-el>
+
+                        <div class="timeline__block">
+                            <div class="timeline__bullet"></div>
+                            <div class="timeline__header">
+                                <h4 class="timeline__title">Bangkit Academy</h3>
+                                <h5 class="timeline__meta">Cloud Computing Cohort</h5>
+                                <p class="timeline__timeframe">September 2024 - Present</p>
+                            </div>
+                            <div class="timeline__desc">
+                            </div>
+                        </div>
+
+                        <div class="timeline__block">
+                            <div class="timeline__bullet"></div>
+                            <div class="timeline__header">
+                                <h4 class="timeline__title">GDSC UIN Suska Riau</h4>
+                                <h5 class="timeline__meta">Developer and Speaker Division</h5>
+                                <p class="timeline__timeframe">2023 - 2024</p>
+                            </div>
+                            <div class="timeline__desc">
+                            </div>
+                        </div>
+
+                        <div class="timeline__block">
+                            <div class="timeline__bullet"></div>
+                            <div class="timeline__header">
+                                <h4 class="timeline__title">Laboratory Computer of Information System</h4>
+                                <h5 class="timeline__meta">Laboratory Assistant</h5>
+                                <p class="timeline__timeframe">2022 - 2024</p>
+                            </div>
+                            <div class="timeline__desc">
+                            </div>
+                        </div>
+
+                    </div> <!-- end timeline -->
+
+                </div> <!-- end column -->
+
+                <div class="column lg-6 tab-12">
+
+                    <h2 class="text-pretitle" data-animate-el>
+                        Education
+                    </h2>
+
+                    <div class="timeline" data-animate-el>
+
+                        <div class="timeline__block">
+                            <div class="timeline__bullet"></div>
+                            <div class="timeline__header">
+                                <h4 class="timeline__title">UIN Suska Riau</h3>
+                                <h5 class="timeline__meta">S-1 Information System</h5>
+                                <p class="timeline__timeframe">2021 - Present (GPA: 3.75/4)</p>
+                            </div>
+                            <div class="timeline__desc">
+                            </div>
+                        </div>
+
+                        <div class="timeline__block">
+                            <div class="timeline__bullet"></div>
+                            <div class="timeline__header">
+                                <h4 class="timeline__title">SMA Negeri 1 Barumun</h3>
+                                <h5 class="timeline__meta">Matematika Ilmu Pengetahuan Alam</h5>
+                                <p class="timeline__timeframe">2018 - 2021</p>
+                            </div>
+                            <div class="timeline__desc">
+                            </div>
+                        </div>
+
+
+                    </div> <!-- end timeline -->
+                    
+                </div> <!-- end column -->
+
+
+            </div> <!-- end about-timelines -->
+
+            <br>
+            <section  class="skills-section">
+                <h1 class="text-xl font-semibold text-zinc-100 sm:text-2xl">My Project</h1><br>
+                <div class="projects-container">
+                    <article class="project">
+                        <div class="project-content">
+                            <h3>CarHub</h3>
+                            <p>A web app built using Next.js that allows users to search and find car information quickly.</p>
+                            <div class="project-buttons">
+                                <a href="#" class="btn view-project" target="">Demo</a>
+                                <a href="#" class="btn github-link" target="">GitHub</a>
+                            </div>
+                        </div>
+                        <div class="project-image">
+                            <img src="https://img.icarcdn.com/mobil123-news/body/000000412444_50bc7de9_7a7c_4c49_a681_60d043bedea7.jpg" alt="CarHub">
+                        </div>
+                    </article>
+                    
+                    <article class="project">
+                        <div class="project-content">
+                            <h3>Realtor</h3>
+                            <p>A real estate platform for buying and renting homes with filtering, sorting, and pagination features.</p>
+                            <div class="project-buttons">
+                                <a href="#" class="btn view-project" target="">Demo</a>
+                                <a href="#" class="btn github-link" target="">GitHub</a>
+                            </div>
+                        </div>
+                        <div class="project-image">
+                            <img src="https://img.jba.co.id/news/20240919140521coverxHB26en9.webp" alt="Realtor">
+                        </div>
+                    </article>
+                    <p style="text-align: left; font-size: 16px; color: rgba(134, 134, 134, 0.9);">
+                        See full my project 
+                        <a href="#" target="" rel="noopener noreferrer" style="color: #327ed0; text-decoration: none; font-weight: bold;">
+                            here
+                        </a>
+                    </p>
+                    
+                </div>
+            </section>
             <section class="skills-section">
                 <h1 class="text-xl font-semibold text-zinc-100 sm:text-2xl">Skills</h1>
                 <br>
@@ -456,7 +742,6 @@
                 });
             </script>
 
-            <!-- bahan template github -->
             <div class="mt-1 sm:mt-2 grid grid-cols-1 gap-4 md:grid-cols-2">
                 <div class="grid gap-4">
                     <div class="rounded-xl bg-zinc-800 p-3 sm:p-4">
@@ -564,8 +849,7 @@
                     </div>
                 </div>
             </div>
-            
-            <!-- Template Project -->
+
             <div>
                 <div class="mt-8 sm:mt-16">
                     <h1 class="text-xl font-semibold text-zinc-100 sm:text-2xl">
@@ -630,9 +914,10 @@
                                 <div>
                                     <button
                                         class="flex items-center gap-1 rounded-lg bg-zinc-700 py-2 pl-2 pr-2 text-sm hover:text-zinc-300 sm:py-1 sm:pr-3 hover:bg-zinc-600">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24"
-                                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                            stroke-linejoin="round" class="lucide lucide-chevron-down">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14"
+                                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                            stroke-linecap="round" stroke-linejoin="round"
+                                            class="lucide lucide-chevron-down">
                                             <path d="m6 9 6 6 6-6"></path>
                                         </svg><span class="hidden sm:inline-block">Highlights</span>
                                     </button>
@@ -640,9 +925,10 @@
                                 <div class="flex items-center gap-2 text-zinc-500">
                                     <a href="https://roadmap.sh" target="_blank"
                                         class="flex items-center gap-1.5 rounded-lg py-1 text-base transition-colors hover:text-zinc-300 sm:text-sm"><svg
-                                            xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                            stroke-linejoin="round" class="lucide lucide-globe h-4 w-4 sm:h-4 sm:w-4">
+                                            xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                            stroke-linecap="round" stroke-linejoin="round"
+                                            class="lucide lucide-globe h-4 w-4 sm:h-4 sm:w-4">
                                             <circle cx="12" cy="12" r="10"></circle>
                                             <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"></path>
                                             <path d="M2 12h20"></path>
@@ -669,11 +955,13 @@
                             <div>
                                 <h2 class="flex items-center justify-between">
                                     <div class="flex flex-col items-start gap-1 sm:flex-row sm:items-center sm:gap-2">
-                                        <a href="https://driverjs.com" class="text-lg font-medium text-zinc-50 sm:text-xl"
+                                        <a href="https://driverjs.com"
+                                            class="text-lg font-medium text-zinc-50 sm:text-xl"
                                             target="_blank">driver.js</a>
                                     </div>
                                     <div class="absolute right-4 top-4 hidden sm:block">
-                                        <img alt="driver.js" src="/projects/driver-head.svg" class="h-12 w-12 opacity-40" />
+                                        <img alt="driver.js" src="/projects/driver-head.svg"
+                                            class="h-12 w-12 opacity-40" />
                                     </div>
                                 </h2>
                                 <p class="my-3 text-sm sm:text-base pr-0 sm:pr-14">
@@ -695,7 +983,8 @@
                                     </div>
                                     <div
                                         class="rouded-md flex flex-grow flex-col rounded-lg bg-gradient-to-b from-zinc-900/40 px-3 py-3">
-                                        <span class="mb-1 text-xs uppercase tracking-wide text-zinc-500">Website</span><span
+                                        <span
+                                            class="mb-1 text-xs uppercase tracking-wide text-zinc-500">Website</span><span
                                             class="text-zinc-400">25k / mo</span>
                                     </div>
                                 </div>
@@ -704,9 +993,10 @@
                                 <div>
                                     <button
                                         class="flex items-center gap-1 rounded-lg bg-zinc-700 py-2 pl-2 pr-2 text-sm hover:text-zinc-300 sm:py-1 sm:pr-3 hover:bg-zinc-600">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24"
-                                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                            stroke-linejoin="round" class="lucide lucide-chevron-down">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14"
+                                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                            stroke-linecap="round" stroke-linejoin="round"
+                                            class="lucide lucide-chevron-down">
                                             <path d="m6 9 6 6 6-6"></path>
                                         </svg><span class="hidden sm:inline-block">Highlights</span>
                                     </button>
@@ -714,9 +1004,10 @@
                                 <div class="flex items-center gap-2 text-zinc-500">
                                     <a href="https://driverjs.com" target="_blank"
                                         class="flex items-center gap-1.5 rounded-lg py-1 text-base transition-colors hover:text-zinc-300 sm:text-sm"><svg
-                                            xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                            stroke-linejoin="round" class="lucide lucide-globe h-4 w-4 sm:h-4 sm:w-4">
+                                            xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                            stroke-linecap="round" stroke-linejoin="round"
+                                            class="lucide lucide-globe h-4 w-4 sm:h-4 sm:w-4">
                                             <circle cx="12" cy="12" r="10"></circle>
                                             <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"></path>
                                             <path d="M2 12h20"></path>
@@ -747,7 +1038,8 @@
                                             target="_blank">time.fyi</a>
                                     </div>
                                     <div class="absolute right-4 top-4 hidden sm:block">
-                                        <img alt="time.fyi" src="https://time.fyi/logo.svg" class="h-12 w-12 opacity-40" />
+                                        <img alt="time.fyi" src="https://time.fyi/logo.svg"
+                                            class="h-12 w-12 opacity-40" />
                                     </div>
                                 </h2>
                                 <p class="my-3 text-sm sm:text-base pr-0 sm:pr-14">
@@ -763,7 +1055,8 @@
                                     </div>
                                     <div
                                         class="rouded-md flex flex-grow flex-col rounded-lg bg-gradient-to-b from-zinc-900/40 px-3 py-3">
-                                        <span class="mb-1 text-xs uppercase tracking-wide text-zinc-500">Website</span><span
+                                        <span
+                                            class="mb-1 text-xs uppercase tracking-wide text-zinc-500">Website</span><span
                                             class="text-zinc-400">50k / mo</span>
                                     </div>
                                 </div>
@@ -772,9 +1065,10 @@
                                 <div>
                                     <button
                                         class="flex items-center gap-1 rounded-lg bg-zinc-700 py-2 pl-2 pr-2 text-sm hover:text-zinc-300 sm:py-1 sm:pr-3 hover:bg-zinc-600">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24"
-                                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                            stroke-linejoin="round" class="lucide lucide-chevron-down">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14"
+                                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                            stroke-linecap="round" stroke-linejoin="round"
+                                            class="lucide lucide-chevron-down">
                                             <path d="m6 9 6 6 6-6"></path>
                                         </svg><span class="hidden sm:inline-block">Highlights</span>
                                     </button>
@@ -782,9 +1076,10 @@
                                 <div class="flex items-center gap-2 text-zinc-500">
                                     <a href="https://time.fyi" target="_blank"
                                         class="flex items-center gap-1.5 rounded-lg py-1 text-base transition-colors hover:text-zinc-300 sm:text-sm"><svg
-                                            xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                            stroke-linejoin="round" class="lucide lucide-globe h-4 w-4 sm:h-4 sm:w-4">
+                                            xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                            stroke-linecap="round" stroke-linejoin="round"
+                                            class="lucide lucide-globe h-4 w-4 sm:h-4 sm:w-4">
                                             <circle cx="12" cy="12" r="10"></circle>
                                             <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"></path>
                                             <path d="M2 12h20"></path>
@@ -814,8 +1109,8 @@
                                 pennywise
                             </span>
                             <span class="mx-2 hidden sm:inline-block">-</span>
-                            <span class="text-base sm:text-lg">open any website or media in a floating window</span> </a><a
-                            href="https://github.com/kamranahmedse/githunt" target="_blank"
+                            <span class="text-base sm:text-lg">open any website or media in a floating window</span>
+                        </a><a href="https://github.com/kamranahmedse/githunt" target="_blank"
                             class="flex flex-col flex-wrap items-start rounded-md bg-zinc-800 px-2 py-2 transition-colors hover:bg-zinc-700/80 sm:flex-row sm:items-center">
                             <span class="flex items-center gap-0.5 font-medium text-zinc-50 sm:gap-1">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"
@@ -892,8 +1187,8 @@
                                 itomate
                             </span>
                             <span class="mx-2 hidden sm:inline-block">-</span>
-                            <span class="text-base sm:text-lg">Automate your iTerm layouts and session setup</span> </a><a
-                            href="https://github.com/kamranahmedse/mondex" target="_blank"
+                            <span class="text-base sm:text-lg">Automate your iTerm layouts and session setup</span>
+                        </a><a href="https://github.com/kamranahmedse/mondex" target="_blank"
                             class="flex flex-col flex-wrap items-start rounded-md bg-zinc-800 px-2 py-2 transition-colors hover:bg-zinc-700/80 sm:flex-row sm:items-center">
                             <span class="flex items-center gap-0.5 font-medium text-zinc-50 sm:gap-1">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"
@@ -905,8 +1200,8 @@
                                 mondex
                             </span>
                             <span class="mx-2 hidden sm:inline-block">-</span>
-                            <span class="text-base sm:text-lg">Create and manage MongoDB indexes using code</span> </a><a
-                            href="https://github.com/kamranahmedse/db-playground" target="_blank"
+                            <span class="text-base sm:text-lg">Create and manage MongoDB indexes using code</span>
+                        </a><a href="https://github.com/kamranahmedse/db-playground" target="_blank"
                             class="flex flex-col flex-wrap items-start rounded-md bg-zinc-800 px-2 py-2 transition-colors hover:bg-zinc-700/80 sm:flex-row sm:items-center">
                             <span class="flex items-center gap-0.5 font-medium text-zinc-50 sm:gap-1">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"
@@ -957,7 +1252,8 @@
                                 git-first
                             </span>
                             <span class="mx-2 hidden sm:inline-block">-</span>
-                            <span class="text-base sm:text-lg">Chrome extension to open first commit of a repository</span>
+                            <span class="text-base sm:text-lg">Chrome extension to open first commit of a
+                                repository</span>
                         </a><a href="https://github.com/kamranahmedse/brusher" target="_blank"
                             class="flex flex-col flex-wrap items-start rounded-md bg-zinc-800 px-2 py-2 transition-colors hover:bg-zinc-700/80 sm:flex-row sm:items-center">
                             <span class="flex items-center gap-0.5 font-medium text-zinc-50 sm:gap-1">
@@ -1001,7 +1297,7 @@
                     </div>
                 </div>
             </div>
-            
+
         </div>
     </div>
     <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>

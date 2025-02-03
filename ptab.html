@@ -1,239 +1,76 @@
-<!DOCTYPE HTML>
-<html lang="zh-CN">
-
-
-<head>
-    <meta charset="utf-8">
-    <meta name="keywords" content="Jenly">
-    <meta name="description" content="Jenly">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-    <meta name="renderer" content="webkit|ie-stand|ie-comp">
-    <meta name="mobile-web-app-capable" content="yes">
-    <meta name="format-detection" content="telephone=no">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>Jenly</title>
-    <link rel="icon" type="image/png" href="/favicon.png">
-
-    <link rel="stylesheet" type="text/css" href="https://jenly1314.github.io/libs/awesome/css/font-awesome.min.css">
-    <link rel="stylesheet" type="text/css" href="https://jenly1314.github.io/libs/materialize/materialize.min.css">
-    <link rel="stylesheet" type="text/css" href="https://jenly1314.github.io/libs/aos/aos.css">
-    <link rel="stylesheet" type="text/css" href="https://jenly1314.github.io/libs/animate/animate.min.css">
-    <link rel="stylesheet" type="text/css"
-        href="https://jenly1314.github.io/libs/lightGallery/css/lightgallery.min.css">
-    <link rel="stylesheet" type="text/css" href="/css/matery.css">
-    <link rel="stylesheet" type="text/css" href="/css/my.css">
-    <style type="text/css">
-
-    </style>
-
-    <script src="https://jenly1314.github.io/libs/jquery/jquery-2.2.0.min.js"></script>
-    <meta name="generator" content="Hexo 7.3.0">
-    <link rel="alternate" href="/atom.xml" title="Jenly" type="application/atom+xml">
-    <link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
-</head>
-
-
-<body>
-
-
-    <style>
-        .carousel-control {
-            width: 45px;
-            height: 45px;
-            line-height: 55px;
-            border-radius: 45px;
-            background: transparent;
-            cursor: pointer;
-            z-index: 100;
-        }
-
-        #prev-cover {
-            position: absolute;
-            top: 48%;
-            left: 8px;
-        }
-
-        #next-cover {
-            position: absolute;
-            top: 48%;
-            right: 8px;
-            ;
-        }
-
-        #prev-cover i {
-            margin-right: 3px;
-        }
-
-        #next-cover i {
-            margin-left: 3px;
-        }
-
-        .carousel-control:hover {
-            background-color: rgba(0, 0, 0, .4);
-        }
-
-        .carousel-control i {
-            color: #fff;
-            font-size: 2.4rem;
-        }
-    </style>
-
-
-
-    <script>
-        $(function () {
-            let coverSlider = $('.carousel');
-            coverSlider.carousel({
-                duration: Number('120'),
-                fullWidth: true,
-                indicators: 'true' === 'true'
-            });
-
-            let carouselIntervalId;
-
-            // Loop to call the next cover article picture.
-            let autoCarousel = function () {
-                carouselIntervalId = setInterval(function () {
-                    coverSlider.carousel('next');
-                }, 5000);
-            };
-            autoCarousel();
-
-
-            let restartPlay = function () {
-
-                clearInterval(carouselIntervalId);
-                autoCarousel();
-
-            };
-
-
-            // prev and next cover post.
-            $('#prev-cover').click(function () {
-                coverSlider.carousel('prev');
-                restartPlay();
-            });
-            $('#next-cover').click(function () {
-                coverSlider.carousel('next');
-                restartPlay();
-            });
-
-        });
-    </script>
-
-
-
-    <main class="content">
-
-
-        <div id="indexCard" class="index-card">
-            <div class="container ">
-                <div class="card">
-                    <div class="card-content">
-
-
-
-
-
-                        <link rel="stylesheet" href="https://jenly1314.github.io/libs/aplayer/APlayer.min.css">
-                        <div class="music-player">
-
-                            <div class="title center-align">
-                                <i class="fa fa-music"></i>&nbsp;&nbsp;听听音乐
-                            </div>
-
-                            <div class="row">
-                                <div class="col l8 offset-l2 m10 offset-m1 s12">
-                                    <div id="aplayer" class="music"></div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <script src="https://jenly1314.github.io/libs/aplayer/APlayer.min.js"></script>
-                        <script>
-                            $(function () {
-                                new APlayer({
-                                    container: document.getElementById('aplayer'),
-                                    fixed: 'false' === 'true',
-                                    autoplay: 'false' === 'true',
-                                    theme: '#34495E',
-                                    loop: 'all',
-                                    order: 'list',
-                                    preload: 'auto',
-                                    volume: Number('0.7'),
-                                    listFolded: 'false' === 'true',
-                                    listMaxHeight: '',
-                                    audio: JSON.parse('[{"name":"Faded","artist":"Alan Walker","url":"musics/Faded.mp3","cover":"musics/Faded.jpg"},{"name":"Love To Be Loved By You","artist":"Marc Terenzi","url":"musics/LoveToBeLovedByYou.mp3","cover":"musics/LoveToBeLovedByYou.jpg"},{"name":"Take me hand","artist":"DAISHI DANCE / Cecile Corbel","url":"musics/TakeMeHand.mp3","cover":"musics/TakeMeHand.jpg"},{"name":"Something Just Like This","artist":"The Chainsmokers / Coldplay","url":"musics/SomethingJustLikeThis.mp3","cover":"musics/SomethingJustLikeThis.jpg"},{"name":"That Girl","artist":"Olly Murs","url":"musics/ThatGirl.mp3","cover":"musics/ThatGirl.jpg"},{"name":"Legends Never Die","artist":"Against the Current","url":"musics/LegendsNeverDie.mp3","cover":"musics/LegendsNeverDie.jpg"}]')
-                                });
-                            });
-                        </script>
-
-
-
-                        <link rel="stylesheet" href="https://jenly1314.github.io/libs/dplayer/DPlayer.min.css">
-                        <div class="video-player">
-
-                            <div class="title center-align">
-                                <i class="fa fa-video-camera"></i>&nbsp;&nbsp;精彩视频
-                            </div>
-
-                            <div class="row">
-                                <div class="col l8 offset-l2 m10 offset-m1 s12">
-                                    <div id="dplayer" class="dplayer-video"></div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <script src="https://jenly1314.github.io/libs/dplayer/DPlayer.min.js"></script>
-                        <script>
-                            $(function () {
-                                new DPlayer({
-                                    container: document.getElementById('dplayer'),
-                                    autoplay: 'false' === 'true',
-                                    theme: '#34495E',
-                                    loop: 'false' === 'true',
-                                    lang: 'zh-CN' === 'zh-CN' ? 'zh-cn' : 'en',
-                                    preload: 'auto',
-                                    volume: Number('0.7'),
-                                    video: {
-                                        url: 'https://jenly1314.github.io/videos/WOD2017NBC_Kinjaz.mp4',
-                                        pic: '',
-                                        thumbnails: ''
-                                    }
-                                });
-                            });
-                        </script>
-
-
-                    </div>
-                </div>
+<section id="projects" class="scroll-mt-28 mb-28">
+    <h2 class="text-3xl font-medium capitalize mb-8 text-center">My projects</h2>
+    <div>
+        <article style="opacity:0.6;transform:scale(0.8) translateZ(0)"
+            class="group mb-3 sm:mb-8 last:mb-0">
+            <div
+                class="bg-gray-100 max-w-[42rem] sm:group-even:pl-8 border border-black/5 overflow-hidden sm:pr-8 relative sm:h-[20rem] rounded-lg hover:bg-gray-200 transition dark:bg-white/10 dark:hover:bg-white/20">
+                <div
+                    class="pt-4 pb-7 px-5 sm:pl-10 sm:pr-2 sm:pt-10 sm:max-w-[50%] flex flex-col h-full sm:group-even:ml-[18rem]">
+                    <h3 class="text-2xl font-semibold">project 1</h3>
+                    <p class="mt-2 leading-relaxed text-gray-700 dark:text-white/70">A web app that is built
+                        using NextJS and enables users to quickly search and obtain information about cars.
+                    </p>
+                    <ul class="flex flex-wrap mt-4 gap-2 sm:mt-auto">
+                        <li
+                            class="bg-black/[0.7] px-3 py-1 text-[0.7rem] uppercase tracking-wider text-white rounded-full dark:text-white/70">
+                            React</li>
+                        <li
+                            class="bg-black/[0.7] px-3 py-1 text-[0.7rem] uppercase tracking-wider text-white rounded-full dark:text-white/70">
+                            Next.js</li>
+                        <li
+                            class="bg-black/[0.7] px-3 py-1 text-[0.7rem] uppercase tracking-wider text-white rounded-full dark:text-white/70">
+                            TypeScript</li>
+                        <li
+                            class="bg-black/[0.7] px-3 py-1 text-[0.7rem] uppercase tracking-wider text-white rounded-full dark:text-white/70">
+                            Tailwind</li>
+                        <li
+                            class="bg-black/[0.7] px-3 py-1 text-[0.7rem] uppercase tracking-wider text-white rounded-full dark:text-white/70">
+                            Headless UI</li>
+                    </ul>
+                </div><a target="_blank" rel="noreferrer noopener" title="Visit Project: CarHub"
+                    class="group/project" href="#"><img alt="CarHub" loading="lazy"
+                        width="948" height="659" decoding="async" data-nimg="1"
+                        class="absolute hidden sm:block top-8 -right-40 w-[28.25rem] rounded-t-lg shadow-2xl group-even:right-[initial]  group-even:-left-40 group-hover:-translate-x-3 group-hover:translate-y-3 group-hover:-rotate-2  group-focus/project:-translate-x-3 group-focus/project:translate-y-3 group-focus/project:-rotate-2 group-even:group-focus/project:translate-x-3 group-even:group-focus/project:translate-y-3 group-even:group-focus/project:rotate-2  group-focus/project:scale-[1.04]  group-even:group-hover:translate-x-3 group-even:group-hover:translate-y-3 group-even:group-hover:rotate-2  group-hover:scale-[1.04] transition"
+                        style="color:transparent"
+                        srcSet="https://img.jba.co.id/news/20240919140521coverxHB26en9.webp"/></a>
             </div>
-        </div>
-
-
-    </main>
-
-
-
-    <script src="https://jenly1314.github.io/libs/materialize/materialize.min.js"></script>
-    <script src="https://jenly1314.github.io/libs/masonry/masonry.pkgd.min.js"></script>
-    <script src="https://jenly1314.github.io/libs/aos/aos.js"></script>
-    <script src="https://jenly1314.github.io/libs/scrollprogress/scrollProgress.min.js"></script>
-    <script src="https://jenly1314.github.io/libs/lightGallery/js/lightgallery-all.min.js"></script>
-    <script src="/js/matery.js"></script>
-    <script color="153,50,204" opacity="0.9" count="99" src="js/nest.js" type="text/javascript"
-        charset="utf-8"></script>
-
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-
-
-
-    <script src="https://jenly1314.github.io/libs/others/clicklove.js"></script>
-
-
-
-</body>
-
-</html>
+        </article>
+        <article style="opacity:0.6;transform:scale(0.8) translateZ(0)"
+            class="group mb-3 sm:mb-8 last:mb-0">
+            <div
+                class="bg-gray-100 max-w-[42rem] sm:group-even:pl-8 border border-black/5 overflow-hidden sm:pr-8 relative sm:h-[20rem] rounded-lg hover:bg-gray-200 transition dark:bg-white/10 dark:hover:bg-white/20">
+                <div
+                    class="pt-4 pb-7 px-5 sm:pl-10 sm:pr-2 sm:pt-10 sm:max-w-[50%] flex flex-col h-full sm:group-even:ml-[18rem]">
+                    <h3 class="text-2xl font-semibold">Realtor</h3>
+                    <p class="mt-2 leading-relaxed text-gray-700 dark:text-white/70">Buy and rent homes for
+                        everyone. I was the front-end developer. It has features like filtering, sorting,
+                        and pagination.</p>
+                    <ul class="flex flex-wrap mt-4 gap-2 sm:mt-auto">
+                        <li
+                            class="bg-black/[0.7] px-3 py-1 text-[0.7rem] uppercase tracking-wider text-white rounded-full dark:text-white/70">
+                            React</li>
+                        <li
+                            class="bg-black/[0.7] px-3 py-1 text-[0.7rem] uppercase tracking-wider text-white rounded-full dark:text-white/70">
+                            Chakra UI</li>
+                        <li
+                            class="bg-black/[0.7] px-3 py-1 text-[0.7rem] uppercase tracking-wider text-white rounded-full dark:text-white/70">
+                            Next.js</li>
+                        <li
+                            class="bg-black/[0.7] px-3 py-1 text-[0.7rem] uppercase tracking-wider text-white rounded-full dark:text-white/70">
+                            Framer Motion</li>
+                        <li
+                            class="bg-black/[0.7] px-3 py-1 text-[0.7rem] uppercase tracking-wider text-white rounded-full dark:text-white/70">
+                            React Icons</li>
+                    </ul>
+                </div><a target="_blank" rel="noreferrer noopener" title="Visit Project: Realtor"
+                    class="group/project" href="https://real-estate-app-react.vercel.app/"><img
+                        alt="Realtor" loading="lazy" width="890" height="661" decoding="async" data-nimg="1"
+                        class="absolute hidden sm:block top-8 -right-40 w-[28.25rem] rounded-t-lg shadow-2xl group-even:right-[initial]  group-even:-left-40 group-hover:-translate-x-3 group-hover:translate-y-3 group-hover:-rotate-2  group-focus/project:-translate-x-3 group-focus/project:translate-y-3 group-focus/project:-rotate-2 group-even:group-focus/project:translate-x-3 group-even:group-focus/project:translate-y-3 group-even:group-focus/project:rotate-2  group-focus/project:scale-[1.04]  group-even:group-hover:translate-x-3 group-even:group-hover:translate-y-3 group-even:group-hover:rotate-2  group-hover:scale-[1.04] transition"
+                        style="color:transparent"
+                        srcSet="https://www.sanidhyy.name/_next/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Frealtor.adca1d0d.png&amp;w=1080&amp;q=95 1x, https://www.sanidhyy.name/_next/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Frealtor.adca1d0d.png&amp;w=1920&amp;q=95 2x"
+                        src="https://www.sanidhyy.name/_next/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Frealtor.adca1d0d.png&amp;w=1920&amp;q=95" /></a>
+            </div>
+        </article>
+    </div>
+</section>
