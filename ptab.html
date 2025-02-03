@@ -1,0 +1,239 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="Jenly">
+    <meta name="description" content="Jenly">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>Jenly</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="https://jenly1314.github.io/libs/awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="https://jenly1314.github.io/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="https://jenly1314.github.io/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="https://jenly1314.github.io/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css"
+        href="https://jenly1314.github.io/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+    <style type="text/css">
+
+    </style>
+
+    <script src="https://jenly1314.github.io/libs/jquery/jquery-2.2.0.min.js"></script>
+    <meta name="generator" content="Hexo 7.3.0">
+    <link rel="alternate" href="/atom.xml" title="Jenly" type="application/atom+xml">
+    <link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
+</head>
+
+
+<body>
+
+
+    <style>
+        .carousel-control {
+            width: 45px;
+            height: 45px;
+            line-height: 55px;
+            border-radius: 45px;
+            background: transparent;
+            cursor: pointer;
+            z-index: 100;
+        }
+
+        #prev-cover {
+            position: absolute;
+            top: 48%;
+            left: 8px;
+        }
+
+        #next-cover {
+            position: absolute;
+            top: 48%;
+            right: 8px;
+            ;
+        }
+
+        #prev-cover i {
+            margin-right: 3px;
+        }
+
+        #next-cover i {
+            margin-left: 3px;
+        }
+
+        .carousel-control:hover {
+            background-color: rgba(0, 0, 0, .4);
+        }
+
+        .carousel-control i {
+            color: #fff;
+            font-size: 2.4rem;
+        }
+    </style>
+
+
+
+    <script>
+        $(function () {
+            let coverSlider = $('.carousel');
+            coverSlider.carousel({
+                duration: Number('120'),
+                fullWidth: true,
+                indicators: 'true' === 'true'
+            });
+
+            let carouselIntervalId;
+
+            // Loop to call the next cover article picture.
+            let autoCarousel = function () {
+                carouselIntervalId = setInterval(function () {
+                    coverSlider.carousel('next');
+                }, 5000);
+            };
+            autoCarousel();
+
+
+            let restartPlay = function () {
+
+                clearInterval(carouselIntervalId);
+                autoCarousel();
+
+            };
+
+
+            // prev and next cover post.
+            $('#prev-cover').click(function () {
+                coverSlider.carousel('prev');
+                restartPlay();
+            });
+            $('#next-cover').click(function () {
+                coverSlider.carousel('next');
+                restartPlay();
+            });
+
+        });
+    </script>
+
+
+
+    <main class="content">
+
+
+        <div id="indexCard" class="index-card">
+            <div class="container ">
+                <div class="card">
+                    <div class="card-content">
+
+
+
+
+
+                        <link rel="stylesheet" href="https://jenly1314.github.io/libs/aplayer/APlayer.min.css">
+                        <div class="music-player">
+
+                            <div class="title center-align">
+                                <i class="fa fa-music"></i>&nbsp;&nbsp;听听音乐
+                            </div>
+
+                            <div class="row">
+                                <div class="col l8 offset-l2 m10 offset-m1 s12">
+                                    <div id="aplayer" class="music"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <script src="https://jenly1314.github.io/libs/aplayer/APlayer.min.js"></script>
+                        <script>
+                            $(function () {
+                                new APlayer({
+                                    container: document.getElementById('aplayer'),
+                                    fixed: 'false' === 'true',
+                                    autoplay: 'false' === 'true',
+                                    theme: '#34495E',
+                                    loop: 'all',
+                                    order: 'list',
+                                    preload: 'auto',
+                                    volume: Number('0.7'),
+                                    listFolded: 'false' === 'true',
+                                    listMaxHeight: '',
+                                    audio: JSON.parse('[{"name":"Faded","artist":"Alan Walker","url":"musics/Faded.mp3","cover":"musics/Faded.jpg"},{"name":"Love To Be Loved By You","artist":"Marc Terenzi","url":"musics/LoveToBeLovedByYou.mp3","cover":"musics/LoveToBeLovedByYou.jpg"},{"name":"Take me hand","artist":"DAISHI DANCE / Cecile Corbel","url":"musics/TakeMeHand.mp3","cover":"musics/TakeMeHand.jpg"},{"name":"Something Just Like This","artist":"The Chainsmokers / Coldplay","url":"musics/SomethingJustLikeThis.mp3","cover":"musics/SomethingJustLikeThis.jpg"},{"name":"That Girl","artist":"Olly Murs","url":"musics/ThatGirl.mp3","cover":"musics/ThatGirl.jpg"},{"name":"Legends Never Die","artist":"Against the Current","url":"musics/LegendsNeverDie.mp3","cover":"musics/LegendsNeverDie.jpg"}]')
+                                });
+                            });
+                        </script>
+
+
+
+                        <link rel="stylesheet" href="https://jenly1314.github.io/libs/dplayer/DPlayer.min.css">
+                        <div class="video-player">
+
+                            <div class="title center-align">
+                                <i class="fa fa-video-camera"></i>&nbsp;&nbsp;精彩视频
+                            </div>
+
+                            <div class="row">
+                                <div class="col l8 offset-l2 m10 offset-m1 s12">
+                                    <div id="dplayer" class="dplayer-video"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <script src="https://jenly1314.github.io/libs/dplayer/DPlayer.min.js"></script>
+                        <script>
+                            $(function () {
+                                new DPlayer({
+                                    container: document.getElementById('dplayer'),
+                                    autoplay: 'false' === 'true',
+                                    theme: '#34495E',
+                                    loop: 'false' === 'true',
+                                    lang: 'zh-CN' === 'zh-CN' ? 'zh-cn' : 'en',
+                                    preload: 'auto',
+                                    volume: Number('0.7'),
+                                    video: {
+                                        url: 'https://jenly1314.github.io/videos/WOD2017NBC_Kinjaz.mp4',
+                                        pic: '',
+                                        thumbnails: ''
+                                    }
+                                });
+                            });
+                        </script>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </main>
+
+
+
+    <script src="https://jenly1314.github.io/libs/materialize/materialize.min.js"></script>
+    <script src="https://jenly1314.github.io/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="https://jenly1314.github.io/libs/aos/aos.js"></script>
+    <script src="https://jenly1314.github.io/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="https://jenly1314.github.io/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+    <script color="153,50,204" opacity="0.9" count="99" src="js/nest.js" type="text/javascript"
+        charset="utf-8"></script>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+
+    <script src="https://jenly1314.github.io/libs/others/clicklove.js"></script>
+
+
+
+</body>
+
+</html>
