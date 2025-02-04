@@ -3,10 +3,11 @@
 
 <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet" />
     <title>Fatkhurrhn</title>
-    <meta name="description" content="Full stack developer and a leader based in UK with over 10 years of experience working mostly with startups and scaleups." />
+    <meta name="description"
+        content="Full stack developer and a leader based in UK with over 10 years of experience working mostly with startups and scaleups." />
     <link rel="preconnect" href="https://www.google-analytics.com/" />
     <link rel="stylesheet" href="https://kamranahmed.info/_astro/background-less.BKeRS0Lf.css" />
     <script src="https://cdn.tailwindcss.com"></script>
@@ -77,24 +78,16 @@
         .project {
             display: flex;
             align-items: center;
-            background: #1e1e1e;
+            background: #27272a;
             /* Dark card background */
             border-radius: 10px;
             overflow: hidden;
-            box-shadow: 0 4px 10px rgba(255, 255, 255, 0.1);
             /* Soft white glow */
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            transition: transform 0.3s ease-in-out, background 0.3s ease-in-out;
+            border: 1px solid rgba(255, 255, 255, 0);
         }
 
         .project:nth-child(even) {
             flex-direction: row-reverse;
-        }
-
-        .project:hover {
-            transform: translateY(-5px);
-            background: #292929;
-            /* Slightly lighter on hover */
         }
 
         /* Project Image */
@@ -105,12 +98,7 @@
         .project img {
             width: 100%;
             height: auto;
-            border-radius: 10px 0 0 10px;
-            transition: transform 0.3s ease-in-out;
-        }
-
-        .project:hover img {
-            transform: scale(1.05);
+            border-radius: 10px 10px 10px 10px;
         }
 
         /* Project Content */
@@ -226,6 +214,19 @@
                 width: 100%;
             }
         }
+
+        .graph {
+            display: flex;
+            align-items: center;
+            background: #27272a;
+            border-radius: 10px;
+            overflow: hidden;
+            border: 1px solid rgba(0, 0, 0, 0);
+        }
+
+        .graph:nth-child(even) {
+            flex-direction: row-reverse;
+        }
     </style>
 </head>
 
@@ -254,38 +255,38 @@
                     var A = Object.defineProperty;
                     var g = (i, o, a) =>
                         o in i ?
-                        A(i, o, {
-                            enumerable: !0,
-                            configurable: !0,
-                            writable: !0,
-                            value: a,
-                        }) :
-                        (i[o] = a);
+                            A(i, o, {
+                                enumerable: !0,
+                                configurable: !0,
+                                writable: !0,
+                                value: a,
+                            }) :
+                            (i[o] = a);
                     var d = (i, o, a) => g(i, typeof o != "symbol" ? o + "" : o, a); {
                         let i = {
-                                0: (t) => m(t),
-                                1: (t) => a(t),
-                                2: (t) => new RegExp(t),
-                                3: (t) => new Date(t),
-                                4: (t) => new Map(a(t)),
-                                5: (t) => new Set(a(t)),
-                                6: (t) => BigInt(t),
-                                7: (t) => new URL(t),
-                                8: (t) => new Uint8Array(t),
-                                9: (t) => new Uint16Array(t),
-                                10: (t) => new Uint32Array(t),
-                            },
+                            0: (t) => m(t),
+                            1: (t) => a(t),
+                            2: (t) => new RegExp(t),
+                            3: (t) => new Date(t),
+                            4: (t) => new Map(a(t)),
+                            5: (t) => new Set(a(t)),
+                            6: (t) => BigInt(t),
+                            7: (t) => new URL(t),
+                            8: (t) => new Uint8Array(t),
+                            9: (t) => new Uint16Array(t),
+                            10: (t) => new Uint32Array(t),
+                        },
                             o = (t) => {
                                 let [l, e] = t;
                                 return l in i ? i[l](e) : void 0;
                             },
                             a = (t) => t.map(o),
                             m = (t) =>
-                            typeof t != "object" || t === null ?
-                            t :
-                            Object.fromEntries(
-                                Object.entries(t).map(([l, e]) => [l, o(e)])
-                            );
+                                typeof t != "object" || t === null ?
+                                    t :
+                                    Object.fromEntries(
+                                        Object.entries(t).map(([l, e]) => [l, o(e)])
+                                    );
                         class y extends HTMLElement {
                             constructor() {
                                 super(...arguments);
@@ -296,8 +297,8 @@
                                     if (!this.hydrator || !this.isConnected) return;
                                     let e =
                                         (b = this.parentElement) == null ?
-                                        void 0 :
-                                        b.closest("astro-island[ssr]");
+                                            void 0 :
+                                            b.closest("astro-island[ssr]");
                                     if (e) {
                                         e.addEventListener("astro:hydrate", this.hydrate, {
                                             once: !0,
@@ -314,9 +315,9 @@
                                         s != null &&
                                             s.isSameNode(this) &&
                                             ((n[
-                                                    r.getAttribute("data-astro-template") ||
-                                                    "default"
-                                                ] = r.innerHTML),
+                                                r.getAttribute("data-astro-template") ||
+                                                "default"
+                                            ] = r.innerHTML),
                                                 r.remove());
                                     }
                                     for (let r of c) {
@@ -345,8 +346,8 @@
                                     }
                                     let u;
                                     await this.hydrator(this)(this.Component, p, n, {
-                                            client: this.getAttribute("client"),
-                                        }),
+                                        client: this.getAttribute("client"),
+                                    }),
                                         this.removeAttribute("ssr"),
                                         this.dispatchEvent(new CustomEvent("astro:hydrate"));
                                 });
@@ -357,14 +358,14 @@
                             }
                             disconnectedCallback() {
                                 document.removeEventListener(
-                                        "astro:after-swap",
-                                        this.unmount
-                                    ),
+                                    "astro:after-swap",
+                                    this.unmount
+                                ),
                                     document.addEventListener(
                                         "astro:after-swap",
                                         this.unmount, {
-                                            once: !0,
-                                        }
+                                        once: !0,
+                                    }
                                     );
                             }
                             connectedCallback() {
@@ -376,20 +377,20 @@
                                     this.childrenConnectedCallback();
                                 else {
                                     let e = () => {
-                                            document.removeEventListener("DOMContentLoaded", e),
-                                                c.disconnect(),
-                                                this.childrenConnectedCallback();
-                                        },
+                                        document.removeEventListener("DOMContentLoaded", e),
+                                            c.disconnect(),
+                                            this.childrenConnectedCallback();
+                                    },
                                         c = new MutationObserver(() => {
                                             var n;
                                             ((n = this.lastChild) == null ? void 0 : n.nodeType) ===
-                                            Node.COMMENT_NODE &&
+                                                Node.COMMENT_NODE &&
                                                 this.lastChild.nodeValue === "astro:end" &&
                                                 (this.lastChild.remove(), e());
                                         });
                                     c.observe(this, {
-                                            childList: !0,
-                                        }),
+                                        childList: !0,
+                                    }),
                                         document.addEventListener("DOMContentLoaded", e);
                                 }
                             }
@@ -409,31 +410,31 @@
                                 try {
                                     await Astro[c](
                                         async () => {
-                                                let n = this.getAttribute("renderer-url"),
-                                                    [h, {
-                                                        default: p
-                                                    }] = await Promise.all([
-                                                        import(this.getAttribute("component-url")),
-                                                        n ? import(n) : () => () => {},
-                                                    ]),
-                                                    u =
+                                            let n = this.getAttribute("renderer-url"),
+                                                [h, {
+                                                    default: p
+                                                }] = await Promise.all([
+                                                    import(this.getAttribute("component-url")),
+                                                    n ? import(n) : () => () => { },
+                                                ]),
+                                                u =
                                                     this.getAttribute("component-export") || "default";
-                                                if (!u.includes(".")) this.Component = h[u];
-                                                else {
-                                                    this.Component = h;
-                                                    for (let f of u.split("."))
-                                                        this.Component = this.Component[f];
-                                                }
-                                                return (this.hydrator = p), this.hydrate;
-                                            },
-                                            e,
-                                            this
+                                            if (!u.includes(".")) this.Component = h[u];
+                                            else {
+                                                this.Component = h;
+                                                for (let f of u.split("."))
+                                                    this.Component = this.Component[f];
+                                            }
+                                            return (this.hydrator = p), this.hydrate;
+                                        },
+                                        e,
+                                        this
                                     );
                                 } catch (n) {
                                     console.error(
                                         `[astro-island] Error hydrating ${this.getAttribute(
-                        "component-url"
-                      )}`,
+                                            "component-url"
+                                        )}`,
                                         n
                                     );
                                 }
@@ -523,8 +524,9 @@
 
             <div class="flex flex-col gap-3 text-base leading-7 sm:gap-1 sm:text-lg sm:leading-8"
                 style="text-align: justify">
-                <p>
-                    I am a software developer and leader based in UK
+                <p>I'm an Information Systems student passionate about Front-End Development, turning ideas into
+                    interactive and user-friendly experiences with clean and efficient code. Always exploring new web
+                    technologies, I love building innovative projects and crafting seamless user experiences.
                     <astro-island uid="Malun" prefix="r13"
                         component-url="https://kamranahmed.info/_astro/ExpandButton.BcanAUof.js"
                         component-export="ExpandButton"
@@ -541,66 +543,30 @@
                             </svg>
                         </button>
                         <span class="hidden animate-fade-appear text-green-400">
-                            <astro-slot>. Before that I have lived and worked in Germany for 2 years
-                                and Dubai for 8 years</astro-slot>
+                            <astro-slot>Check out my repos and let's create something awesome together! </astro-slot>
                         </span>
-                        <!--astro:end-->
                     </astro-island>
-                    . I have a decade long experience working mostly with startups and
-                    scale-ups
+                    😎🔥
                 </p>
                 <p class="my-3 flex flex-col flex-wrap gap-2 sm:my-5 sm:flex-row sm:gap-6">
                     <a class="flex items-center gap-2 font-normal no-underline sm:underline underline-offset-4 transition-colors hover:text-zinc-200 sm:bg-transparent bg-zinc-800 rounded-lg py-1.5 sm:py-0 sm:px-0 px-3"
                         href="https://github.com/fatkhurrhn" target="_blank">
-                        <svg role="img" class="h-[20px] w-[20px]" viewBox="0 0 24 24"
-                            xmlns="http://www.w3.org/2000/svg">
-                            <path
-                                d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"
-                                fill="currentColor"></path>
-                        </svg>
                         GitHub</a>
                     <a class="flex items-center gap-2 font-normal no-underline sm:underline underline-offset-4 transition-colors hover:text-zinc-200 sm:bg-transparent bg-zinc-800 rounded-lg py-1.5 sm:py-0 sm:px-0 px-3"
                         href="https://linkedin.com/in/fatkhurrhn" target="_blank">
-                        <svg role="img" class="h-[20px] w-[20px]" viewBox="0 0 24 24"
-                            xmlns="http://www.w3.org/2000/svg">
-                            <title>LinkedIn</title>
-                            <path
-                                d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"
-                                fill="currentColor"></path>
-                        </svg>
                         LinkedIn
                     </a>
                     <a class="flex items-center gap-2 font-normal no-underline sm:underline underline-offset-4 transition-colors hover:text-zinc-200 sm:bg-transparent bg-zinc-800 rounded-lg py-1.5 sm:py-0 sm:px-0 px-3"
                         href="https://twitter.com/kamrify" target="_blank">
-                        <svg class="h-[20px] w-[20px]" role="img" viewBox="0 0 24 24"
-                            xmlns="http://www.w3.org/2000/svg">
-                            <title>X</title>
-                            <path
-                                d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z"
-                                fill="currentColor"></path>
-                        </svg>
                         Twitter
                     </a>
                     <a class="flex items-center gap-2 font-normal no-underline sm:underline underline-offset-4 transition-colors hover:text-zinc-200 sm:bg-transparent bg-zinc-800 rounded-lg py-1.5 sm:py-0 sm:px-0 px-3"
                         href="https://youtube.com/@roadmapsh" target="_blank">
-                        <svg role="img" class="h-[20px] w-[20px]" viewBox="0 0 24 24"
-                            xmlns="http://www.w3.org/2000/svg">
-                            <title>YouTube</title>
-                            <path
-                                d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"
-                                fill="currentColor"></path>
-                        </svg>
                         YouTube
                     </a>
                     <a class="flex items-center gap-2 font-normal no-underline sm:underline underline-offset-4 transition-colors hover:text-zinc-200 sm:bg-transparent bg-zinc-800 rounded-lg py-1.5 sm:py-0 sm:px-0 px-3"
                         href="/cdn-cgi/l/email-protection#6a010b07180b040b02070f0e44190f2a0d070b030644090507"
                         target="_blank">
-                        <svg class="h-[20px] w-[20px]" xmlns="http://www.w3.org/2000/svg" width="200" height="200"
-                            viewBox="0 0 20 20">
-                            <path fill="currentColor"
-                                d="M3.87 4h13.25C18.37 4 19 4.59 19 5.79v8.42c0 1.19-.63 1.79-1.88 1.79H3.87c-1.25 0-1.88-.6-1.88-1.79V5.79c0-1.2.63-1.79 1.88-1.79zm6.62 8.6l6.74-5.53c.24-.2.43-.66.13-1.07c-.29-.41-.82-.42-1.17-.17l-5.7 3.86L4.8 5.83c-.35-.25-.88-.24-1.17.17c-.3.41-.11.87.13 1.07z">
-                            </path>
-                        </svg>
                         Email
                     </a>
                 </p>
@@ -614,36 +580,38 @@
                 <div class="projects-container">
                     <article class="project">
                         <div class="project-content">
-                            <h3>CarHub</h3>
+                            <h3>Portfolio Using Next.js</h3>
                             <p>
-                                A web app built using Next.js that allows users to search and
-                                find car information quickly.
+                                Created a portfolio website using Next.js to showcase projects and skills with a
+                                responsive design.
                             </p>
                             <div class="project-buttons">
-                                <a href="#" class="btn view-project" target="">Demo</a>
-                                <a href="#" class="btn github-link" target="">GitHub</a>
+                                <a href="https://github.com/fatkhurrhn/portfolio-next.js" class="btn view-project"
+                                    target="">Demo</a>
+                                <a href="https://github.com/fatkhurrhn/portfolio-next.js" class="btn github-link"
+                                    target="">GitHub</a>
                             </div>
                         </div>
                         <div class="project-image">
-                            <img src="https://img.icarcdn.com/mobil123-news/body/000000412444_50bc7de9_7a7c_4c49_a681_60d043bedea7.jpg"
-                                alt="CarHub" />
+                            <img src="https://fatkhurrhn.github.io/assets/img/nextjs.png" alt="CarHub" />
                         </div>
                     </article>
 
                     <article class="project">
                         <div class="project-content">
-                            <h3>Realtor</h3>
+                            <h3>Ecommerce Using PHP Native</h3>
                             <p>
-                                A real estate platform for buying and renting homes with
-                                filtering, sorting, and pagination features.
+                                Built an e-commerce site with PHP, including product management and checkout features.
                             </p>
                             <div class="project-buttons">
-                                <a href="#" class="btn view-project" target="">Demo</a>
-                                <a href="#" class="btn github-link" target="">GitHub</a>
+                                <a href="https://github.com/fatkhurrhn/Project_ShopThur" class="btn view-project"
+                                    target="">Demo</a>
+                                <a href="https://github.com/fatkhurrhn/Project_ShopThur" class="btn github-link"
+                                    target="">GitHub</a>
                             </div>
                         </div>
                         <div class="project-image">
-                            <img src="https://img.jba.co.id/news/20240919140521coverxHB26en9.webp" alt="Realtor" />
+                            <img src="https://fatkhurrhn.github.io/assets/img/shopthur.png" alt="Realtor" />
                         </div>
                     </article>
                     <p style="
@@ -678,49 +646,143 @@
                     <li class="skill-item">GraphQL</li>
                 </ul>
             </section>
-            <!-- gtihub graph -->
             <section class="skills-section">
                 <h1 class="text-xl font-semibold text-zinc-100 sm:text-2xl">
-                    My Project
+                    Github Activity Graph
                 </h1>
                 <br />
                 <div class="projects-container">
-                    <article class="project">
-                        <div class="project-content">
-                            <h3>CarHub</h3>
-                            <p>
-                                A web app built using Next.js that allows users to search and
-                                find car information quickly.
-                            </p>
-                            <div class="project-buttons">
-                                <a href="#" class="btn view-project" target="">Demo</a>
-                                <a href="#" class="btn github-link" target="">GitHub</a>
-                            </div>
-                        </div>
-                        <div class="project-image">
-                            <img src="https://img.icarcdn.com/mobil123-news/body/000000412444_50bc7de9_7a7c_4c49_a681_60d043bedea7.jpg"
-                                alt="CarHub" />
+                    <article class="graph">
+                        <div class="graph-image">
+                            <img src="assets/github-contribution-grid-snake-dark.svg" alt="" />
+                            <img src="https://github-readme-activity-graph.vercel.app/graph?username=fatkhurrhn&theme=github-compact&hide_border=true"
+                                class="border-none" height="auto" alt="by fatkhurhhn" />
                         </div>
                     </article>
-                    <p style="
-                text-align: left;
-                font-size: 16px;
-                color: rgba(134, 134, 134, 0.9);
-              ">
-                        See full my project
-                        <a href="#" target="" rel="noopener noreferrer"
-                            style="color: #327ed0; text-decoration: none; font-weight: bold">
-                            here
-                        </a>
+                    <p style="text-align: left; font-size: 16px; color: rgba(134, 134, 134, 0.9);">
+                        See more <a href="https://github.com/fatkhurrhn" target="" rel="noopener noreferrer"
+                            style="color: #327ed0; text-decoration: none; font-weight: bold">here</a>
                     </p>
                 </div>
             </section>
-            
-        </div>
-        
-    </div>
-    
+            <section class="skills-section">
+                <h1 class="text-xl font-semibold text-zinc-100 sm:text-2xl">
+                    My Experience
+                </h1>
+                <br>
+                <div class="mt-1 sm:mt-2 grid grid-cols-1 gap-4 md:grid-cols-2">
+                    <div class="grid gap-4">
+                        <div class="rounded-xl bg-zinc-800 p-3 sm:p-4">
+                            <div class="mb-3 sm:mb-4 flex items-center gap-3">
+                                <img class="h-[40px] w-[40px] rounded-full" src="assets/lintasarta.png"
+                                    alt=" Company Lintasarta" />
+                                <div>
+                                    <h3 class="text-base sm:text-lg font-semibold">
+                                        Company Lintasarta
+                                    </h3>
+                                    <p class="text-xs sm:text-sm text-zinc-400">
+                                        Capstone Project Bangkit Academy
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="flex flex-col gap-4">
+                                <p class="text-sm sm:text-base text-justify">
+                                    Developed an employee recruitment website using React over two months as part of the
+                                    Capstone Project at Lintasarta, focusing on frontend development and user
+                                    experience.
+                                </p>
+                            </div>
+                        </div>
 
+                        <div class="rounded-xl bg-zinc-800 p-3 sm:p-4">
+                            <div class="mb-3 sm:mb-4 flex items-center gap-3">
+                                <img class="h-[40px] w-[40px] rounded-full" src="assets/nf.jpg"
+                                    alt="Assistan Lecturer 2024" />
+                                <div>
+                                    <h3 class="text-base sm:text-lg font-semibold">
+                                        Assistan Lecturer 2024
+                                    </h3>
+                                    <p class="text-xs sm:text-sm text-zinc-400">
+                                        STT Terpadu Nurul Fikri
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="flex flex-col gap-4">
+                                <p class="text-sm sm:text-base text-justify">
+                                    Assisted in teaching the Big Data course for one semester, helping students
+                                    understand data processing, analytics, and visualization concepts. Provided guidance
+                                    in practical assignments, facilitated discussions, and supported the lecturer in
+                                    class activities.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="grid gap-4">
+                        <div class="rounded-xl bg-zinc-800 p-3 sm:p-4">
+                            <div class="mb-3 sm:mb-4 flex items-center gap-3">
+                                <img class="h-[40px] w-[40px] rounded-full"
+                                    src="https://files.klob.id/public/mig01/l32ovhf5/channels4_profile.jpg"
+                                    alt="Bangkit Academy 2024" />
+                                <div>
+                                    <h3 class="text-base sm:text-lg font-semibold">
+                                        Bangkit Academy 2024
+                                    </h3>
+                                    <p class="text-xs sm:text-sm text-zinc-400">
+                                        Cloud Computing Cohort CC-23
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="flex flex-col gap-4">
+                                <p class="text-sm sm:text-base text-justify">
+                                    Participated in the Kampus Merdeka program for four months, focusing on the Cloud
+                                    Computing learning path.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="rounded-xl bg-zinc-800 p-3 sm:p-4">
+                            <div class="mb-3 sm:mb-4 flex items-center gap-3">
+                                <img class="h-[40px] w-[40px] rounded-full" src="assets/senada.jpg"
+                                    alt="Head of the Quran Program Department" />
+                                <div>
+                                    <h3 class="text-base sm:text-lg font-semibold">
+                                        Leader of the PQ
+                                    </h3>
+                                    <p class="text-xs sm:text-sm text-zinc-400">
+                                        LDK Senada STT NF
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="flex flex-col gap-4">
+                                <p class="text-sm sm:text-base text-justify">
+                                    an Islamic organization on the STT Nurul Fikri campus
+                                </p>
+                            </div>
+                        </div>
+                        <div class="rounded-xl bg-zinc-800 p-3 sm:p-4">
+                            <div class="mb-3 sm:mb-4 flex items-center gap-3">
+                                <img class="h-[40px] w-[40px] rounded-full" src="assets/pintar.png"
+                                    alt="Freelance Translator" />
+                                <div>
+                                    <h3 class="text-base sm:text-lg font-semibold">
+                                        Freelance Translator
+                                    </h3>
+                                    <p class="text-xs sm:text-sm text-zinc-400">
+                                        Malay translator at PINTAR
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="flex flex-col gap-4">
+                                <p class="text-sm sm:text-base text-justify">
+                                    Translated Malay language documents for two months at PINTAR.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+    </div>
     <script>
         document.addEventListener("DOMContentLoaded", function () {
             const skills = document.querySelectorAll(".skill-item");
