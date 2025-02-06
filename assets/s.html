@@ -1,400 +1,581 @@
-<div classname="bg-zinc-900 text-zinc-400">
-    <div classname="mx-auto max-w-[750px] px-4 pb-20 pt-6 text-lg sm:px-12 md:px-16">
-      <div
-        classname="flex items-center justify-between gap-5 rounded-3xl border border-zinc-700/40 bg-zinc-800 px-5 text-base sm:px-6">
-        <astro-island
-          uid="ZursTB"
-          prefix="r7"
-          component-url="/_astro/MobileNav.DoOW3-tu.js"
-          component-export="MobileNav"
-          renderer-url="/_astro/client.BStqXOaq.js"
-          props="{}"
-          ssr=""
-          client="load"
-          opts='{"name":"MobileNav","value":true}'
-          await-children=""
-        >
-          <div classname="relative block sm:hidden">
-            <button
-              type="button"
-              classname="flex items-center py-3 text-sm transition-colors hover:text-zinc-300 sm:hidden sm:text-base"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="18"
-                height="18"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                classname="lucide lucide-menu"
-              >
-                <line x1="4" x2="20" y1="12" y2="12"></line>
-                <line x1="4" x2="20" y1="6" y2="6"></line>
-                <line x1="4" x2="20" y1="18" y2="18"></line></svg
-              ><span> </span>
-            </button>
-          </div>
-        </astro-island>
+<!DOCTYPE html>
+<html lang="en">
 
-        <div classname="hidden items-center gap-6 sm:flex">
-          <a classname="relative flex items-center gap-2 py-3 pr-1 text-sm transition-colors hover:text-zinc-300 sm:text-base"
-            href="#" target="_self" data-astro-prefetch="load"><svg xmlns="http://www.w3.org/2000/svg"
-              width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-              stroke-linecap="round" stroke-linejoin="round" classname="lucide lucide-house">
-              <path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8"></path>
-              <path
-                d="M3 10a2 2 0 0 1 .709-1.528l7-5.999a2 2 0 0 1 2.582 0l7 5.999A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z">
-              </path>
-            </svg>Home<span
-              classname="absolute -bottom-px left-0 right-0 h-px bg-gradient-to-r from-zinc-400/0 via-zinc-400/40 to-zinc-400/0"></span></a>
-          <a classname="relative flex items-center gap-2 py-3 pr-1 text-sm transition-colors hover:text-zinc-300 sm:text-base"
-            href="#skills" target="_self" data-astro-prefetch="load"><svg xmlns="http://www.w3.org/2000/svg"
-              width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-              stroke-linecap="round" stroke-linejoin="round" classname="lucide lucide-briefcase">
-              <path d="M16 20V4a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
-              <rect width="20" height="14" x="2" y="6" rx="2"></rect>
-            </svg>Skills</a>
-          <a classname="relative flex items-center gap-2 py-3 pr-1 text-sm transition-colors hover:text-zinc-300 sm:text-base"
-            href="#experiences" target="_self" data-astro-prefetch="load"><svg
-              xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
-              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-              classname="lucide lucide-book-text">
-              <path
-                d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H19a1 1 0 0 1 1 1v18a1 1 0 0 1-1 1H6.5a1 1 0 0 1 0-5H20">
-              </path>
-              <path d="M8 11h8"></path>
-              <path d="M8 7h6"></path>
-            </svg>Experiences</a>
-          <a classname="relative flex items-center gap-2 py-3 pr-1 text-sm transition-colors hover:text-zinc-300 sm:text-base"
-            href="#" target="_self" data-astro-prefetch="load"><svg xmlns="http://www.w3.org/2000/svg"
-              width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-              stroke-linecap="round" stroke-linejoin="round" classname="lucide lucide-folder">
-              <path
-                d="M20 20a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.9a2 2 0 0 1-1.69-.9L9.6 3.9A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2Z">
-              </path>
-            </svg>Projects</a>
-        </div>
-        <a classname="relative flex items-center gap-2 py-3 pr-1 text-sm transition-colors hover:text-zinc-300 sm:text-base"
-          href="javascript:void(0)" onclick="openPopup()" target="_self" data-astro-prefetch="load"><svg
-            xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
-            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-            classname="lucide lucide-message-circle">
-            <path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"></path>
-          </svg>Say Hi</a>
-      </div>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="preload" href="https://aafrzl.my.id/_next/static/media/6905431624c34d00-s.p.woff2" as="font" crossorigin=""
+    type="font/woff2" />
+  <link rel="preload" as="image" href="https://s2.googleusercontent.com/s2/favicons?sz=64&amp;domain_url=vercel.com"
+    fetchPriority="high" />
+  <link rel="preload" as="image" href="https://s2.googleusercontent.com/s2/favicons?sz=64&amp;domain_url=discord.gg"
+    fetchPriority="high" />
+  <link rel="preload" as="image" href="https://s2.googleusercontent.com/s2/favicons?sz=64&amp;domain_url=bit.ly"
+    fetchPriority="high" />
+  <link rel="preload" as="image"
+    href="https://s2.googleusercontent.com/s2/favicons?sz=64&amp;domain_url=kelasfullstack.id" fetchPriority="high" />
+  <link rel="preload" as="image" href="https://s2.googleusercontent.com/s2/favicons?sz=64&amp;domain_url=notion.site"
+    fetchPriority="high" />
+  <link rel="preload" as="image" href="https://s2.googleusercontent.com/s2/favicons?sz=64&amp;domain_url=tako.id"
+    fetchPriority="high" />
+  <link rel="stylesheet" href="https://aafrzl.my.id/_next/static/css/6f1fac314687ca3a.css" data-precedence="next" />
+  <link rel="preload" as="script" fetchPriority="low" href="https://aafrzl.my.id/_next/static/chunks/webpack-eb491cc2de0d5d9b.js" />
+  <script src="https://aafrzl.my.id/_next/static/chunks/fd9d1056-8fbafb6fc1109236.js" async=""></script>
+  <script src="https://aafrzl.my.id/_next/static/chunks/472-bbb38d91ed791db9.js" async=""></script>
+  <script src="https://aafrzl.my.id/_next/static/chunks/main-app-b120517776e8c69c.js" async=""></script>
+  <script src="https://aafrzl.my.id/_next/static/chunks/app/layout-d453f267133fdd2e.js" async=""></script>
+  <script src="https://aafrzl.my.id/_next/static/chunks/c15bf2b0-31f498009bf3e762.js" async=""></script>
+  <script src="https://aafrzl.my.id/_next/static/chunks/799-051640b39ee79ec0.js" async=""></script>
+  <script src="https://aafrzl.my.id/_next/static/chunks/363-5b90cd1e33e33f80.js" async=""></script>
+  <script src="https://aafrzl.my.id/_next/static/chunks/app/not-found-1a02d7f239dc597f.js" async=""></script>
+  <script src="https://aafrzl.my.id/_next/static/chunks/59-1e358af0c2f1c376.js" async=""></script>
+  <script src="https://aafrzl.my.id/_next/static/chunks/953-221d860ed5f3aca5.js" async=""></script>
+  <script src="https://aafrzl.my.id/_next/static/chunks/351-0a7a51348fe1dcc8.js" async=""></script>
+  <script src="https://aafrzl.my.id/_next/static/chunks/app/links/page-b774badd1325b9ce.js" async=""></script>
+  <title>Coding with Afrizal | Frontend Developer</title>
+  <meta name="description"
+    content="A seasoned frontend web developer with a passion for creating engaging and interactive websites." />
+  <meta name="keywords"
+    content="afrizal mufriz fouji,afrizal,coding with afrizal,frontend web developer,frontend developer,frontend engineer,react,nextjs,creative,creative developer,creative frontend developer,web developer,web engineer,tech,indonesia,indonesian,indonesian developer,indonesian web developer,indonesian frontend developer,indonesian web engineer,indonesian frontend engineer,indonesian creative developer,portfolio,portfolio website,portfolio web,portfolio web developer,portfolio frontend developer,portfolio web engineer" />
+  <meta name="category" content="technology" />
+  <meta name="google-site-verification" content="0Et_bbMT-tL00FtL_T1yTKF2FNI8bUzMROh2gGDH7tQ" />
+  <meta property="og:title" content="Coding with Afrizal | Frontend Developer" />
+  <meta property="og:description"
+    content="A seasoned frontend web developer with a passion for creating engaging and interactive websites." />
+  <meta property="og:url" content="https://aafrzl.my.id/" />
+  <meta property="og:site_name" content="Coding with Afrizal" />
+  <meta property="og:locale" content="en_US" />
+  <meta property="og:image" content="https://aafrzl.my.id/og-images-2.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:creator" content="@aafrzl" />
+  <meta name="twitter:title" content="Coding with Afrizal | Frontend Developer" />
+  <meta name="twitter:description"
+    content="A seasoned frontend web developer with a passion for creating engaging and interactive websites." />
+  <meta name="twitter:image" content="https://aafrzl.my.id/og-images-2.png" />
+  <meta name="twitter:image:width" content="1200" />
+  <meta name="twitter:image:height" content="630" />
+  <link rel="icon" href="/favicon.ico" type="image/x-icon" sizes="48x48" />
+  <meta name="next-size-adjust" />
+  <script src="https://aafrzl.my.id/_next/static/chunks/polyfills-c67a75d1b6f99dc8.js" nomodule=""></script>
+</head>
 
-      <div>
-        <div classname="mb-6 mt-8 flex items-center gap-4 sm:mb-8 sm:mt-16 sm:gap-5">
-          <img src="https://image.clicky.id/673bd1d29c02e88889ec5bb4/profile-avatar/673cc13647a9ad53444be991.webp"
-            classname="h-[65px] w-[65px] rounded-full sm:h-[80px] sm:w-[80px]" alt="Fatkhurrhn" />
-          <div classname="flex flex-col gap-0.5">
-            <h1 classname="text-xl font-semibold text-white sm:text-3xl sm:font-bold">
-              Fatkhurrhn
-            </h1>
-            <span classname="hidden text-base sm:block sm:text-lg">
-              Frontend Developer | Passionate About UX/UI
-            </span>
-            <span classname="block text-base sm:hidden">Frontend Developer</span>
-          </div>
-        </div>
-
-        <div classname="flex flex-col gap-3 text-base leading-7 sm:gap-4 sm:text-lg sm:leading-8" style="text-align: justify">
-          <p>I'm an Information Systems student passionate about Front-End Development, turning ideas into
-            interactive and user-friendly experiences with clean and efficient code. Always exploring new web
-            technologies, I love building innovative projects and crafting seamless user experiences.
-            <astro-island uid="Malun" prefix="r13"
-              component-url="https://kamranahmed.info/_astro/ExpandButton.BcanAUof.js"
-              component-export="ExpandButton" renderer-url="https://kamranahmed.info/_astro/client.BStqXOaq.js"
-              props="{}" ssr="" client="load" opts='{"name":"ExpandButton","value":true}' await-children="">
-              <button type="button"
-                classname="cursor-pointer rounded-md bg-zinc-700 px-1 py-[0.5] text-sm font-normal text-zinc-400 transition-colors hover:bg-zinc-500 hover:text-zinc-50 hover:opacity-100 relative -top-[2px] ml-1.5 opacity-80">
-                <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="none"
-                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                  classname="lucide lucide-chevrons-left-right relative -top-[1.35px] inline-block">
-                  <path d="m9 7-5 5 5 5"></path>
-                  <path d="m15 7 5 5-5 5"></path>
-                </svg>
-              </button>
-              <span classname="hidden animate-fade-appear text-green-400">
-                <astro-slot>Check out my repos and let's create something awesome together! </astro-slot>
-              </span>
-            </astro-island>
-            😎🔥
-          </p>
-
-          <p classname="my-3 flex flex-wrap gap-2 sm:gap-6 sm:flex sm:space-x-4 hidden sm:flex">
-            <a classname="flex items-center gap-2 font-normal transition-colors hover:text-zinc-200 sm:bg-transparent bg-zinc-800 rounded-lg py-1.5 sm:py-0 sm:px-0 px-3"
-              href="https://github.com/fatkhurrhn" target="_blank">
-              GitHub
-            </a>
-            <a classname="flex items-center gap-2 font-normal transition-colors hover:text-zinc-200 sm:bg-transparent bg-zinc-800 rounded-lg py-1.5 sm:py-0 sm:px-0 px-3"
-              href="https://linkedin.com/in/fatkhurrhn" target="_blank">
-              LinkedIn
-            </a>
-            <a classname="flex items-center gap-2 font-normal transition-colors hover:text-zinc-200 sm:bg-transparent bg-zinc-800 rounded-lg py-1.5 sm:py-0 sm:px-0 px-3"
-              href="#" target="_blank">
-              Twitter
-            </a>
-            <a classname="flex items-center gap-2 font-normal transition-colors hover:text-zinc-200 sm:bg-transparent bg-zinc-800 rounded-lg py-1.5 sm:py-0 sm:px-0 px-3"
-              href="https://youtube.com/@fatkhurrhnn" target="_blank">
-              YouTube
-            </a>
-            <a classname="flex items-center gap-2 font-normal transition-colors hover:text-zinc-200 sm:bg-transparent bg-zinc-800 rounded-lg py-1.5 sm:py-0 sm:px-0 px-3"
-              href="#" target="_blank">
-              Email
-            </a>
-          </p>
-
-          <section id="skills" classname="skills-section">
-            <h1 classname="text-xl font-semibold text-zinc-100 sm:text-2xl">
-              Skills
-            </h1>
-            <br />
-            <ul classname="skills-list" id="skillsContainer">
-              <li classname="skill-item">HTML</li>
-              <li classname="skill-item">CSS</li>
-              <li classname="skill-item">JavaScript</li>
-              <li classname="skill-item">React</li>
-              <li classname="skill-item">Bootstrap</li>
-              <li classname="skill-item">Next.js</li>
-              <li classname="skill-item">Node.js</li>
-              <li classname="skill-item">Git</li>
-              <li classname="skill-item">Tailwind</li>
-              <li classname="skill-item">REST API</li>
-              <li classname="skill-item">GraphQL</li>
-            </ul>
-          </section>
-
-          <section classname="skills-section">
-            <h1 classname="text-xl font-semibold text-zinc-100 sm:text-2xl">
-              My Project
-            </h1>
-            <br />
-            <div classname="projects-container">
-              <article classname="project" data-aos="fade-right" data-aos-duration="1000">
-                <div classname="project-content">
-                  <h3>Portfolio Using Next.js</h3>
-                  <p>
-                    Created a portfolio website using Next.js to showcase projects and skills with a
-                    responsive design.
-                  </p>
-                  <div classname="project-buttons">
-                    <a href="https://github.com/fatkhurrhn/portfolio-next.js" classname="btn view-project"
-                      target="">Demo</a>
-                    <a href="https://github.com/fatkhurrhn/portfolio-next.js" classname="btn github-link"
-                      target="">GitHub</a>
-                  </div>
-                </div>
-                <div classname="project-image">
-                  <img src="https://fatkhurrhn.github.io/assets/img/nextjs.png" alt="CarHub" />
-                </div>
-              </article>
-
-              <article classname="project" data-aos="fade-left" data-aos-duration="1000">
-                <div classname="project-content">
-                  <h3>Laundry Go Apps Design</h3>
-                  <p>
-                    Designed the system for Laundry Go app, optimizing order management, payments, and user
-                    experience.</p>
-                  <div classname="project-buttons">
-                    <a href="https://www.linkedin.com/in/fatkhurrhn/details/projects/" classname="btn view-project"
-                      target="">Detail</a>
-                    <a href="https://www.figma.com/file/kgs4VB6hegAEifEfGHS7un/RPL-Tugas-8"
-                      classname="btn github-link" target="">Figma</a>
-                  </div>
-                </div>
-                <div classname="project-image">
-                  <img src="https://media.licdn.com/dms/image/v2/D562DAQGlmvnW4ZjKxg/profile-treasury-image-shrink_800_800/profile-treasury-image-shrink_800_800/0/1728626490441?e=1739264400&v=beta&t=KxCYhT3I2Iqf8z--cmM_Z_boflwkPWFrA078lymNG7Q"
-                    alt="Realtor" />
-                </div>
-              </article>
-              <p style="
-                text-align: left;
-                font-size: 16px;
-                color: rgba(134, 134, 134, 0.9);
-              ">
-                See full my project
-                <a href="#" target="" rel="noopener noreferrer"
-                  style="color: #327ed0; text-decoration: none; font-weight: bold">
-                  here
-                </a>
-              </p>
-            </div>
-          </section>
-
-          <section id="experiences" classname="skills-section">
-            <h1 classname="text-xl font-semibold text-zinc-100 sm:text-2xl">
-              My Experience
-            </h1>
-            <br />
-            <div classname="mt-1 sm:mt-2 grid grid-cols-1 gap-4 md:grid-cols-2">
-              <div classname="grid gap-4">
-                <div classname="rounded-xl bg-zinc-800 p-3 sm:p-4" data-aos="zoom-in" data-aos-duration="700">
-                  <div classname="mb-3 sm:mb-4 flex items-center gap-3" >
-                    <img classname="h-[40px] w-[40px] rounded-full" src="assets/lintasarta.png"
-                      alt=" Company Lintasarta" />
-                    <div>
-                      <h3 classname="text-base sm:text-lg font-semibold">
-                        Company Lintasarta
-                      </h3>
-                      <p classname="text-xs sm:text-sm text-zinc-400">
-                        Capstone Project Bangkit Academy
-                      </p>
-                    </div>
-                  </div>
-                  <div classname="flex flex-col gap-4">
-                    <p classname="text-sm sm:text-base text-justify">
-                      Developed an employee recruitment website using React over two months as part of the
-                      Capstone Project at Lintasarta, focusing on frontend development and user
-                      experience.
-                    </p>
-                  </div>
-                </div>
-
-                <div classname="rounded-xl bg-zinc-800 p-3 sm:p-4" data-aos="zoom-in" data-aos-duration="700">
-                  <div classname="mb-3 sm:mb-4 flex items-center gap-3">
-                    <img classname="h-[40px] w-[40px] rounded-full" src="assets/nf.jpg"
-                      alt="Assistan Lecturer 2024" />
-                    <div>
-                      <h3 classname="text-base sm:text-lg font-semibold">
-                        Assistan Lecturer 2024
-                      </h3>
-                      <p classname="text-xs sm:text-sm text-zinc-400">
-                        STT Terpadu Nurul Fikri
-                      </p>
-                    </div>
-                  </div>
-                  <div classname="flex flex-col gap-4">
-                    <p classname="text-sm sm:text-base text-justify">
-                      Assisted in teaching the Big Data course for one semester, helping students
-                      understand data processing, analytics, and visualization concepts. Provided guidance
-                      in practical assignments, facilitated discussions, and supported the lecturer in
-                      classname activities.
-                    </p>
-                  </div>
-                </div>
-              </div>
-              <div classname="grid gap-4" >
-                <div classname="rounded-xl bg-zinc-800 p-3 sm:p-4" data-aos="zoom-in" data-aos-duration="700">
-                  <div classname="mb-3 sm:mb-4 flex items-center gap-3">
-                    <img classname="h-[40px] w-[40px] rounded-full"
-                      src="https://files.klob.id/public/mig01/l32ovhf5/channels4_profile.jpg"
-                      alt="Bangkit Academy 2024" />
-                    <div>
-                      <h3 classname="text-base sm:text-lg font-semibold">
-                        Bangkit Academy 2024
-                      </h3>
-                      <p classname="text-xs sm:text-sm text-zinc-400">
-                        Cloud Computing Cohort CC-23
-                      </p>
-                    </div>
-                  </div>
-                  <div classname="flex flex-col gap-4">
-                    <p classname="text-sm sm:text-base text-justify">
-                      Participated in the Kampus Merdeka program for four months, focusing on the Cloud
-                      Computing learning path.
-                    </p>
-                  </div>
-                </div>
-                <div classname="rounded-xl bg-zinc-800 p-3 sm:p-4" data-aos="zoom-in" data-aos-duration="700">
-                  <div classname="mb-3 sm:mb-4 flex items-center gap-3">
-                    <img classname="h-[40px] w-[40px] rounded-full" src="assets/senada.jpg"
-                      alt="Head of the Quran Program Department" />
-                    <div>
-                      <h3 classname="text-base sm:text-lg font-semibold">
-                        Leader of the PQ
-                      </h3>
-                      <p classname="text-xs sm:text-sm text-zinc-400">
-                        LDK Senada STT NF
-                      </p>
-                    </div>
-                  </div>
-                  <div classname="flex flex-col gap-4">
-                    <p classname="text-sm sm:text-base text-justify">
-                      an Islamic organization on the STT Nurul Fikri campus
-                    </p>
-                  </div>
-                </div>
-                <div classname="rounded-xl bg-zinc-800 p-3 sm:p-4" data-aos="zoom-in" data-aos-duration="700">
-                  <div classname="mb-3 sm:mb-4 flex items-center gap-3">
-                    <img classname="h-[40px] w-[40px] rounded-full" src="assets/pintar.png"
-                      alt="Freelance Translator" />
-                    <div>
-                      <h3 classname="text-base sm:text-lg font-semibold">
-                        Freelance Translator
-                      </h3>
-                      <p classname="text-xs sm:text-sm text-zinc-400">
-                        Malay translator at PINTAR
-                      </p>
-                    </div>
-                  </div>
-                  <div classname="flex flex-col gap-4">
-                    <p classname="text-sm sm:text-base text-justify">
-                      Translated Malay language documents for two months at PINTAR.
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </section>
-
-          <section classname="skills-section">
-            <h1 classname="text-xl font-semibold text-zinc-100 sm:text-2xl">
-              Github Activity Graph
-            </h1>
-            <br />
-            <div classname="projects-container">
-              <article classname="graph">
-                <div classname="graph-image">
-                  <img src="assets/github-contribution-grid-snake-dark.svg" alt="" />
-                  <img src="https://github-readme-activity-graph.vercel.app/graph?username=fatkhurrhn&theme=github-compact&hide_border=true"
-                    classname="border-none" height="auto" alt="by fatkhurhhn" />
-                </div>
-              </article>
-              <p style="text-align: left; font-size: 16px; color: rgba(134, 134, 134, 0.9);">
-                See more <a href="https://github.com/fatkhurrhn" target="" rel="noopener noreferrer"
-                  style="color: #327ed0; text-decoration: none; font-weight: bold">here</a>
-              </p>
-            </div>
-          </section>
-
-          <section id="contact" className="max-w-3xl mx-auto p-6 bg-[#2d2d2f] rounded-xl shadow-lg mt-2">
-            <h2 className="text-xl font-semibold text-center mb-1 text-gray-50">Contact Me</h2>
-            <p className="text-center text-gray-400 mb-4">Feel free to reach out via email or this form.</p>
-            <form id="contactForm" onSubmit={(e) => submitForm(e)} className="space-y-4">
-              <input type="text" id="name" placeholder="Your name" required
-                className="w-full px-4 py-3 bg-[#3a3a3c] border border-[#4a4a4d] rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-[#6c6c6e] focus:border-[#6c6c6e] transition-all" />
-              <input type="email" id="email" placeholder="Your email" required
-                className="w-full px-4 py-3 bg-[#3a3a3c] border border-[#4a4a4d] rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-[#6c6c6e] focus:border-[#6c6c6e] transition-all" />
-              <textarea id="message" placeholder="Your message" rows="4" required
-                className="w-full px-4 py-3 bg-[#3a3a3c] border border-[#4a4a4d] rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-[#6c6c6e] focus:border-[#6c6c6e] transition-all"></textarea>
-              <button type="submit"
-                className="w-full py-3 bg-[#5a5a5d] text-white rounded-lg font-semibold text-lg hover:bg-[#484848] focus:ring-2 focus:ring-[#6c6c6e] transition-all">
-                Submit
-              </button>
-            </form>
-          </section>
-
+<body class="bg-zinc-50 text-zinc-800 antialiased dark:bg-neutral-900 dark:text-zinc-50 __className_61c949">
+  <script>
+    !(function () {
+      try {
+        var d = document.documentElement,
+          c = d.classList;
+        c.remove("light", "dark");
+        var e = localStorage.getItem("theme-mode");
+        if ("system" === e || (!e && true)) {
+          var t = "(prefers-color-scheme: dark)",
+            m = window.matchMedia(t);
+          if (m.media !== t || m.matches) {
+            d.style.colorScheme = "dark";
+            c.add("dark");
+          } else {
+            d.style.colorScheme = "light";
+            c.add("light");
+          }
+        } else if (e) {
+          c.add(e || "");
+        }
+        if (e === "light" || e === "dark") d.style.colorScheme = e;
+      } catch (e) { }
+    })();
+  </script>
+  <main class="relative flex min-h-screen flex-col overflow-hidden bg-transparent bg-noise bg-repeat pb-10">
+    <div class="absolute top-0 left-0 flex h-full w-full flex-col justify-between overflow-hidden z-50">
+      <div class="open-1 relative h-full w-full origin-top bg-foreground">
+        <div
+          class="open-1-rounded absolute bottom-0 left-[-10%] h-[60rem] w-[120%] translate-y-1/2 rounded-[100%_100%] bg-foreground">
         </div>
       </div>
-      <div id="overlay" classname="overlay"></div>
-      <div id="popup" classname="popup">
-        <div classname="popup-content">
-          <div classname="wave mb-4">👋</div>
-          <h2 classname="text-lg font-semibold">hi, how can I help you?</h2>
-          <form onsubmit="sendMessage(event)" classname="mt-4">
-            <textarea id="popup-message" placeholder="Type your message..." rows="3"
-              classname="w-full px-3 py-2 bg-[#3a3a3c] border border-[#4a4a4d] rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-[#6c6c6e] focus:border-[#6c6c6e] transition-all"></textarea>
-            <button type="submit"
-              classname="w-full py-2 bg-[#4c4f56] text-white rounded-lg font-semibold text-sm hover:bg-[#393c42] focus:ring-2 focus:ring-[#6c6c6e] transition-all mt-4">
-              Send Message
-            </button>
-          </form>
-          <span classname="popup-close" onclick="closePopup()">×</span>
+      <div class="open-2 relative h-full w-full origin-bottom bg-foreground">
+        <div
+          class="open-2-rounded absolute left-[-10%] top-0 h-[60rem] w-[120%] -translate-y-1/2 rounded-[100%_100%] bg-foreground">
         </div>
       </div>
     </div>
-  </div>
+    <div class="h-80 w-full">
+      <canvas id="gradient-canvas" class="h-full w-full" data-speed="0.6" data-transition-in="true"
+        data-js-darken-top="true"></canvas>
+    </div>
+    <div
+      class="min-w-sm container z-10 mx-auto -mt-20 flex w-full max-w-2xl flex-col items-center justify-center gap-2 lg:-mt-24">
+      <div
+        class="relative flex h-32 w-32 animate-gradient items-center justify-center rounded-full bg-gradient-to-r from-green-300 via-blue-500 to-purple-600 bg-300% lg:h-44 lg:w-44"
+        style="opacity: 0; transform: scale(0) translateZ(0)">
+        <span class="relative flex shrink-0 overflow-hidden rounded-full h-28 w-28 lg:h-40 lg:w-40"></span><button
+          class="inline-flex items-center justify-center whitespace-nowrap text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border border-input bg-background hover:bg-accent hover:text-accent-foreground absolute bottom-0 right-0 rounded-full w-8 h-8 lg:w-10 lg:h-10"
+          arai-label="Toggle theme">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+            class="h-[1.2rem] w-[1.2rem] rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0">
+            <circle cx="12" cy="12" r="4"></circle>
+            <path d="M12 2v2"></path>
+            <path d="M12 20v2"></path>
+            <path d="m4.93 4.93 1.41 1.41"></path>
+            <path d="m17.66 17.66 1.41 1.41"></path>
+            <path d="M2 12h2"></path>
+            <path d="M20 12h2"></path>
+            <path d="m6.34 17.66-1.41 1.41"></path>
+            <path d="m19.07 4.93-1.41 1.41"></path>
+          </svg><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+            class="absolute h-[1.2rem] w-[1.2rem] rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100">
+            <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path>
+          </svg><span class="sr-only">Toggle theme</span>
+        </button>
+      </div>
+      <div class="flex items-center gap-x-2 text-center text-2xl leading-tight">
+        <h3 class="text-2xl font-bold">
+          <span aria-hidden="true" role="hidden" style="opacity: 0; transform: translateY(1em) translateZ(0)">Coding
+            with Afrizal</span>
+        </h3>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="#0095F6" stroke="currentColor"
+          stroke-width="0" viewBox="0 0 40 40">
+          <path fill-rule="evenodd"
+            d="M19.998 3.094 14.638 0l-2.972 5.15H5.432v6.354L0 14.64 3.094 20 0 25.359l5.432 3.137v5.905h5.975L14.638 40l5.36-3.094L25.358 40l3.232-5.6h6.162v-6.01L40 25.359 36.905 20 40 14.641l-5.248-3.03v-6.46h-6.419L25.358 0l-5.36 3.094Zm7.415 11.225 2.254 2.287-11.43 11.5-6.835-6.93 2.244-2.258 4.587 4.581 9.18-9.18Z"
+            opacity="0"></path>
+        </svg>
+      </div>
+      <div class="flex items-center" style="opacity: 0">
+        <a target="_blank" rel="noopener noreferrer" class="text-sm text-blue-500 hover:underline"
+          href="https://aafrzl.my.id/">https://aafrzl.my.id/</a>
+      </div>
+      <p class="text-center text-sm" style="opacity: 0">
+        Ngoding itu gampang, tapi ngoding yang bener itu susah. Jadi, semangat
+        terus ya!
+      </p>
+      <div class="mb-5 flex flex-wrap justify-center gap-2">
+        <div class="inline-block" style="opacity: 0; transform: scale(0) translateZ(0)">
+          <div>
+            <a target="_blank" rel="noopener noreferrer"
+              class="gap-x-1 inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 border-transparent bg-primary text-primary-foreground hover:bg-primary/80"
+              href="https://www.github.com/aafrzl"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14"
+                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round" class="lucide lucide-github">
+                <path
+                  d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4">
+                </path>
+                <path d="M9 18c-4.51 2-5-2-7-2"></path>
+              </svg><span class="text-xs">Github</span></a>
+          </div>
+        </div>
+        <div class="inline-block" style="opacity: 0; transform: scale(0) translateZ(0)">
+          <div>
+            <a target="_blank" rel="noopener noreferrer"
+              class="gap-x-1 inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 border-transparent bg-primary text-primary-foreground hover:bg-primary/80"
+              href="https://www.instagram.com/aafrzl_"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14"
+                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round" class="lucide lucide-instagram">
+                <rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect>
+                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                <line x1="17.5" x2="17.51" y1="6.5" y2="6.5"></line>
+              </svg><span class="text-xs">Instagram</span></a>
+          </div>
+        </div>
+        <div class="inline-block" style="opacity: 0; transform: scale(0) translateZ(0)">
+          <div>
+            <a target="_blank" rel="noopener noreferrer"
+              class="gap-x-1 inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 border-transparent bg-primary text-primary-foreground hover:bg-primary/80"
+              href="https://dsc.gg/coding-with-afrizal"><svg xmlns="http://www.w3.org/2000/svg" width="200" height="200"
+                fill="currentColor" stroke="currentColor" stroke-width="0" viewBox="0 0 640 512" class="h-4 w-4">
+                <path stroke="none"
+                  d="M524.531 69.836a1.5 1.5 0 0 0-.764-.7A485.065 485.065 0 0 0 404.081 32.03a1.816 1.816 0 0 0-1.923.91 337.461 337.461 0 0 0-14.9 30.6 447.848 447.848 0 0 0-134.426 0 309.541 309.541 0 0 0-15.135-30.6 1.89 1.89 0 0 0-1.924-.91 483.689 483.689 0 0 0-119.688 37.107 1.712 1.712 0 0 0-.788.676C39.068 183.651 18.186 294.69 28.43 404.354a2.016 2.016 0 0 0 .765 1.375 487.666 487.666 0 0 0 146.825 74.189 1.9 1.9 0 0 0 2.063-.676A348.2 348.2 0 0 0 208.12 430.4a1.86 1.86 0 0 0-1.019-2.588 321.173 321.173 0 0 1-45.868-21.853 1.885 1.885 0 0 1-.185-3.126 251.047 251.047 0 0 0 9.109-7.137 1.819 1.819 0 0 1 1.9-.256c96.229 43.917 200.41 43.917 295.5 0a1.812 1.812 0 0 1 1.924.233 234.533 234.533 0 0 0 9.132 7.16 1.884 1.884 0 0 1-.162 3.126 301.407 301.407 0 0 1-45.89 21.83 1.875 1.875 0 0 0-1 2.611 391.055 391.055 0 0 0 30.014 48.815 1.864 1.864 0 0 0 2.063.7A486.048 486.048 0 0 0 610.7 405.729a1.882 1.882 0 0 0 .765-1.352c12.264-126.783-20.532-236.912-86.934-334.541ZM222.491 337.58c-28.972 0-52.844-26.587-52.844-59.239s23.409-59.241 52.844-59.241c29.665 0 53.306 26.82 52.843 59.239 0 32.654-23.41 59.241-52.843 59.241Zm195.38 0c-28.971 0-52.843-26.587-52.843-59.239s23.409-59.241 52.843-59.241c29.667 0 53.307 26.82 52.844 59.239 0 32.654-23.177 59.241-52.844 59.241Z">
+                </path>
+              </svg><span class="text-xs">Discord</span></a>
+          </div>
+        </div>
+        <div class="inline-block" style="opacity: 0; transform: scale(0) translateZ(0)">
+          <div>
+            <a target="_blank" rel="noopener noreferrer"
+              class="gap-x-1 inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 border-transparent bg-primary text-primary-foreground hover:bg-primary/80"
+              href="https://www.tiktok.com/@aafrzl.code"><svg xmlns="http://www.w3.org/2000/svg" width="200"
+                height="200" fill="currentColor" stroke="currentColor" stroke-width="0" viewBox="0 0 448 512"
+                class="h-4 w-4">
+                <path stroke="none"
+                  d="M448 209.91a210.06 210.06 0 0 1-122.77-39.25v178.72A162.55 162.55 0 1 1 185 188.31v89.89a74.62 74.62 0 1 0 52.23 71.18V0h88a121.18 121.18 0 0 0 1.86 22.17A122.18 122.18 0 0 0 381 102.39a121.43 121.43 0 0 0 67 20.14Z">
+                </path>
+              </svg><span class="text-xs">Tiktok</span></a>
+          </div>
+        </div>
+        <div class="inline-block" style="opacity: 0; transform: scale(0) translateZ(0)">
+          <div>
+            <a target="_blank" rel="noopener noreferrer"
+              class="gap-x-1 inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 border-transparent bg-primary text-primary-foreground hover:bg-primary/80"
+              href="https://trakteer.id/aafrzl_"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round" class="h-4 w-4">
+                <path d="M17 8h1a4 4 0 1 1 0 8h-1"></path>
+                <path d="M3 8h14v9a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4Z"></path>
+                <line x1="6" x2="6" y1="2" y2="4"></line>
+                <line x1="10" x2="10" y1="2" y2="4"></line>
+                <line x1="14" x2="14" y1="2" y2="4"></line>
+              </svg><span class="text-xs">Trakteer</span></a>
+          </div>
+        </div>
+        <div class="inline-block" style="opacity: 0; transform: scale(0) translateZ(0)">
+          <div>
+            <a target="_blank" rel="noopener noreferrer"
+              class="gap-x-1 inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 border-transparent bg-primary text-primary-foreground hover:bg-primary/80"
+              href="https://www.linkedin.com/in/afrizal-mufriz-fouji-8a930111b/"><svg xmlns="http://www.w3.org/2000/svg"
+                width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4">
+                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                <rect width="4" height="12" x="2" y="9"></rect>
+                <circle cx="4" cy="4" r="2"></circle>
+              </svg><span class="text-xs">LinkedIn</span></a>
+          </div>
+        </div>
+        <div class="inline-block" style="opacity: 0; transform: scale(0) translateZ(0)">
+          <div>
+            <a target="_self" rel="noopener noreferrer"
+              class="gap-x-1 inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 border-transparent bg-primary text-primary-foreground hover:bg-primary/80"
+              href="mailto:afrizal.mufriz25@gmail.com"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round" class="h-4 w-4">
+                <rect width="20" height="16" x="2" y="4" rx="2"></rect>
+                <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
+              </svg><span class="text-xs">Email</span></a>
+          </div>
+        </div>
+      </div>
+      <div
+        class="mt-1 flex w-full flex-col rounded-xl bg-foreground p-2 transition-all duration-500 ease-in-out hover:bg-foreground/80 hover:shadow-xl"
+        style="opacity: 0; transform: translateY(1000px) translateZ(0)">
+        <a target="_blank" rel="noopener noreferrer"
+          href="https://vercel.com/blog/building-an-interactive-3d-event-badge-with-react-three-fiber">
+          <div class="flex items-center justify-center space-x-5">
+            <div class="flex-grow-0">
+              <img alt="Blog Tutorial Buat 3D Event Bands" fetchPriority="high" width="24" height="24" decoding="async"
+                data-nimg="1" class="h-8 w-8 rounded-md object-contain blur-0 sm:h-10 sm:w-10"
+                style="color: transparent"
+                src="https://s2.googleusercontent.com/s2/favicons?sz=64&amp;domain_url=vercel.com" />
+            </div>
+            <div class="flex flex-grow items-center justify-start">
+              <p class="text-sm lg:text-lg font-semibold text-background">
+                Blog Tutorial Buat 3D Event Bands
+              </p>
+            </div>
+            <div class="flex flex-grow-0 items-center justify-center">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                class="h-6 w-6 text-background">
+                <path d="M5 12h14"></path>
+                <path d="m12 5 7 7-7 7"></path>
+              </svg>
+            </div>
+          </div>
+        </a>
+      </div>
+      <div
+        class="mt-1 flex w-full flex-col rounded-xl bg-foreground p-2 transition-all duration-500 ease-in-out hover:bg-foreground/80 hover:shadow-xl"
+        style="opacity: 0; transform: translateY(1000px) translateZ(0)">
+        <a target="_blank" rel="noopener noreferrer" href="https://discord.gg/42hKQrJNvJ">
+          <div class="flex items-center justify-center space-x-5">
+            <div class="flex-grow-0">
+              <img alt="Discord Server Coding with Afrizal" fetchPriority="high" width="24" height="24" decoding="async"
+                data-nimg="1" class="h-8 w-8 rounded-md object-contain blur-0 sm:h-10 sm:w-10"
+                style="color: transparent"
+                src="https://s2.googleusercontent.com/s2/favicons?sz=64&amp;domain_url=discord.gg" />
+            </div>
+            <div class="flex flex-grow items-center justify-start">
+              <p class="text-sm lg:text-lg font-semibold text-background">
+                Discord Server Coding with Afrizal
+              </p>
+            </div>
+            <div class="flex flex-grow-0 items-center justify-center">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                class="h-6 w-6 text-background">
+                <path d="M5 12h14"></path>
+                <path d="m12 5 7 7-7 7"></path>
+              </svg>
+            </div>
+          </div>
+        </a>
+      </div>
+      <div
+        class="mt-1 flex w-full flex-col rounded-xl bg-foreground p-2 transition-all duration-500 ease-in-out hover:bg-foreground/80 hover:shadow-xl"
+        style="opacity: 0; transform: translateY(1000px) translateZ(0)">
+        <a target="_blank" rel="noopener noreferrer" href="http://bit.ly/IDCHFC25">
+          <div class="flex items-center justify-center space-x-5">
+            <div class="flex-grow-0">
+              <img alt="Hosting VPS IDCloudHost" fetchPriority="high" width="24" height="24" decoding="async"
+                data-nimg="1" class="h-8 w-8 rounded-md object-contain blur-0 sm:h-10 sm:w-10"
+                style="color: transparent"
+                src="https://s2.googleusercontent.com/s2/favicons?sz=64&amp;domain_url=bit.ly" />
+            </div>
+            <div class="flex flex-grow items-center justify-start">
+              <p class="text-sm lg:text-lg font-semibold text-background">
+                Hosting VPS IDCloudHost
+              </p>
+            </div>
+            <div class="flex flex-grow-0 items-center justify-center">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                class="h-6 w-6 text-background">
+                <path d="M5 12h14"></path>
+                <path d="m12 5 7 7-7 7"></path>
+              </svg>
+            </div>
+          </div>
+        </a>
+      </div>
+      <div
+        class="mt-1 flex w-full flex-col rounded-xl bg-foreground p-2 transition-all duration-500 ease-in-out hover:bg-foreground/80 hover:shadow-xl"
+        style="opacity: 0; transform: translateY(1000px) translateZ(0)">
+        <a target="_blank" rel="noopener noreferrer" href="https://www.kelasfullstack.id/">
+          <div class="flex items-center justify-center space-x-5">
+            <div class="flex-grow-0">
+              <img alt="Kelas Online Fullstack (Diskon 65% FULLSTACKAFRIZAL)" fetchPriority="high" width="24"
+                height="24" decoding="async" data-nimg="1"
+                class="h-8 w-8 rounded-md object-contain blur-0 sm:h-10 sm:w-10" style="color: transparent"
+                src="https://s2.googleusercontent.com/s2/favicons?sz=64&amp;domain_url=kelasfullstack.id" />
+            </div>
+            <div class="flex flex-grow items-center justify-start">
+              <p class="text-sm lg:text-lg font-semibold text-background">
+                Kelas Online Fullstack (Diskon 65% FULLSTACKAFRIZAL)
+              </p>
+            </div>
+            <div class="flex flex-grow-0 items-center justify-center">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                class="h-6 w-6 text-background">
+                <path d="M5 12h14"></path>
+                <path d="m12 5 7 7-7 7"></path>
+              </svg>
+            </div>
+          </div>
+        </a>
+      </div>
+      <div
+        class="mt-1 flex w-full flex-col rounded-xl bg-foreground p-2 transition-all duration-500 ease-in-out hover:bg-foreground/80 hover:shadow-xl"
+        style="opacity: 0; transform: translateY(1000px) translateZ(0)">
+        <a target="_blank" rel="noopener noreferrer"
+          href="https://codingwithafrizal.notion.site/codingwithafrizal/List-Extensions-VSCODE-c47c033f21744b1e8d183a933a0e72d1">
+          <div class="flex items-center justify-center space-x-5">
+            <div class="flex-grow-0">
+              <img alt="List Extension" fetchPriority="high" width="24" height="24" decoding="async" data-nimg="1"
+                class="h-8 w-8 rounded-md object-contain blur-0 sm:h-10 sm:w-10" style="color: transparent"
+                src="https://s2.googleusercontent.com/s2/favicons?sz=64&amp;domain_url=notion.site" />
+            </div>
+            <div class="flex flex-grow items-center justify-start">
+              <p class="text-sm lg:text-lg font-semibold text-background">
+                List Extension
+              </p>
+            </div>
+            <div class="flex flex-grow-0 items-center justify-center">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                class="h-6 w-6 text-background">
+                <path d="M5 12h14"></path>
+                <path d="m12 5 7 7-7 7"></path>
+              </svg>
+            </div>
+          </div>
+        </a>
+      </div>
+      <div
+        class="mt-1 flex w-full flex-col rounded-xl bg-foreground p-2 transition-all duration-500 ease-in-out hover:bg-foreground/80 hover:shadow-xl"
+        style="opacity: 0; transform: translateY(1000px) translateZ(0)">
+        <a target="_blank" rel="noopener noreferrer" href="https://tako.id/codingwithafrizal">
+          <div class="flex items-center justify-center space-x-5">
+            <div class="flex-grow-0">
+              <img alt="Support Buat Beli ☕" fetchPriority="high" width="24" height="24" decoding="async" data-nimg="1"
+                class="h-8 w-8 rounded-md object-contain blur-0 sm:h-10 sm:w-10" style="color: transparent"
+                src="https://s2.googleusercontent.com/s2/favicons?sz=64&amp;domain_url=tako.id" />
+            </div>
+            <div class="flex flex-grow items-center justify-start">
+              <p class="text-sm lg:text-lg font-semibold text-background">
+                Support Buat Beli ☕
+              </p>
+            </div>
+            <div class="flex flex-grow-0 items-center justify-center">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                class="h-6 w-6 text-background">
+                <path d="M5 12h14"></path>
+                <path d="m12 5 7 7-7 7"></path>
+              </svg>
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+    <div
+      class="nav-menu pointer-events-auto fixed bottom-0 right-0 z-[51] flex h-[600px] w-full max-w-[400px] translate-x-[150%] flex-col rounded-ss-lg bg-zinc-800 text-white will-change-transform [-webkit-perspective:1000] dark:bg-zinc-200">
+      <div
+        class="chatbox-rounded absolute left-0 top-1 z-[-1] h-[100%] w-[80%] -translate-x-1/2 rounded-[100%_100%] bg-zinc-800 will-change-transform [-webkit-perspective:1000] dark:bg-zinc-200">
+      </div>
+      <button aria-label="Toggle AI Chat Box" tabindex="0" class="absolute left-2 top-2 mb-1 ms-auto block">
+        <div
+          class="relative flex h-[36px] w-[36px] transform items-center justify-center rounded-full bg-zinc-800 shadow-md ring-0 ring-gray-300 ring-opacity-30 transition-all duration-200 hover:ring-8 dark:bg-zinc-200">
+          <div
+            class="flex h-[18px] w-[18px] origin-center transform flex-col justify-between transition-all duration-300">
+            <div
+              class="h-[2px] w-1/2 origin-right transform rounded bg-zinc-200 transition-all delay-75 duration-300 dark:bg-zinc-800">
+            </div>
+            <div class="h-[1px] rounded bg-zinc-200 dark:bg-zinc-800"></div>
+            <div
+              class="h-[2px] w-1/2 origin-left transform self-end rounded bg-zinc-200 transition-all delay-75 duration-300 dark:bg-zinc-800">
+            </div>
+          </div>
+        </div>
+      </button>
+      <div class="mt-14">
+        <div class="px-[clamp(1.25rem,3vw,2.5rem)]">
+          <span class="text-xl font-semibold text-zinc-200 dark:text-zinc-800">Ask anything about me</span>
+          <div data-orientation="horizontal" role="none"
+            class="shrink-0 h-[1px] w-full mt-2 mb-2 bg-zinc-200/50 dark:bg-zinc-800/25"></div>
+        </div>
+        <div class="flex h-[500px] w-full flex-col px-4">
+          <div class="mt-3 h-full overflow-y-auto px-3">
+            <div class="flex h-full flex-col items-center justify-center gap-3 text-center">
+              <div class="animate-pulse rounded-full bg-zinc-200 p-4 dark:bg-zinc-800">
+                <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                  class="text-foreground">
+                  <path d="M12 8V4H8"></path>
+                  <rect width="16" height="12" x="4" y="8" rx="2"></rect>
+                  <path d="M2 14h2"></path>
+                  <path d="M20 14h2"></path>
+                  <path d="M15 13v2"></path>
+                  <path d="M9 13v2"></path>
+                </svg>
+              </div>
+              <p class="text-lg font-medium text-muted">
+                Send a message to start conversation with our AI Assistant.
+              </p>
+              <p class="text-sm text-zinc-400 dark:text-neutral-500">
+                You can ask anything about me, my work, or anything else you
+                want to know
+              </p>
+            </div>
+          </div>
+          <form class="mb-3 mt-3 flex w-full items-center justify-between">
+            <label for="chat-input" class="sr-only">Enter your question...</label>
+            <div class="relative w-full">
+              <button
+                class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 hover:bg-accent hover:text-accent-foreground h-10 w-10 absolute left-0 top-1/2 -translate-y-1/2"
+                type="button" title="Clear Chat">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                  class="h-4 w-4 shrink-0 text-foreground">
+                  <path d="M3 6h18"></path>
+                  <path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"></path>
+                  <path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"></path>
+                </svg></button><input id="chat-input" placeholder="Enter your question..." required=""
+                class="dark:focus:ring-blue-600sm:text-base block w-full resize-none rounded-xl border-none bg-zinc-200 p-4 pl-10 pr-20 text-sm text-foreground placeholder:text-foreground/50 focus:outline-none focus:ring-2 focus:ring-blue-600 dark:bg-neutral-800"
+                value="" /><button
+                class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 hover:bg-accent hover:text-accent-foreground h-10 w-10 absolute right-3 top-1/2 -translate-y-1/2 transform"
+                type="submit">
+                <span class="sr-only">Send Message</span><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                  viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                  stroke-linejoin="round" class="h-4 w-4 shrink-0 text-foreground">
+                  <path d="m22 2-7 20-4-9-9-4Z"></path>
+                  <path d="M22 2 11 13"></path>
+                </svg>
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="pointer-events-auto bottom-5 right-5 z-[51] translate-x-[calc(5rem+2.5vw)] fixed">
+      <div>
+        <button tabindex="0"
+          class="flex h-[50px] w-[50px] transform items-center justify-center rounded-full bg-zinc-800 shadow-md ring-0 ring-gray-300 ring-opacity-30 transition-all duration-200 hover:ring-8 dark:bg-zinc-200">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+            class="text-background">
+            <path d="M12 8V4H8"></path>
+            <rect width="16" height="12" x="4" y="8" rx="2"></rect>
+            <path d="M2 14h2"></path>
+            <path d="M20 14h2"></path>
+            <path d="M15 13v2"></path>
+            <path d="M9 13v2"></path>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </main>
+  <script src="https://aafrzl.my.id/_next/static/chunks/webpack-eb491cc2de0d5d9b.js" async=""></script>
+  <script>
+    (self.__next_f = self.__next_f || []).push([0]);
+    self.__next_f.push([2, null]);
+  </script>
+  <script>
+    self.__next_f.push([
+      1,
+      '1:HL["https://aafrzl.my.id/_next/static/media/6905431624c34d00-s.p.woff2","font",{"crossOrigin":"","type":"font/woff2"}]\n2:HL["https://aafrzl.my.id/_next/static/css/6f1fac314687ca3a.css","style"]\n0:"$L3"\n',
+    ]);
+  </script>
+  <script>
+    self.__next_f.push([
+      1,
+      '4:I[33728,[],""]\n6:I[29928,[],""]\n7:I[99419,["185","static/chunks/app/layout-d453f267133fdd2e.js"],"ThemeProvider"]\n8:I[76293,["185","static/chunks/app/layout-d453f267133fdd2e.js"],"SmoothScrollProvider"]\n9:I[56954,[],""]\na:I[7264,[],""]\nb:I[48516,["922","static/chunks/c15bf2b0-31f498009bf3e762.js","799","static/chunks/799-051640b39ee79ec0.js","363","static/chunks/363-5b90cd1e33e33f80.js","160","static/chunks/app/not-found-1a02d7f239dc597f.js"],""]\n',
+    ]);
+  </script>
+  <script>
+    self.__next_f.push([
+      1,
+      '3:[[["$","link","0",{"rel":"stylesheet","href":"https://aafrzl.my.id/_next/static/css/6f1fac314687ca3a.css","precedence":"next","crossOrigin":"$undefined"}]],["$","$L4",null,{"buildId":"1Xr3Ddd12jFHbQLYqTZfM","assetPrefix":"","initialCanonicalUrl":"/links","initialTree":["",{"children":["links",{"children":["__PAGE__",{}]}]},"$undefined","$undefined",true],"initialHead":[false,"$L5"],"globalErrorComponent":"$6","children":[null,["$","html",null,{"lang":"en","suppressHydrationWarning":true,"children":["$","body",null,{"className":"bg-zinc-50 text-zinc-800 antialiased dark:bg-neutral-900 dark:text-zinc-50 __className_61c949","children":["$","$L7",null,{"attribute":"class","defaultTheme":"system","enableSystem":true,"storageKey":"theme-mode","children":["$","$L8",null,{"options":{"smooth":true,"mobile":{"smooth":true},"tablet":{"smooth":true}},"children":["$","$L9",null,{"parallelRouterKey":"children","segmentPath":["children"],"loading":"$undefined","loadingStyles":"$undefined","loadingScripts":"$undefined","hasLoading":false,"error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$La",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":["$","$Lb",null,{}],"notFoundStyles":[],"childProp":{"current":["$","$L9",null,{"parallelRouterKey":"children","segmentPath":["children","links","children"],"loading":"$undefined","loadingStyles":"$undefined","loadingScripts":"$undefined","hasLoading":false,"error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$La",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","notFoundStyles":"$undefined","childProp":{"current":["$Lc","$Ld",null],"segment":"__PAGE__"},"styles":null}],"segment":"links"},"styles":null}]}]}]}]}],null]}]]\n',
+    ]);
+  </script>
+  <script>
+    self.__next_f.push([
+      1,
+      '5:[["$","meta","0",{"name":"viewport","content":"width=device-width, initial-scale=1"}],["$","meta","1",{"charSet":"utf-8"}],["$","title","2",{"children":"Coding with Afrizal | Frontend Developer"}],["$","meta","3",{"name":"description","content":"A seasoned frontend web developer with a passion for creating engaging and interactive websites."}],["$","meta","4",{"name":"keywords","content":"afrizal mufriz fouji,afrizal,coding with afrizal,frontend web developer,frontend developer,frontend engineer,react,nextjs,creative,creative developer,creative frontend developer,web developer,web engineer,tech,indonesia,indonesian,indonesian developer,indonesian web developer,indonesian frontend developer,indonesian web engineer,indonesian frontend engineer,indonesian creative developer,portfolio,portfolio website,portfolio web,portfolio web developer,portfolio frontend developer,portfolio web engineer"}],["$","meta","5",{"name":"category","content":"technology"}],["$","meta","6",{"name":"google-site-verification","content":"0Et_bbMT-tL00FtL_T1yTKF2FNI8bUzMROh2gGDH7tQ"}],["$","meta","7",{"property":"og:title","content":"Coding with Afrizal | Frontend Developer"}],["$","meta","8",{"property":"og:description","content":"A seasoned frontend web developer with a passion for creating engaging and interactive websites."}],["$","meta","9",{"property":"og:url","content":"https://aafrzl.my.id/"}],["$","meta","10",{"property":"og:site_name","content":"Coding with Afrizal"}],["$","meta","11",{"property":"og:locale","content":"en_US"}],["$","meta","12",{"property":"og:image","content":"https://aafrzl.my.id/og-images-2.png"}],["$","meta","13",{"property":"og:image:width","content":"1200"}],["$","meta","14",{"property":"og:image:height","content":"630"}],["$","meta","15",{"property":"og:type","content":"website"}],["$","meta","16",{"name":"twitter:card","content":"summary_large_image"}],["$","meta","17",{"name":"twitter:creator","content":"@aafrzl"}],["$","meta","18",{"name":"twitter:title","content":"Coding with Afrizal | Frontend Developer"}],["$","meta","19",{"name":"twitter:description","content":"A seasoned frontend web developer with a passion for creating engaging and interactive websites."}],["$","meta","20",{"name":"twitter:image","content":"https://aafrzl.my.id/og-images-2.png"}],["$","meta","21",{"name":"twitter:image:width","content":"1200"}],["$","meta","22",{"name":"twitter:image:height","content":"630"}],["$","link","23",{"rel":"icon","href":"/favicon.ico","type":"image/x-icon","sizes":"48x48"}],["$","meta","24",{"name":"next-size-adjust"}]]\n',
+    ]);
+  </script>
+  <script>
+    self.__next_f.push([1, "c:null\n"]);
+  </script>
+  <script>
+    self.__next_f.push([
+      1,
+      'e:I[46070,["922","static/chunks/c15bf2b0-31f498009bf3e762.js","799","static/chunks/799-051640b39ee79ec0.js","363","static/chunks/363-5b90cd1e33e33f80.js","59","static/chunks/59-1e358af0c2f1c376.js","953","static/chunks/953-221d860ed5f3aca5.js","351","static/chunks/351-0a7a51348fe1dcc8.js","782","static/chunks/app/links/page-b774badd1325b9ce.js"],""]\nf:I[93398,["922","static/chunks/c15bf2b0-31f498009bf3e762.js","799","static/chunks/799-051640b39ee79ec0.js","363","static/chunks/363-5b90cd1e33e33f80.js","59","',
+    ]);
+  </script>
+  <script>
+    self.__next_f.push([
+      1,
+      'static/chunks/59-1e358af0c2f1c376.js","953","static/chunks/953-221d860ed5f3aca5.js","351","static/chunks/351-0a7a51348fe1dcc8.js","782","static/chunks/app/links/page-b774badd1325b9ce.js"],""]\n10:I[66457,["922","static/chunks/c15bf2b0-31f498009bf3e762.js","799","static/chunks/799-051640b39ee79ec0.js","363","static/chunks/363-5b90cd1e33e33f80.js","59","static/chunks/59-1e358af0c2f1c376.js","953","static/chunks/953-221d860ed5f3aca5.js","351","static/chunks/351-0a7a51348fe1dcc8.js","782","static/chunks/app/link',
+    ]);
+  </script>
+  <script>
+    self.__next_f.push([
+      1,
+      's/page-b774badd1325b9ce.js"],""]\n11:I[59923,["922","static/chunks/c15bf2b0-31f498009bf3e762.js","799","static/chunks/799-051640b39ee79ec0.js","363","static/chunks/363-5b90cd1e33e33f80.js","59","static/chunks/59-1e358af0c2f1c376.js","953","static/chunks/953-221d860ed5f3aca5.js","351","static/chunks/351-0a7a51348fe1dcc8.js","782","static/chunks/app/links/page-b774badd1325b9ce.js"],""]\n12:I[54393,["922","static/chunks/c15bf2b0-31f498009bf3e762.js","799","static/chunks/799-051640b39ee79ec0.js","363","static/chu',
+    ]);
+  </script>
+  <script>
+    self.__next_f.push([
+      1,
+      'nks/363-5b90cd1e33e33f80.js","59","static/chunks/59-1e358af0c2f1c376.js","953","static/chunks/953-221d860ed5f3aca5.js","351","static/chunks/351-0a7a51348fe1dcc8.js","782","static/chunks/app/links/page-b774badd1325b9ce.js"],""]\n13:I[59648,["922","static/chunks/c15bf2b0-31f498009bf3e762.js","799","static/chunks/799-051640b39ee79ec0.js","363","static/chunks/363-5b90cd1e33e33f80.js","59","static/chunks/59-1e358af0c2f1c376.js","953","static/chunks/953-221d860ed5f3aca5.js","351","static/chunks/351-0a7a51348fe1dcc',
+    ]);
+  </script>
+  <script>
+    self.__next_f.push([
+      1,
+      '8.js","782","static/chunks/app/links/page-b774badd1325b9ce.js"],""]\n14:I[28622,["922","static/chunks/c15bf2b0-31f498009bf3e762.js","799","static/chunks/799-051640b39ee79ec0.js","363","static/chunks/363-5b90cd1e33e33f80.js","59","static/chunks/59-1e358af0c2f1c376.js","953","static/chunks/953-221d860ed5f3aca5.js","351","static/chunks/351-0a7a51348fe1dcc8.js","782","static/chunks/app/links/page-b774badd1325b9ce.js"],""]\n',
+    ]);
+  </script>
+  <script>
+    self.__next_f.push([
+      1,
+      'd:["$","main",null,{"className":"relative flex min-h-screen flex-col overflow-hidden bg-transparent bg-noise bg-repeat pb-10","children":[["$","$Le",null,{}],["$","$Lf",null,{}],["$","div",null,{"className":"min-w-sm container z-10 mx-auto -mt-20 flex w-full max-w-2xl flex-col items-center justify-center gap-2 lg:-mt-24","children":[["$","$L10",null,{}],["$","$L11",null,{}],["$","$L12",null,{}],[["$","$L13","5da97f28-a988-4482-ba7c-9249396ed61e",{"url":"https://vercel.com/blog/building-an-interactive-3d-event-badge-with-react-three-fiber","title":"Blog Tutorial Buat 3D Event Bands","delay":1}],["$","$L13","70cdc75d-ca85-4a4e-9406-fe63754f79a2",{"url":"https://discord.gg/42hKQrJNvJ","title":"Discord Server Coding with Afrizal","delay":1.2}],["$","$L13","557e30ae-6adb-43ec-9ce8-688e2e77fbd0",{"url":"http://bit.ly/IDCHFC25","title":"Hosting VPS IDCloudHost","delay":1.4}],["$","$L13","71748645-e89d-4b55-9290-793ee7288153",{"url":"https://www.kelasfullstack.id/","title":"Kelas Online Fullstack (Diskon 65% FULLSTACKAFRIZAL)","delay":1.6}],["$","$L13","04c5db3d-16a8-4c8e-b7b9-1c55b4240091",{"url":"https://codingwithafrizal.notion.site/codingwithafrizal/List-Extensions-VSCODE-c47c033f21744b1e8d183a933a0e72d1","title":"List Extension","delay":1.8}],["$","$L13","5f6879ef-441e-4672-b9a7-d07cbf1e9971",{"url":"https://tako.id/codingwithafrizal","title":"Support Buat Beli ☕","delay":2}]]]}],["$","$L14",null,{}]]}]\n',
+    ]);
+  </script>
+  <script>
+    self.__next_f.push([1, ""]);
+  </script>
+</body>
+
+</html>
