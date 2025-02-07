@@ -194,50 +194,26 @@ function Certificate() {
   </h1>
   
   <div className="sertif-container grid grid-cols-1 md:grid-cols-2 gap-6 px-4">
-    <article className="sertif bg-zinc-800 p-4 rounded-lg shadow-md flex flex-col items-center">
-      <div className="sertif-content text-center">
-        <h3 className="text-lg font-semibold text-white mb-2">Sertif 1</h3>
-        <div className="sertif-buttons">
-          <a 
-            href="https://www.dicoding.com/certificates/1OP848VN2ZQK" 
-            className="btn view-sertif bg-blue-500 text-white px-4 py-2 rounded-md transition hover:bg-blue-600"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Detail
-          </a>
-        </div>
-      </div>
-      <div className="sertif-image mt-4">
+    <article className="sertif bg-zinc-800 rounded-lg shadow-md overflow-hidden">
+      <div className="sertif-image">
         <img 
           src="https://marketplace.canva.com/EAF3lV78vig/1/0/1600w/canva-biru-emas-ornamen-klasik-sertifikat-penghargaan-kT1JTV7bIVQ.jpg" 
           alt="Sertifikat 1"
-          className="rounded-lg shadow-md w-full h-48 object-cover"
+          className="w-full object-cover"
         />
       </div>
+      <h3 className="text-lg font-semibold text-white p-4 text-left">Sertif 1</h3>
     </article>
 
-    <article className="sertif bg-zinc-800 p-4 rounded-lg shadow-md flex flex-col items-center">
-      <div className="sertif-content text-center">
-        <h3 className="text-lg font-semibold text-white mb-2">Sertif 2</h3>
-        <div className="sertif-buttons">
-          <a 
-            href="https://www.dicoding.com/certificates/1OP848VN2ZQK" 
-            className="btn view-sertif bg-blue-500 text-white px-4 py-2 rounded-md transition hover:bg-blue-600"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Detail
-          </a>
-        </div>
-      </div>
-      <div className="sertif-image mt-4">
+    <article className="sertif bg-zinc-800 rounded-lg shadow-md overflow-hidden">
+      <div className="sertif-image">
         <img 
           src="https://marketplace.canva.com/EAF3lV78vig/1/0/1600w/canva-biru-emas-ornamen-klasik-sertifikat-penghargaan-kT1JTV7bIVQ.jpg" 
           alt="Sertifikat 2"
-          className="rounded-lg shadow-md w-full h-48 object-cover"
+          className="w-full object-cover"
         />
       </div>
+      <h3 className="text-lg font-semibold text-white p-4 text-left">Sertif 2</h3>
     </article>
   </div>
 </section>
