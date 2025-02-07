@@ -90,37 +90,54 @@ function Certificate() {
                                 <path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"></path>
                             </svg>Say Hi</a>
                     </div>
-
                     <div>
                         <div className="flex flex-col gap-3 text-base leading-7 sm:gap-4 sm:text-lg sm:leading-8"
                             style={{ textAlign: "justify" }}
                         >
+                            {/* sertifikat */}
                             <section className="sertif-section py-10">
                                 <h1 className="text-xl font-semibold text-zinc-100 sm:text-2xl text-center mb-6">
                                     My Certificate
                                 </h1>
-
                                 <div className="sertif-container grid grid-cols-1 md:grid-cols-2 gap-6 px-4">
                                     <article className="sertif bg-zinc-800 rounded-lg shadow-md overflow-hidden">
                                         <div className="sertif-image">
                                             <img
-                                                src="https://marketplace.canva.com/EAF3lV78vig/1/0/1600w/canva-biru-emas-ornamen-klasik-sertifikat-penghargaan-kT1JTV7bIVQ.jpg"
-                                                alt="Sertifikat 1"
+                                                src="https://media.licdn.com/dms/image/v2/D562DAQFwzAzIww22lw/profile-treasury-document-cover-images_480/profile-treasury-document-cover-images_480/0/1734580344063?e=1739556000&v=beta&t=5FzP6ZVUVGgunEaPbMUbroYw1HDsBJvoRAUOgVhuE2Q"
+                                                alt=""
                                                 className="w-full object-cover"
                                             />
                                         </div>
-                                        <h3 className="text-lg font-semibold text-white p-4 text-left">Sertif 1</h3>
+                                        <h3 className="text-lg font-semibold text-white p-4 text-left">Learn to Implement Machine Learning with Google Cloud</h3>
                                     </article>
-
                                     <article className="sertif bg-zinc-800 rounded-lg shadow-md overflow-hidden">
                                         <div className="sertif-image">
                                             <img
-                                                src="https://marketplace.canva.com/EAF3lV78vig/1/0/1600w/canva-biru-emas-ornamen-klasik-sertifikat-penghargaan-kT1JTV7bIVQ.jpg"
-                                                alt="Sertifikat 2"
+                                                src="https://media.licdn.com/dms/image/v2/D562DAQHNt_vwKQpvVg/profile-treasury-document-cover-images_480/profile-treasury-document-cover-images_480/0/1734579957690?e=1739556000&v=beta&t=MCz-6oPJ1S7HOpJSjEp3tks2DGeBjtpu_Swrzequzbo"
+                                                alt=""
                                                 className="w-full object-cover"
                                             />
                                         </div>
-                                        <h3 className="text-lg font-semibold text-white p-4 text-left">Sertif 2</h3>
+                                        <h3 className="text-lg font-semibold text-white p-4 text-left">Become a Google Cloud Engineer</h3>
+                                    </article>
+                                </div>
+                            </section>
+
+                            <section className="sertif-section py-1">
+                                <h1 className="text-xl font-semibold text-zinc-100 sm:text-2xl text-center mb-6">
+                                    My Bagdes
+                                </h1>
+                                <div className="sertif-container grid grid-cols-1 md:grid-cols-2 gap-6 px-4">
+                                    <article className="sertif bg-zinc-800 rounded-lg shadow-md overflow-hidden">
+                                        <div className="sertif-image">
+                                            <img
+                                                src="https://cdn.qwiklabs.com/eqWmX686YYguvJJXCghylMhakSAz6cwGVA0AyLcY0YI%3D"
+                                                alt=""
+                                                className="w-full object-cover"
+                                            />
+                                        </div>
+                                        <h3 className="text-lg font-semibold text-white p-4 text-left">
+                                        </h3>
                                     </article>
                                 </div>
                             </section>
