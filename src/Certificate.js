@@ -1,6 +1,6 @@
-import './App.css';
+import React from 'react';
 
-function App() {
+function Certificate() {
   return (
     <div>
       <div className="bg-zinc-900 text-zinc-400">
@@ -188,26 +188,7 @@ function App() {
                 </a>
               </p>
 
-              <section id="skills" className="skills-section">
-                <h1 className="text-xl font-semibold text-zinc-100 sm:text-2xl">
-                  Skills
-                </h1>
-                <br />
-                <ul className="skills-list" id="skillsContainer">
-                  <li className="skill-item">HTML</li>
-                  <li className="skill-item">CSS</li>
-                  <li className="skill-item">JavaScript</li>
-                  <li className="skill-item">React</li>
-                  <li className="skill-item">Bootstrap</li>
-                  <li className="skill-item">Next.js</li>
-                  <li className="skill-item">Node.js</li>
-                  <li className="skill-item">Git</li>
-                  <li className="skill-item">Tailwind</li>
-                  <li className="skill-item">REST API</li>
-                  <li className="skill-item">GraphQL</li>
-                </ul>
-              </section>
-
+                {/* my project */}
               <section className="skills-section">
                 <h1 className="text-xl font-semibold text-zinc-100 sm:text-2xl">
                   My Project
@@ -266,150 +247,7 @@ function App() {
                 </div>
               </section>
 
-              <section id="experiences" className="skills-section">
-                <h1 className="text-xl font-semibold text-zinc-100 sm:text-2xl">
-                  My Experience
-                </h1>
-                <br />
-                <div className="mt-1 sm:mt-2 grid grid-cols-1 gap-4 md:grid-cols-2">
-                  <div className="grid gap-4">
-                    <div className="rounded-xl bg-zinc-800 p-3 sm:p-4" >
-                      <div className="mb-3 sm:mb-4 flex items-center gap-3" >
-                        <img className="h-[40px] w-[40px] rounded-full" src="/assets/lintasarta.png"
-                          alt=" Company Lintasarta" />
-                        <div>
-                          <h3 className="text-base sm:text-lg font-semibold">
-                            Company Lintasarta
-                          </h3>
-                          <p className="text-xs sm:text-sm text-zinc-400">
-                            Capstone Project Bangkit Academy
-                          </p>
-                        </div>
-                      </div>
-                      <div className="flex flex-col gap-4">
-                        <p className="text-sm sm:text-base text-justify">
-                          Developed an employee recruitment website using React over two months as part of the
-                          Capstone Project at Lintasarta, focusing on frontend development and user
-                          experience.
-                        </p>
-                      </div>
-                    </div>
-
-                    <div className="rounded-xl bg-zinc-800 p-3 sm:p-4" >
-                      <div className="mb-3 sm:mb-4 flex items-center gap-3">
-                        <img className="h-[40px] w-[40px] rounded-full" src="/assets/nf.jpg"
-                          alt="Assistan Lecturer 2024" />
-                        <div>
-                          <h3 className="text-base sm:text-lg font-semibold">
-                            Assistan Lecturer 2024
-                          </h3>
-                          <p className="text-xs sm:text-sm text-zinc-400">
-                            STT Terpadu Nurul Fikri
-                          </p>
-                        </div>
-                      </div>
-                      <div className="flex flex-col gap-4">
-                        <p className="text-sm sm:text-base text-justify">
-                          Assisted in teaching the Big Data course for one semester, helping students
-                          understand data processing, analytics, and visualization concepts. Provided guidance
-                          in practical assignments, facilitated discussions, and supported the lecturer in
-                          className activities.
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="grid gap-4" >
-                    <div className="rounded-xl bg-zinc-800 p-3 sm:p-4" >
-                      <div className="mb-3 sm:mb-4 flex items-center gap-3">
-                        <img className="h-[40px] w-[40px] rounded-full"
-                          src="https://files.klob.id/public/mig01/l32ovhf5/channels4_profile.jpg"
-                          alt="Bangkit Academy 2024" />
-                        <div>
-                          <h3 className="text-base sm:text-lg font-semibold">
-                            Bangkit Academy 2024
-                          </h3>
-                          <p className="text-xs sm:text-sm text-zinc-400">
-                            Cloud Computing Cohort CC-23
-                          </p>
-                        </div>
-                      </div>
-                      <div className="flex flex-col gap-4">
-                        <p className="text-sm sm:text-base text-justify">
-                          Participated in the Kampus Merdeka program for four months, focusing on the Cloud
-                          Computing learning path.
-                        </p>
-                      </div>
-                    </div>
-                    <div className="rounded-xl bg-zinc-800 p-3 sm:p-4" >
-                      <div className="mb-3 sm:mb-4 flex items-center gap-3">
-                        <img className="h-[40px] w-[40px] rounded-full" src="/assets/senada.jpg"
-                          alt="Head of the Quran Program Department" />
-                        <div>
-                          <h3 className="text-base sm:text-lg font-semibold">
-                            Leader of the PQ
-                          </h3>
-                          <p className="text-xs sm:text-sm text-zinc-400">
-                            LDK Senada STT NF
-                          </p>
-                        </div>
-                      </div>
-                      <div className="flex flex-col gap-4">
-                        <p className="text-sm sm:text-base text-justify">
-                          an Islamic organization on the STT Nurul Fikri campus
-                        </p>
-                      </div>
-                    </div>
-                    <div className="rounded-xl bg-zinc-800 p-3 sm:p-4" >
-                      <div className="mb-3 sm:mb-4 flex items-center gap-3">
-                        <img className="h-[40px] w-[40px] rounded-full" src="/assets/pintar.png"
-                          alt="Freelance Translator" />
-                        <div>
-                          <h3 className="text-base sm:text-lg font-semibold">
-                            Freelance Translator
-                          </h3>
-                          <p className="text-xs sm:text-sm text-zinc-400">
-                            Malay translator at PINTAR
-                          </p>
-                        </div>
-                      </div>
-                      <div className="flex flex-col gap-4">
-                        <p className="text-sm sm:text-base text-justify">
-                          Translated Malay language documents for two months at PINTAR.
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </section>
-
-              <section className="skills-section">
-                <h1 className="text-xl font-semibold text-zinc-100 sm:text-2xl">
-                  Github Activity Graph
-                </h1>
-                <br />
-                <div className="projects-container">
-                  <article className="graph">
-                    <div className="graph-image">
-                      <img src="/assets/github-contribution-grid-snake-dark.svg" alt="" />
-                      <img src="https://github-readme-activity-graph.vercel.app/graph?username=fatkhurrhn&theme=github-compact&hide_border=true"
-                        className="border-none" height="auto" alt="by fatkhurhhn" />
-                    </div>
-                  </article>
-                  <p style={{ textAlign: "left", fontSize: "16px", color: "rgba(134, 134, 134, 0.9)" }}>
-                    See more{" "}
-                    <a
-                      href="https://github.com/fatkhurrhn"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      style={{ color: "#327ed0", textDecoration: "none", fontWeight: "bold" }}
-                    >
-                      here
-                    </a>
-                  </p>
-
-                </div>
-              </section>
-
+                {/* contact */}
               <section id="contact" className="max-w-3xl mx-auto p-6 bg-[#2d2d2f] rounded-xl shadow-lg mt-2">
                 <h2 className="text-xl font-semibold text-center mb-1 text-gray-50">Contact Me</h2>
                 <p className="text-center text-gray-400 mb-4">Feel free to reach out via email or this form.</p>
@@ -429,26 +267,10 @@ function App() {
 
             </div>
           </div>
-          <div id="overlay" className="overlay"></div>
-          <div id="popup" className="popup">
-            <div className="popup-content">
-              <div className="wave mb-4">👋</div>
-              <h2 className="text-lg font-semibold">hi, how can I help you?</h2>
-              <form onsubmit="sendMessage(event)" className="mt-4">
-                <textarea id="popup-message" placeholder="Type your message..." rows="3"
-                  className="w-full px-3 py-2 bg-[#3a3a3c] border border-[#4a4a4d] rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-[#6c6c6e] focus:border-[#6c6c6e] transition-all"></textarea>
-                <button type="submit"
-                  className="w-full py-2 bg-[#4c4f56] text-white rounded-lg font-semibold text-sm hover:bg-[#393c42] focus:ring-2 focus:ring-[#6c6c6e] transition-all mt-4">
-                  Send Message
-                </button>
-              </form>
-              <span className="popup-close" onclick="closePopup()">×</span>
-            </div>
-          </div>
         </div>
       </div>
     </div>
   );
 }
 
-export default App;
+export default Certificate;
