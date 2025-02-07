@@ -100,48 +100,326 @@ function Certificate() {
                                     My Certificate
                                 </h1>
                                 <div className="sertif-container grid grid-cols-1 md:grid-cols-2 gap-6 px-4">
-                                    <article className="sertif bg-zinc-800 rounded-lg shadow-md overflow-hidden">
+                                    <article className="sertif bg-[#27272a] rounded-lg shadow-md overflow-hidden border border-zinc-700">
                                         <div className="sertif-image">
-                                            <img
-                                                src="https://media.licdn.com/dms/image/v2/D562DAQFwzAzIww22lw/profile-treasury-document-cover-images_480/profile-treasury-document-cover-images_480/0/1734580344063?e=1739556000&v=beta&t=5FzP6ZVUVGgunEaPbMUbroYw1HDsBJvoRAUOgVhuE2Q"
-                                                alt=""
-                                                className="w-full object-cover"
-                                            />
+                                            <img src="https://media.licdn.com/dms/image/v2/D562DAQFwzAzIww22lw/profile-treasury-document-cover-images_480/profile-treasury-document-cover-images_480/0/1734580344063?e=1739556000&v=beta&t=5FzP6ZVUVGgunEaPbMUbroYw1HDsBJvoRAUOgVhuE2Q" alt="Badge" className="w-full object-cover" />
                                         </div>
-                                        <h3 className="text-lg font-semibold text-white p-4 text-left">Learn to Implement Machine Learning with Google Cloud</h3>
+                                        <div className="p-3">
+                                            <h3 className="text-sm font-medium text-zinc-300 text-left">Issued Dec 2024 - Expries Dec 2027</h3>
+                                            <a href="https://example.com/course" target="_blank" rel="noopener noreferrer" className="mt-2 inline-block w-full bg-[#323236] hover:bg-[#3b3b40] text-zinc-300 hover:text-white font-medium py-2 px-3 rounded-md transition duration-200 text-center text-xs">View Course</a>
+                                        </div>
                                     </article>
-                                    <article className="sertif bg-zinc-800 rounded-lg shadow-md overflow-hidden">
+                                    <article className="sertif bg-[#27272a] rounded-lg shadow-md overflow-hidden border border-zinc-700">
                                         <div className="sertif-image">
-                                            <img
-                                                src="https://media.licdn.com/dms/image/v2/D562DAQHNt_vwKQpvVg/profile-treasury-document-cover-images_480/profile-treasury-document-cover-images_480/0/1734579957690?e=1739556000&v=beta&t=MCz-6oPJ1S7HOpJSjEp3tks2DGeBjtpu_Swrzequzbo"
-                                                alt=""
-                                                className="w-full object-cover"
-                                            />
+                                            <img src="https://media.licdn.com/dms/image/v2/D562DAQHNt_vwKQpvVg/profile-treasury-document-cover-images_480/profile-treasury-document-cover-images_480/0/1734579957690?e=1739556000&v=beta&t=MCz-6oPJ1S7HOpJSjEp3tks2DGeBjtpu_Swrzequzbo" alt="Badge" className="w-full object-cover" />
                                         </div>
-                                        <h3 className="text-lg font-semibold text-white p-4 text-left">Become a Google Cloud Engineer</h3>
+                                        <div className="p-3">
+                                            <h3 className="text-sm font-medium text-zinc-300 text-left">Issued Nov 2024 - Expries Nov 2027</h3>
+                                            <a href="https://example.com/course" target="_blank" rel="noopener noreferrer" className="mt-2 inline-block w-full bg-[#323236] hover:bg-[#3b3b40] text-zinc-300 hover:text-white font-medium py-2 px-3 rounded-md transition duration-200 text-center text-xs">View Course</a>
+                                        </div>
                                     </article>
                                 </div>
                             </section>
 
                             <section className="sertif-section py-1">
                                 <h1 className="text-xl font-semibold text-zinc-100 sm:text-2xl text-center mb-6">
-                                    My Bagdes
+                                    My Badges
                                 </h1>
                                 <div className="sertif-container grid grid-cols-1 md:grid-cols-2 gap-6 px-4">
-                                    <article className="sertif bg-zinc-800 rounded-lg shadow-md overflow-hidden">
+                                <article className="sertif bg-[#27272a] rounded-lg shadow-md overflow-hidden border border-zinc-700">
                                         <div className="sertif-image">
-                                            <img
-                                                src="https://cdn.qwiklabs.com/eqWmX686YYguvJJXCghylMhakSAz6cwGVA0AyLcY0YI%3D"
-                                                alt=""
-                                                className="w-full object-cover"
-                                            />
+                                            <img src="" alt="Badge" className="w-full object-cover"/>
                                         </div>
-                                        <h3 className="text-lg font-semibold text-white p-4 text-left">
-                                        </h3>
+                                        <div className="p-3">
+                                            <h3 className="text-sm font-medium text-zinc-300 text-left">Earned Nov, 2024 EDT</h3>
+                                            <a href="" target="_blank" rel="noopener noreferrer" className="mt-2 inline-block w-full bg-[#323236] hover:bg-[#3b3b40] text-zinc-300 hover:text-white font-medium py-2 px-3 rounded-md transition duration-200 text-center text-xs">View Course</a>
+                                        </div>
+                                    </article>
+                                    <article className="sertif bg-[#27272a] rounded-lg shadow-md overflow-hidden border border-zinc-700">
+                                        <div className="sertif-image">
+                                            <img src="" alt="Badge" className="w-full object-cover"/>
+                                        </div>
+                                        <div className="p-3">
+                                            <h3 className="text-sm font-medium text-zinc-300 text-left">Earned Nov, 2024 EDT</h3>
+                                            <a href="" target="_blank" rel="noopener noreferrer" className="mt-2 inline-block w-full bg-[#323236] hover:bg-[#3b3b40] text-zinc-300 hover:text-white font-medium py-2 px-3 rounded-md transition duration-200 text-center text-xs">View Course</a>
+                                        </div>
+                                    </article>
+                                    <article className="sertif bg-[#27272a] rounded-lg shadow-md overflow-hidden border border-zinc-700">
+                                        <div className="sertif-image">
+                                            <img src="" alt="Badge" className="w-full object-cover"/>
+                                        </div>
+                                        <div className="p-3">
+                                            <h3 className="text-sm font-medium text-zinc-300 text-left">Earned Nov, 2024 EDT</h3>
+                                            <a href="" target="_blank" rel="noopener noreferrer" className="mt-2 inline-block w-full bg-[#323236] hover:bg-[#3b3b40] text-zinc-300 hover:text-white font-medium py-2 px-3 rounded-md transition duration-200 text-center text-xs">View Course</a>
+                                        </div>
+                                    </article>
+                                    <article className="sertif bg-[#27272a] rounded-lg shadow-md overflow-hidden border border-zinc-700">
+                                        <div className="sertif-image">
+                                            <img src="" alt="Badge" className="w-full object-cover"/>
+                                        </div>
+                                        <div className="p-3">
+                                            <h3 className="text-sm font-medium text-zinc-300 text-left">Earned Nov, 2024 EDT</h3>
+                                            <a href="" target="_blank" rel="noopener noreferrer" className="mt-2 inline-block w-full bg-[#323236] hover:bg-[#3b3b40] text-zinc-300 hover:text-white font-medium py-2 px-3 rounded-md transition duration-200 text-center text-xs">View Course</a>
+                                        </div>
+                                    </article>
+                                    <article className="sertif bg-[#27272a] rounded-lg shadow-md overflow-hidden border border-zinc-700">
+                                        <div className="sertif-image">
+                                            <img src="" alt="Badge" className="w-full object-cover"/>
+                                        </div>
+                                        <div className="p-3">
+                                            <h3 className="text-sm font-medium text-zinc-300 text-left">Earned Nov, 2024 EDT</h3>
+                                            <a href="" target="_blank" rel="noopener noreferrer" className="mt-2 inline-block w-full bg-[#323236] hover:bg-[#3b3b40] text-zinc-300 hover:text-white font-medium py-2 px-3 rounded-md transition duration-200 text-center text-xs">View Course</a>
+                                        </div>
+                                    </article>
+                                    <article className="sertif bg-[#27272a] rounded-lg shadow-md overflow-hidden border border-zinc-700">
+                                        <div className="sertif-image">
+                                            <img src="" alt="Badge" className="w-full object-cover"/>
+                                        </div>
+                                        <div className="p-3">
+                                            <h3 className="text-sm font-medium text-zinc-300 text-left">Earned Nov, 2024 EDT</h3>
+                                            <a href="" target="_blank" rel="noopener noreferrer" className="mt-2 inline-block w-full bg-[#323236] hover:bg-[#3b3b40] text-zinc-300 hover:text-white font-medium py-2 px-3 rounded-md transition duration-200 text-center text-xs">View Course</a>
+                                        </div>
+                                    </article>
+                                    <article className="sertif bg-[#27272a] rounded-lg shadow-md overflow-hidden border border-zinc-700">
+                                        <div className="sertif-image">
+                                            <img src="" alt="Badge" className="w-full object-cover"/>
+                                        </div>
+                                        <div className="p-3">
+                                            <h3 className="text-sm font-medium text-zinc-300 text-left">Earned Nov, 2024 EDT</h3>
+                                            <a href="" target="_blank" rel="noopener noreferrer" className="mt-2 inline-block w-full bg-[#323236] hover:bg-[#3b3b40] text-zinc-300 hover:text-white font-medium py-2 px-3 rounded-md transition duration-200 text-center text-xs">View Course</a>
+                                        </div>
+                                    </article>
+                                    <article className="sertif bg-[#27272a] rounded-lg shadow-md overflow-hidden border border-zinc-700">
+                                        <div className="sertif-image">
+                                            <img src="" alt="Badge" className="w-full object-cover"/>
+                                        </div>
+                                        <div className="p-3">
+                                            <h3 className="text-sm font-medium text-zinc-300 text-left">Earned Nov, 2024 EDT</h3>
+                                            <a href="" target="_blank" rel="noopener noreferrer" className="mt-2 inline-block w-full bg-[#323236] hover:bg-[#3b3b40] text-zinc-300 hover:text-white font-medium py-2 px-3 rounded-md transition duration-200 text-center text-xs">View Course</a>
+                                        </div>
+                                    </article>
+                                    <article className="sertif bg-[#27272a] rounded-lg shadow-md overflow-hidden border border-zinc-700">
+                                        <div className="sertif-image">
+                                            <img src="" alt="Badge" className="w-full object-cover"/>
+                                        </div>
+                                        <div className="p-3">
+                                            <h3 className="text-sm font-medium text-zinc-300 text-left">Earned Nov, 2024 EDT</h3>
+                                            <a href="" target="_blank" rel="noopener noreferrer" className="mt-2 inline-block w-full bg-[#323236] hover:bg-[#3b3b40] text-zinc-300 hover:text-white font-medium py-2 px-3 rounded-md transition duration-200 text-center text-xs">View Course</a>
+                                        </div>
+                                    </article>
+                                    <article className="sertif bg-[#27272a] rounded-lg shadow-md overflow-hidden border border-zinc-700">
+                                        <div className="sertif-image">
+                                            <img src="" alt="Badge" className="w-full object-cover"/>
+                                        </div>
+                                        <div className="p-3">
+                                            <h3 className="text-sm font-medium text-zinc-300 text-left">Earned Nov, 2024 EDT</h3>
+                                            <a href="" target="_blank" rel="noopener noreferrer" className="mt-2 inline-block w-full bg-[#323236] hover:bg-[#3b3b40] text-zinc-300 hover:text-white font-medium py-2 px-3 rounded-md transition duration-200 text-center text-xs">View Course</a>
+                                        </div>
+                                    </article>
+                                    <article className="sertif bg-[#27272a] rounded-lg shadow-md overflow-hidden border border-zinc-700">
+                                        <div className="sertif-image">
+                                            <img src="" alt="Badge" className="w-full object-cover"/>
+                                        </div>
+                                        <div className="p-3">
+                                            <h3 className="text-sm font-medium text-zinc-300 text-left">Earned Nov, 2024 EDT</h3>
+                                            <a href="" target="_blank" rel="noopener noreferrer" className="mt-2 inline-block w-full bg-[#323236] hover:bg-[#3b3b40] text-zinc-300 hover:text-white font-medium py-2 px-3 rounded-md transition duration-200 text-center text-xs">View Course</a>
+                                        </div>
+                                    </article>
+                                    <article className="sertif bg-[#27272a] rounded-lg shadow-md overflow-hidden border border-zinc-700">
+                                        <div className="sertif-image">
+                                            <img src="" alt="Badge" className="w-full object-cover"/>
+                                        </div>
+                                        <div className="p-3">
+                                            <h3 className="text-sm font-medium text-zinc-300 text-left">Earned Nov, 2024 EDT</h3>
+                                            <a href="" target="_blank" rel="noopener noreferrer" className="mt-2 inline-block w-full bg-[#323236] hover:bg-[#3b3b40] text-zinc-300 hover:text-white font-medium py-2 px-3 rounded-md transition duration-200 text-center text-xs">View Course</a>
+                                        </div>
+                                    </article>
+                                    <article className="sertif bg-[#27272a] rounded-lg shadow-md overflow-hidden border border-zinc-700">
+                                        <div className="sertif-image">
+                                            <img src="" alt="Badge" className="w-full object-cover"/>
+                                        </div>
+                                        <div className="p-3">
+                                            <h3 className="text-sm font-medium text-zinc-300 text-left">Earned Nov, 2024 EDT</h3>
+                                            <a href="" target="_blank" rel="noopener noreferrer" className="mt-2 inline-block w-full bg-[#323236] hover:bg-[#3b3b40] text-zinc-300 hover:text-white font-medium py-2 px-3 rounded-md transition duration-200 text-center text-xs">View Course</a>
+                                        </div>
+                                    </article>
+                                    <article className="sertif bg-[#27272a] rounded-lg shadow-md overflow-hidden border border-zinc-700">
+                                        <div className="sertif-image">
+                                            <img src="" alt="Badge" className="w-full object-cover"/>
+                                        </div>
+                                        <div className="p-3">
+                                            <h3 className="text-sm font-medium text-zinc-300 text-left">Earned Nov, 2024 EDT</h3>
+                                            <a href="" target="_blank" rel="noopener noreferrer" className="mt-2 inline-block w-full bg-[#323236] hover:bg-[#3b3b40] text-zinc-300 hover:text-white font-medium py-2 px-3 rounded-md transition duration-200 text-center text-xs">View Course</a>
+                                        </div>
+                                    </article>
+                                    <article className="sertif bg-[#27272a] rounded-lg shadow-md overflow-hidden border border-zinc-700">
+                                        <div className="sertif-image">
+                                            <img src="" alt="Badge" className="w-full object-cover"/>
+                                        </div>
+                                        <div className="p-3">
+                                            <h3 className="text-sm font-medium text-zinc-300 text-left">Earned Nov, 2024 EDT</h3>
+                                            <a href="" target="_blank" rel="noopener noreferrer" className="mt-2 inline-block w-full bg-[#323236] hover:bg-[#3b3b40] text-zinc-300 hover:text-white font-medium py-2 px-3 rounded-md transition duration-200 text-center text-xs">View Course</a>
+                                        </div>
+                                    </article>
+                                    <article className="sertif bg-[#27272a] rounded-lg shadow-md overflow-hidden border border-zinc-700">
+                                        <div className="sertif-image">
+                                            <img src="" alt="Badge" className="w-full object-cover"/>
+                                        </div>
+                                        <div className="p-3">
+                                            <h3 className="text-sm font-medium text-zinc-300 text-left">Earned Nov, 2024 EDT</h3>
+                                            <a href="" target="_blank" rel="noopener noreferrer" className="mt-2 inline-block w-full bg-[#323236] hover:bg-[#3b3b40] text-zinc-300 hover:text-white font-medium py-2 px-3 rounded-md transition duration-200 text-center text-xs">View Course</a>
+                                        </div>
+                                    </article>
+                                    <article className="sertif bg-[#27272a] rounded-lg shadow-md overflow-hidden border border-zinc-700">
+                                        <div className="sertif-image">
+                                            <img src="" alt="Badge" className="w-full object-cover"/>
+                                        </div>
+                                        <div className="p-3">
+                                            <h3 className="text-sm font-medium text-zinc-300 text-left">Earned Nov, 2024 EDT</h3>
+                                            <a href="" target="_blank" rel="noopener noreferrer" className="mt-2 inline-block w-full bg-[#323236] hover:bg-[#3b3b40] text-zinc-300 hover:text-white font-medium py-2 px-3 rounded-md transition duration-200 text-center text-xs">View Course</a>
+                                        </div>
+                                    </article>
+                                    <article className="sertif bg-[#27272a] rounded-lg shadow-md overflow-hidden border border-zinc-700">
+                                        <div className="sertif-image">
+                                            <img src="" alt="Badge" className="w-full object-cover"/>
+                                        </div>
+                                        <div className="p-3">
+                                            <h3 className="text-sm font-medium text-zinc-300 text-left">Earned Nov, 2024 EDT</h3>
+                                            <a href="" target="_blank" rel="noopener noreferrer" className="mt-2 inline-block w-full bg-[#323236] hover:bg-[#3b3b40] text-zinc-300 hover:text-white font-medium py-2 px-3 rounded-md transition duration-200 text-center text-xs">View Course</a>
+                                        </div>
+                                    </article>
+                                    <article className="sertif bg-[#27272a] rounded-lg shadow-md overflow-hidden border border-zinc-700">
+                                        <div className="sertif-image">
+                                            <img src="" alt="Badge" className="w-full object-cover"/>
+                                        </div>
+                                        <div className="p-3">
+                                            <h3 className="text-sm font-medium text-zinc-300 text-left">Earned Nov, 2024 EDT</h3>
+                                            <a href="" target="_blank" rel="noopener noreferrer" className="mt-2 inline-block w-full bg-[#323236] hover:bg-[#3b3b40] text-zinc-300 hover:text-white font-medium py-2 px-3 rounded-md transition duration-200 text-center text-xs">View Course</a>
+                                        </div>
+                                    </article>
+                                    <article className="sertif bg-[#27272a] rounded-lg shadow-md overflow-hidden border border-zinc-700">
+                                        <div className="sertif-image">
+                                            <img src="" alt="Badge" className="w-full object-cover"/>
+                                        </div>
+                                        <div className="p-3">
+                                            <h3 className="text-sm font-medium text-zinc-300 text-left">Earned Nov, 2024 EDT</h3>
+                                            <a href="" target="_blank" rel="noopener noreferrer" className="mt-2 inline-block w-full bg-[#323236] hover:bg-[#3b3b40] text-zinc-300 hover:text-white font-medium py-2 px-3 rounded-md transition duration-200 text-center text-xs">View Course</a>
+                                        </div>
+                                    </article>
+                                    <article className="sertif bg-[#27272a] rounded-lg shadow-md overflow-hidden border border-zinc-700">
+                                        <div className="sertif-image">
+                                            <img src="" alt="Badge" className="w-full object-cover"/>
+                                        </div>
+                                        <div className="p-3">
+                                            <h3 className="text-sm font-medium text-zinc-300 text-left">Earned Nov, 2024 EDT</h3>
+                                            <a href="" target="_blank" rel="noopener noreferrer" className="mt-2 inline-block w-full bg-[#323236] hover:bg-[#3b3b40] text-zinc-300 hover:text-white font-medium py-2 px-3 rounded-md transition duration-200 text-center text-xs">View Course</a>
+                                        </div>
+                                    </article>
+                                    <article className="sertif bg-[#27272a] rounded-lg shadow-md overflow-hidden border border-zinc-700">
+                                        <div className="sertif-image">
+                                            <img src="" alt="Badge" className="w-full object-cover"/>
+                                        </div>
+                                        <div className="p-3">
+                                            <h3 className="text-sm font-medium text-zinc-300 text-left">Earned Nov, 2024 EDT</h3>
+                                            <a href="" target="_blank" rel="noopener noreferrer" className="mt-2 inline-block w-full bg-[#323236] hover:bg-[#3b3b40] text-zinc-300 hover:text-white font-medium py-2 px-3 rounded-md transition duration-200 text-center text-xs">View Course</a>
+                                        </div>
+                                    </article>
+                                    <article className="sertif bg-[#27272a] rounded-lg shadow-md overflow-hidden border border-zinc-700">
+                                        <div className="sertif-image">
+                                            <img src="" alt="Badge" className="w-full object-cover"/>
+                                        </div>
+                                        <div className="p-3">
+                                            <h3 className="text-sm font-medium text-zinc-300 text-left">Earned Nov, 2024 EDT</h3>
+                                            <a href="" target="_blank" rel="noopener noreferrer" className="mt-2 inline-block w-full bg-[#323236] hover:bg-[#3b3b40] text-zinc-300 hover:text-white font-medium py-2 px-3 rounded-md transition duration-200 text-center text-xs">View Course</a>
+                                        </div>
+                                    </article>
+                                    <article className="sertif bg-[#27272a] rounded-lg shadow-md overflow-hidden border border-zinc-700">
+                                        <div className="sertif-image">
+                                            <img src="" alt="Badge" className="w-full object-cover"/>
+                                        </div>
+                                        <div className="p-3">
+                                            <h3 className="text-sm font-medium text-zinc-300 text-left">Earned Nov, 2024 EDT</h3>
+                                            <a href="" target="_blank" rel="noopener noreferrer" className="mt-2 inline-block w-full bg-[#323236] hover:bg-[#3b3b40] text-zinc-300 hover:text-white font-medium py-2 px-3 rounded-md transition duration-200 text-center text-xs">View Course</a>
+                                        </div>
+                                    </article>
+                                    <article className="sertif bg-[#27272a] rounded-lg shadow-md overflow-hidden border border-zinc-700">
+                                        <div className="sertif-image">
+                                            <img src="" alt="Badge" className="w-full object-cover"/>
+                                        </div>
+                                        <div className="p-3">
+                                            <h3 className="text-sm font-medium text-zinc-300 text-left">Earned Nov, 2024 EDT</h3>
+                                            <a href="" target="_blank" rel="noopener noreferrer" className="mt-2 inline-block w-full bg-[#323236] hover:bg-[#3b3b40] text-zinc-300 hover:text-white font-medium py-2 px-3 rounded-md transition duration-200 text-center text-xs">View Course</a>
+                                        </div>
+                                    </article>
+                                    <article className="sertif bg-[#27272a] rounded-lg shadow-md overflow-hidden border border-zinc-700">
+                                        <div className="sertif-image">
+                                            <img src="" alt="Badge" className="w-full object-cover"/>
+                                        </div>
+                                        <div className="p-3">
+                                            <h3 className="text-sm font-medium text-zinc-300 text-left">Earned Nov, 2024 EDT</h3>
+                                            <a href="" target="_blank" rel="noopener noreferrer" className="mt-2 inline-block w-full bg-[#323236] hover:bg-[#3b3b40] text-zinc-300 hover:text-white font-medium py-2 px-3 rounded-md transition duration-200 text-center text-xs">View Course</a>
+                                        </div>
+                                    </article>
+                                    <article className="sertif bg-[#27272a] rounded-lg shadow-md overflow-hidden border border-zinc-700">
+                                        <div className="sertif-image">
+                                            <img src="" alt="Badge" className="w-full object-cover"/>
+                                        </div>
+                                        <div className="p-3">
+                                            <h3 className="text-sm font-medium text-zinc-300 text-left">Earned Nov, 2024 EDT</h3>
+                                            <a href="" target="_blank" rel="noopener noreferrer" className="mt-2 inline-block w-full bg-[#323236] hover:bg-[#3b3b40] text-zinc-300 hover:text-white font-medium py-2 px-3 rounded-md transition duration-200 text-center text-xs">View Course</a>
+                                        </div>
+                                    </article>
+                                    <article className="sertif bg-[#27272a] rounded-lg shadow-md overflow-hidden border border-zinc-700">
+                                        <div className="sertif-image">
+                                            <img src="" alt="Badge" className="w-full object-cover"/>
+                                        </div>
+                                        <div className="p-3">
+                                            <h3 className="text-sm font-medium text-zinc-300 text-left">Earned Nov, 2024 EDT</h3>
+                                            <a href="" target="_blank" rel="noopener noreferrer" className="mt-2 inline-block w-full bg-[#323236] hover:bg-[#3b3b40] text-zinc-300 hover:text-white font-medium py-2 px-3 rounded-md transition duration-200 text-center text-xs">View Course</a>
+                                        </div>
+                                    </article>
+                                    <article className="sertif bg-[#27272a] rounded-lg shadow-md overflow-hidden border border-zinc-700">
+                                        <div className="sertif-image">
+                                            <img src="" alt="Badge" className="w-full object-cover"/>
+                                        </div>
+                                        <div className="p-3">
+                                            <h3 className="text-sm font-medium text-zinc-300 text-left">Earned Nov, 2024 EDT</h3>
+                                            <a href="" target="_blank" rel="noopener noreferrer" className="mt-2 inline-block w-full bg-[#323236] hover:bg-[#3b3b40] text-zinc-300 hover:text-white font-medium py-2 px-3 rounded-md transition duration-200 text-center text-xs">View Course</a>
+                                        </div>
+                                    </article>
+                                    <article className="sertif bg-[#27272a] rounded-lg shadow-md overflow-hidden border border-zinc-700">
+                                        <div className="sertif-image">
+                                            <img src="" alt="Badge" className="w-full object-cover"/>
+                                        </div>
+                                        <div className="p-3">
+                                            <h3 className="text-sm font-medium text-zinc-300 text-left">Earned Nov, 2024 EDT</h3>
+                                            <a href="" target="_blank" rel="noopener noreferrer" className="mt-2 inline-block w-full bg-[#323236] hover:bg-[#3b3b40] text-zinc-300 hover:text-white font-medium py-2 px-3 rounded-md transition duration-200 text-center text-xs">View Course</a>
+                                        </div>
+                                    </article>
+                                    <article className="sertif bg-[#27272a] rounded-lg shadow-md overflow-hidden border border-zinc-700">
+                                        <div className="sertif-image">
+                                            <img src="" alt="Badge" className="w-full object-cover"/>
+                                        </div>
+                                        <div className="p-3">
+                                            <h3 className="text-sm font-medium text-zinc-300 text-left">Earned Nov, 2024 EDT</h3>
+                                            <a href="" target="_blank" rel="noopener noreferrer" className="mt-2 inline-block w-full bg-[#323236] hover:bg-[#3b3b40] text-zinc-300 hover:text-white font-medium py-2 px-3 rounded-md transition duration-200 text-center text-xs">View Course</a>
+                                        </div>
+                                    </article>
+                                    <article className="sertif bg-[#27272a] rounded-lg shadow-md overflow-hidden border border-zinc-700">
+                                        <div className="sertif-image">
+                                            <img src="" alt="Badge" className="w-full object-cover"/>
+                                        </div>
+                                        <div className="p-3">
+                                            <h3 className="text-sm font-medium text-zinc-300 text-left">Earned Nov, 2024 EDT</h3>
+                                            <a href="" target="_blank" rel="noopener noreferrer" className="mt-2 inline-block w-full bg-[#323236] hover:bg-[#3b3b40] text-zinc-300 hover:text-white font-medium py-2 px-3 rounded-md transition duration-200 text-center text-xs">View Course</a>
+                                        </div>
                                     </article>
                                 </div>
                             </section>
 
+                            <br/>
+                            <br/>
+                            <br/>
                             {/* contact */}
                             <section id="contact" className="max-w-3xl mx-auto p-6 bg-[#2d2d2f] rounded-xl shadow-lg mt-2">
                                 <h2 className="text-xl font-semibold text-center mb-1 text-gray-50">Contact Me</h2>
