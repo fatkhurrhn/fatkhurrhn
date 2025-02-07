@@ -188,62 +188,28 @@ function Certificate() {
                 </a>
               </p>
 
-                {/* my project */}
+                {/* my sertif */}
               <section className="skills-section">
                 <h1 className="text-xl font-semibold text-zinc-100 sm:text-2xl">
-                  My Project
+                  My sertif
                 </h1>
                 <br />
                 <div className="projects-container">
-                  <article className="project" >
-                    <div className="project-content">
-                      <h3>Portfolio Using Next.js</h3>
-                      <p>
-                        Created a portfolio website using Next.js to showcase projects and skills with a
-                        responsive design.
-                      </p>
-                      <div className="project-buttons">
-                        <a href="https://github.com/fatkhurrhn/portfolio-next.js" className="btn view-project"
-                          target="">Demo</a>
-                        <a href="https://github.com/fatkhurrhn/portfolio-next.js" className="btn github-link"
-                          target="">GitHub</a>
-                      </div>
-                    </div>
-                    <div className="project-image">
-                      <img src="https://fatkhurrhn.github.io/assets/img/nextjs.png" alt="CarHub" />
-                    </div>
-                  </article>
-
                   <article className="project">
                     <div className="project-content">
-                      <h3>Laundry Go Apps Design</h3>
-                      <p>
-                        Designed the system for Laundry Go app, optimizing order management, payments, and user
-                        experience.</p>
+                        {/* nama sertif */}
+                      <h3>sertif 1</h3>
                       <div className="project-buttons">
                         <a href="https://www.linkedin.com/in/fatkhurrhn/details/projects/" className="btn view-project"
                           target="">Detail</a>
-                        <a href="https://www.figma.com/file/kgs4VB6hegAEifEfGHS7un/RPL-Tugas-8"
-                          className="btn github-link" target="">Figma</a>
                       </div>
                     </div>
                     <div className="project-image">
-                      <img src="https://media.licdn.com/dms/image/v2/D562DAQGlmvnW4ZjKxg/profile-treasury-image-shrink_800_800/profile-treasury-image-shrink_800_800/0/1728626490441?e=1739264400&v=beta&t=KxCYhT3I2Iqf8z--cmM_Z_boflwkPWFrA078lymNG7Q"
+                      <img src="https://marketplace.canva.com/EAF3lV78vig/1/0/1600w/canva-biru-emas-ornamen-klasik-sertifikat-penghargaan-kT1JTV7bIVQ.jpg"
                         alt="Realtor" />
                     </div>
                   </article>
-                  <p style={{ textAlign: "left", fontSize: "16px", color: "rgba(134, 134, 134, 0.9)" }}>
-                    See full my project{" "}
-                    <a
-                      href="https://github.com/fatkhurrhn"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      style={{ color: "#327ed0", textDecoration: "none", fontWeight: "bold" }}
-                    >
-                      here
-                    </a>
-                  </p>
-
+                  
                 </div>
               </section>
 
