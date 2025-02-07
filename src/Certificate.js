@@ -79,7 +79,7 @@ function Certificate() {
                   <path
                     d="M20 20a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.9a2 2 0 0 1-1.69-.9L9.6 3.9A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2Z">
                   </path>
-                </svg>Projects</a>
+                </svg>sertif</a>
             </div>
             <a className="relative flex items-center gap-2 py-3 pr-1 text-sm transition-colors hover:text-zinc-300 sm:text-base"
               href="https://github.com/fatkhurrhn" onclick="openPopup()" target="_self" data-astro-prefetch="load"><svg
@@ -189,27 +189,40 @@ function Certificate() {
               </p>
 
                 {/* my sertif */}
-              <section className="skills-section">
+              <section className="sertif-section">
                 <h1 className="text-xl font-semibold text-zinc-100 sm:text-2xl">
                   My sertif
                 </h1>
                 <br />
-                <div className="projects-container">
-                  <article className="project">
-                    <div className="project-content">
+                <div className="sertif-container">
+                  <article className="sertif">
+                    <div className="sertif-content">
                         {/* nama sertif */}
                       <h3>sertif 1</h3>
-                      <div className="project-buttons">
-                        <a href="https://www.linkedin.com/in/fatkhurrhn/details/projects/" className="btn view-project"
+                      <div className="sertif-buttons">
+                        <a href="https://www.dicoding.com/certificates/1OP848VN2ZQK" className="btn view-sertif"
                           target="">Detail</a>
                       </div>
                     </div>
-                    <div className="project-image">
+                    <div className="sertif-image">
                       <img src="https://marketplace.canva.com/EAF3lV78vig/1/0/1600w/canva-biru-emas-ornamen-klasik-sertifikat-penghargaan-kT1JTV7bIVQ.jpg"
                         alt="Realtor" />
                     </div>
                   </article>
-                  
+                  <article className="sertif">
+                    <div className="sertif-content">
+                        {/* nama sertif */}
+                      <h3>sertif 1</h3>
+                      <div className="sertif-buttons">
+                        <a href="https://www.dicoding.com/certificates/1OP848VN2ZQK" className="btn view-sertif"
+                          target="">Detail</a>
+                      </div>
+                    </div>
+                    <div className="sertif-image">
+                      <img src="https://marketplace.canva.com/EAF3lV78vig/1/0/1600w/canva-biru-emas-ornamen-klasik-sertifikat-penghargaan-kT1JTV7bIVQ.jpg"
+                        alt="Realtor" />
+                    </div>
+                  </article>
                 </div>
               </section>
 
