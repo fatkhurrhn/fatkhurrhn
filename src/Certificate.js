@@ -188,43 +188,60 @@ function Certificate() {
                 </a>
               </p>
 
-                {/* my sertif */}
-              <section className="sertif-section">
-                <h1 className="text-xl font-semibold text-zinc-100 sm:text-2xl">
-                  My sertif
-                </h1>
-                <br />
-                <div className="sertif-container">
-                  <article className="sertif">
-                    <div className="sertif-content">
-                        {/* nama sertif */}
-                      <h3>sertif 1</h3>
-                      <div className="sertif-buttons">
-                        <a href="https://www.dicoding.com/certificates/1OP848VN2ZQK" className="btn view-sertif"
-                          target="">Detail</a>
-                      </div>
-                    </div>
-                    <div className="sertif-image">
-                      <img src="https://marketplace.canva.com/EAF3lV78vig/1/0/1600w/canva-biru-emas-ornamen-klasik-sertifikat-penghargaan-kT1JTV7bIVQ.jpg"
-                        alt="Realtor" />
-                    </div>
-                  </article>
-                  <article className="sertif">
-                    <div className="sertif-content">
-                        {/* nama sertif */}
-                      <h3>sertif 1</h3>
-                      <div className="sertif-buttons">
-                        <a href="https://www.dicoding.com/certificates/1OP848VN2ZQK" className="btn view-sertif"
-                          target="">Detail</a>
-                      </div>
-                    </div>
-                    <div className="sertif-image">
-                      <img src="https://marketplace.canva.com/EAF3lV78vig/1/0/1600w/canva-biru-emas-ornamen-klasik-sertifikat-penghargaan-kT1JTV7bIVQ.jpg"
-                        alt="Realtor" />
-                    </div>
-                  </article>
-                </div>
-              </section>
+              <section className="sertif-section py-10">
+  <h1 className="text-xl font-semibold text-zinc-100 sm:text-2xl text-center mb-6">
+    My Sertif
+  </h1>
+  
+  <div className="sertif-container grid grid-cols-1 md:grid-cols-2 gap-6 px-4">
+    <article className="sertif bg-zinc-800 p-4 rounded-lg shadow-md flex flex-col items-center">
+      <div className="sertif-content text-center">
+        <h3 className="text-lg font-semibold text-white mb-2">Sertif 1</h3>
+        <div className="sertif-buttons">
+          <a 
+            href="https://www.dicoding.com/certificates/1OP848VN2ZQK" 
+            className="btn view-sertif bg-blue-500 text-white px-4 py-2 rounded-md transition hover:bg-blue-600"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Detail
+          </a>
+        </div>
+      </div>
+      <div className="sertif-image mt-4">
+        <img 
+          src="https://marketplace.canva.com/EAF3lV78vig/1/0/1600w/canva-biru-emas-ornamen-klasik-sertifikat-penghargaan-kT1JTV7bIVQ.jpg" 
+          alt="Sertifikat 1"
+          className="rounded-lg shadow-md w-full h-48 object-cover"
+        />
+      </div>
+    </article>
+
+    <article className="sertif bg-zinc-800 p-4 rounded-lg shadow-md flex flex-col items-center">
+      <div className="sertif-content text-center">
+        <h3 className="text-lg font-semibold text-white mb-2">Sertif 2</h3>
+        <div className="sertif-buttons">
+          <a 
+            href="https://www.dicoding.com/certificates/1OP848VN2ZQK" 
+            className="btn view-sertif bg-blue-500 text-white px-4 py-2 rounded-md transition hover:bg-blue-600"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Detail
+          </a>
+        </div>
+      </div>
+      <div className="sertif-image mt-4">
+        <img 
+          src="https://marketplace.canva.com/EAF3lV78vig/1/0/1600w/canva-biru-emas-ornamen-klasik-sertifikat-penghargaan-kT1JTV7bIVQ.jpg" 
+          alt="Sertifikat 2"
+          className="rounded-lg shadow-md w-full h-48 object-cover"
+        />
+      </div>
+    </article>
+  </div>
+</section>
+
 
                 {/* contact */}
               <section id="contact" className="max-w-3xl mx-auto p-6 bg-[#2d2d2f] rounded-xl shadow-lg mt-2">
