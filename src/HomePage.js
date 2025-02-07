@@ -8,7 +8,7 @@ function App() {
         <div className="mx-auto max-w-[750px] px-4 pb-20 pt-6 text-lg sm:px-12 md:px-16">
           <Navbar />
           <div>
-            <div className="mb-6 mt-8 flex items-center gap-4 sm:mb-8 sm:mt-16 sm:gap-5">
+            <div className="pt-[10px] mb-6 mt-8 flex items-center gap-4 sm:mb-8 sm:mt-16 sm:gap-5">
               <img src="https://image.clicky.id/673bd1d29c02e88889ec5bb4/profile-avatar/673cc13647a9ad53444be991.webp"
                 className="h-[65px] w-[65px] rounded-full sm:h-[80px] sm:w-[80px]" alt="Fatkhurrhn" />
               <div className="flex flex-col gap-0.5">

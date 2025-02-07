@@ -8,7 +8,7 @@ function Certificate() {
                 <div className="mx-auto max-w-[750px] px-4 pb-20 pt-6 text-lg sm:px-12 md:px-16">
                 <Navbar />
                     <div>
-                        <div className="flex flex-col gap-3 text-base leading-7 sm:gap-4 sm:text-lg sm:leading-8"
+                        <div className="pt-[10px] flex flex-col gap-3 text-base leading-7 sm:gap-4 sm:text-lg sm:leading-8"
                             style={{ textAlign: "justify" }}
                         >
                             {/* sertifikat */}
