@@ -1,7 +1,7 @@
 import Navbar from "./components/Navbar";
 import FooterComponent from "./components/Footer";
 
-function Project() {
+function Blog() {
   return (
     <div>
       <div className="bg-zinc-900 text-zinc-400">
@@ -10,7 +10,7 @@ function Project() {
           <div>
             <br/>
             <br/>
-            <h1>ini halaman project</h1>
+            <h1>ini halaman Blog</h1>
             <br/>
             <br/>
             <br/>
@@ -37,4 +37,4 @@ function Project() {
     </div>
   );
 }
-export default Project;
+export default Blog;

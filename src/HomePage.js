@@ -1,4 +1,3 @@
-import { Link } from 'react-router-dom';
 import Navbar from "./components/Navbar";
 import FooterComponent from "./components/Footer";
 
@@ -10,7 +9,7 @@ function App() {
           <Navbar />
           <div>
             <div id="about" className="pt-[10px] mb-6 mt-8 flex items-center gap-4 sm:mb-8 sm:mt-16 sm:gap-5">
-              <img src="https://image.clicky.id/673bd1d29c02e88889ec5bb4/profile-avatar/673cc13647a9ad53444be991.webp"
+              <img src="https://media.licdn.com/dms/image/v2/D5603AQFSeewLSkNWqw/profile-displayphoto-shrink_400_400/B56ZOsnbZfGgAo-/0/1733767838340?e=1744243200&v=beta&t=UxHXMMALF5Qc2QZ4dhi3Ers-M-nP6NjBjaPPcrgHLY8"
                 className="h-[65px] w-[65px] rounded-full sm:h-[80px] sm:w-[80px]" alt="Fatkhurrhn" />
               <div className="flex flex-col gap-0.5">
                 <h1 className="text-xl font-semibold text-white sm:text-3xl sm:font-bold">
@@ -327,24 +326,6 @@ function App() {
 
                 </div>
               </section>
-
-              {/* <section id="contact" className="max-w-3xl mx-auto p-6 bg-[#2d2d2f] rounded-xl shadow-lg mt-2">
-                <h2 className="text-xl font-semibold text-center mb-1 text-gray-50">Contact Me</h2>
-                <p className="text-center text-gray-400 mb-4">Feel free to reach out via email or this form.</p>
-                <form id="contactForm" className="space-y-4">
-                  <input type="text" id="name" placeholder="Your name" required
-                    className="w-full px-4 py-3 bg-[#3a3a3c] border border-[#4a4a4d] rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-[#6c6c6e] focus:border-[#6c6c6e] transition-all" />
-                  <input type="email" id="email" placeholder="Your email" required
-                    className="w-full px-4 py-3 bg-[#3a3a3c] border border-[#4a4a4d] rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-[#6c6c6e] focus:border-[#6c6c6e] transition-all" />
-                  <textarea id="message" placeholder="Your message" rows="4" required
-                    className="w-full px-4 py-3 bg-[#3a3a3c] border border-[#4a4a4d] rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-[#6c6c6e] focus:border-[#6c6c6e] transition-all"></textarea>
-                  <button type="submit"
-                    className="w-full py-3 bg-[#5a5a5d] text-white rounded-lg font-semibold text-lg hover:bg-[#484848] focus:ring-2 focus:ring-[#6c6c6e] transition-all">
-                    Submit
-                  </button>
-                </form>
-              </section> */}
-
             </div>
           </div>
         </div>
