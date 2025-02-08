@@ -1,14 +1,15 @@
 import { Link } from 'react-router-dom';
 import Navbar from "./components/Navbar";
+import FooterComponent from "./components/Footer";
 
 function App() {
   return (
     <div>
       <div className="bg-zinc-900 text-zinc-400">
-        <div className="mx-auto max-w-[750px] px-4 pb-20 pt-6 text-lg sm:px-12 md:px-16">
+        <div className="mx-auto max-w-[750px] px-4 pb-1 pt-6 text-lg sm:px-12 md:px-16">
           <Navbar />
           <div>
-            <div className="pt-[10px] mb-6 mt-8 flex items-center gap-4 sm:mb-8 sm:mt-16 sm:gap-5">
+            <div id="about" className="pt-[10px] mb-6 mt-8 flex items-center gap-4 sm:mb-8 sm:mt-16 sm:gap-5">
               <img src="https://image.clicky.id/673bd1d29c02e88889ec5bb4/profile-avatar/673cc13647a9ad53444be991.webp"
                 className="h-[65px] w-[65px] rounded-full sm:h-[80px] sm:w-[80px]" alt="Fatkhurrhn" />
               <div className="flex flex-col gap-0.5">
@@ -327,7 +328,7 @@ function App() {
                 </div>
               </section>
 
-              <section id="contact" className="max-w-3xl mx-auto p-6 bg-[#2d2d2f] rounded-xl shadow-lg mt-2">
+              {/* <section id="contact" className="max-w-3xl mx-auto p-6 bg-[#2d2d2f] rounded-xl shadow-lg mt-2">
                 <h2 className="text-xl font-semibold text-center mb-1 text-gray-50">Contact Me</h2>
                 <p className="text-center text-gray-400 mb-4">Feel free to reach out via email or this form.</p>
                 <form id="contactForm" className="space-y-4">
@@ -342,27 +343,12 @@ function App() {
                     Submit
                   </button>
                 </form>
-              </section>
+              </section> */}
 
             </div>
           </div>
-          <div id="overlay" className="overlay"></div>
-          <div id="popup" className="popup">
-            <div className="popup-content">
-              <div className="wave mb-4">👋</div>
-              <h2 className="text-lg font-semibold">hi, how can I help you?</h2>
-              <form onsubmit="sendMessage(event)" className="mt-4">
-                <textarea id="popup-message" placeholder="Type your message..." rows="3"
-                  className="w-full px-3 py-2 bg-[#3a3a3c] border border-[#4a4a4d] rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-[#6c6c6e] focus:border-[#6c6c6e] transition-all"></textarea>
-                <button type="submit"
-                  className="w-full py-2 bg-[#4c4f56] text-white rounded-lg font-semibold text-sm hover:bg-[#393c42] focus:ring-2 focus:ring-[#6c6c6e] transition-all mt-4">
-                  Send Message
-                </button>
-              </form>
-              <span className="popup-close" onclick="closePopup()">×</span>
-            </div>
-          </div>
         </div>
+        <FooterComponent />
       </div>
     </div>
   );
