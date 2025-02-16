@@ -51,40 +51,28 @@ export default function Navbar() {
 
                 {/* Navbar untuk Desktop */}
                 <div className="hidden items-center gap-6 sm:flex">
-            <Link to="/" className="relative flex items-center gap-1 py-3 pr-1 text-sm transition-colors hover:text-zinc-300 sm:text-base">
-                <i className="ri-home-3-line"></i> Home
-            </Link>
-            <Link to="/islamic" className="relative flex items-center gap-1 py-3 pr-1 text-sm transition-colors hover:text-zinc-300 sm:text-base">
-                <i className="ri-article-line"></i> Islamic
-            </Link>
-            <Link to="/project" className="relative flex items-center gap-1 py-3 pr-1 text-sm transition-colors hover:text-zinc-300 sm:text-base">
-                Project
-            </Link>
+            <Link to="/" className="relative flex items-center gap-1 py-3 pr-1 text-sm transition-colors hover:text-zinc-300 sm:text-base">Home</Link>
+            <Link to="/project" className="relative flex items-center gap-1 py-3 pr-1 text-sm transition-colors hover:text-zinc-300 sm:text-base">Project</Link>
 
             {/* Dropdown Pages */}
             <div className="relative" ref={dropdownRef}>
                 <button
                     onClick={() => setDropdownOpen(!dropdownOpen)}
-                    className="relative flex items-center gap-1 py-3 pr-1 text-sm transition-colors hover:text-zinc-300 sm:text-base"
-                >
-                    <i className="ri-pages-line"></i> Pages
+                    className="relative flex items-center gap-1 py-3 pr-1 text-sm transition-colors hover:text-zinc-300 sm:text-base"> Pages
                     <i className={`ri-arrow-down-s-line transition-transform ${dropdownOpen ? "rotate-180" : ""}`}></i>
                 </button>
 
                 {/* Dropdown Content */}
                 {dropdownOpen && (
                     <div className="absolute left-0 mt-2 w-40 bg-zinc-800 border border-zinc-700 rounded-lg shadow-lg overflow-hidden">
-                        <Link to="/project" className="block px-4 py-2 text-sm text-gray-300 hover:bg-zinc-700">
-                            <i className="ri-tools-fill"></i> Projects
-                        </Link>
-                        <Link to="/blog" className="block px-4 py-2 text-sm text-gray-300 hover:bg-zinc-700">
-                            <i className="ri-file-list-2-line"></i> Blog
-                        </Link>
-                        <Link to="/certificate" className="block px-4 py-2 text-sm text-gray-300 hover:bg-zinc-700">
-                            <i className="ri-moon-clear-line"></i> Certificate
-                        </Link>
                         <Link to="/islamic" className="block px-4 py-2 text-sm text-gray-300 hover:bg-zinc-700">
                             Islamic
+                        </Link>
+                        <Link to="/blog" className="block px-4 py-2 text-sm text-gray-300 hover:bg-zinc-700">
+                            Blog
+                        </Link>
+                        <Link to="/certificate" className="block px-4 py-2 text-sm text-gray-300 hover:bg-zinc-700">
+                            Certificate
                         </Link>
                     </div>
                 )}
