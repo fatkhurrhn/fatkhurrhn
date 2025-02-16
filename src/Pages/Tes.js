@@ -1,3 +1,4 @@
+// src/pages/tes.js
 import { useEffect, useState } from "react";
 import axios from "axios";
 
@@ -46,6 +47,9 @@ function CrudApp() {
     fetchData();
   };
 
+  // Menambahkan validasi untuk menonaktifkan tombol jika ada input yang kosong
+  const isFormValid = name && image && link;
+
   return (
     <div className="p-5 max-w-lg mx-auto">
       <h1 className="text-xl font-bold mb-4 text-center">CRUD with Image</h1>
@@ -71,7 +75,11 @@ function CrudApp() {
           className="border p-2 w-full mb-2 rounded bg-zinc-700 text-white"
           placeholder="Enter Link"
         />
-        <button type="submit" className="bg-blue-500 text-white px-4 py-2 rounded w-full">
+        <button
+          type="submit"
+          className="bg-blue-500 text-white px-4 py-2 rounded w-full"
+          disabled={!isFormValid} // Menonaktifkan tombol jika form belum valid
+        >
           {editId ? "Update" : "Add"}
         </button>
       </form>
