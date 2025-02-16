@@ -11,6 +11,7 @@ import JadwalSholat from './Pages/Islamic/JadwalSholat';
 import Kiblat from './Pages/Islamic/Kiblat';
 import Kalender from './Pages/Islamic/Kalender';
 import Tes from './Pages/Tes.js';
+import Hasil from './Pages/Sample';
 
 // import blog
 import BlogDetail from "./detail-blog/blog-1";
@@ -35,6 +36,7 @@ function App() {
         <Route path="/kiblat" element={<Kiblat />} />
         <Route path="/kalender" element={<Kalender />} />
         <Route path="/tes" element={<Tes />} />
+        <Route path="/hasil" element={<Hasil />} />
 
         <Route path="/blog-1" element={<BlogDetail />} /> 
         <Route path="/blog-2" element={<BlogDetail2 />} /> 
