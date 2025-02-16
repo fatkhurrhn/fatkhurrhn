@@ -2,7 +2,7 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 
-const API_URL = "http://localhost:5000/data";
+const API_URL = "https://fatkhurrhn.vercel.app/data";
 
 function CrudApp() {
   const [items, setItems] = useState([]);
