@@ -195,10 +195,10 @@ function App() {
                         <img className="h-[40px] w-[40px] rounded-full" src="/assets/lintasarta.png"
                           alt=" Company Lintasarta" />
                         <div>
-                          <h3 className="text-base sm:text-lg font-semibold">
+                          <h3 className="text-base sm:text-lg font-semibold text-left">
                             Company Lintasarta
                           </h3>
-                          <p className="text-xs sm:text-sm text-zinc-400">
+                          <p className="text-xs sm:text-sm text-zinc-400 text-left">
                             Capstone Project Bangkit Academy
                           </p>
                         </div>
@@ -217,10 +217,10 @@ function App() {
                         <img className="h-[40px] w-[40px] rounded-full" src="/assets/nf.jpg"
                           alt="Assistan Lecturer 2024" />
                         <div>
-                          <h3 className="text-base sm:text-lg font-semibold">
+                          <h3 className="text-base sm:text-lg font-semibold text-left">
                             Assistan Lecturer 2024
                           </h3>
-                          <p className="text-xs sm:text-sm text-zinc-400">
+                          <p className="text-xs sm:text-sm text-zinc-400 text-left">
                             STT Terpadu Nurul Fikri
                           </p>
                         </div>
@@ -242,10 +242,10 @@ function App() {
                           src="https://files.klob.id/public/mig01/l32ovhf5/channels4_profile.jpg"
                           alt="Bangkit Academy 2024" />
                         <div>
-                          <h3 className="text-base sm:text-lg font-semibold">
+                          <h3 className="text-base sm:text-lg font-semibold text-left">
                             Bangkit Academy 2024
                           </h3>
-                          <p className="text-xs sm:text-sm text-zinc-400">
+                          <p className="text-xs sm:text-sm text-zinc-400 text-left">
                             Cloud Computing Cohort CC-23
                           </p>
                         </div>
@@ -262,10 +262,10 @@ function App() {
                         <img className="h-[40px] w-[40px] rounded-full" src="/assets/senada.jpg"
                           alt="Head of the Quran Program Department" />
                         <div>
-                          <h3 className="text-base sm:text-lg font-semibold">
+                          <h3 className="text-base sm:text-lg text-left font-semibold">
                             Leader of the PQ
                           </h3>
-                          <p className="text-xs sm:text-sm text-zinc-400">
+                          <p className="text-xs sm:text-sm text-left text-zinc-400">
                             LDK Senada STT NF
                           </p>
                         </div>
@@ -281,10 +281,10 @@ function App() {
                         <img className="h-[40px] w-[40px] rounded-full" src="/assets/pintar.png"
                           alt="Freelance Translator" />
                         <div>
-                          <h3 className="text-base sm:text-lg font-semibold">
+                          <h3 className="text-base sm:text-lg text-left font-semibold">
                             Freelance Translator
                           </h3>
-                          <p className="text-xs sm:text-sm text-zinc-400">
+                          <p className="text-xs sm:text-sm text-left text-zinc-400">
                             Malay translator at PINTAR
                           </p>
                         </div>
