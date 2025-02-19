@@ -26,26 +26,29 @@ function Project() {
             </div>
             <div className="mt-4 flex flex-col gap-5 sm:mt-7">
               <div className="relative overflow-hidden rounded-lg bg-zinc-800 p-3">
-                <div>
+                <div className="">
                   <h2 className="flex items-center justify-between">
                     <div className="flex flex-col items-start gap-1 sm:flex-row sm:items-center sm:gap-2">
                       <a href="#link-project" className="text-lg font-medium text-zinc-50 sm:text-xl"
-                      >roadmap.sh</a>
+                      >Portfolio</a>
                     </div>
                     <div className="absolute right-4 top-4 hidden sm:block">
-                      <img alt="roadmap.sh" src="https://kamranahmed.info/projects/roadmap-logo.svg"
+                      <img alt="roadmap.sh" src="https://flowbite.com/docs/images/logo.svg"
                         className="h-12 w-12" />
                     </div>
                   </h2>
-                  <p className="my-3 text-sm sm:text-base pr-0 sm:pr-14">
-                    Learning paths for different roles and skills. Also features
-                    an AI roadmap generator, custom roadmap editor, teams usage
-                    and more.
+                  <p className="my-3 text-sm sm:text-base pr-0 sm:pr-14 text-justify">
+                  A modern, dark-mode personal portfolio built with React.js, showcasing projects, skills, and experience. This portfolio is designed to be visually appealing and easy to navigate, highlighting your key accomplishments and abilities
                   </p>
                 </div>
-                <div className="-mx-3 -mb-3 -mt-3 p-3">
-                  <div className="flex items-center justify-between">
-                    <button onClick={() => setShowImage(!showImage)} className="flex items-center gap-1 rounded-lg bg-zinc-700 py-2 pl-2 pr-2 text-sm hover:text-zinc-300 sm:py-1 sm:pr-3 hover:bg-zinc-600">
+                <div className="mb-1 mt-3">
+                  {/* Container untuk tombol View Page dan link Visit */}
+                  <div className="flex items-center justify-between w-full">
+                    {/* Tombol View Page */}
+                    <button
+                      onClick={() => setShowImage(!showImage)}
+                      className="flex items-center gap-1 rounded-lg bg-zinc-700 py-2 px-3 text-sm hover:text-zinc-300 sm:py-1 hover:bg-zinc-600"
+                    >
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         width="14"
@@ -56,30 +59,74 @@ function Project() {
                         strokeWidth="2"
                         strokeLinecap="round"
                         strokeLinejoin="round"
-                        className={`lucide lucide-chevron-down transition-transform duration-300 ${showImage ? "rotate-180" : ""}`}
-                        >
+                        className={`lucide lucide-chevron-down transition-transform duration-300 ${showImage ? "rotate-180" : ""
+                          }`}
+                      >
                         <path d="m6 9 6 6 6-6"></path>
                       </svg>
                       <span>View Page</span>
                     </button>
+
+                    {/* Link Visit Website & GitHub */}
+                    <div className="flex items-center gap-2 text-zinc-500">
+                      <a
+                        href="https://fatkhurrhn.vercel.app/"
+                        className="flex items-center gap-1.5 rounded-lg py-1 text-base transition-colors hover:text-zinc-300 sm:text-sm"
+                      >
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="24"
+                          height="24"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          strokeWidth="2"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          className="lucide lucide-globe h-4 w-4 sm:h-4 sm:w-4"
+                        >
+                          <circle cx="12" cy="12" r="10"></circle>
+                          <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"></path>
+                          <path d="M2 12h20"></path>
+                        </svg>
+                        <span className="hidden sm:inline-block">Visit </span>Website
+                      </a>
+                      <a
+                        href="https://github.com/fatkhurrhn/fatkhurrhn"
+                        className="flex items-center gap-1.5 rounded-lg px-2.5 py-1 text-base transition-colors hover:text-zinc-300 sm:text-sm"
+                      >
+                        <svg
+                          width="24"
+                          height="24"
+                          viewBox="0 0 24 24"
+                          focusable="false"
+                          className="h-4 w-4 sm:h-4 sm:w-4"
+                          aria-hidden="true"
+                        >
+                          <path
+                            fillRule="evenodd"
+                            clipRule="evenodd"
+                            d="M12 0.3C5.4 0.3 0 5.7 0 12.3C0 17.6 3.4 22.1 8.2 23.7C8.8 23.8 9 23.4 9 23.1C9 22.8 9 22.1 9 21.1C5.7 21.8 5 19.5 5 19.5C4.5 18.1 3.7 17.7 3.7 17.7C2.5 17 3.7 17 3.7 17C4.9 17.1 5.5 18.2 5.5 18.2C6.6 20 8.3 19.5 9 19.2C9.1 18.4 9.4 17.9 9.8 17.6C7.1 17.3 4.3 16.3 4.3 11.7C4.3 10.4 4.8 9.3 5.5 8.5C5.5 8.1 5 6.9 5.7 5.3C5.7 5.3 6.7 5 9 6.5C10 6.2 11 6.1 12 6.1C13 6.1 14 6.2 15 6.5C17.3 4.9 18.3 5.3 18.3 5.3C19 7 18.5 8.2 18.4 8.5C19.2 9.3 19.6 10.4 19.6 11.7C19.6 16.3 16.8 17.3 14.1 17.6C14.5 18 14.9 18.7 14.9 19.8C14.9 21.4 14.9 22.7 14.9 23.1C14.9 23.4 15.1 23.8 15.7 23.7C20.5 22.1 23.9 17.6 23.9 12.3C24 5.7 18.6 0.3 12 0.3Z"
+                            fill="currentColor"
+                          ></path>
+                        </svg>
+                        <span className="hidden sm:inline-block">Visit </span>GitHub
+                      </a>
+                    </div>
                   </div>
 
-                  {/* Menampilkan gambar jika showImage bernilai true */}
+                  {/* Gambar muncul di bawah semua elemen */}
                   {showImage && (
-                    <div className="mt-4">
-                      <img
-                        src="https://wartapelatihan.com/wp-content/uploads/2016/11/Training-Project-Cost-Management-2.jpg"
-                        alt="Project Roadmap"
-                        className="w-full rounded-lg"
-                      />
+                    <div className="mt-4 w-full">
+                      <a href="https://fatkhurrhn.vercel.app/">
+                      <img src="https://seaconsulting.asia/wp-content/uploads/2023/05/project-portfolio-management-Important-660x400.jpg" alt="Project Roadmap" className="w-full rounded-lg"/>
+                      </a>
                     </div>
                   )}
-
-                  {/* Disini untuk link visit web & github */}
                 </div>
 
               </div>
-              <p className="my-3">Here are some more projects that I have worked on. You can find the complete list of projects on my 
+              <p className="my-3">Here are some more projects that I have worked on. You can find the complete list of projects on my
                 <a href="https://github.com/fatkhurrhn" className="font-medium underline decoration-2 underline-offset-2 transition-colors hover:text-zinc-200"> GitHub profile</a>.
               </p>
               <div className="flex flex-col gap-1.5">
