@@ -19,7 +19,7 @@ function Project() {
   const [search, setSearch] = useState("");
   const [category, setCategory] = useState("All");
 
-  const filteredProjects = projects.filter((project) => 
+  const filteredProjects = projects.filter((project) =>
     (category === "All" || project.category === category) &&
     project.title.toLowerCase().includes(search.toLowerCase())
   );
@@ -27,28 +27,28 @@ function Project() {
   return (
     <div className="relative bg-zinc-900 text-zinc-400 min-h-screen">
       <div className="mx-auto max-w-[850px] px-4 pb-6 pt-6 text-lg sm:px-12 md:px-16">
-        <Navbar /> <br/> <br/>
+        <Navbar /> <br /> <br />
         {/* Search & Filter */}
-<div className="flex flex-row items-center justify-between gap-2 mb-6">
-  <select
-    className="w-1/3 px-3 py-2 text-sm sm:text-base rounded-lg bg-zinc-800 text-white border border-zinc-700 focus:ring-2 focus:ring-blue-500 focus:outline-none shadow-md transition-all duration-300 ease-in-out hover:bg-zinc-700 cursor-pointer"
-    value={category}
-    onChange={(e) => setCategory(e.target.value)}
-  >
-    <option value="All">All</option>
-    <option value="HTML">Project HTML</option>
-    <option value="Laravel">Project Laravel</option>
-    <option value="Python">Project Python</option>
-    <option value="PHP">Project PHP</option>
-  </select>
-  <input
-    type="text"
-    placeholder="Search project..."
-    className="flex-1 px-3 py-2 text-sm sm:text-base rounded-lg bg-zinc-800 text-white border border-zinc-700 focus:ring-2 focus:ring-blue-500 focus:outline-none shadow-md transition-all duration-300 ease-in-out"
-    value={search}
-    onChange={(e) => setSearch(e.target.value)}
-  />
-</div>
+        <div className="flex flex-row items-center justify-between gap-2 mb-6">
+          <select
+            className="w-1/3 px-3 py-2 text-sm sm:text-base rounded-lg bg-zinc-800 text-white border border-zinc-700 focus:ring-2 focus:ring-blue-500 focus:outline-none shadow-md transition-all duration-300 ease-in-out hover:bg-zinc-700 cursor-pointer"
+            value={category}
+            onChange={(e) => setCategory(e.target.value)}
+          >
+            <option value="All">All</option>
+            <option value="HTML">Project HTML</option>
+            <option value="Laravel">Project Laravel</option>
+            <option value="Python">Project Python</option>
+            <option value="PHP">Project PHP</option>
+          </select>
+          <input
+            type="text"
+            placeholder="Search project..."
+            className="flex-1 px-3 py-2 text-sm sm:text-base rounded-lg bg-zinc-800 text-white border border-zinc-700 focus:ring-2 focus:ring-blue-500 focus:outline-none shadow-md transition-all duration-300 ease-in-out"
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
+          />
+        </div>
 
         {/* Project Grid */}
         {filteredProjects.length > 0 ? (
