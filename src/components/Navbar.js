@@ -53,6 +53,7 @@ export default function Navbar() {
                 <div className="hidden items-center gap-6 sm:flex">
             <Link to="/" className="relative flex items-center gap-1 py-3 pr-1 text-sm transition-colors hover:text-zinc-300 sm:text-base">Home</Link>
             <Link to="/project" className="relative flex items-center gap-1 py-3 pr-1 text-sm transition-colors hover:text-zinc-300 sm:text-base">Project</Link>
+            <Link to="/certificate" className="relative flex items-center gap-1 py-3 pr-1 text-sm transition-colors hover:text-zinc-300 sm:text-base">Certificate</Link>
 
             {/* Dropdown Pages */}
             <div className="relative" ref={dropdownRef}>
