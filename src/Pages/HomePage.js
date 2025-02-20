@@ -1,5 +1,6 @@
 import Navbar from "../components/Navbar";
 import FooterComponent from "../components/Footer";
+import { Colors } from "chart.js";
 
 function App() {
   return (
@@ -26,9 +27,25 @@ function App() {
               className="flex flex-col gap-3 text-base leading-7 sm:gap-4 sm:text-lg sm:leading-8"
               style={{ textAlign: "justify" }}
             >
-              <p>I'm an Information Systems student passionate about Front-End Development, turning ideas into
-                interactive and user-friendly experiences with clean and efficient code. Always exploring new web
-                technologies, I love building innovative projects and crafting seamless user experiences.
+              <p>I'm an Information Systems student passionate about Front-End Development, turning ideas into interactive and 
+              <astro-island uid="Malun" prefix="r13"
+                  component-url="https://kamranahmed.info/_astro/ExpandButton.BcanAUof.js"
+                  component-export="ExpandButton" renderer-url="https://kamranahmed.info/_astro/client.BStqXOaq.js"
+                  props="{}" ssr="" client="load" opts='{"name":"ExpandButton","value":true}' await-children="">
+                  <button type="button"
+                    className="cursor-pointer rounded-md bg-zinc-700 px-1 py-[0.5] text-sm font-normal text-zinc-400 transition-colors hover:bg-zinc-500 hover:text-zinc-50 hover:opacity-100 relative -top-[2px] ml-1.5 opacity-80">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="none"
+                      stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                      className="lucide lucide-chevrons-left-right relative -top-[1.35px] inline-block">
+                      <path d="m9 7-5 5 5 5"></path>
+                      <path d="m15 7 5 5-5 5"></path>
+                    </svg>
+                  </button>
+                  <span className="hidden animate-fade-appear text-green-400">
+                    <astro-slot> user-friendly experiences with clean and efficient code. </astro-slot>
+                  </span>
+                </astro-island> 
+                Always exploring new web technologies, I love building innovative projects and crafting seamless user experiences.
                 <astro-island uid="Malun" prefix="r13"
                   component-url="https://kamranahmed.info/_astro/ExpandButton.BcanAUof.js"
                   component-export="ExpandButton" renderer-url="https://kamranahmed.info/_astro/client.BStqXOaq.js"
@@ -43,10 +60,28 @@ function App() {
                     </svg>
                   </button>
                   <span className="hidden animate-fade-appear text-green-400">
-                    <astro-slot>Check out my repos and let's create something awesome together! </astro-slot>
+                    <astro-slot> Check out <a href="https://github.com/fatkhurrhn" target ="_blank" rel="noreferrer"><span style={{ color: 'white', fontWeight: 'bold' }}>my repos</span></a> and let's create something awesome together! 😎🔥. </astro-slot>
                   </span>
-                </astro-island>
-                😎🔥
+                </astro-island> 
+                I believe knowledge should be shared and used to create real impact. 
+                <astro-island uid="Malun" prefix="r13"
+                  component-url="https://kamranahmed.info/_astro/ExpandButton.BcanAUof.js"
+                  component-export="ExpandButton" renderer-url="https://kamranahmed.info/_astro/client.BStqXOaq.js"
+                  props="{}" ssr="" client="load" opts='{"name":"ExpandButton","value":true}' await-children="">
+                  <button type="button"
+                    className="cursor-pointer rounded-md bg-zinc-700 px-1 py-[0.5] text-sm font-normal text-zinc-400 transition-colors hover:bg-zinc-500 hover:text-zinc-50 hover:opacity-100 relative -top-[2px] ml-1.5 opacity-80">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="none"
+                      stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                      className="lucide lucide-chevrons-left-right relative -top-[1.35px] inline-block">
+                      <path d="m9 7-5 5 5 5"></path>
+                      <path d="m15 7 5 5-5 5"></path>
+                    </svg>
+                  </button>
+                  <span className="hidden animate-fade-appear text-green-400">
+                    <astro-slot> Here’s <a href="https://drive.google.com/file/d/1T96IuSPGw_c2pvHDbXcGErriir_eRNFt/view" target ="_blank" rel="noreferrer"><span style={{ color: 'white', fontWeight: 'bold' }}>my CV</span></a> if you want to know more about my journey! </astro-slot>
+                  </span>
+                </astro-island> 
+                📄
               </p>
 
               <p className="my-3 flex flex-wrap gap-2 sm:gap-6 sm:flex sm:space-x-4 hidden sm:flex">
