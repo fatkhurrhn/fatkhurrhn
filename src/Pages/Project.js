@@ -3,6 +3,75 @@ import { useState } from "react";
 import Navbar from "../components/Navbar";
 import FooterComponent from "../components/Footer";
 
+const projects = [
+  {
+    id: 0,
+    nama: "quote generator",
+    deskripsi: "Inspire and share easily with the Quote Generator",
+    link: "https://github.com/fatkhurrhn/quote-generator"
+  },
+  {
+    id: 0,
+    nama: "multi image upload",
+    deskripsi: "Preview multiple images before uploading",
+    link: "https://github.com/fatkhurrhn/multple-image-upload"
+  },
+  {
+    id: 0,
+    nama: "hex code color generator",
+    deskripsi: "Generate HEX codes easily for your projects",
+    link: "https://github.com/fatkhurrhn/hex-code-color-generator"
+  },
+  {
+    id: 0,
+    nama: "simple crud nodejs",
+    deskripsi: "Node.js and Express-based CRUD application",
+    link: "https://github.com/fatkhurrhn/simple-crud-nodejs"
+  },
+  {
+    id: 0,
+    nama: "svg to image",
+    deskripsi: "Web app for converting SVG to image formats.",
+    link: "https://github.com/fatkhurrhn/svg-to-image"
+  },
+  {
+    id: 0,
+    nama: "png to pdf",
+    deskripsi: "Easily combine PNGs into one PDF online.",
+    link: "https://github.com/fatkhurrhn/png-to-pdf"
+  },
+  {
+    id: 0,
+    nama: "dompetqu",
+    deskripsi: "Simple web app for managing your finances (walletqu)",
+    link: "https://github.com/fatkhurrhn/dompetqu"
+  },
+  {
+    id: 0,
+    nama: "",
+    deskripsi: "",
+    link: ""
+  },
+  {
+    id: 0,
+    nama: "",
+    deskripsi: "",
+    link: ""
+  },
+  {
+    id: 0,
+    nama: "",
+    deskripsi: "",
+    link: ""
+  },
+  {
+    id: 0,
+    nama: "",
+    deskripsi: "",
+    link: ""
+  },
+]
+
 function Project() {
   const [showImage, setShowImage] = useState(false);
   const [showImagee, setShowImagee] = useState(false);
@@ -229,20 +298,21 @@ function Project() {
                 <a href="https://github.com/fatkhurrhn" className="font-medium underline decoration-2 underline-offset-2 transition-colors hover:text-zinc-200"> GitHub profile</a>.
               </p>
               <div className="flex flex-col gap-1.5">
-                <a href="#link-github"
-                  className="flex flex-col flex-wrap items-start rounded-md bg-zinc-800 px-2 py-2 transition-colors hover:bg-zinc-700/80 sm:flex-row sm:items-center">
-                  <span className="flex items-center gap-0.5 font-medium text-zinc-50 sm:gap-1">
+              {projects.map(project => (
+                <a key={project.id} href={project.link} className="flex flex-col flex-wrap items-start rounded-md bg-zinc-800 px-2 py-2 transition-colors hover:bg-zinc-700/80 sm:flex-row sm:items-center" target="_blank" rel="noreferrer">
+                  <span className="flex items-center gap-0.5 font-medium text-zinc-50 sm:gap-1" >
                     <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"
                       fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"
                       stroke-linejoin="round" className="lucide lucide-arrow-up-right mr-1 inline-block">
                       <path d="M7 7h10v10"></path>
                       <path d="M7 17 17 7"></path>
                     </svg>
-                    nama-project
+                    {project.nama}
                   </span>
                   <span className="mx-2 hidden sm:inline-block">-</span>
-                  <span className="text-base sm:text-lg">deskripsi-project</span>
+                  <span className="text-base sm:text-lg">{project.deskripsi}</span>
                 </a>
+                ))}
               </div>
             </div>
           </div>
