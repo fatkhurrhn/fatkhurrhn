@@ -31,13 +31,13 @@ const projects = [
   {
     id: 0,
     nama: "svg to image",
-    deskripsi: "Web app for converting SVG to image formats.",
+    deskripsi: "Web app for converting SVG to image formats",
     link: "https://github.com/fatkhurrhn/svg-to-image"
   },
   {
     id: 0,
     nama: "png to pdf",
-    deskripsi: "Easily combine PNGs into one PDF online.",
+    deskripsi: "Easily combine PNGs into one PDF online",
     link: "https://github.com/fatkhurrhn/png-to-pdf"
   },
   {
@@ -48,27 +48,81 @@ const projects = [
   },
   {
     id: 0,
-    nama: "",
-    deskripsi: "",
-    link: ""
+    nama: "javascript-code",
+    deskripsi: "JavaScript code examples for learning",
+    link: "https://github.com/fatkhurrhn/javascript-code"
   },
   {
     id: 0,
-    nama: "",
-    deskripsi: "",
-    link: ""
+    nama: "simple crud react",
+    deskripsi: "Simple GPT-powered React CRUD project",
+    link: "https://github.com/fatkhurrhn/simple-crud-react"
   },
   {
     id: 0,
-    nama: "",
-    deskripsi: "",
-    link: ""
+    nama: "my app with GPT",
+    deskripsi: "React site fully integrated with GPT",
+    link: "https://github.com/fatkhurrhn/my-app-with-GPT"
   },
   {
     id: 0,
-    nama: "",
-    deskripsi: "",
-    link: ""
+    nama: "portfolio wiht nextjs",
+    deskripsi: "earn to create a Next.js portfolio (all skill levels)",
+    link: "https://github.com/fatkhurrhn/portfolio-next.js"
+  },
+  {
+    id: 0,
+    nama: "id card generator",
+    deskripsi: "Ideal for events and organizations: ID Card Generator",
+    link: "https://github.com/fatkhurrhn/idcard-generator"
+  },
+  {
+    id: 0,
+    nama: "repo sync",
+    deskripsi: "Track your GitHub repos automatically",
+    link: "https://github.com/fatkhurrhn/repo-sync"
+  },
+  {
+    id: 0,
+    nama: "simple search engine",
+    deskripsi: "Streamlined Google search interface",
+    link: "https://github.com/fatkhurrhn/simple-search-engine"
+  },
+  {
+    id: 0,
+    nama: "personal finance",
+    deskripsi: "Simple personal finance tracker (Python & SQLite)",
+    link: "https://github.com/fatkhurrhn/personal-finance"
+  },
+  {
+    id: 0,
+    nama: "floral suprise",
+    deskripsi: "Develop interactive flower graphics using web technologies",
+    link: "https://github.com/fatkhurrhn/floral-surprise"
+  },
+  {
+    id: 0,
+    nama: "todo list with ES6",
+    deskripsi: "Modern JavaScript Todo List",
+    link: "https://github.com/fatkhurrhn/todo-list-with-ES6"
+  },
+  {
+    id: 0,
+    nama: "dream LMS",
+    deskripsi: "The DreamLMS application uses Laravel10",
+    link: "https://github.com/fatkhurrhn/Projek_UAS_DreamsLMS"
+  },
+  {
+    id: 0,
+    nama: "kalkulator istighfar",
+    deskripsi: "Web calculator 9 + 4 = astaghfirullah",
+    link: "https://github.com/fatkhurrhn/kalkulator-istighfar"
+  },
+  {
+    id: 0,
+    nama: "shop thur",
+    link: "https://github.com/fatkhurrhn/Project_ShopThur",
+    deskripsi: "project UTS PemWeb E-Commerce Application"
   },
 ]
 

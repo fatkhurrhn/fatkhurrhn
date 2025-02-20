@@ -168,18 +168,6 @@ function App() {
                         alt="Realtor" />
                     </div>
                   </article>
-                  <p style={{ textAlign: "left", fontSize: "16px", color: "rgba(134, 134, 134, 0.9)" }}>
-                    See full my project{" "}
-                    <a
-                      href="https://github.com/fatkhurrhn"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      style={{ color: "#327ed0", textDecoration: "none", fontWeight: "bold" }}
-                    >
-                      here
-                    </a>
-                  </p>
-
                 </div>
               </section>
 
@@ -312,18 +300,6 @@ function App() {
                         className="border-none" height="auto" alt="by fatkhurhhn" />
                     </div>
                   </article>
-                  <p style={{ textAlign: "left", fontSize: "16px", color: "rgba(134, 134, 134, 0.9)" }}>
-                    See more{" "}
-                    <a
-                      href="https://github.com/fatkhurrhn"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      style={{ color: "#327ed0", textDecoration: "none", fontWeight: "bold" }}
-                    >
-                      here
-                    </a>
-                  </p>
-
                 </div>
               </section>
             </div>
