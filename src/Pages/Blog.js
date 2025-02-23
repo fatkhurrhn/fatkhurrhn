@@ -10,10 +10,14 @@ function Blog() {
 
     useEffect(() => {
         setLoading(true);
-        fetch('https://api-berita-indonesia.vercel.app/republika/islam/')
+        fetch("https://jakpost.vercel.app/api/category/business") // Ganti kategori sesuai kebutuhan
             .then((res) => res.json())
-            .then(({ data }) => {
-                setBerita(data.posts);
+            .then((data) => {
+                if (data && Array.isArray(data.data)) {
+                    setBerita(data.data); // Pastikan mengambil dari data.data
+                } else {
+                    setError(true);
+                }
                 setLoading(false);
             })
             .catch(() => {
@@ -31,7 +35,7 @@ function Blog() {
                         <div className="pt-[10px] flex flex-col gap-3 text-base leading-7 sm:gap-4 sm:text-lg sm:leading-8" style={{ textAlign: "justify" }}>
                             <section className="blog-section py-10">
                                 <h1 className="text-xl font-semibold text-zinc-100 sm:text-2xl text-center mb-6">
-                                    News Islamic
+                                    The Jakarta Post - Business News
                                 </h1>
                                 {loading && <p className="text-center">Loading...</p>}
                                 {error && <p className="text-center text-red-500">Terjadi kesalahan saat mengambil data.</p>}
@@ -40,10 +44,10 @@ function Blog() {
                                         <article key={index} className="blog bg-[#27272a] rounded-lg shadow-md overflow-hidden border border-zinc-700">
                                             <Link to={item.link} target="_blank" rel="noopener noreferrer">
                                                 <div className="blog-image">
-                                                    <img src={item.thumbnail || "https://via.placeholder.com/300"} alt="thumbnail-blog" className="w-full object-cover h-40" />
+                                                    <img src={item.image || "https://via.placeholder.com/300"} alt="thumbnail-blog" className="w-full object-cover h-40" />
                                                 </div>
                                                 <div className="p-3">
-                                                    <p className="text-xs text-gray-400">{new Date(item.pubDate).toLocaleDateString("id-ID", { day: "2-digit", month: "2-digit", year: "numeric" })}</p>
+                                                    <p className="text-xs text-gray-400">{item.date}</p>
                                                     <h3 className="text-sm font-medium text-zinc-300 text-left hover:text-blue-400 transition line-clamp-2 overflow-hidden text-ellipsis">
                                                         {item.title}
                                                     </h3>
