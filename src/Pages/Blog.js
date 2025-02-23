@@ -25,7 +25,7 @@ function Blog() {
     return (
         <div>
             <div className="bg-zinc-900 text-zinc-400 min-h-screen">
-                <div className="mx-auto max-w-[750px] px-4 pb-1 pt-6 text-lg sm:px-12 md:px-16">
+                <div className="mx-auto max-w-[880px] px-4 pb-1 pt-6 text-lg sm:px-12 md:px-16">
                     <Navbar />
                     <div>
                         <div className="pt-[10px] flex flex-col gap-3 text-base leading-7 sm:gap-4 sm:text-lg sm:leading-8" style={{ textAlign: "justify" }}>

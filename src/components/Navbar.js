@@ -54,6 +54,7 @@ export default function Navbar() {
             <Link to="/" className="relative flex items-center gap-1 py-3 pr-1 text-sm transition-colors hover:text-zinc-300 sm:text-base">Home</Link>
             <Link to="/project" className="relative flex items-center gap-1 py-3 pr-1 text-sm transition-colors hover:text-zinc-300 sm:text-base">Project</Link>
             <Link to="/certificate" className="relative flex items-center gap-1 py-3 pr-1 text-sm transition-colors hover:text-zinc-300 sm:text-base">Certificate</Link>
+            <Link to="/blog" className="relative flex items-center gap-1 py-3 pr-1 text-sm transition-colors hover:text-zinc-300 sm:text-base">Blog</Link>
 
             {/* Dropdown Pages */}
             <div className="relative" ref={dropdownRef}>
@@ -68,12 +69,6 @@ export default function Navbar() {
                     <div className="absolute left-0 mt-2 w-40 bg-zinc-800 border border-zinc-700 rounded-lg shadow-lg overflow-hidden">
                         <Link to="/islamic" className="block px-4 py-2 text-sm text-gray-300 hover:bg-zinc-700">
                             Islamic
-                        </Link>
-                        <Link to="/blog" className="block px-4 py-2 text-sm text-gray-300 hover:bg-zinc-700">
-                            Blog
-                        </Link>
-                        <Link to="/certificate" className="block px-4 py-2 text-sm text-gray-300 hover:bg-zinc-700">
-                            Certificate
                         </Link>
                     </div>
                 )}
