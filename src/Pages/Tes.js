@@ -1,111 +1,175 @@
-import { useState } from "react";
-import axios from "axios";
+import { useState, useEffect, useRef } from "react";
+import Navbar from "../components/Navbar-islamic";
+import FooterComponent from "../components/Footer-islamic";
 
-
-const APIURL = "https://api.github.com/users/";
-
-export default function GitHubSearch() {
-  const [user, setUser] = useState(null);
-  const [repos, setRepos] = useState([]);
+function SholatCalendar() {
+  const [calendar, setCalendar] = useState(null);
+  const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
-  const [search, setSearch] = useState("");
+  const locationRef = useRef(null);
+  const d = new Date();
 
-  const getUser = async (username) => {
-    try {
-      setError(null);
-      const { data } = await axios.get(`${APIURL}${username}`);
-      setUser(data);
-      getRepos(username);
-    } catch (err) {
-      setUser(null);
-      setRepos([]);
-      setError("No profile with this username");
+  useEffect(() => {
+    // Cek apakah ada lokasi yang tersimpan di localStorage
+    const savedLocation = localStorage.getItem("userLocation");
+    if (savedLocation) {
+      const { latitude, longitude } = JSON.parse(savedLocation);
+      fetchPrayerTimes({ coords: { latitude, longitude } });
+    }
+  }, []);
+
+  const getLocation = () => {
+    if (navigator.geolocation) {
+      setLoading(true);
+      navigator.geolocation.getCurrentPosition(saveAndFetchLocation, showError);
+    } else {
+      locationRef.current.innerHTML =
+        "Geolocation tidak didukung di browser ini.";
     }
   };
 
-  const getRepos = async (username) => {
+  const saveAndFetchLocation = (position) => {
+    const { latitude, longitude } = position.coords;
+
+    // Simpan ke localStorage agar tidak hilang saat refresh
+    localStorage.setItem(
+      "userLocation",
+      JSON.stringify({ latitude, longitude })
+    );
+
+    fetchPrayerTimes(position);
+  };
+
+  const fetchPrayerTimes = async (position) => {
+    const { latitude, longitude } = position.coords;
+    locationRef.current.innerHTML = `Latitude: ${latitude} | Longitude: ${longitude}`;
+
+    const query = `latitude=${latitude}&longitude=${longitude}&method=2&month=${
+      d.getMonth() + 1
+    }&year=${d.getFullYear()}`;
+    const url = `https://api.aladhan.com/v1/calendar?${query}`;
+
     try {
-      const { data } = await axios.get(`${APIURL}${username}/repos?sort=created`);
-      setRepos(data.slice(0, 5));
+      const response = await fetch(url);
+      const data = await response.json();
+      if (data.code === 200) {
+        setCalendar(data.data);
+        setError(null);
+      } else {
+        setError("Gagal mengambil data dari API.");
+      }
     } catch (err) {
-      setError("Problem fetching repos");
+      setError("Terjadi kesalahan dalam mengambil data.");
+    } finally {
+      setLoading(false);
     }
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    if (search) getUser(search);
+  const showError = (error) => {
+    setLoading(false);
+    switch (error.code) {
+      case error.PERMISSION_DENIED:
+        locationRef.current.innerHTML =
+          "Akses lokasi ditolak. Silakan izinkan lokasi di browser.";
+        break;
+      case error.POSITION_UNAVAILABLE:
+        locationRef.current.innerHTML = "Informasi lokasi tidak tersedia.";
+        break;
+      case error.TIMEOUT:
+        locationRef.current.innerHTML = "Permintaan lokasi terlalu lama.";
+        break;
+      default:
+        locationRef.current.innerHTML =
+          "Terjadi kesalahan saat mengambil lokasi.";
+    }
   };
 
   return (
-    <div className="container mx-auto p-6 max-w-lg text-white">
-  <form onSubmit={handleSubmit} className="mb-6 flex bg-gray-700 rounded-lg shadow-md">
-    <input
-      type="text"
-      value={search}
-      onChange={(e) => setSearch(e.target.value)}
-      placeholder="Search GitHub Username..."
-      className="w-full p-3 text-black rounded-l-lg focus:outline-none"
-    />
-    <button type="submit" className="bg-gradient-to-r from-blue-500 to-indigo-500 p-3 rounded-r-lg hover:from-blue-600 hover:to-indigo-600 transition-all">
-      Search
-    </button>
-  </form>
-  
-  {error && (
-    <div className="bg-red-500 p-4 rounded-md shadow-md text-center font-semibold">
-      {error}
-    </div>
-  )}
-  
-  {user && (
-    <div className="bg-gray-800 p-6 rounded-lg shadow-lg transition-all">
-      <div className="flex items-center gap-4">
-        <img src={user.avatar_url} alt={user.login} className="w-16 h-16 rounded-full border-2 border-indigo-400" />
-        <div>
-          <h1 className="text-2xl font-bold">{user.name || user.login}</h1>
-          <p className="text-gray-300">{user.bio}</p>
-        </div>
-      </div>
-      
-      <ul className="flex justify-between mt-4 bg-gray-700 p-3 rounded-md shadow-md">
-        <li className="text-center">
-          <span className="block text-lg font-semibold">{user.followers}</span>
-          <span className="text-gray-300 text-sm">Followers</span>
-        </li>
-        <li className="text-center">
-          <span className="block text-lg font-semibold">{user.following}</span>
-          <span className="text-gray-300 text-sm">Following</span>
-        </li>
-        <li className="text-center">
-          <span className="block text-lg font-semibold">{user.public_repos}</span>
-          <span className="text-gray-300 text-sm">Repos</span>
-        </li>
-      </ul>
-      
-      <div className="mt-6 space-y-2">
-        {repos.map((repo) => (
-          <a
-            key={repo.id}
-            href={repo.html_url}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="block bg-gray-700 p-3 rounded-md shadow-md hover:bg-gray-600 transition-all"
-          >
-            {repo.name}
-          </a>
-        ))}
-      </div>
-      
-      <button
-        onClick={() => window.open(user.html_url, "_blank")}
-        className="bg-gradient-to-r from-indigo-500 to-purple-500 w-full mt-6 p-3 rounded-md shadow-md hover:from-indigo-600 hover:to-purple-600 transition-all"
-      >
-        Go to Profile
-      </button>
-    </div>
-  )}
-</div>
+    <div className="relative bg-zinc-900 text-zinc-400 min-h-screen">
+      <div className="mx-auto max-w-[850px] px-4 pb-6 pt-6 text-lg sm:px-12 md:px-16">
+        <Navbar />
 
+        {/* Header Kalender */}
+        <div className="text-center mt-12">
+          <h1 className="text-3xl font-bold text-rose-500 mb-3">
+            Kalender Sholat
+          </h1>
+          <p>
+            Sekarang tanggal <strong>{d.toLocaleDateString("id-ID")}</strong>
+          </p>
+
+          {/* Tombol Atur Lokasi */}
+          <button
+            onClick={getLocation}
+            className="mt-4 px-4 py-2 bg-rose-500 hover:bg-rose-600 text-white rounded-lg transition"
+          >
+            Atur Lokasi Otomatis
+          </button>
+
+          {/* Tempat untuk menampilkan lokasi */}
+          <p
+            ref={locationRef}
+            className="mt-4 text-sm text-zinc-300 bg-zinc-800 p-3 rounded-md border border-zinc-600"
+          >
+            {localStorage.getItem("userLocation")
+              ? "Lokasi sudah diatur. Jika ingin mengganti lokasi, tekan tombol di atas."
+              : "Tekan tombol untuk mendapatkan lokasi Anda."}
+          </p>
+        </div>
+
+        {/* Loading */}
+        {loading && (
+          <p className="mt-4 text-center text-rose-500">
+            Memuat kalender sholat...
+          </p>
+        )}
+
+        {/* Error */}
+        {error && <p className="mt-4 text-center text-red-500">{error}</p>}
+
+        {/* Kalender Sholat */}
+        {calendar && (
+          <div className="overflow-x-auto mx-auto max-w-max mt-6">
+            <table className="table-auto border border-zinc-700 w-full text-sm">
+              <thead>
+                <tr className="bg-rose-500 text-white">
+                  <th className="p-3 border border-zinc-700">Tanggal</th>
+                  {Object.keys(calendar[0].timings).map((name, index) => (
+                    <th key={index} className="p-3 border border-zinc-700">
+                      {name}
+                    </th>
+                  ))}
+                </tr>
+              </thead>
+              <tbody>
+                {calendar.map(({ timings, date }, i) => (
+                  <tr
+                    key={i}
+                    className={`whitespace-nowrap text-center ${
+                      date.gregorian.day === String(d.getDate()).padStart(2, "0")
+                        ? "bg-rose-400 text-white"
+                        : "odd:bg-zinc-800"
+                    }`}
+                  >
+                    <td className="p-3 border border-zinc-700">
+                      {date.gregorian.day}/{date.gregorian.month.number}/
+                      {date.gregorian.year}
+                    </td>
+                    {Object.values(timings).map((time, index) => (
+                      <td key={index} className="p-3 border border-zinc-700">
+                        {time.slice(0, 5)}
+                      </td>
+                    ))}
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        )}
+      </div>
+      <FooterComponent />
+    </div>
   );
 }
+
+export default SholatCalendar;

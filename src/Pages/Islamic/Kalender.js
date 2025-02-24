@@ -1,72 +1,178 @@
-import { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
-import Navbar from "../../components/Navbar";
-import FooterComponent from "../../components/FooterUtama";
+import { useState, useEffect, useRef } from "react";
+import Navbar from "../../components/Navbar-islamic";
+import FooterComponent from "../../components/Footer-islamic";
 
-function Kalender() {
-  const [showPopup, setShowPopup] = useState(true);
-  const navigate = useNavigate();
-
-  // Fungsi untuk menutup popup dan kembali ke halaman sebelumnya
-  const closePopup = () => {
-    setShowPopup(false);
-    navigate(-1); // Kembali ke halaman sebelumnya
-  };
+function SholatCalendar() {
+  const [calendar, setCalendar] = useState(null);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
+  const locationRef = useRef(null);
+  const d = new Date();
 
   useEffect(() => {
-    // Jika user menekan tombol ESC, popup akan tertutup dan kembali
-    const handleKeyDown = (event) => {
-      if (event.key === "Escape") {
-        closePopup();
-      }
-    };
-    window.addEventListener("keydown", handleKeyDown);
-    return () => window.removeEventListener("keydown", handleKeyDown);
+    // Cek apakah ada lokasi yang tersimpan di localStorage
+    const savedLocation = localStorage.getItem("userLocation");
+    if (savedLocation) {
+      const { latitude, longitude } = JSON.parse(savedLocation);
+      fetchPrayerTimes({ coords: { latitude, longitude } });
+    }
   }, []);
 
-  return (
-    <div className="relative">
-      <div className="bg-zinc-900 text-zinc-400 min-h-screen">
-        <div className="mx-auto max-w-[750px] px-4 pb-1 pt-6 text-lg sm:px-12 md:px-16">
-          <Navbar />
-          <div>
-            <br />
-            <br />
-            <h1>ini halaman Kalender</h1>
-            <br />
-          </div>
-        </div>
-        <FooterComponent />
-      </div>
-      {/* Popup Peringatan */}
-      {showPopup && (
-        <div 
-          className="fixed inset-0 bg-black/70 flex justify-center items-center z-50"
-          onClick={closePopup} // Klik luar popup akan menutup
-        >
-          <div 
-            className="bg-zinc-800 p-6 rounded-lg shadow-lg text-center relative w-[90%] max-w-sm"
-            onClick={(e) => e.stopPropagation()} // Supaya klik di dalam popup tidak menutup
-          >
-            {/* Tombol X di pojok kanan atas */}
-            <button 
-              className="absolute top-2 right-2 text-gray-400 hover:text-white text-xl"
-              onClick={closePopup}
-            >
-              ✕
-            </button>
+  const getLocation = () => {
+    if (navigator.geolocation) {
+      setLoading(true);
+      navigator.geolocation.getCurrentPosition(saveAndFetchLocation, showError);
+    } else {
+      locationRef.current.innerHTML =
+        "Geolocation tidak didukung di browser ini.";
+    }
+  };
 
-            <img 
-              src="https://media.tenor.com/EnDdF3poLccAAAAj/sseeyall-bubu-dudu.gif"
-              alt="Under Development"
-              className="w-40 mx-auto mb-4"
-            />
-            <h2 className="text-white text-lg font-semibold">Maap yaa</h2>
-            <p className="text-gray-300 text-sm mt-2">Halaman ini sedang dalam tahap pengembangan</p>
-          </div>
+  const saveAndFetchLocation = (position) => {
+    const { latitude, longitude } = position.coords;
+
+    // Simpan ke localStorage agar tidak hilang saat refresh
+    localStorage.setItem(
+      "userLocation",
+      JSON.stringify({ latitude, longitude })
+    );
+
+    fetchPrayerTimes(position);
+  };
+
+  const fetchPrayerTimes = async (position) => {
+    const { latitude, longitude } = position.coords;
+    locationRef.current.innerHTML = `Latitude: ${latitude} | Longitude: ${longitude}`;
+
+    const query = `latitude=${latitude}&longitude=${longitude}&method=2&month=${
+      d.getMonth() + 1
+    }&year=${d.getFullYear()}`;
+    const url = `https://api.aladhan.com/v1/calendar?${query}`;
+
+    try {
+      const response = await fetch(url);
+      const data = await response.json();
+      if (data.code === 200) {
+        setCalendar(data.data);
+        setError(null);
+      } else {
+        setError("Gagal mengambil data dari API.");
+      }
+    } catch (err) {
+      setError("Terjadi kesalahan dalam mengambil data.");
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const showError = (error) => {
+    setLoading(false);
+    switch (error.code) {
+      case error.PERMISSION_DENIED:
+        locationRef.current.innerHTML =
+          "Akses lokasi ditolak. Silakan izinkan lokasi di browser.";
+        break;
+      case error.POSITION_UNAVAILABLE:
+        locationRef.current.innerHTML = "Informasi lokasi tidak tersedia.";
+        break;
+      case error.TIMEOUT:
+        locationRef.current.innerHTML = "Permintaan lokasi terlalu lama.";
+        break;
+      default:
+        locationRef.current.innerHTML =
+          "Terjadi kesalahan saat mengambil lokasi.";
+    }
+  };
+
+  return (
+    <div className="relative bg-zinc-900 text-zinc-400 min-h-screen">
+      <div className="mx-auto max-w-[850px] px-4 pb-6 pt-6 text-lg sm:px-12 md:px-16">
+        <Navbar />
+        <div className="fixed top-0 left-1/2 -translate-x-1/2 w-full z-50 flex items-center justify-between gap-5 bg-zinc-800 px-5 text-base sm:px-5 py-1">
+            <div className="relative block sm:hidden">
+                <button type="button" className="flex items-center gap-2 py-3 text-sm transition-colors hover:text-zinc-300 sm:hidden sm:text-base" onClick={() => window.history.back()}>
+                    <i class="ri-arrow-left-line"></i>Kalender Sholat
+                </button>
+            </div>
         </div>
-      )}
+        {/* Header Kalender */}
+        <div className="text-center mt-12">
+          <p>
+            Sekarang tanggal <strong>{d.toLocaleDateString("id-ID")}</strong>
+          </p>
+
+          {/* Tombol Atur Lokasi */}
+          <button
+            onClick={getLocation}
+            className="mt-2 px-2 py-1 bg-rose-500 hover:bg-rose-600 text-sm text-white rounded-[5px] transition"
+          >
+            Atur Lokasi Otomatis
+          </button>
+
+          {/* Tempat untuk menampilkan lokasi */}
+          <p
+            ref={locationRef}
+            className="mt-4 text-sm text-zinc-300 bg-zinc-800 p-3 rounded-md border border-zinc-600"
+          >
+            {localStorage.getItem("userLocation")
+              ? "Lokasi sudah diatur. Jika ingin mengganti lokasi, tekan tombol di atas."
+              : "Tekan tombol untuk mendapatkan lokasi Anda."}
+          </p>
+        </div>
+
+        {/* Loading */}
+        {loading && (
+          <p className="mt-4 text-center text-rose-500">
+            Memuat kalender sholat...
+          </p>
+        )}
+
+        {/* Error */}
+        {error && <p className="mt-4 text-center text-red-500">{error}</p>}
+
+        {/* Kalender Sholat */}
+        {calendar && (
+          <div className="overflow-x-auto mx-auto max-w-max mt-6">
+            <table className="table-auto border border-zinc-700 w-full text-sm">
+              <thead>
+                <tr className="bg-rose-500 text-white">
+                  <th className="p-3 border border-zinc-700">Tanggal</th>
+                  {Object.keys(calendar[0].timings).map((name, index) => (
+                    <th key={index} className="p-3 border border-zinc-700">
+                      {name}
+                    </th>
+                  ))}
+                </tr>
+              </thead>
+              <tbody>
+                {calendar.map(({ timings, date }, i) => (
+                  <tr
+                    key={i}
+                    className={`whitespace-nowrap text-center ${
+                      date.gregorian.day === String(d.getDate()).padStart(2, "0")
+                        ? "bg-rose-400 text-white"
+                        : "odd:bg-zinc-800"
+                    }`}
+                  >
+                    <td className="p-3 border border-zinc-700">
+                      {date.gregorian.day}/{date.gregorian.month.number}/
+                      {date.gregorian.year}
+                    </td>
+                    {Object.values(timings).map((time, index) => (
+                      <td key={index} className="p-3 border border-zinc-700">
+                        {time.slice(0, 5)}
+                      </td>
+                    ))}
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        )}
+      </div>
+      <FooterComponent />
     </div>
   );
 }
-export default Kalender;
+
+export default SholatCalendar;
