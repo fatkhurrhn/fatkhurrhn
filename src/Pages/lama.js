@@ -1,6 +1,6 @@
 import { useState } from "react";
 import Navbar from "../components/Navbar";
-import FooterComponent from "../components/Footer";
+import FooterComponent from "../components/FooterUtama";
 
 const projects = [
   { id: 1, title: "Landing Page website company lintasarta jakarta selatan", category: "HTML", date: "10 Jan 2024", thumbnail: "https://kazokku.com/blog/wp-content/uploads/2023/12/APA-ITU-PROJECT-1.webp", link: "#" },

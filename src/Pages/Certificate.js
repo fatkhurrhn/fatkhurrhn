@@ -1,6 +1,6 @@
 import React from 'react';
 import Navbar from "../components/Navbar";
-import FooterComponent from "../components/Footer";
+import FooterComponent from "../components/FooterUtama";
 import git from "../assets/git.png";
 import ai from "../assets/ai.png";
 import backend from "../assets/backend.png";

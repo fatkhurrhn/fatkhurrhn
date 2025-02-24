@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 import Navbar from "../components/Navbar";
-import FooterComponent from "../components/Footer";
+import FooterComponent from "../components/FooterUtama";
 
 const projects = [
   {

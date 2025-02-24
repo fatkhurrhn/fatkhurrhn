@@ -1,5 +1,5 @@
 import Navbar from "../components/Navbar";
-import FooterComponent from "../components/Footer";
+import FooterComponent from "../components/FooterUtama";
 
 function Sample() {
   // useState hanya dibutuhkan jika Anda menggunakan state di dalam komponen ini

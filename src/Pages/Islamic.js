@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
-import NavbarMobile from "../components/navbar-mobile"; 
-import NavbarWaktuSholat from "../components/navbar-waktusholat"; 
+import NavbarMobile from "../components/FooterIslamicMobile"; 
+import NavbarWaktuSholat from "../components/NavbarWaktuSholatMobile"; 
 import NavbarIslamic from "../components/Navbar-islamic"; 
 import FooterIslamic from "../components/Footer-islamic"; 
 import Headline from "../components/headline";

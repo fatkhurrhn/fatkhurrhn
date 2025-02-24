@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import Navbar from "../../components/Navbar";
-import FooterComponent from "../../components/Footer";
+import FooterComponent from "../../components/FooterUtama";
 
 function Kiblat() {
   const [showPopup, setShowPopup] = useState(true);
