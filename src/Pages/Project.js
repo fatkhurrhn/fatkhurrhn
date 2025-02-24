@@ -239,13 +239,13 @@ function Project() {
                   </div>
 
                   {/* Gambar muncul di bawah semua elemen */}
-                  {showImage && (
+                  {/* {showImage && (
                     <div className="mt-4 w-full">
                       <a href="https://fatkhurrhn.vercel.app/">
                       <img src="https://seaconsulting.asia/wp-content/uploads/2023/05/project-portfolio-management-Important-660x400.jpg" alt="Project Roadmap" className="w-full rounded-lg"/>
                       </a>
                     </div>
-                  )}
+                  )} */}
                 </div>
               </div>
               <div className="relative overflow-hidden rounded-lg bg-zinc-800 p-3">
@@ -338,13 +338,13 @@ function Project() {
                   </div>
 
                   {/* Gambar muncul di bawah semua elemen */}
-                  {showImagee && (
+                  {/* {showImagee && (
                     <div className="mt-4 w-full">
                       <a href="https://github-explorer-rust-ten.vercel.app/">
                       <img src="https://seaconsulting.asia/wp-content/uploads/2023/05/project-portfolio-management-Important-660x400.jpg" alt="Project Roadmap" className="w-full rounded-lg"/>
                       </a>
                     </div>
-                  )}
+                  )} */}
                 </div>
               </div>
 
