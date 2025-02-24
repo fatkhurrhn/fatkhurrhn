@@ -37,7 +37,7 @@ export default function Navbar() {
     return (
         <>
             {/* Navbar Utama */}
-            <div className="hidden sm:flex fixed top-0 left-1/2 -translate-x-1/2 w-full max-w-[750px] sm:w-[85%] z-50 items-center justify-between gap-5 border border-zinc-700/40 bg-zinc-800 px-5 text-base sm:px-5 py-1 shadow-md rounded-none sm:rounded-b-2xl">
+            <div className="hidden sm:flex fixed top-0 left-1/2 -translate-x-1/2 w-full max-w-[750px] sm:w-[85%] z-50 flex items-center justify-between gap-5 border border-zinc-700/40 bg-zinc-800 px-5 text-base sm:px-5 py-1 shadow-md rounded-none sm:rounded-b-2xl">
             {/* Tombol Menu untuk Mobile */}
                 <div className="relative block sm:hidden">
                     <button
@@ -51,34 +51,24 @@ export default function Navbar() {
 
                 {/* Navbar untuk Desktop */}
                 <div className="hidden items-center gap-6 sm:flex">
-                    <Link to="/" className="relative flex items-center gap-1 py-3 pr-1 text-sm transition-colors hover:text-zinc-300 sm:text-base">
-                        <i className="ri-home-3-line"></i> Home
-                    </Link>
-                    <Link to="/islamic" className="relative flex items-center gap-1 py-3 pr-1 text-sm transition-colors hover:text-zinc-300 sm:text-base">
-                        <i className="ri-article-line"></i> Islamic
-                    </Link>
+                    <Link to="/" className="relative flex items-center gap-1 py-3 pr-1 text-sm transition-colors hover:text-zinc-300 sm:text-base">Home</Link>
+                    <Link to="/project" className="relative flex items-center gap-1 py-3 pr-1 text-sm transition-colors hover:text-zinc-300 sm:text-base">Project</Link>
+                    <Link to="/certificate" className="relative flex items-center gap-1 py-3 pr-1 text-sm transition-colors hover:text-zinc-300 sm:text-base">Certificate</Link>
+                    <Link to="/blog" className="relative flex items-center gap-1 py-3 pr-1 text-sm transition-colors hover:text-zinc-300 sm:text-base">Blog</Link>
 
                     {/* Dropdown Pages */}
                     <div className="relative" ref={dropdownRef}>
                         <button
                             onClick={() => setDropdownOpen(!dropdownOpen)}
-                            className="relative flex items-center gap-1 py-3 pr-1 text-sm transition-colors hover:text-zinc-300 sm:text-base"
-                        >
-                            <i className="ri-pages-line"></i> Pages
+                            className="relative flex items-center gap-1 py-3 pr-1 text-sm transition-colors hover:text-zinc-300 sm:text-base"> Pages
                             <i className={`ri-arrow-down-s-line transition-transform ${dropdownOpen ? "rotate-180" : ""}`}></i>
                         </button>
 
                         {/* Dropdown Content */}
                         {dropdownOpen && (
                             <div className="absolute left-0 mt-2 w-40 bg-zinc-800 border border-zinc-700 rounded-lg shadow-lg overflow-hidden">
-                                <Link to="/project" className="block px-4 py-2 text-sm text-gray-300 hover:bg-zinc-700">
-                                    <i className="ri-tools-fill"></i> Projects
-                                </Link>
-                                <Link to="/blog" className="block px-4 py-2 text-sm text-gray-300 hover:bg-zinc-700">
-                                    <i className="ri-file-list-2-line"></i> Blog
-                                </Link>
-                                <Link to="/certificate" className="block px-4 py-2 text-sm text-gray-300 hover:bg-zinc-700">
-                                <i class="ri-moon-clear-line"></i> Certificate
+                                <Link to="/islamic" className="block px-4 py-2 text-sm text-gray-300 hover:bg-zinc-700">
+                                    Islamic
                                 </Link>
                             </div>
                         )}

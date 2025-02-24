@@ -1,8 +1,10 @@
 import { useState, useEffect } from "react";
 import FooterIslamic from "../../components/Footer-islamic";
 import NavbarIslamic from "../../components/Navbar-islamic";
+import NavbarMobile from "../../components/navbar-mobile";
 import Headline from "../../components/headline";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
+
 
 function JadwalSholat() {
   const [idKota, setIdKota] = useState(localStorage.getItem("idkota") || null);
@@ -103,6 +105,7 @@ function JadwalSholat() {
         </div>
         <Headline/>
       </div>
+      
       <FooterIslamic />
       {showPopup && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center" onClick={() => setShowPopup(false)}>
