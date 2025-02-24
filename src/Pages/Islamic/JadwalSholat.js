@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import FooterIslamic from "../../components/Footer-islamic";
 import NavbarIslamic from "../../components/Navbar-islamic";
-import NavbarMobile from "../../components/navbar-mobile";
+import FooterMobileIslamic from "../../components/navbar-mobile-islamic";
 import Headline from "../../components/headline";
 // import { Link } from "react-router-dom";
 
@@ -84,6 +84,7 @@ function JadwalSholat() {
     <div className="bg-zinc-900 text-zinc-400 min-h-screen">
       <div className="mx-auto max-w-[880px] px-4 pb-1 pt-6 text-lg sm:px-12 md:px-16">
         <NavbarIslamic />
+        <FooterMobileIslamic/>
         <div className="pt-[10px] text-center">
           <section className="py-6 relative">
             <h2 className="text-sm text-gray-400 cursor-pointer mt-3" onClick={() => setShowPopup(true)}>
