@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import FooterIslamic from "../../components/Footer-islamic";
 import NavbarIslamic from "../../components/Navbar-islamic";
-import Back from "../../components/back";
+// import Back from "../../components/back";
 // import { Link } from "react-router-dom";
 
 
@@ -83,7 +83,13 @@ function JadwalSholat() {
     <div className="bg-zinc-900 text-zinc-400 min-h-screen">
       <div className="mx-auto max-w-[880px] px-4 pb-1 pt-6 text-lg sm:px-12 md:px-16">
         <NavbarIslamic />
-        <Back/>
+        <div className="fixed top-0 left-1/2 -translate-x-1/2 w-full z-50 flex items-center justify-between gap-5 bg-zinc-800 px-5 text-base sm:px-5 py-1">
+                <div className="relative block sm:hidden">
+                    <button type="button" className="flex items-center gap-2 py-3 text-sm transition-colors hover:text-zinc-300 sm:hidden sm:text-base" onClick={() => window.history.back()}>
+                        <i class="ri-arrow-left-line"></i>Jadwal Sholat
+                    </button>
+                </div>
+            </div>
         <div className="pt-[10px] text-center">
           <section className="py-6 relative">
             <h2 className="text-sm text-gray-400 cursor-pointer mt-3" onClick={() => setShowPopup(true)}>
@@ -100,6 +106,12 @@ function JadwalSholat() {
                   <span className="text-lg">{waktu}</span>
                 </div>
               ))}
+            </div>
+
+            <div className="bg-transparent p-4 mt-6 rounded-lg border border-zinc-500/50 shadow-lg w-full flex items-center justify-center text-center">
+                <p className="text-lg text-zinc-300 flex items-center gap-2">
+                    <i className="ri-hand-heart-line"></i> Dukung kami untuk terus berkembang
+                </p>
             </div>
           </section>
         </div>

@@ -27,15 +27,16 @@ function NewsIslamic() {
             <div className="bg-zinc-900 text-zinc-400 min-h-screen">
                 <div className=" mx-auto max-w-[880px] px-4 pb-1 pt-6 text-lg sm:px-12 md:px-16">
                     <NavbarIslamic/>
+                    <div className="fixed top-0 left-1/2 -translate-x-1/2 w-full z-50 flex items-center justify-between gap-5 bg-zinc-800 px-5 text-base sm:px-5 py-1">
+                <div className="relative block sm:hidden">
+                    <button type="button" className="flex items-center gap-2 py-3 text-sm transition-colors hover:text-zinc-300 sm:hidden sm:text-base" onClick={() => window.history.back()}>
+                        <i class="ri-arrow-left-line"></i>News Islamic
+                    </button>
+                </div>
+            </div>
                     <div>
                         <div className="pt-[10px] flex flex-col gap-3 text-base leading-7 sm:gap-4 sm:text-lg sm:leading-8" style={{ textAlign: "justify" }}>
-                        <section className="blog-section pt-0 sm:py-10 relative">
-                            <Link to="/islamic" className="absolute left-4 top-0 sm:hidden text-white text-1xl">
-                                <i className="ri-arrow-left-s-line"></i>
-                            </Link>
-                            <h1 className="text-xl font-semibold text-zinc-100 sm:text-2xl text-center mb-4 sm:mb-6">
-                                News Islamic
-                            </h1>
+                        <section className="blog-section pt-0 sm:py-10 relative"> <br/>
                                 {loading && <p className="text-center">Loading...</p>}
                                 {error && <p className="text-center text-red-500">Terjadi kesalahan saat mengambil data.</p>}
                                 <div className="blog-container grid grid-cols-2 md:grid-cols-3 gap-4 px-4">
