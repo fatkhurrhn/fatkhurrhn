@@ -150,7 +150,7 @@ function SholatCalendar() {
                     key={i}
                     className={`whitespace-nowrap text-center ${
                       date.gregorian.day === String(d.getDate()).padStart(2, "0")
-                        ? "bg-rose-400 text-white"
+                        ? "bg-rose-600 text-white"
                         : "odd:bg-zinc-800"
                     }`}
                   >
@@ -169,6 +169,12 @@ function SholatCalendar() {
             </table>
           </div>
         )}
+
+        <div className="bg-transparent p-4 mt-6 rounded-lg border border-zinc-500/50 shadow-lg w-full flex items-center justify-center text-center">
+            <p className="text-[17px] text-zinc-300 flex items-center gap-2">
+                <i className="ri-hand-heart-line"></i> Dukung kami untuk terus berkembang
+            </p>
+        </div>
       </div>
       <FooterComponent />
     </div>

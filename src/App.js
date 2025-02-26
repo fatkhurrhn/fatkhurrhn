@@ -13,14 +13,6 @@ import Kalender from './Pages/Islamic/Kalender';
 import Tes from './Pages/Tes.js';
 import Hasil from './Pages/Sample';
 
-// import blog
-import BlogDetail from "./detail-blog/blog-1";
-import BlogDetail2 from "./detail-blog/blog-2";
-import BlogDetail3 from "./detail-blog/blog-3";
-import BlogDetail4 from "./detail-blog/blog-4";
-import BlogDetail5 from "./detail-blog/blog-5";
-import BlogDetail6 from "./detail-blog/blog-6";
-
 function App() {
   return (
     <Router>
@@ -37,14 +29,6 @@ function App() {
         <Route path="/kalender" element={<Kalender />} />
         <Route path="/tes" element={<Tes />} />
         <Route path="/hasil" element={<Hasil />} />
-
-        <Route path="/blog-1" element={<BlogDetail />} /> 
-        <Route path="/blog-2" element={<BlogDetail2 />} /> 
-        <Route path="/blog-3" element={<BlogDetail3 />} /> 
-        <Route path="/blog-4" element={<BlogDetail4 />} /> 
-        <Route path="/blog-5" element={<BlogDetail5 />} /> 
-        <Route path="/blog-6" element={<BlogDetail6 />} /> 
-
       </Routes>
     </Router>
   );
