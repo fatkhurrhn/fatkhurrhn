@@ -30,9 +30,9 @@ function Doa() {
           </div>
         </div>
 
-        <div className="mt-16">
+        <div className="mt-12">
           {/* Search Bar */}
-          <div className="relative mb-6">
+          {/* <div className="relative mb-4">
             <div className="bg-zinc-100/10 rounded-lg p-2 flex items-center">
               <i className="ri-search-line text-zinc-400 mx-2"></i>
               <input
@@ -41,7 +41,7 @@ function Doa() {
                 className="bg-transparent w-full text-zinc-300 outline-none p-2"
               />
             </div>
-          </div>
+          </div> */}
 
           {/* Doa Categories */}
           <div className="space-y-4">
