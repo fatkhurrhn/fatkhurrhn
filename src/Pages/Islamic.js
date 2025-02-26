@@ -180,7 +180,7 @@ export default function JadwalSholat() {
           <div className="grid grid-cols-4 gap-4">
             {[
               { name: "Quran", icon: <FaBook />, link: "/quran" },
-              { name: "Wirid", icon: <FaPray />, link: "/wirid" },
+              { name: "Wirid", icon: <FaPray />, link: "/doa" },
               { name: "Jadwal", icon: <FaClock />, link: "/jadwal-sholat" },
               { name: "Kiblat", icon: <FaCompass />, link: "/kiblat" },
               { name: "Tahlil", icon: <FaStar />, link: "/tahlil" },
