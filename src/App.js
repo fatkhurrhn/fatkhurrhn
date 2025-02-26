@@ -12,6 +12,7 @@ import Kiblat from './Pages/Islamic/Kiblat';
 import Kalender from './Pages/Islamic/Kalender';
 import Tes from './Pages/Tes.js';
 import Hasil from './Pages/Sample';
+import Tess from './Pages/Islamic/tess';
 
 function App() {
   return (
@@ -29,6 +30,7 @@ function App() {
         <Route path="/kalender" element={<Kalender />} />
         <Route path="/tes" element={<Tes />} />
         <Route path="/hasil" element={<Hasil />} />
+        <Route path="/tess" element={<Tess />} />
       </Routes>
     </Router>
   );
