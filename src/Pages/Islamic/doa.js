@@ -44,24 +44,24 @@ function Doa() {
           </div> */}
 
           {/* Doa Categories */}
-          <div className="space-y-4">
-            {doaCategories.map((category) => (
-              <div
-                key={category.id}
-                className="bg-zinc-100/5 hover:bg-zinc-100/10 rounded-lg p-4 cursor-pointer transition-all"
-              >
-                <div className="flex items-center">
-                  <div className="flex-shrink-0 w-16 h-16 bg-green-100/20 rounded-lg flex items-center justify-center text-green-400 text-2xl font-semibold">
-                    {category.id}
-                  </div>
-                  <div className="ml-4 flex-1">
-                    <h3 className="text-zinc-200 text-xl font-medium">{category.title}</h3>
-                    <p className="text-zinc-400 mt-1">{category.readings} Bacaan</p>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
+          <div className="space-y-2">
+                {doaCategories.map((category) => (
+                    <div
+                    key={category.id}
+                    className="bg-zinc-100/5 hover:bg-zinc-100/10 rounded-md p-2 cursor-pointer transition"
+                    >
+                    <div className="flex items-center">
+                        <div className="flex-shrink-0 w-12 h-12 bg-green-100/20 rounded-md flex items-center justify-center text-green-400 text-lg font-semibold">
+                        {category.id}
+                        </div>
+                        <div className="ml-3 flex-1">
+                        <h3 className="text-zinc-200 text-base font-medium">{category.title}</h3>
+                        <p className="text-zinc-400 text-xs mt-0.5">{category.readings} Bacaan</p>
+                        </div>
+                    </div>
+                    </div>
+                ))}
+            </div>
         </div>
 
         <div className="bg-transparent p-4 mt-6 rounded-lg border border-zinc-500/50 shadow-lg w-full flex items-center justify-center text-center">

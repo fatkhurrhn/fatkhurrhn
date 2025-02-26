@@ -18,7 +18,6 @@ import Doa from './Pages/Islamic/doa';
 
 import KumpulanDoa from './Pages/Islamic/doa/KumpulanDoa';
 
-import WiridHome from './Pages/Islamic/doa/WiridHarian/WiridHome';
 import DzikirPagi from './Pages/Islamic/doa/WiridHarian/DzikirPagi';
 
 function App() {
@@ -43,7 +42,6 @@ function App() {
 
         <Route path="/kumpulan-doa" element={<KumpulanDoa />} />
 
-        <Route path="/wirid-home" element={<WiridHome />} />
         <Route path="/dzikir-pagi" element={<DzikirPagi />} />
       </Routes>
     </Router>
