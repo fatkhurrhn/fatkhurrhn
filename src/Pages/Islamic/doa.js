@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import Navbar from "../../components/Navbar-islamic";
 import FooterComponent from "../../components/Footer-islamic";
 
@@ -46,7 +47,8 @@ function Doa() {
           {/* Doa Categories */}
           <div className="space-y-2">
                 {doaCategories.map((category) => (
-                    <div
+                    
+                        <div
                     key={category.id}
                     className="bg-zinc-100/5 hover:bg-zinc-100/10 rounded-md p-2 cursor-pointer transition"
                     >

@@ -1,6 +1,6 @@
 import React from "react";
-import Navbar from "../../../components/Navbar-islamic";
-import FooterComponent from "../../../components/Footer-islamic";
+import Navbar from "../../../../components/Navbar-islamic";
+import FooterComponent from "../../../../components/Footer-islamic";
 
 function WiridHarianDetail() {
   const wiridList = [
