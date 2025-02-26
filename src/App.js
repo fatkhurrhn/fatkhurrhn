@@ -13,6 +13,7 @@ import Kalender from './Pages/Islamic/Kalender';
 import Tes from './Pages/Tes.js';
 import Hasil from './Pages/Sample';
 import Tess from './Pages/Islamic/tess';
+import KumpulanDoa from './Pages/Islamic/doa/KumpulanDoa';
 
 function App() {
   return (
@@ -31,6 +32,7 @@ function App() {
         <Route path="/tes" element={<Tes />} />
         <Route path="/hasil" element={<Hasil />} />
         <Route path="/tess" element={<Tess />} />
+        <Route path="/kumpulan-doa" element={<KumpulanDoa />} />
       </Routes>
     </Router>
   );
