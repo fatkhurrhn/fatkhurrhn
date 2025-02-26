@@ -5,14 +5,14 @@ import FooterComponent from "../../components/Footer-islamic";
 
 function Doa() {
   const doaCategories = [
-    { id: 1, title: "Wirid Harian", readings: 6 },
-    { id: 2, title: "Shalawat", readings: 34 },
-    { id: 3, title: "Asmaul Husna", readings: 3 },
-    { id: 4, title: "Istighotsah & Mujahadah", readings: 7 },
-    { id: 5, title: "Ratib", readings: 6 },
-    { id: 6, title: "Hizib", readings: 9 },
-    { id: 7, title: "Dalailul Khairat", readings: 12 },
-    { id: 8, title: "Manaqib Syekh Abdul Qadir", readings: 9 }
+    { id: 1, title: "Wirid Harian", readings: 6, route: "/wirid-home" },
+    { id: 2, title: "Shalawat", readings: 34, route: "/shalawat" },
+    { id: 3, title: "Asmaul Husna", readings: 3, route: "/asmaul-husna" },
+    { id: 4, title: "Istighotsah & Mujahadah", readings: 7, route: "/istighotsah" },
+    { id: 5, title: "Ratib", readings: 6, route: "/ratib" },
+    { id: 6, title: "Hizib", readings: 9, route: "/hizib" },
+    { id: 7, title: "Dalailul Khairat", readings: 12, route: "/dalailul-khairat" },
+    { id: 8, title: "Manaqib Syekh Abdul Qadir", readings: 9, route: "/manaqib" }
   ];
 
   return (
@@ -46,24 +46,23 @@ function Doa() {
 
           {/* Doa Categories */}
           <div className="space-y-2">
-                {doaCategories.map((category) => (
-                    
-                        <div
-                    key={category.id}
-                    className="bg-zinc-100/5 hover:bg-zinc-100/10 rounded-md p-2 cursor-pointer transition"
-                    >
-                    <div className="flex items-center">
-                        <div className="flex-shrink-0 w-12 h-12 bg-green-100/20 rounded-md flex items-center justify-center text-green-400 text-lg font-semibold">
-                        {category.id}
-                        </div>
-                        <div className="ml-3 flex-1">
-                        <h3 className="text-zinc-200 text-base font-medium">{category.title}</h3>
-                        <p className="text-zinc-400 text-xs mt-0.5">{category.readings} Bacaan</p>
-                        </div>
-                    </div>
-                    </div>
-                ))}
-            </div>
+  {doaCategories.map((category) => (
+    <Link key={category.id} to={category.route}>
+      <div className="bg-zinc-100/5 hover:bg-zinc-100/10 rounded-md p-2 cursor-pointer transition mb-2"> 
+        <div className="flex items-center">
+          <div className="flex-shrink-0 w-12 h-12 bg-green-100/20 rounded-md flex items-center justify-center text-green-400 text-lg font-semibold">
+            {category.id}
+          </div>
+          <div className="ml-3 flex-1">
+            <h3 className="text-zinc-200 text-base font-medium">{category.title}</h3>
+            <p className="text-zinc-400 text-xs mt-0.5">{category.readings} Bacaan</p>
+          </div>
+        </div>
+      </div>
+    </Link>
+  ))}
+</div>
+
         </div>
 
         <div className="bg-transparent p-4 mt-6 rounded-lg border border-zinc-500/50 shadow-lg w-full flex items-center justify-center text-center">
