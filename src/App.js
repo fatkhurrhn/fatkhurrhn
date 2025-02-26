@@ -5,6 +5,7 @@ import HomePage from './Pages/HomePage';
 import Certificate from './Pages/Certificate';
 import Project from './Pages/Project';
 import Blog from './Pages/Blog';
+
 import Islamic from './Pages/Islamic.js';
 import News from './Pages/Islamic/News-islamic';
 import JadwalSholat from './Pages/Islamic/JadwalSholat';
@@ -13,7 +14,12 @@ import Kalender from './Pages/Islamic/Kalender';
 import Tes from './Pages/Tes.js';
 import Hasil from './Pages/Sample';
 import Tess from './Pages/Islamic/tess';
+import Doa from './Pages/Islamic/doa';
+
 import KumpulanDoa from './Pages/Islamic/doa/KumpulanDoa';
+
+import WiridHome from './Pages/Islamic/doa/WiridHarian/WiridHome';
+import DzikirPagi from './Pages/Islamic/doa/WiridHarian/DzikirPagi';
 
 function App() {
   return (
@@ -24,6 +30,7 @@ function App() {
         <Route path="/certificate" element={<Certificate />} />
         <Route path="/project" element={<Project />} />
         <Route path="/blog" element={<Blog />} />
+
         <Route path="/islamic" element={<Islamic />} />
         <Route path="/news-islamic" element={<News />} />
         <Route path="/jadwal-sholat" element={<JadwalSholat />} />
@@ -32,7 +39,12 @@ function App() {
         <Route path="/tes" element={<Tes />} />
         <Route path="/hasil" element={<Hasil />} />
         <Route path="/tess" element={<Tess />} />
+        <Route path="/doa" element={<Doa />} />
+
         <Route path="/kumpulan-doa" element={<KumpulanDoa />} />
+
+        <Route path="/wirid-home" element={<WiridHome />} />
+        <Route path="/dzikir-pagi" element={<DzikirPagi />} />
       </Routes>
     </Router>
   );
