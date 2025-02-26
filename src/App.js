@@ -16,9 +16,8 @@ import Hasil from './Pages/Sample';
 import Tess from './Pages/Islamic/tess';
 import Doa from './Pages/Islamic/doa';
 
-import KumpulanDoa from './Pages/Islamic/doa/KumpulanDoa';
-
 import DzikirPagi from './Pages/Islamic/doa/WiridHarian/DzikirPagi';
+import WiridHome from './Pages/Islamic/doa/WiridHarian/WiridHome';
 
 function App() {
   return (
@@ -40,9 +39,8 @@ function App() {
         <Route path="/tess" element={<Tess />} />
         <Route path="/doa" element={<Doa />} />
 
-        <Route path="/kumpulan-doa" element={<KumpulanDoa />} />
-
         <Route path="/dzikir-pagi" element={<DzikirPagi />} />
+        <Route path="/wirid-home" element={<WiridHome />} />
       </Routes>
     </Router>
   );
