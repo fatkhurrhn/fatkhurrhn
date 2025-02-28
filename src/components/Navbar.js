@@ -56,15 +56,13 @@ export default function Navbar() {
                     <Link to="/certificate" className="relative flex items-center gap-1 py-3 pr-1 text-sm transition-colors hover:text-zinc-300 sm:text-base">Certificate</Link>
                     <Link to="/blog" className="relative flex items-center gap-1 py-3 pr-1 text-sm transition-colors hover:text-zinc-300 sm:text-base">Blog</Link>
 
-                    {/* Dropdown Pages */}
-                    <div className="relative" ref={dropdownRef}>
+                    {/* <div className="relative" ref={dropdownRef}>
                         <button
                             onClick={() => setDropdownOpen(!dropdownOpen)}
                             className="relative flex items-center gap-1 py-3 pr-1 text-sm transition-colors hover:text-zinc-300 sm:text-base"> Pages
                             <i className={`ri-arrow-down-s-line transition-transform ${dropdownOpen ? "rotate-180" : ""}`}></i>
                         </button>
 
-                        {/* Dropdown Content */}
                         {dropdownOpen && (
                             <div className="absolute left-0 mt-2 w-40 bg-zinc-800 border border-zinc-700 rounded-lg shadow-lg overflow-hidden">
                                 <Link to="/islamic" className="block px-4 py-2 text-sm text-gray-300 hover:bg-zinc-700">
@@ -72,7 +70,7 @@ export default function Navbar() {
                                 </Link>
                             </div>
                         )}
-                    </div>
+                    </div> */}
                 </div>
 
 
@@ -141,9 +139,6 @@ export default function Navbar() {
                 <nav className="flex flex-col mt-16 p-4 text-left">
                     <Link to="/" className="text-zinc-300 hover:text-white text-base flex items-center gap-3 py-1 px-3 rounded-md transition-all duration-200 hover:bg-[#27272a]">
                         Home
-                    </Link>
-                    <Link to="/islamic" className="text-zinc-300 hover:text-white text-base flex items-center gap-3 py-1 px-3 rounded-md transition-all duration-200 hover:bg-[#27272a]">
-                        Islamic
                     </Link>
                     <Link to="/project" className="text-zinc-300 hover:text-white text-base flex items-center gap-3 py-1 px-3 rounded-md transition-all duration-200 hover:bg-[#27272a]">
                         Projects

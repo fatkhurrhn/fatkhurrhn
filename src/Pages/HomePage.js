@@ -1,6 +1,6 @@
 import Navbar from "../components/Navbar";
 import FooterComponent from "../components/FooterUtama";
-import { Colors } from "chart.js";
+import ProjectFigma from "../assets/project-figma.jpg";
 
 function App() {
   return (
@@ -17,7 +17,7 @@ function App() {
                   Fatkhurrhn
                 </h1>
                 <span className="hidden text-base sm:block sm:text-lg">
-                  Frontend Developer | Passionate About UX/UI
+                Front-End Developer | UI/UX Enthusiast
                 </span>
                 <span className="block text-base sm:hidden">Frontend Developer</span>
               </div>
@@ -186,7 +186,7 @@ function App() {
                       </div>
                     </div>
                     <div className="project-image">
-                      <img src="https://media.licdn.com/dms/image/v2/D562DAQGlmvnW4ZjKxg/profile-treasury-image-shrink_800_800/profile-treasury-image-shrink_800_800/0/1728626490441?e=1740027600&v=beta&t=CLJxHIV9VCPW12-USQuz2LOZqN2amWm9Ig5KjzqsImM"
+                      <img src={ProjectFigma}
                         alt="Realtor" />
                     </div>
                   </article>

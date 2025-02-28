@@ -2,6 +2,7 @@ import { useState } from "react";
 
 import Navbar from "../components/Navbar";
 import FooterComponent from "../components/FooterUtama";
+import NUonline from "../assets/nuonline-clone.png"
 
 const projects = [
   {
@@ -153,15 +154,15 @@ function Project() {
                   <h2 className="flex items-center justify-between">
                     <div className="flex flex-col items-start gap-1 sm:flex-row sm:items-center sm:gap-2">
                       <a href="#link-project" className="text-lg font-medium text-zinc-50 sm:text-xl"
-                      >Portfolio</a>
+                      >NUonline-clone</a>
                     </div>
                     <div className="absolute right-4 top-4 hidden sm:block">
-                      <img alt="roadmap.sh" src="https://flowbite.com/docs/images/logo.svg"
+                      <img alt="roadmap.sh" src={NUonline}
                         className="h-12 w-12" />
                     </div>
                   </h2>
                   <p className="my-3 text-sm sm:text-base pr-0 sm:pr-14 text-justify">
-                  A modern, dark-mode personal portfolio built with React.js, showcasing projects, skills, and experience. This portfolio is designed to be visually appealing and easy to navigate, highlighting your key accomplishments and abilities
+                  NU Online Clone is a React.js application that features Islamic content, inspired by the official NU Online website, offering an interactive and responsive user experience.
                   </p>
                 </div>
                 <div className="mb-1 mt-3">
@@ -193,7 +194,7 @@ function Project() {
                     {/* Link Visit Website & GitHub */}
                     <div className="flex items-center gap-2 text-zinc-500">
                       <a
-                        href="https://fatkhurrhn.vercel.app/"
+                        href="https://nuonline-clone.vercel.app/"
                         className="flex items-center gap-1.5 rounded-lg py-1 text-base transition-colors hover:text-zinc-300 sm:text-sm"
                       >
                         <svg
@@ -215,7 +216,7 @@ function Project() {
                         <span className="hidden sm:inline-block">Visit </span>Website
                       </a>
                       <a
-                        href="https://github.com/fatkhurrhn/fatkhurrhn"
+                        href="https://github.com/fatkhurrhn/nuonline-clone"
                         className="flex items-center gap-1.5 rounded-lg px-2.5 py-1 text-base transition-colors hover:text-zinc-300 sm:text-sm"
                       >
                         <svg
