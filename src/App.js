@@ -5,6 +5,7 @@ import HomePage from './Pages/HomePage';
 import Certificate from './Pages/Certificate';
 import Project from './Pages/Project';
 import Blog from './Pages/Blog';
+import RamadhanPlanner from './Pages/RamadhanPlanner';
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         <Route path="/certificate" element={<Certificate />} />
         <Route path="/project" element={<Project />} />
         <Route path="/blog" element={<Blog />} />
+        <Route path="/ramadhan-planner" element={<RamadhanPlanner />} />
       </Routes>
     </Router>
   );
