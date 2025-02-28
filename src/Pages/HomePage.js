@@ -78,7 +78,7 @@ function App() {
                     </svg>
                   </button>
                   <span className="hidden animate-fade-appear text-green-400">
-                    <astro-slot> Here’s <a href="https://drive.google.com/file/d/1T96IuSPGw_c2pvHDbXcGErriir_eRNFt/view" target ="_blank" rel="noreferrer"><span style={{ color: 'white', fontWeight: 'bold' }}>my CV</span></a> if you want to know more about my journey! </astro-slot>
+                    <astro-slot> Here’s <a href="https://drive.google.com/file/d/1OlkWDLOPqDRYQ6rVPhXuEkdLfmyCl8lJ/view" target ="_blank" rel="noreferrer"><span style={{ color: 'white', fontWeight: 'bold' }}>my CV</span></a> if you want to know more about my journey! </astro-slot>
                   </span>
                 </astro-island> 
                 📄
