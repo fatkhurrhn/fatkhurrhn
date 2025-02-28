@@ -22,7 +22,7 @@ function Sample() {
   return (
     <div className="relative bg-zinc-900 text-zinc-400 min-h-screen flex items-center justify-center p-6">
       <div className="w-full max-w-md px-6 py-8 bg-zinc-800 rounded-2xl shadow-2xl border border-zinc-700">
-        <h2 className="text-2xl text-center text-zinc-200 mb-6 font-semibold">Formulir Ramadhan 1446 H</h2>
+        <h2 className="text-2xl text-center text-zinc-200 mb-6 font-semibold">Formulir Challenge</h2>
         <form onSubmit={handleSubmit} className="space-y-4">
           <div>
             <label className="block text-zinc-300 mb-1">Nama Panggilan</label>
