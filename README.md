@@ -14,7 +14,7 @@ I'm an Information Systems student passionate about Front-End Development, turni
 <p align="left">
 <a href="https://github.com/fatkhurrhn">
 <img height="180em" src="https://github-readme-stats-eight-theta.vercel.app/api?username=fatkhurrhn&show_icons=true&theme=algolia&include_all_commits=true&count_private=true"/>
-<img height="180em" src="https://github-readme-stats-eight-theta.vercel.app/api/top-langs/?username=fatkhurrhn&layout=compact&theme=algolia"/>
+<img height="180em" src="https://github-readme-stats-eight-theta.vercel.app/api/top-langs/?username=kamachiii&layout=compact&theme=algolia"/>
 </a>
 </p>
  
