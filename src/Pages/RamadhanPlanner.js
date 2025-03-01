@@ -18,7 +18,7 @@ function Sample() {
   const handleSubmit = (e) => {
     e.preventDefault();
     const message = `Nama: ${formData.nama}%0AAsal: ${formData.asal}%0AEmail: ${formData.email}%0AMotivasi: ${formData.motivasi}`;
-    const whatsappUrl = `https://wa.me/628225512813?text=${message}`;
+    const whatsappUrl = `https://wa.me/6282285512813?text=${message}`;
     window.open(whatsappUrl, "_blank");
   };
 
