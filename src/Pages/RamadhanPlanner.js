@@ -80,48 +80,48 @@ function Sample() {
       )}
 
       <div className="w-full max-w-md px-6 py-8 bg-zinc-800 rounded-2xl shadow-2xl border border-zinc-700">
-        <h2 className="text-2xl text-center text-zinc-200 mb-6 font-semibold">Formulir Ramadhan</h2>
-        <form onSubmit={handleSubmit} className="space-y-4">
+      <h2 className="text-2xl text-center text-zinc-200 mb-6 font-semibold">Ramadhan Planner</h2>
+      <form onSubmit={handleSubmit} className="space-y-4">
           <div>
-            <label className="block text-zinc-300 mb-1">Nama</label>
+            <label className="block text-zinc-300 mb-1">Nama Panggilan</label>
             <input 
-              type="text" 
+              type="text" placeholder="masukan nama panggilan"
               name="nama" 
               value={formData.nama} 
               onChange={handleChange} 
-              className="w-full px-4 py-2 bg-zinc-700 text-zinc-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
+              className="w-full px-4 py-2 bg-zinc-700 text-zinc-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-500"
               required 
             />
           </div>
           <div>
             <label className="block text-zinc-300 mb-1">Asal</label>
             <input 
-              type="text" 
+              type="text" placeholder="masukan asal/domisili"
               name="asal" 
               value={formData.asal} 
               onChange={handleChange} 
-              className="w-full px-4 py-2 bg-zinc-700 text-zinc-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
+              className="w-full px-4 py-2 bg-zinc-700 text-zinc-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-500"
               required 
             />
           </div>
           <div>
-            <label className="block text-zinc-300 mb-1">Email</label>
+            <label className="block text-zinc-300 mb-1">Email Aktif</label>
             <input 
-              type="email" 
+              type="email" placeholder="inget!!! email aktif cuy"
               name="email" 
               value={formData.email} 
               onChange={handleChange} 
-              className="w-full px-4 py-2 bg-zinc-700 text-zinc-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
+              className="w-full px-4 py-2 bg-zinc-700 text-zinc-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-500"
               required 
             />
           </div>
           <div>
-            <label className="block text-zinc-300 mb-1">Motivasi Ramadhan</label>
+            <label className="block text-zinc-300 mb-1">Motivasi</label>
             <textarea 
-              name="motivasi" 
+              name="motivasi" placeholder="motivasi mu di bulan ramadhan ini apa?"
               value={formData.motivasi} 
               onChange={handleChange} 
-              className="w-full px-4 py-2 bg-zinc-700 text-zinc-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
+              className="w-full px-4 py-2 bg-zinc-700 text-zinc-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-500"
               rows="4" 
               required 
             ></textarea>
