@@ -1,6 +1,6 @@
 <p align="left"> <img src="https://komarev.com/ghpvc/?username=fatkhur03&label=Profile%20views&color=0e75b6&style=flat" alt="" /> </p>
 
-# 👋 Hi there! I'm Fathur
+# 👋 Hi there! I'm Fathur 
 
 I'm an Information Systems student passionate about Front-End Development, turning ideas into interactive and user-friendly experiences with clean and efficient code. Always exploring new web technologies, I love building innovative projects and crafting seamless user experiences. Check out my repos and let's create something awesome together! 😎🔥
  
