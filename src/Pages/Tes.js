@@ -8,7 +8,7 @@ function App() {
         <div className="mt-6">
           <h1 className="text-white text-3xl">Welcome to My Website Login with google</h1>
           <p className="text-zinc-400 mt-2">
-            This is a sample React app with Firebase Authentication.
+            This is a sample React app with Firebase Authentication. baru pertama nyoba ini, semoga berhasil ya kan hhe
           </p>
         </div>
       </div>
