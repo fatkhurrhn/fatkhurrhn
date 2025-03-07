@@ -209,7 +209,7 @@ function App() {
                             Company Lintasarta
                           </h3>
                           <p className="text-xs sm:text-sm text-zinc-400 text-left">
-                            Capstone Project Bangkit Academy
+                            Capstone Project at Bangkit Academy
                           </p>
                         </div>
                       </div>
