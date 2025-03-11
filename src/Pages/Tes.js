@@ -137,7 +137,7 @@ function HomePage() {
           
           {/* Custom GitHub Calendar Section */}
           <div className="mt-16">
-            <GitHubCalendar username="abyanraditya" />
+            <img src="https://github-readme-activity-graph.vercel.app/graph?username=fatkhurrhn&theme=github-compact&hide_border=true" className="border-none" height="auto" alt="by fatkhurhhn" />
           </div>
         </section>
       </div>
