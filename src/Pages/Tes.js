@@ -112,10 +112,8 @@ function HomePage() {
               </h1>
               <p className={`text-sm font-mono`}>FrontEnd Developer</p>
             </div>
-            <p>
-              I&#39;m a frontend developer specializing in building responsive
-              and user-friendly web applications. My focus is on creating clean,
-              efficient, and maintainable code.
+            <p className='text-justify'>
+            I specialize in front-end development and UI design, using JavaScript, HTML, and CSS. I have experience building interactive websites with React.js and designing user-friendly interfaces. Passionate about tech innovation, I enjoy creating impactful digital experiences.
             </p>
           </div>
           <div className="relative">
