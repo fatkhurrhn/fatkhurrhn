@@ -146,9 +146,9 @@ export default function Navbar() {
                     <Link to="/certificate" className="text-zinc-300 hover:text-white text-base flex items-center gap-3 py-1 px-3 rounded-md transition-all duration-200 hover:bg-[#27272a]">
                         Certificate
                     </Link>
-                    <Link to="/blog" className="text-zinc-300 hover:text-white text-base flex items-center gap-3 py-1 px-3 rounded-md transition-all duration-200 hover:bg-[#27272a]">
+                    {/* <Link to="/blog" className="text-zinc-300 hover:text-white text-base flex items-center gap-3 py-1 px-3 rounded-md transition-all duration-200 hover:bg-[#27272a]">
                         Blog
-                    </Link>
+                    </Link> */}
                 </nav>
 
                 {/* Garis (Separator) di atas ikon sosial media */}
