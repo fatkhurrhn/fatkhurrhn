@@ -10,8 +10,8 @@ function App() {
     <Router>
       <Routes>
         <Route path="/tes" element={<Tes />} />
-        <Route path="/project" element={<HomePage />} />
-        <Route path="/" element={<Project />} />
+        <Route path="/" element={<HomePage />} />
+        <Route path="/project" element={<Project />} />
         <Route path="/certificate" element={<Certificate />} />
       </Routes>
     </Router>
