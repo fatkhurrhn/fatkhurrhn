@@ -4,6 +4,8 @@ import Tes from './PagesCoding/Tes';
 import HomePage from './PagesCoding/HomePage';
 import Project from './PagesCoding/Project';
 import Certificate from './PagesCoding/Certificate';
+import Writing from './PagesCoding/Writing';
+import Guestbook from './PagesCoding/Guestbook';
 
 function App() {
   return (
@@ -13,6 +15,8 @@ function App() {
         <Route path="/" element={<HomePage />} />
         <Route path="/project" element={<Project />} />
         <Route path="/certificate" element={<Certificate />} />
+        <Route path="/writing" element={<Writing />} />
+        <Route path="/guestbook" element={<Guestbook />} />
       </Routes>
     </Router>
   );

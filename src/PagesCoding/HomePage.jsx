@@ -2,11 +2,14 @@ import React from "react";
 import GitHubCalendar from "react-github-calendar";
 import Navbar from "../Components/Navbar";
 import Footer from "../Components/Footer";
-import Thumbnail1 from "../assets/thumbnail01.png"
-import Lintasarta from "../assets/lintasarta.png"
-import NF from "../assets/nf.jpg"
-import Senada from "../assets/senada.jpg"
-import Pintar from "../assets/pintar.png"
+import Thumbnail1 from "../assets/thumbnail01.png";
+import Lintasarta from "../assets/lintasarta.png";
+import NF from "../assets/nf.jpg";
+import Senada from "../assets/senada.jpg";
+import Pintar from "../assets/pintar.png";
+import Bangkit from "../assets/bangkit.png";
+import Google from "../assets/google.png";
+import Aws from "../assets/aws.png";
 
 export default function Page() {
     return (
@@ -179,17 +182,17 @@ export default function Page() {
                         <div className="w-full bg-[#141417] rounded-lg shadow-md overflow-hidden border border-[#252529]">
                             <div className="sertif-image">
                                 <img
-                                    src="https://fatkhurrhn.vercel.app/static/media/ml.b94e94aed1daf224a170.png"
+                                    src={Bangkit}
                                     alt="sertifikat"
                                     className="w-full object-cover"
                                 />
                             </div>
                             <div className="p-3">
                                 <h3 className="text-sm font-medium text-zinc-300 text-left">
-                                    Issued Nov 2024 - Expires Nov 2027
+                                    Issued Jan 2025 - Expires Jan 2028
                                 </h3>
                                 <a
-                                    href="https://www.dicoding.com/academies/658"
+                                    href="#"
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     className="mt-2 inline-block w-full border border-[#252529] bg-[#18181b] hover:bg-[#1f1f24] text-zinc-300 hover:text-white font-medium py-2 px-3 rounded-md transition duration-200 text-center text-xs"
@@ -203,7 +206,7 @@ export default function Page() {
                         <div className="w-full hidden sm:block bg-[#141417] rounded-lg shadow-md overflow-hidden border border-[#252529]">
                             <div className="sertif-image">
                                 <img
-                                    src="https://fatkhurrhn.vercel.app/static/media/ml.b94e94aed1daf224a170.png"
+                                    src={Google}
                                     alt="sertifikat"
                                     className="w-full object-cover"
                                 />
@@ -213,7 +216,7 @@ export default function Page() {
                                     Issued Nov 2024 - Expires Nov 2027
                                 </h3>
                                 <a
-                                    href="https://www.dicoding.com/academies/658"
+                                    href="#"
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     className="mt-2 inline-block w-full border border-[#252529] bg-[#18181b] hover:bg-[#1f1f24] text-zinc-300 hover:text-white font-medium py-2 px-3 rounded-md transition duration-200 text-center text-xs"
@@ -226,7 +229,7 @@ export default function Page() {
                         <div className="w-full hidden sm:block bg-[#141417] rounded-lg shadow-md overflow-hidden border border-[#252529]">
                             <div className="sertif-image">
                                 <img
-                                    src="https://fatkhurrhn.vercel.app/static/media/ml.b94e94aed1daf224a170.png"
+                                    src={Aws}
                                     alt="sertifikat"
                                     className="w-full object-cover"
                                 />
@@ -236,7 +239,7 @@ export default function Page() {
                                     Issued Nov 2024 - Expires Nov 2027
                                 </h3>
                                 <a
-                                    href="https://www.dicoding.com/academies/658"
+                                    href="#"
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     className="mt-2 inline-block w-full border border-[#252529] bg-[#18181b] hover:bg-[#1f1f24] text-zinc-300 hover:text-white font-medium py-2 px-3 rounded-md transition duration-200 text-center text-xs"
