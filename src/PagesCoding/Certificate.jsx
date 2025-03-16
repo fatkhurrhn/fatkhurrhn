@@ -1,6 +1,7 @@
-import React from 'react';
-import Navbar from "../components/Navbar";
-import FooterComponent from "../components/FooterUtama";
+import React from "react";
+import Navbar from "../Components/Navbar";
+import Footer from "../Components/Footer";
+import GCSB from "../assets/profil-gcsb.png";
 import git from "../assets/git.png";
 import ai from "../assets/ai.png";
 import backend from "../assets/backend.png";
@@ -10,17 +11,26 @@ import javascript from "../assets/javascript.png";
 import logika from "../assets/logika.png";
 import ml from "../assets/ml.png";
 import software from "../assets/software.png";
+import Google from "../assets/google.png";
+import Aws from "../assets/aws.png";
+import Bangkit from "../assets/bangkit.png";
 
 const certificates = [
     {
-        id: 1,
-        imgSrc: "https://i.ibb.co.com/8DWRWDDW/Desain-tanpa-judul-15.png",
+        id: 0,
+        imgSrc: Bangkit,
+        issuedDate: "Issued Jan 2025 - Expries Jan 2029",
+        link: "#"
+    },
+    {
+        id: 0,
+        imgSrc: Google,
         issuedDate: "Issued Oct 2024 - Expries Oct 2027",
         link: "https://www.cloudskillsboost.google/paths/36"
     },
     {
-        id: 2,
-        imgSrc: "https://i.ibb.co.com/205NDYxb/Desain-tanpa-judul-16.png",
+        id: 0,
+        imgSrc: Aws,
         issuedDate: "Issued Jan 2024 - Expries Jan 2027",
         link: "https://www.coursera.org/projects/aws-s3-basics"
     },
@@ -104,18 +114,6 @@ const bagdes = [
         img: "https://cdn.qwiklabs.com/5D%2F9QfiaIW21joMjNrdNqYpLSaYUQFgslfVxdKi3ZcU%3D",
         earned: "Earned Oct 13 2024",
         linkCourse: "https://www.cloudskillsboost.google/course_templates/625"
-    },
-    {
-        id: 0,
-        img: "https://cdn.qwiklabs.com/KbqzjKcHkLlPN6MjA3QKHmK%2B7Hz3YwOekanSDJZiSWY%3D",
-        earned: "Earned Oct 1 2024",
-        linkCourse: "https://www.cloudskillsboost.google/course_templates/631"
-    },
-    {
-        id: 0,
-        img: "https://cdn.qwiklabs.com/%2Fb6vXtWRtaGoDla7LMwPf7bX6UgDdY81abF2IU9Ouyc%3D",
-        earned: "Earned Sep 29 2024",
-        linkCourse: "https://www.cloudskillsboost.google/course_templates/654"
     },
     {
         id: 0,
@@ -275,67 +273,95 @@ const bagdes = [
     },
 ]
 
-function Certificate() {
-    return (
-        <div className="bg-zinc-900 text-zinc-400 min-h-screen">
-            <Navbar />
-            <div className="mx-auto max-w-[880px] px-4 pb-20 pt-6 text-lg sm:px-12 md:px-16">
-                <div className="pt-[10px] flex flex-col gap-3 text-base leading-7 sm:gap-4 sm:text-lg sm:leading-8" style={{ textAlign: "justify" }}>
-                    {/* sertifikat */}
-                    <section className="sertif-section py-10">
-                        <h1 className="text-xl font-semibold text-zinc-100 sm:text-2xl text-center mb-6">
-                            My Certificates
-                        </h1>
-                        <div className="sertif-container grid grid-cols-2 gap-2 px-4">
-                            {certificates.map(cert => (
-                                <article key={cert.id} className="sertif bg-[#27272a] rounded-lg shadow-md overflow-hidden border border-zinc-700">
-                                <div className="sertif-image">
-                                    <img src={cert.imgSrc} alt="sertifikat" className="w-full object-cover" />
-                                </div>
-                                <div className="p-3">
-                                    <h3 className="text-sm font-medium text-zinc-300 text-left">{cert.issuedDate}</h3>
-                                    <a href={cert.link} target="_blank" rel="noopener noreferrer" className="mt-2 inline-block w-full bg-[#323236] hover:bg-[#3b3b40] text-zinc-300 hover:text-white font-medium py-2 px-3 rounded-md transition duration-200 text-center text-xs">
-                                    View Course
-                                    </a>
-                                </div>
-                                </article>
-                            ))}
-                        </div>
-                    </section>
 
-                    {/* bagdes */}
-                    <section className="sertif-section py-1">
-                        <h1 className="text-xl font-semibold text-zinc-100 sm:text-2xl text-center mb-6">
-                            My Badges on GCSB
-                        </h1>
-                        <section className="sertif-section px-4">
-                            <article className="sertif bg-[#27272a] rounded-lg shadow-md overflow-hidden border border-zinc-700 w-full max-w-3xl mx-auto">
+export default function Page() {
+    return (
+        <div className="bg-[#141417] min-h-screen text-gray-900 dark:text-white transition-colors duration-300">
+            <Navbar />
+            <section className="max-w-4xl mx-auto px-5 pt-20">
+
+                {/* sertifikat */}
+                <div className="flex justify-between items-center w-full">
+                    <h2 className="text-[20px] font-bold">📜 My Certificates</h2>
+                </div> <br />
+                <div className="grid gap-3">
+                    <div className="w-full mx-auto grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-2">
+                    {certificates.map(cert => (
+                        <div key={cert.id} className="w-full bg-[#141417] rounded-lg shadow-md overflow-hidden border border-[#252529]">
+                            <div className="sertif-image">
+                                <img
+                                    src={cert.imgSrc}
+                                    alt="sertifikat"
+                                    className="w-full object-cover"
+                                />
+                            </div>
+                            <div className="p-3">
+                                <h3 className="text-sm font-medium text-zinc-300 text-left">
+                                {cert.issuedDate}
+                                </h3>
+                                <a
+                                    href={cert.link}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="mt-2 inline-block w-full border border-[#252529] bg-[#18181b] hover:bg-[#1f1f24] text-zinc-300 hover:text-white font-medium py-2 px-3 rounded-md transition duration-200 text-center text-xs"
+                                >
+                                    View Course
+                                </a>
+                            </div>
+                        </div>
+                        ))}
+                    </div>
+                </div>
+
+                {/* hr */}
+                <div className="h-[1px] my-10 bg-gradient-to-r from-gray-300 dark:from-[#252529] via-zinc-600 to-gray-300 dark:to-[#252529] max-w-lg mx-auto"></div>
+
+                <div className="flex justify-between items-center w-full">
+                    <h2 className="text-[20px] font-bold">📜 My Certificates</h2>
+                </div> <br />
+
+                <div className="sertif bg-[#27272a] rounded-lg shadow-md overflow-hidden border border-zinc-700 w-full max-w-4xl mx-auto">
                                 <div className="sertif-image">
                                     <a href="https://www.cloudskillsboost.google/public_profiles/a0413875-4f2d-4c72-b551-524e6cffb45d" target="_blank" rel="noopener noreferrer">
-                                        <img src="https://i.ibb.co.com/PZsQdbPZ/Screenshot-2025-02-08-013127.png" alt="Badge" className="w-full object-cover"/>
+                                        <img src={GCSB} alt="Badge" className="w-full object-cover"/>
                                     </a>
                                 </div>
-                            </article>
-                        </section> <br/>
-                        <div className="sertif-container grid grid-cols-2 gap-2 px-4">
-                            {bagdes.map(cert => (
-                                <article key={cert.id} className="sertif bg-[#27272a] rounded-lg shadow-md overflow-hidden border border-zinc-700">
-                                <div className="sertif-image">
-                                    <img src={cert.img} alt="Badge" className="w-full object-cover"/>
-                                </div>
-                                <div className="p-3">
-                                    <h3 className="text-sm font-medium text-zinc-300 text-left">{cert.earned}</h3>
-                                    <a href={cert.linkCourse} target="_blank" rel="noopener noreferrer" className="mt-2 inline-block w-full bg-[#323236] hover:bg-[#3b3b40] text-zinc-300 hover:text-white font-medium py-2 px-3 rounded-md transition duration-200 text-center text-xs">View Course</a>
-                                </div>
-                                </article>
-                            ))}
+                            </div>
+<br/>
+                <div className="grid gap-3">
+                    <div className="w-full mx-auto grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-2">
+                    {bagdes.map(cert => (
+                        <div key={cert.id} className="w-full bg-[#141417] rounded-lg shadow-md overflow-hidden border border-[#252529]">
+                            <div className="sertif-image">
+                                <img
+                                    src={cert.img}
+                                    alt="sertifikat"
+                                    className="w-full object-cover"
+                                />
+                            </div>
+                            <div className="p-3">
+                                <h3 className="text-sm font-medium text-zinc-300 text-left">
+                                {cert.earned}
+                                </h3>
+                                <a
+                                    href={cert.linkCourse} 
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="mt-2 inline-block w-full border border-[#252529] bg-[#18181b] hover:bg-[#1f1f24] text-zinc-300 hover:text-white font-medium py-2 px-3 rounded-md transition duration-200 text-center text-xs"
+                                >
+                                    View Course
+                                </a>
+                            </div>
                         </div>
-                    </section>
+                        ))}
+                    </div>
                 </div>
-            </div>
-            <FooterComponent />
+
+                {/* hr */}
+                <div className="h-[1px] my-10 bg-gradient-to-r from-gray-300 dark:from-[#252529] via-zinc-600 to-gray-300 dark:to-[#252529] max-w-lg mx-auto"></div>
+
+            </section>
+            <Footer />
         </div>
     );
 }
-
-export default Certificate;
