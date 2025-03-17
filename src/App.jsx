@@ -7,6 +7,9 @@ import Certificate from './PagesCoding/Certificate';
 import Writing from './PagesCoding/Writing';
 import Guestbook from './PagesCoding/Guestbook';
 
+import Home from './Home';
+import Template from './Template';
+
 function App() {
   return (
     <Router>
@@ -17,6 +20,9 @@ function App() {
         <Route path="/certificate" element={<Certificate />} />
         <Route path="/writing" element={<Writing />} />
         <Route path="/guestbook" element={<Guestbook />} />
+
+        <Route path="/home" element={<Home />} />
+        <Route path="/template" element={<Template />} />
       </Routes>
     </Router>
   );
