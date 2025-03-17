@@ -40,7 +40,7 @@ const Navbar = () => {
 
             {/* Sidebar */}
             <div
-                className={`fixed top-0 left-0 h-full w-2/4 bg-[#141417] text-white transform ${isSidebarOpen ? "translate-x-0" : "-translate-x-full"
+                className={`fixed top-0 left-0 h-full w-2/4 bg-[#141417] text-[#d4d4d4] transform ${isSidebarOpen ? "translate-x-0" : "-translate-x-full"
                     } transition-transform duration-300 ease-in-out z-30 px-6`}
             >
                 {/* Close Button */}
@@ -52,7 +52,7 @@ const Navbar = () => {
                 </button>
 
                 {/* Sidebar Menu */}
-                <ul className="mt-16 space-y-6">
+                <ul className="mt-16 space-y-6 ">
                 <li><a href="/">Home</a></li>
                     <li><a href="/project">Project</a></li>
                     <li><a href="/certificate">Certificate</a></li>
@@ -88,7 +88,7 @@ const Navbar = () => {
             {/* Popup */}
             {isOpen && (
                 <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-70 px-4">
-                    <div className="p-4 sm:p-6 bg-[#141417] text-white rounded-lg shadow-lg border border-[#252529] text-center max-w-[90%] w-full sm:max-w-sm">
+                    <div className="p-4 sm:p-6 bg-[#141417] text-[#d4d4d4] rounded-lg shadow-lg border border-[#252529] text-center max-w-[90%] w-full sm:max-w-sm">
                         <h2 className="text-lg sm:text-xl font-bold mb-3 sm:mb-4">Get in Touch</h2>
 
                         {/* Kontainer tombol - agar tetap sejajar ke samping */}
