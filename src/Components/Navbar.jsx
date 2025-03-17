@@ -2,13 +2,13 @@ import React, { useState } from "react";
 
 const Navbar = () => {
     const [isSidebarOpen, setIsSidebarOpen] = useState(false);
-      const [isOpen, setIsOpen] = useState(false);
+    const [isOpen, setIsOpen] = useState(false);
 
     const contacts = [
         { icon: "ri-mail-line", text: "Email", link: "mailto:muhammadthursina123@email.com" },
         { icon: "ri-instagram-line", text: "Instagram", link: "https://ig.me/m/story.thur" },
         { icon: "ri-whatsapp-line", text: "WhatsApp", link: "https://wa.me/6282285512813" }
-      ];
+    ];
 
     return (
         <nav className="bg-[#141417] fixed w-full z-20 top-0 start-0 border-b border-[#252529]">
@@ -21,7 +21,7 @@ const Navbar = () => {
                     <i className="ri-menu-2-line"></i>
                 </button>
 
-                <ul className="hidden md:flex space-x-8 font-medium text-gray-900 dark:text-white">
+                <ul className="hidden md:flex space-x-8 font-medium dark:text-[#d4d4d4]">
                     <li><a href="/">Home</a></li>
                     <li><a href="/project">Project</a></li>
                     <li><a href="/certificate">Certificate</a></li>
@@ -32,17 +32,16 @@ const Navbar = () => {
                 {/* Contact Me Button */}
                 <button onClick={() => setIsOpen(true)}
                     type="button"
-                    className="text-white font-medium rounded-lg text-sm px-4 py-2 dark:bg-[#18181b] border border-[#252529] dark:hover:bg-[#1f1f24]"
-                >   
+                    className="text-[#d4d4d4] font-medium rounded-lg text-sm px-4 py-2 dark:bg-[#18181b] border border-[#252529] dark:hover:bg-[#1f1f24]"
+                >
                     Contact Me
                 </button>
             </div>
 
             {/* Sidebar */}
             <div
-                className={`fixed top-0 left-0 h-full w-2/3 bg-gray-900 text-white transform ${
-                    isSidebarOpen ? "translate-x-0" : "-translate-x-full"
-                } transition-transform duration-300 ease-in-out z-30 px-6`}
+                className={`fixed top-0 left-0 h-full w-2/4 bg-[#141417] text-white transform ${isSidebarOpen ? "translate-x-0" : "-translate-x-full"
+                    } transition-transform duration-300 ease-in-out z-30 px-6`}
             >
                 {/* Close Button */}
                 <button
@@ -54,11 +53,11 @@ const Navbar = () => {
 
                 {/* Sidebar Menu */}
                 <ul className="mt-16 space-y-6">
-                    <li><a href="#" className="block text-lg hover:text-blue-400">Home</a></li>
-                    <li><a href="#" className="block text-lg hover:text-blue-400">Project</a></li>
-                    <li><a href="#" className="block text-lg hover:text-blue-400">Certificate</a></li>
-                    <li><a href="#" className="block text-lg hover:text-blue-400">Writings</a></li>
-                    <li><a href="#" className="block text-lg hover:text-blue-400">Guestbook</a></li>
+                <li><a href="/">Home</a></li>
+                    <li><a href="/project">Project</a></li>
+                    <li><a href="/certificate">Certificate</a></li>
+                    <li><a href="/writing">Writings</a></li>
+                    <li><a href="/guestbook">Guestbook</a></li>
                 </ul>
 
                 {/* Social Media Icons */}
@@ -86,50 +85,50 @@ const Navbar = () => {
                 ></div>
             )}
 
-{/* Popup */}
-{isOpen && (
-  <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-70 px-4">
-    <div className="p-4 sm:p-6 bg-[#141417] text-white rounded-lg shadow-lg border border-[#252529] text-center max-w-[90%] w-full sm:max-w-sm">
-      <h2 className="text-lg sm:text-xl font-bold mb-3 sm:mb-4">Get in Touch</h2>
+            {/* Popup */}
+            {isOpen && (
+                <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-70 px-4">
+                    <div className="p-4 sm:p-6 bg-[#141417] text-white rounded-lg shadow-lg border border-[#252529] text-center max-w-[90%] w-full sm:max-w-sm">
+                        <h2 className="text-lg sm:text-xl font-bold mb-3 sm:mb-4">Get in Touch</h2>
 
-      {/* Kontainer tombol - agar tetap sejajar ke samping */}
-      <div className="flex flex-row flex-wrap justify-center gap-2 sm:gap-3">
-        {contacts.map(({ icon, text, link }, index) => (
-          <a 
-            key={index} 
-            href={link} 
-            className="inline-flex items-center gap-2 bg-[#18181b] border border-[#252529] hover:bg-[#1f1f24] px-3 py-2 rounded-md transition text-xs sm:text-sm"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <i className={`${icon} text-sm sm:text-base shrink-0`}></i>
-            <span className="whitespace-nowrap">{text}</span>
-          </a>
-        ))}
-      </div>
+                        {/* Kontainer tombol - agar tetap sejajar ke samping */}
+                        <div className="flex flex-row flex-wrap justify-center gap-2 sm:gap-3">
+                            {contacts.map(({ icon, text, link }, index) => (
+                                <a
+                                    key={index}
+                                    href={link}
+                                    className="inline-flex items-center gap-2 bg-[#18181b] border border-[#252529] hover:bg-[#1f1f24] px-3 py-2 rounded-md transition text-xs sm:text-sm"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                >
+                                    <i className={`${icon} text-sm sm:text-base shrink-0`}></i>
+                                    <span className="whitespace-nowrap">{text}</span>
+                                </a>
+                            ))}
+                        </div>
 
-      <button 
-        onClick={() => setIsOpen(false)} 
-        className="mt-3 sm:mt-4 px-3 sm:px-4 py-2 bg-red-500 hover:bg-red-600 text-white rounded w-full text-xs sm:text-sm"
-      >
-        Close
-      </button>
+                        <button
+                            onClick={() => setIsOpen(false)}
+                            className="mt-3 sm:mt-4 px-3 sm:px-4 py-2 bg-red-500 hover:bg-red-600 text-white rounded w-full text-xs sm:text-sm"
+                        >
+                            Close
+                        </button>
 
-      {/* Teks kecil untuk CV */}
-      <p className="mt-2 sm:mt-3 text-xs sm:text-sm text-gray-400">
-        Want to see my CV?{" "}
-        <a 
-          href="https://drive.google.com/file/d/1TBEdUYvG6KvhNQfQBz6gwXFTxWvTe5_g/view" 
-          target="_blank" 
-          rel="noopener noreferrer"
-          className="text-blue-400 hover:underline"
-        >
-          Click here
-        </a>
-      </p>
-    </div>
-  </div>
-)}
+                        {/* Teks kecil untuk CV */}
+                        <p className="mt-2 sm:mt-3 text-xs sm:text-sm text-gray-400">
+                            Want to see my CV?{" "}
+                            <a
+                                href="https://drive.google.com/file/d/1TBEdUYvG6KvhNQfQBz6gwXFTxWvTe5_g/view"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="text-blue-400 hover:underline"
+                            >
+                                Click here
+                            </a>
+                        </p>
+                    </div>
+                </div>
+            )}
 
         </nav>
     );

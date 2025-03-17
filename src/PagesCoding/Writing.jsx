@@ -10,7 +10,7 @@ export default function Page() {
 
                 {/* blog */}
                 <div className="flex justify-between items-center w-full">
-                    <h2 className="text-[20px] font-bold">✍️ Blogs</h2>
+                    <h2 className="text-[20px] text-[#d4d4d4] font-bold">✍️ Blogs</h2>
                     <a href="/blog" className="text-xs text-zinc-500">
                         View more
                     </a>
@@ -25,7 +25,7 @@ export default function Page() {
                                     🥶
                                 </div>
                                 <div className="mt-1">
-                                    <a href="#" className="text-lg font-black flex gap-2">
+                                    <a href="#" className="text-lg text-[#d4d4d4] font-black flex gap-2">
                                         Tailwind UI is now Tailwind Plus
                                         <div className="block sm:hidden text-sm bg-[#18181b] border border-[#252529] rounded px-1 py-0.5 text-zinc-500">
                                             # Gear

@@ -134,9 +134,9 @@ export default function Page() {
 
                 {/* project */}
                 <div className="flex justify-between items-center w-full">
-                    <h2 className="text-[20px] font-bold">🛠 My Projects</h2>
+                    <h2 className="text-[20px] text-[#d4d4d4] font-bold">🛠 My Projects</h2>
                 </div>
-                <p className="text-justify pt-2">
+                <p className="text-justify pt-2 text-[#d4d4d4]">
                     I have worked on a variety of projects over the years; some of them as a hobby, some as a proof of concept and others to solve my own pain points. Here are some of the projects that I have worked on.
                 </p>
                 <br />
@@ -153,7 +153,7 @@ export default function Page() {
                         </div>
                         <div className="p-3 w-full">
                             <div className="flex justify-between items-center">
-                                <h1 className="text-[18px] font-black">Personal Website</h1>
+                                <h1 className="text-[18px] text-[#d4d4d4] font-black">Personal Website</h1>
                                 <a
                                     target="_blank"
                                     href="https://fatkhurrhn.vercel.app/"
@@ -177,7 +177,7 @@ export default function Page() {
                                 </ul>
                             </div>
                             <hr className="border-1 border-[#252529] border-dashed my-3 text-justify" />
-                            <p>
+                            <p className="text-[#d4d4d4]">
                                 Personal portfolio built with React.js and Tailwind, showcasing my skills, projects, and experience in front-end development.
                             </p>
                         </div>
@@ -187,7 +187,7 @@ export default function Page() {
                 {/* hr */}
                 <div className="h-[1px] my-10 bg-gradient-to-r from-gray-300 dark:from-[#252529] via-zinc-600 to-gray-300 dark:to-[#252529] max-w-lg mx-auto"></div>
 
-                <div className="flex flex-col gap-1.5">
+                <div className="flex flex-col gap-1.5 text-[#d4d4d4]">
                     {projects.map(project => (
                         <a key={project.id} href={project.link} className="flex flex-col flex-wrap items-start rounded-md bg-[#18181b] border border-[#252529] px-2 py-2 transition-colors hover:bg-[#1f1f24] sm:flex-row sm:items-center" target="_blank" rel="noreferrer">
                             <span className="flex items-center gap-0.5 font-medium text-zinc-50 sm:gap-1" >

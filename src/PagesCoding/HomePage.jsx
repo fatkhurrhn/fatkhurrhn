@@ -27,7 +27,7 @@ export default function Page() {
                         />
                         {/* Nama & Role di sebelah foto (Mobile) */}
                         <div className="md:hidden">
-                            <h1 className="text-xl sm:text-[18px] font-bold">Fatkhurrhn 🪴</h1>
+                            <h1 className="text-xl sm:text-[18px] font-bold text-[#d4d4d4]">Fatkhurrhn 🪴</h1>
                             <p className="text-xs sm:text-sm font-mono text-[#252529] dark:text-gray-300">
                                 FrontEnd Developer
                             </p>
@@ -37,12 +37,12 @@ export default function Page() {
                     {/* Nama & Paragraf (Desktop), Paragraf (Mobile) */}
                     <div className="text-center md:text-left md:flex-1">
                         <div className="hidden md:block">
-                            <h1 className="text-[18px] font-bold">Fatkhurrhn 🪴</h1>
+                            <h1 className="text-[18px] font-bold text-[#d4d4d4]">Fatkhurrhn 🪴</h1>
                             <p className="text-sm font-mono text-[#252529] dark:text-gray-300">
                                 FrontEnd Developer
                             </p>
                         </div>
-                        <p className="mt-2 text-gray-800 dark:text-white text-justify">
+                        <p className="mt-2 dark:text-[#d4d4d4] text-justify">
                             I'm an Information Systems student passionate about Front-End Development. I love turning ideas into interactive, user-friendly experiences with clean and efficient code. Always exploring new web technologies, I enjoy building innovative projects and sharing knowledge to make a real impact.😎🔥
                         </p>
                     </div>
@@ -53,12 +53,12 @@ export default function Page() {
 
                 {/* GitHub Activity */}
                 <div className="flex justify-between items-center w-full">
-                    <h2 className="text-[18px] font-bold">📊 GitHub Activity</h2>
+                    <h2 className="text-[18px] font-bold text-[#d4d4d4]">📊 GitHub Activity</h2>
                     <a href="https://github.com/fatkhurrhn" className="text-xs text-zinc-500">
                         View more
                     </a>
                 </div> <br />
-                <div className="bg-gray-100 bg-zinc-900 border border-[#252529] p-5 rounded-[11px] max-w-full overflow-x-auto">
+                <div className="bg-gray-100 bg-zinc-900 text-[#d4d4d4] border border-[#252529] p-5 rounded-[11px] max-w-full overflow-x-auto">
                     <GitHubCalendar
                         username="fatkhurrhn"
                         blockSize={11.4}
@@ -73,40 +73,40 @@ export default function Page() {
 
                 <div className="max-w-4xl text-center mb-10">
                     <ul className="flex flex-wrap justify-center gap-2 text-lg list-none p-0">
-                        <li className="bg-[#18181b] text-white/90 border border-[#252529] rounded-lg py-1 px-4 hover:bg-[#1f1f24]">
+                        <li className="bg-[#18181b] text-[#d4d4d4] border border-[#252529] rounded-lg py-1 px-4 hover:bg-[#1f1f24]">
                             HTML
                         </li>
-                        <li className="bg-[#18181b] text-white/90 border border-[#252529] rounded-lg py-1 px-4 hover:bg-[#1f1f24]">
+                        <li className="bg-[#18181b] text-[#d4d4d4] border border-[#252529] rounded-lg py-1 px-4 hover:bg-[#1f1f24]">
                             CSS
                         </li>
-                        <li className="bg-[#18181b] text-white/90 border border-[#252529] rounded-lg py-1 px-4 hover:bg-[#1f1f24]">
+                        <li className="bg-[#18181b] text-[#d4d4d4] border border-[#252529] rounded-lg py-1 px-4 hover:bg-[#1f1f24]">
                             JavaScript
                         </li>
-                        <li className="bg-[#18181b] text-white/90 border border-[#252529] rounded-lg py-1 px-4 hover:bg-[#1f1f24]">
+                        <li className="bg-[#18181b] text-[#d4d4d4] border border-[#252529] rounded-lg py-1 px-4 hover:bg-[#1f1f24]">
                             React
                         </li>
-                        <li className="bg-[#18181b] text-white/90 border border-[#252529] rounded-lg py-1 px-4 hover:bg-[#1f1f24]">
+                        <li className="bg-[#18181b] text-[#d4d4d4] border border-[#252529] rounded-lg py-1 px-4 hover:bg-[#1f1f24]">
                             Bootstrap
                         </li>
-                        <li className="bg-[#18181b] text-white/90 border border-[#252529] rounded-lg py-1 px-4 hover:bg-[#1f1f24]">
+                        <li className="bg-[#18181b] text-[#d4d4d4] border border-[#252529] rounded-lg py-1 px-4 hover:bg-[#1f1f24]">
                             Next.js
                         </li>
-                        <li className="bg-[#18181b] text-white/90 border border-[#252529] rounded-lg py-1 px-4 hover:bg-[#1f1f24]">
+                        <li className="bg-[#18181b] text-[#d4d4d4] border border-[#252529] rounded-lg py-1 px-4 hover:bg-[#1f1f24]">
                             Laravel
                         </li>
-                        <li className="bg-[#18181b] text-white/90 border border-[#252529] rounded-lg py-1 px-4 hover:bg-[#1f1f24]">
+                        <li className="bg-[#18181b] text-[#d4d4d4] border border-[#252529] rounded-lg py-1 px-4 hover:bg-[#1f1f24]">
                             Node.js
                         </li>
-                        <li className="bg-[#18181b] text-white/90 border border-[#252529] rounded-lg py-1 px-4 hover:bg-[#1f1f24]">
+                        <li className="bg-[#18181b] text-[#d4d4d4] border border-[#252529] rounded-lg py-1 px-4 hover:bg-[#1f1f24]">
                             Git/Github
                         </li>
-                        <li className="bg-[#18181b] text-white/90 border border-[#252529] rounded-lg py-1 px-4 hover:bg-[#1f1f24]">
+                        <li className="bg-[#18181b] text-[#d4d4d4] border border-[#252529] rounded-lg py-1 px-4 hover:bg-[#1f1f24]">
                             Tailwind
                         </li>
-                        <li className="bg-[#18181b] text-white/90 border border-[#252529] rounded-lg py-1 px-4 hover:bg-[#1f1f24]">
+                        <li className="bg-[#18181b] text-[#d4d4d4] border border-[#252529] rounded-lg py-1 px-4 hover:bg-[#1f1f24]">
                             REST API
                         </li>
-                        <li className="bg-[#18181b] text-white/90 border border-[#252529] rounded-lg py-1 px-4 hover:bg-[#1f1f24]">
+                        <li className="bg-[#18181b] text-[#d4d4d4] border border-[#252529] rounded-lg py-1 px-4 hover:bg-[#1f1f24]">
                             GraphQL
                         </li>
                     </ul>
@@ -117,7 +117,7 @@ export default function Page() {
 
                 {/* project */}
                 <div className="flex justify-between items-center w-full">
-                    <h2 className="text-[18px] font-bold">🛠 My Projects</h2>
+                    <h2 className="text-[18px] font-bold text-[#d4d4d4]">🛠 My Projects</h2>
                     <a href="/project" className="text-xs text-zinc-500">
                         View more
                     </a>
@@ -135,11 +135,11 @@ export default function Page() {
                         </div>
                         <div className="p-3 w-full">
                             <div className="flex justify-between items-center">
-                                <h1 className="text-[18px] font-black">Personal Website</h1>
+                                <h1 className="text-[18px] text-[#d4d4d4] font-black">Personal Website</h1>
                                 <a
                                     target="_blank"
                                     href="https://fatkhurrhn.vercel.app/"
-                                    className="border border-[#252529] bg-[#18181b] hover:bg-[#1f1f24] duration-200 px-5 py-2 flex items-center rounded-lg text-zinc-400 gap-2"
+                                    className="border border-[#252529] bg-[#18181b] hover:bg-[#1f1f24] duration-200 px-5 py-2 flex items-center rounded-lg text-[#d4d4d4] gap-2"
                                 >
                                     <i className="ri-a-m" /> Preview
                                 </a>
@@ -159,7 +159,7 @@ export default function Page() {
                                 </ul>
                             </div>
                             <hr className="border-1 border-[#252529] border-dashed my-3 text-justify" />
-                            <p>
+                            <p className="text-[#d4d4d4]">
                                 Personal portfolio built with React.js and Tailwind, showcasing my skills, projects, and experience in front-end development.
                             </p>
                         </div>
@@ -171,7 +171,7 @@ export default function Page() {
 
                 {/* sertifikat */}
                 <div className="flex justify-between items-center w-full">
-                    <h2 className="text-[18px] font-bold">📜 My Certificates</h2>
+                    <h2 className="text-[18px] font-bold text-[#d4d4d4]">📜 My Certificates</h2>
                     <a href="/certificate" className="text-xs text-zinc-500">
                         View more
                     </a>
@@ -188,14 +188,14 @@ export default function Page() {
                                 />
                             </div>
                             <div className="p-3">
-                                <h3 className="text-sm font-medium text-zinc-300 text-left">
+                                <h3 className="text-sm font-medium text-[#d4d4d4] text-left">
                                     Issued Jan 2025 - Expires Jan 2028
                                 </h3>
                                 <a
                                     href="#"
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="mt-2 inline-block w-full border border-[#252529] bg-[#18181b] hover:bg-[#1f1f24] text-zinc-300 hover:text-white font-medium py-2 px-3 rounded-md transition duration-200 text-center text-xs"
+                                    className="mt-2 inline-block w-full border border-[#252529] bg-[#18181b] hover:bg-[#1f1f24] text-[#d4d4d4] hover:text-white font-medium py-2 px-3 rounded-md transition duration-200 text-center text-xs"
                                 >
                                     View Course
                                 </a>
@@ -212,14 +212,14 @@ export default function Page() {
                                 />
                             </div>
                             <div className="p-3">
-                                <h3 className="text-sm font-medium text-zinc-300 text-left">
+                                <h3 className="text-sm font-medium text-[#d4d4d4] text-left">
                                     Issued Nov 2024 - Expires Nov 2027
                                 </h3>
                                 <a
                                     href="#"
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="mt-2 inline-block w-full border border-[#252529] bg-[#18181b] hover:bg-[#1f1f24] text-zinc-300 hover:text-white font-medium py-2 px-3 rounded-md transition duration-200 text-center text-xs"
+                                    className="mt-2 inline-block w-full border border-[#252529] bg-[#18181b] hover:bg-[#1f1f24] text-[#d4d4d4] hover:text-white font-medium py-2 px-3 rounded-md transition duration-200 text-center text-xs"
                                 >
                                     View Course
                                 </a>
@@ -235,14 +235,14 @@ export default function Page() {
                                 />
                             </div>
                             <div className="p-3">
-                                <h3 className="text-sm font-medium text-zinc-300 text-left">
+                                <h3 className="text-sm font-medium text-[#d4d4d4] text-left">
                                     Issued Nov 2024 - Expires Nov 2027
                                 </h3>
                                 <a
                                     href="#"
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="mt-2 inline-block w-full border border-[#252529] bg-[#18181b] hover:bg-[#1f1f24] text-zinc-300 hover:text-white font-medium py-2 px-3 rounded-md transition duration-200 text-center text-xs"
+                                    className="mt-2 inline-block w-full border border-[#252529] bg-[#18181b] hover:bg-[#1f1f24] text-[#d4d4d4] hover:text-white font-medium py-2 px-3 rounded-md transition duration-200 text-center text-xs"
                                 >
                                     View Course
                                 </a>
@@ -257,7 +257,7 @@ export default function Page() {
 
                 {/* my experience */}
                 <div className="flex justify-between items-center w-full">
-                    <h2 className="text-[18px] font-bold">💼 My Experience</h2>
+                    <h2 className="text-[18px] font-bold text-[#d4d4d4]">💼 My Experience</h2>
                     <a href="https://www.linkedin.com/in/fatkhurrhn/" className="text-xs text-zinc-500">
                         View more
                     </a>
@@ -269,16 +269,16 @@ export default function Page() {
                                 <img className="h-[40px] w-[40px] rounded-full" src={Lintasarta}
                                     alt=" Company Lintasarta" />
                                 <div>
-                                    <h3 className="text-base sm:text-lg font-semibold text-left">
+                                    <h3 className="text-base sm:text-lg font-semibold text-[#d4d4d4] text-left">
                                         Company Lintasarta
                                     </h3>
-                                    <p className="text-xs sm:text-sm text-zinc-400 text-left">
+                                    <p className="text-xs sm:text-sm text-[#d4d4d4] text-left">
                                         Capstone Project at Bangkit Academy
                                     </p>
                                 </div>
                             </div>
                             <div className="flex flex-col gap-4">
-                                <p className="text-sm sm:text-base text-justify">
+                                <p className="text-sm sm:text-base text-[#d4d4d4] text-justify">
                                     Developed an employee recruitment website using React over two months as part of the
                                     Capstone Project at Lintasarta, focusing on frontend development and user
                                     experience.
@@ -291,16 +291,16 @@ export default function Page() {
                                 <img className="h-[40px] w-[40px] rounded-full" src={NF}
                                     alt="Assistan Lecturer 2024" />
                                 <div>
-                                    <h3 className="text-base sm:text-lg font-semibold text-left">
+                                    <h3 className="text-base sm:text-lg font-semibold text-[#d4d4d4] text-left">
                                         Assistan Lecturer 2024
                                     </h3>
-                                    <p className="text-xs sm:text-sm text-zinc-400 text-left">
+                                    <p className="text-xs sm:text-sm text-[#d4d4d4] text-left">
                                         STT Terpadu Nurul Fikri
                                     </p>
                                 </div>
                             </div>
                             <div className="flex flex-col gap-4">
-                                <p className="text-sm sm:text-base text-justify">
+                                <p className="text-sm sm:text-base text-[#d4d4d4] text-justify">
                                     Assisted in teaching the Big Data course for one semester, helping students
                                     understand data processing, analytics, and visualization concepts. Provided guidance
                                     in practical assignments, facilitated discussions, and supported the lecturer in
@@ -316,16 +316,16 @@ export default function Page() {
                                     src="https://files.klob.id/public/mig01/l32ovhf5/channels4_profile.jpg"
                                     alt="Bangkit Academy 2024" />
                                 <div>
-                                    <h3 className="text-base sm:text-lg font-semibold text-left">
+                                    <h3 className="text-base sm:text-lg font-semibold text-[#d4d4d4] text-left">
                                         Bangkit Academy 2024
                                     </h3>
-                                    <p className="text-xs sm:text-sm text-zinc-400 text-left">
+                                    <p className="text-xs sm:text-sm text-[#d4d4d4] text-left">
                                         Cloud Computing Cohort CC-23
                                     </p>
                                 </div>
                             </div>
                             <div className="flex flex-col gap-4">
-                                <p className="text-sm sm:text-base text-justify">
+                                <p className="text-sm sm:text-base text-[#d4d4d4] text-justify">
                                     Participated in the Kampus Merdeka program for four months, focusing on the Cloud
                                     Computing learning path.
                                 </p>
@@ -339,13 +339,13 @@ export default function Page() {
                                     <h3 className="text-base sm:text-lg text-left font-semibold">
                                         Leader of the PQ
                                     </h3>
-                                    <p className="text-xs sm:text-sm text-left text-zinc-400">
+                                    <p className="text-xs sm:text-sm text-left text-[#d4d4d4]">
                                         LDK Senada STT NF
                                     </p>
                                 </div>
                             </div>
                             <div className="flex flex-col gap-4">
-                                <p className="text-sm sm:text-base text-justify">
+                                <p className="text-sm sm:text-base text-[#d4d4d4] text-justify">
                                     an Islamic organization on the STT Nurul Fikri campus
                                 </p>
                             </div>
@@ -358,13 +358,13 @@ export default function Page() {
                                     <h3 className="text-base sm:text-lg text-left font-semibold">
                                         Freelance Translator
                                     </h3>
-                                    <p className="text-xs sm:text-sm text-left text-zinc-400">
+                                    <p className="text-xs sm:text-sm text-left text-[#d4d4d4]">
                                         Malay translator at PINTAR
                                     </p>
                                 </div>
                             </div>
                             <div className="flex flex-col gap-4">
-                                <p className="text-sm sm:text-base text-justify">
+                                <p className="text-sm sm:text-base text-[#d4d4d4] text-justify">
                                     Translated Malay language documents for two months at PINTAR.
                                 </p>
                             </div>
@@ -377,7 +377,7 @@ export default function Page() {
 
                 {/* blog */}
                 <div className="flex justify-between items-center w-full">
-                    <h2 className="text-[18px] font-bold">✍️ Latest Blogs</h2>
+                    <h2 className="text-[18px] font-bold text-[#d4d4d4]">✍️ Latest Blogs</h2>
                     <a href="/blog" className="text-xs text-zinc-500">
                         View more
                     </a>
@@ -392,7 +392,7 @@ export default function Page() {
                                     🥶
                                 </div>
                                 <div className="mt-1">
-                                    <a href="#" className="text-lg font-black flex gap-2">
+                                    <a href="#" className="text-lg text-[#d4d4d4] font-black flex gap-2">
                                         Tailwind UI is now Tailwind Plus
                                         <div className="block sm:hidden text-sm bg-[#18181b] border border-[#252529] rounded px-1 py-0.5 text-zinc-500">
                                             # Gear

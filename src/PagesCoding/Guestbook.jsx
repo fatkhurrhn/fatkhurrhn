@@ -10,7 +10,7 @@ export default function Page() {
             <section className="max-w-4xl mx-auto px-6 pt-20">
                 
                 <div className="flex justify-between items-center w-full">
-                    <h2 className="text-[20px] font-bold">💬 Discussion</h2>
+                    <h2 className="text-[20px] text-[#d4d4d4] font-bold">💬 Discussion</h2>
                     <a href="/blog" className="text-xs text-zinc-500">
                     Join the conversation below!
                     </a>

@@ -282,9 +282,9 @@ export default function Page() {
 
                 {/* sertifikat */}
                 <div className="flex justify-between items-center w-full">
-                    <h2 className="text-[20px] font-bold">📜 My Certificates</h2>
+                    <h2 className="text-[20px] text-[#d4d4d4] font-bold">📜 My Certificates</h2>
                 </div> <br />
-                <div className="grid gap-3">
+                <div className="grid gap-3 text-[#d4d4d4]">
                     <div className="w-full mx-auto grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-2">
                     {certificates.map(cert => (
                         <div key={cert.id} className="w-full bg-[#141417] rounded-lg shadow-md overflow-hidden border border-[#252529]">
@@ -296,14 +296,14 @@ export default function Page() {
                                 />
                             </div>
                             <div className="p-3">
-                                <h3 className="text-sm font-medium text-zinc-300 text-left">
+                                <h3 className="text-sm font-medium text-left">
                                 {cert.issuedDate}
                                 </h3>
                                 <a
                                     href={cert.link}
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="mt-2 inline-block w-full border border-[#252529] bg-[#18181b] hover:bg-[#1f1f24] text-zinc-300 hover:text-white font-medium py-2 px-3 rounded-md transition duration-200 text-center text-xs"
+                                    className="mt-2 inline-block w-full border border-[#252529] bg-[#18181b] hover:bg-[#1f1f24 hover:text-white font-medium py-2 px-3 rounded-md transition duration-200 text-center text-xs"
                                 >
                                     View Course
                                 </a>
@@ -340,14 +340,14 @@ export default function Page() {
                                 />
                             </div>
                             <div className="p-3">
-                                <h3 className="text-sm font-medium text-zinc-300 text-left">
+                                <h3 className="text-sm font-medium text-left">
                                 {cert.earned}
                                 </h3>
                                 <a
                                     href={cert.linkCourse} 
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="mt-2 inline-block w-full border border-[#252529] bg-[#18181b] hover:bg-[#1f1f24] text-zinc-300 hover:text-white font-medium py-2 px-3 rounded-md transition duration-200 text-center text-xs"
+                                    className="mt-2 inline-block w-full border border-[#252529] bg-[#18181b] hover:bg-[#1f1f24 hover:text-white font-medium py-2 px-3 rounded-md transition duration-200 text-center text-xs"
                                 >
                                     View Course
                                 </a>
