@@ -12,8 +12,10 @@ import Writings1 from './PagesCoding/DetailWritings/tailwind-ui-is-now-tailwind-
 import Home from './Home';
 import Template from './Template';
 
+import Creator from "./PagesCreator/HomePage";
 import MentahanVideo from "./PagesCreator/MentahanVideo";
 import MentahanFoto from "./PagesCreator/MentahanFoto";
+import Product from "./PagesCreator/Product";
 
 function App() {
   return (
@@ -31,8 +33,10 @@ function App() {
         <Route path="/home" element={<Home />} />
         <Route path="/template" element={<Template />} />
         
-        <Route path="/creator/mentahan-video" element={<MentahanVideo />} />
-        <Route path="/creator/mentahan-foto" element={<MentahanFoto />} />
+        <Route path="/creator" element={<Creator />} />
+        <Route path="/creator/product/mentahan-video" element={<MentahanVideo />} />
+        <Route path="/creator/product/mentahan-foto" element={<MentahanFoto />} />
+        <Route path="/creator/product" element={<Product />} />
       </Routes>
     </Router>
   );

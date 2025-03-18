@@ -30,10 +30,6 @@ export default function Page() {
                     lang="en"
                     loading="lazy"
                 />
-
-                {/* Garis pemisah dengan efek glow */}
-                <div className="h-[1px] my-10 bg-gradient-to-r from-transparent via-gray-600 to-transparent max-w-lg mx-auto shadow-md"></div>
-
             </section>
             <Footer />
         </div>

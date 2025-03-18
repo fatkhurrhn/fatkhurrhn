@@ -356,10 +356,6 @@ export default function Page() {
                         ))}
                     </div>
                 </div>
-
-                {/* hr */}
-                <div className="h-[1px] my-10 bg-gradient-to-r from-gray-300 dark:from-[#252529] via-zinc-600 to-gray-300 dark:to-[#252529] max-w-lg mx-auto"></div>
-
             </section>
             <Footer />
         </div>
