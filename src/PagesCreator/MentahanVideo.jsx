@@ -35,21 +35,20 @@ export default function Page() {
         </div>
 
         <div className="flex overflow-x-auto space-x-3 pt-2 pb-2 scrollbar-hide">
-  {categories.map((category) => (
-    <button
-      key={category}
-      className={`inline-flex items-center px-4 py-1 rounded-lg transition border whitespace-nowrap w-auto
+          {categories.map((category) => (
+            <button
+              key={category}
+              className={`inline-flex items-center px-4 py-1 rounded-lg transition border whitespace-nowrap w-auto
         ${selectedCategory === category
-          ? "bg-[#1f1f24] border-[#d4d4d4] text-white"
-          : "bg-[#18181b] border-[#252529] text-gray-400 hover:bg-[#1f1f24]"
-        }`}
-      onClick={() => setSelectedCategory(category)}
-    >
-      {category}
-    </button>
-  ))}
-</div>
-
+                  ? "bg-[#1f1f24] border-[#d4d4d4] text-white"
+                  : "bg-[#18181b] border-[#252529] text-gray-400 hover:bg-[#1f1f24]"
+                }`}
+              onClick={() => setSelectedCategory(category)}
+            >
+              {category}
+            </button>
+          ))}
+        </div>
 
         <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 pt-3">
           {filteredVideos.map((video) => (

@@ -17,6 +17,9 @@ import MentahanVideo from "./PagesCreator/MentahanVideo";
 import MentahanFoto from "./PagesCreator/MentahanFoto";
 import Product from "./PagesCreator/Product";
 
+import Store from "./PageStore/HomePage";
+import ApkPremium from "./PageStore/ApkPremium";
+
 function App() {
   return (
     <Router>
@@ -37,6 +40,9 @@ function App() {
         <Route path="/creator/product/mentahan-video" element={<MentahanVideo />} />
         <Route path="/creator/product/mentahan-foto" element={<MentahanFoto />} />
         <Route path="/creator/product" element={<Product />} />
+
+        <Route path="/store" element={<Store />} />
+        <Route path="/store/apk-premium" element={<ApkPremium />} />
       </Routes>
     </Router>
   );

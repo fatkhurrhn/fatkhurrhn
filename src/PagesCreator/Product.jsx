@@ -14,6 +14,8 @@ export default function Page() {
                         <a href="/creator">Creator</a><i class="ri-arrow-drop-right-line"></i>
                         <a href="">Product</a></h2>
                 </div>
+                
+                <hr className="mb-3 mt-3 border-0 h-[1px] bg-gradient-to-r from-[#252529] to-[#ffffff]/20 dark:from-[#252529] dark:to-[#ffffff]/10" />
 
                 {/* Single Blog Card (Full Width) */}
                 <div className="w-full mt-2">
