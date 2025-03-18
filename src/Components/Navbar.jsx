@@ -25,8 +25,9 @@ const Navbar = () => {
                     <li><a href="/">Home</a></li>
                     <li><a href="/project">Project</a></li>
                     <li><a href="/certificate">Certificate</a></li>
-                    <li><a href="/writing">Writings</a></li>
+                    <li><a href="/writings">Writings</a></li>
                     <li><a href="/guestbook">Guestbook</a></li>
+                    <li><a href="/creator">Creator</a></li>
                 </ul>
 
                 {/* Contact Me Button */}
@@ -58,6 +59,7 @@ const Navbar = () => {
                     <li><a href="/certificate">Certificate</a></li>
                     <li><a href="/writing">Writings</a></li>
                     <li><a href="/guestbook">Guestbook</a></li>
+                    <li><a href="/creator">Creator</a></li>
                 </ul>
 
                 {/* Social Media Icons */}

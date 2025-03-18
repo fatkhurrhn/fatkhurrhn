@@ -4,14 +4,7 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite + React</title>
-    <style>
-      /* Tambahkan class dark-mode */
-      .dark-mode {
-          background: #121212 !important;
-          color: #fff;
-      }
-  </style>
+    <title>Fatkhurrhn</title>
     <link
     href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css"
     rel="stylesheet"
@@ -21,74 +14,6 @@
   </head>
   <body>
     <div id="root"></div>
-
-    <script>
-      function toggleDropdown(id) {
-  const dropdown = document.getElementById(id);
-  const arrow = dropdown.previousElementSibling.querySelector('.fa-arrow-right');
-  if (dropdown.style.display === 'block') {
-    dropdown.style.display = 'none';
-    arrow.style.transform = 'rotate(0deg)';
-  } else {
-    dropdown.style.display = 'block';
-    arrow.style.transform = 'rotate(90deg)';
-  }
-}
-      // Efek hover lebih halus
-      document.querySelectorAll("a").forEach(link => {
-              link.addEventListener("mouseenter", () => {
-                  link.style.background = "#e5e7eb";
-                  link.style.boxShadow = "0px 2px 5px rgba(0, 0, 0, 0.1)";
-              });
-              link.addEventListener("mouseleave", () => {
-                  link.style.background = "#f3f4f6";
-                  link.style.boxShadow = "none";
-              });
-          });
-
-      // Dark mode toggle functionality
-      const darkModeToggle = document.querySelector('.dark-mode-toggle');
-      const body = document.body;
-      const gradientDiv = document.querySelector('.gradient-bg'); // Gunakan class yang lebih aman
-  
-      // Cek apakah user pernah menyimpan preferensi dark mode
-      let isDarkMode = localStorage.getItem('darkMode') === 'enabled';
-  
-      function applyDarkMode() {
-          body.classList.add('dark-mode');
-          if (gradientDiv) gradientDiv.style.opacity = '0.3';
-          darkModeToggle.innerHTML = '<i class="fas fa-sun"></i>';
-          localStorage.setItem('darkMode', 'enabled');
-      }
-  
-      function removeDarkMode() {
-          body.classList.remove('dark-mode');
-          if (gradientDiv) gradientDiv.style.opacity = '1';
-          darkModeToggle.innerHTML = '<i class="fas fa-moon"></i>';
-          localStorage.setItem('darkMode', 'disabled');
-      }
-  
-      // Terapkan mode berdasarkan preferensi yang tersimpan
-      if (isDarkMode) {
-          applyDarkMode();
-      }
-  
-      darkModeToggle.addEventListener('click', () => {
-          isDarkMode = !isDarkMode;
-          isDarkMode ? applyDarkMode() : removeDarkMode();
-      });
-  
-      // Ganti gambar profil jika tersedia
-      document.addEventListener('DOMContentLoaded', () => {
-          const profileImg = document.querySelector('img[alt="Fatkhurrhn\'s profile"]');
-          if (profileImg) {
-              profileImg.src = "pp.png"; // Perbaikan URL
-              profileImg.onerror = () => {
-                  profileImg.src = "pp.png";
-              };
-          }
-      });
-  </script>
     <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>

@@ -392,7 +392,7 @@ export default function Page() {
                                     🥶
                                 </div>
                                 <div className="mt-1">
-                                    <a href="#" className="text-lg text-[#d4d4d4] font-black flex gap-2">
+                                    <a href="/writings/tailwind-ui-is-now-tailwind-plus" className="text-lg text-[#d4d4d4] font-black flex gap-2">
                                         Tailwind UI is now Tailwind Plus
                                         <div className="block sm:hidden text-sm bg-[#18181b] border border-[#252529] rounded px-1 py-0.5 text-zinc-500">
                                             # Gear
