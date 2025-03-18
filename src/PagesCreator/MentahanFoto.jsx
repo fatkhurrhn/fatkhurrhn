@@ -3,6 +3,7 @@ import Navbar from "../Components/Navbar";
 import Footer from "../Components/Footer";
 
 export default function PhotoGallery() {
+  const [isPopupOpen, setIsPopupOpen] = useState(false);
   const photoCategories = [
     { id: 1, src: "https://i.pinimg.com/474x/5b/81/d7/5b81d756d1702e41d8b255a8cf859b81.jpg", category: "Nature" },
     { id: 2, src: "https://i.pinimg.com/474x/c9/50/7e/c9507e636a2d3f89ae65e29a18daa9b2.jpg", category: "City" },
@@ -21,7 +22,7 @@ export default function PhotoGallery() {
   // { id: 6, src: "", category: "Nature" },
 
 
-  const categories = ["All", "Nature cysid", "City", "Space", "Ocean"];
+  const categories = ["All", "Nature", "City", "Space", "Ocean"];
   const [selectedCategory, setSelectedCategory] = useState("All");
 
   const filteredPhotos =
@@ -42,24 +43,20 @@ export default function PhotoGallery() {
         </div>
 
         <div className="flex overflow-x-auto space-x-3 pt-2 pb-2 scrollbar-hide">
-  {categories.map((category) => (
-    <button
-      key={category}
-      className={`inline-flex items-center px-4 py-1 rounded-lg transition border whitespace-nowrap w-auto
+          {categories.map((category) => (
+            <button
+              key={category}
+              className={`inline-flex items-center px-4 py-1 rounded-lg transition border whitespace-nowrap w-auto
         ${selectedCategory === category
-          ? "bg-[#1f1f24] border-[#d4d4d4] text-white"
-          : "bg-[#18181b] border-[#252529] text-gray-400 hover:bg-[#1f1f24]"
-        }`}
-      onClick={() => setSelectedCategory(category)}
-    >
-      {category}
-    </button>
-  ))}
-</div>
-
-
-        {/* <hr className="my-4 hidden sm:block bg-[#18181b]  dark:bg-gray-600"  /> */}
-
+                  ? "bg-[#1f1f24] border-[#d4d4d4] text-white"
+                  : "bg-[#18181b] border-[#252529] text-gray-400 hover:bg-[#1f1f24]"
+                }`}
+              onClick={() => setSelectedCategory(category)}
+            >
+              {category}
+            </button>
+          ))}
+        </div>
         <div className="columns-2 sm:columns-2 md:columns-3 lg:columns-4 gap-2 pt-3">
           {filteredPhotos.map((photo) => (
             <div key={photo.id} className="mb-3 break-inside-avoid flex flex-col items-center">
@@ -82,6 +79,31 @@ export default function PhotoGallery() {
             <p className="text-gray-400">Tidak ada foto dalam kategori ini.</p>
           </div>
         )}
+
+        {/* Floating Button */}
+        <button 
+                className="fixed bottom-4 right-5 bg-black bg-opacity-70 border border-[#252529] hover:bg-[#1f1f24] text-white px-3 py-1 text-sm rounded-md shadow-lg"
+                onClick={() => setIsPopupOpen(true)}
+            >
+                <i class="ri-download-2-line"></i>
+            </button>
+
+            {/* Popup */}
+            {isPopupOpen && (
+                <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center px-4">
+                    <div className="bg-[#18181b] border border-[#252529] p-4 rounded-lg max-w-sm text-center text-white">
+                        <p className="mb-6 leading-relaxed text-sm">
+                            Untuk mendownload foto, tahan beberapa detik pada gambar yang ingin disimpan. Setelah itu, pilih opsi "Simpan Gambar", maka gambar akan tersimpan.
+                        </p>
+                        <button 
+                            className="bg-[#252529] hover:bg-[#1f1f24] text-white px-4 py-2 w-full rounded-md"
+                            onClick={() => setIsPopupOpen(false)}
+                        >
+                            Siap, Mengerti
+                        </button>
+                    </div>
+                </div>
+            )}
 
       </section>
       <Footer />
