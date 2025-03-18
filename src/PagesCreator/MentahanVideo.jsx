@@ -14,7 +14,7 @@ export default function Page() {
     { id: 4, src: Sky, category: "Sky" },
   ];
 
-  const categories = ["All", "Natural", "Dark Vibes", "Sky"];
+  const categories = ["All", "Natural", "Dark Vibes", "Sky", "Miaww", "Nailong", "Aesthetic"];
   const [selectedCategory, setSelectedCategory] = useState("All");
 
   const filteredVideos =
@@ -28,28 +28,28 @@ export default function Page() {
       <section className="max-w-4xl mx-auto px-5 pt-20">
         {/* breadcrumb */}
         <div className="flex justify-between items-center w-full pt-3 pb-3">
-                    <h2 className="text-[15px] text-[#d4d4d4] font-sm">
-                        <a href="/creator">Creator</a><i class="ri-arrow-drop-right-line"></i>
-                        <a href="/creator/product">Product</a><i class="ri-arrow-drop-right-line"></i>
-                        <a href="">mentahan video</a></h2>
-                </div>
-        <div className="flex justify-between items-center w-full pt-2">
-          <div className="flex space-x-3 overflow-x-auto pb-2 scrollbar-hide">
-            {categories.map((category) => (
-              <button
-                key={category}
-                className={`px-4 py-1 rounded-lg transition border ${
-                  selectedCategory === category
-                    ? "bg-[#1f1f24] border-[#d4d4d4] text-white"
-                    : "bg-[#18181b] border-[#252529] text-gray-400 hover:bg-[#1f1f24]"
-                }`}
-                onClick={() => setSelectedCategory(category)}
-              >
-                {category}
-              </button>
-            ))}
-          </div>
+          <h2 className="text-[15px] text-[#d4d4d4] font-sm">
+            <a href="/creator">Creator</a><i class="ri-arrow-drop-right-line"></i>
+            <a href="/creator/product">Product</a><i class="ri-arrow-drop-right-line"></i>
+            <a href="">mentahan video</a></h2>
         </div>
+
+        <div className="flex overflow-x-auto space-x-3 pt-2 pb-2 scrollbar-hide">
+  {categories.map((category) => (
+    <button
+      key={category}
+      className={`inline-flex items-center px-4 py-1 rounded-lg transition border whitespace-nowrap w-auto
+        ${selectedCategory === category
+          ? "bg-[#1f1f24] border-[#d4d4d4] text-white"
+          : "bg-[#18181b] border-[#252529] text-gray-400 hover:bg-[#1f1f24]"
+        }`}
+      onClick={() => setSelectedCategory(category)}
+    >
+      {category}
+    </button>
+  ))}
+</div>
+
 
         <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 pt-3">
           {filteredVideos.map((video) => (

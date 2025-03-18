@@ -28,7 +28,7 @@ export default function Page() {
                         {/* sosmed */}
                         <div className="flex justify-center md:justify-start gap-4">
                             <a href="/creator/product"
-                                className="px-3 py-1.5 border border-[#252529] bg-[#18181b] rounded-[10px] hover:bg-[#1f1f24] transition">
+                                className="px-3 py-1.5 text-gray-300 border border-[#252529] bg-[#18181b] rounded-[5px] hover:bg-[#1f1f24] transition">
                                 let's see the products I made <i class="ri-arrow-right-up-line"></i>
                             </a>
                         </div>
@@ -49,7 +49,7 @@ export default function Page() {
                             </h2>
                             <p className="text-gray-300 mb-4 text-justify">
                                 On Instagram, I share inspiring and educational content with over 90,000 followers. I provide tips, insights, and motivation to help others grow and stay inspired. My goal is to create a positive space that encourages personal and professional growth.</p>
-                            <a href="https://instagram.com/story.thur" className="inline-block px-4 py-2 bg-gradient-to-r from-purple-500 to-pink-500 rounded-lg font-medium hover:opacity-90 transition-opacity">
+                            <a href="https://instagram.com/story.thur" className="inline-block text-gray-300 px-4 py-2 border border-[#252529] bg-[#18181b] rounded-[5px] hover:bg-[#1f1f24] rounded-[5px] font-medium transition-opacity">
                                 Visit Instagram <i class="ri-arrow-right-up-line"></i>
                             </a>
                         </div>
@@ -71,7 +71,7 @@ export default function Page() {
                             </h2>
                             <p className="text-gray-300 text-justify mb-4">
                                 On LinkedIn, I share professional content and industry insights with over 1,000 connections. My focus is on career development, professional skills, and the latest industry trends. I also engage in meaningful discussions, providing valuable perspectives to help others grow in their careers.</p>
-                            <a href="https://linkedin.com/in/fatkhurrhn" className="inline-block px-4 py-2 bg-blue-600 rounded-lg font-medium hover:opacity-90 transition-opacity">
+                            <a href="https://linkedin.com/in/fatkhurrhn" className="inline-block text-gray-300 px-4 py-2 border border-[#252529] bg-[#18181b] rounded-[5px] hover:bg-[#1f1f24] rounded-[5px] font-medium transition-opacity">
                                 Visit LinkedIn <i class="ri-arrow-right-up-line"></i>
                             </a>
                         </div>
@@ -93,7 +93,7 @@ export default function Page() {
                             </h2>
                             <p className="text-gray-300 text-justify mb-4">
                                 TikTok is my platform for sharing creative and engaging short-form videos. With over 3,000 followers, I share motivational words to inspire and uplift others. I also explore trending topics and insights to encourage positivity, growth, and self-improvement.</p>
-                            <a href="https://tiktok.com/@fatkhurrhn" className="inline-block px-4 py-2 bg-black border border-teal-400 rounded-lg font-medium hover:bg-gray-900 transition-colors">
+                            <a href="https://tiktok.com/@fatkhurrhn" className="inline-block text-gray-300 px-4 py-2 border border-[#252529] bg-[#18181b] rounded-[5px] hover:bg-[#1f1f24] rounded-[5px] font-medium transition-colors">
                                 Visit TikTok <i class="ri-arrow-right-up-line"></i>
                             </a>
                         </div>

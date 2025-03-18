@@ -12,7 +12,7 @@ export default function Page() {
                 <div className="flex justify-between items-center w-full pt-3">
                     <h2 className="text-[15px] text-[#d4d4d4] font-sm">
                         <a href="/creator">Creator</a><i class="ri-arrow-drop-right-line"></i>
-                        <a href="/creator/product">Product</a></h2>
+                        <a href="">Product</a></h2>
                 </div>
 
                 {/* Single Blog Card (Full Width) */}
