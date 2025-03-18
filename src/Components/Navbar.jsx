@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import MenuSidebar from "./MenuSidebar";
+import MenuAtas from "./MenuAtas";
 
 const Navbar = () => {
     const [isSidebarOpen, setIsSidebarOpen] = useState(false);
@@ -21,14 +23,8 @@ const Navbar = () => {
                     <i className="ri-menu-2-line"></i>
                 </button>
 
-                <ul className="hidden md:flex space-x-8 font-medium dark:text-[#d4d4d4]">
-                    <li><a href="/">Home</a></li>
-                    <li><a href="/project">Project</a></li>
-                    <li><a href="/certificate">Certificate</a></li>
-                    <li><a href="/writings">Writings</a></li>
-                    <li><a href="/guestbook">Guestbook</a></li>
-                    <li><a href="/creator">Creator</a></li>
-                </ul>
+                {/* menu atas */}
+                <MenuAtas/>
 
                 {/* Contact Me Button */}
                 <button onClick={() => setIsOpen(true)}
@@ -53,14 +49,7 @@ const Navbar = () => {
                 </button>
 
                 {/* Sidebar Menu */}
-                <ul className="mt-16 space-y-6 ">
-                <li><a href="/">Home</a></li>
-                    <li><a href="/project">Project</a></li>
-                    <li><a href="/certificate">Certificate</a></li>
-                    <li><a href="/writing">Writings</a></li>
-                    <li><a href="/guestbook">Guestbook</a></li>
-                    <li><a href="/creator">Creator</a></li>
-                </ul>
+                <MenuSidebar/>
 
                 {/* Social Media Icons */}
                 <div className="absolute bottom-5 left-0 w-full flex justify-center gap-4">
