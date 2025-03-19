@@ -13,13 +13,22 @@ const products = [
     link: "/store/detail-netflix",
   },
   {
+    id: 0,
+    name: "Pulsa All Operator",
+    image: "https://i0.wp.com/tanggal.id/wp-content/uploads/2025/01/Youtube-Premium.jpg",
+    price: "Rp. 4.000",
+    oldPrice: "Rp. 7.000",
+    category: "Streaming",
+    link: "/store/detail-pulsa",
+  },
+  {
     id: 2,
     name: "YouTube Premium",
     image: "https://i0.wp.com/tanggal.id/wp-content/uploads/2025/01/Youtube-Premium.jpg",
     price: "Rp. 12.000",
     oldPrice: "Rp. 14.000",
     category: "Streaming",
-    link: "/detail-youtube",
+    link: "/store/coming-soon",
   },
   {
     id: 3,
@@ -28,7 +37,7 @@ const products = [
     price: "Rp. 10.000",
     oldPrice: "Rp. 12.000",
     category: "Design",
-    link: "/detail-canva",
+    link: "/store/coming-soon",
   },
   {
     id: 4,
@@ -37,7 +46,7 @@ const products = [
     price: "Rp. 11.000",
     oldPrice: "Rp. 13.000",
     category: "Editing",
-    link: "/detail-capcut",
+    link: "/store/coming-soon",
   },
 ];
 
