@@ -11,6 +11,7 @@ import Writings1 from './PagesCoding/DetailWritings/tailwind-ui-is-now-tailwind-
 
 import Home from './Home';
 import Template from './Template';
+import Tess from './tes';
 
 import Creator from "./PagesCreator/HomePage";
 import MentahanVideo from "./PagesCreator/MentahanVideo";
@@ -18,13 +19,13 @@ import MentahanFoto from "./PagesCreator/MentahanFoto";
 import Product from "./PagesCreator/Product";
 
 import Store from "./PageStore/HomePage";
-import ApkPremium from "./PageStore/ApkPremium";
+import DetailNetflix from "./PageStore/DetailNetflix";
 
 function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/tes" element={<Tes />} />
+        <Route path="/tes" element={<Tess />} />
         <Route path="/" element={<HomePage />} />
         <Route path="/project" element={<Project />} />
         <Route path="/certificate" element={<Certificate />} />
@@ -33,7 +34,7 @@ function App() {
 
         <Route path="/writings/tailwind-ui-is-now-tailwind-plus" element={<Writings1 />} />
 
-        <Route path="/home" element={<Home />} />
+        <Route path="/links" element={<Home />} />
         <Route path="/template" element={<Template />} />
         
         <Route path="/creator" element={<Creator />} />
@@ -42,7 +43,7 @@ function App() {
         <Route path="/creator/product" element={<Product />} />
 
         <Route path="/store" element={<Store />} />
-        <Route path="/store/apk-premium" element={<ApkPremium />} />
+        <Route path="/store/detail-netflix" element={<DetailNetflix />} />
       </Routes>
     </Router>
   );
