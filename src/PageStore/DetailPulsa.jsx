@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Navbar from "../Components/NavbarStore";
 const pricelist = [
     {
-        category: "Promo", options: [
+        category: "Promo Ramadhan", options: [
             { duration: "15rb", price: "13.000" },
             { duration: "25rb", price: "22.000" },
         ]
