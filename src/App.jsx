@@ -22,6 +22,7 @@ import Store from "./PageStore/HomePage";
 import DetailNetflix from "./PageStore/DetailNetflix";
 import CoomingSoon from "./PageStore/ComingSoon";
 import DetailPulsa from "./PageStore/DetailPulsa";
+import DetailDM from "./PageStore/DetailDiamondML";
 
 function App() {
   return (
@@ -48,6 +49,7 @@ function App() {
         <Route path="/store/detail-netflix" element={<DetailNetflix />} />
         <Route path="/store/coming-soon" element={<CoomingSoon />} />
         <Route path="/store/detail-pulsa" element={<DetailPulsa />} />
+        <Route path="/store/detail-diamond-ml" element={<DetailDM />} />
       </Routes>
     </Router>
   );
