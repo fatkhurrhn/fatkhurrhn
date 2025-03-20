@@ -4,12 +4,22 @@ import Footer from "../Components/Footer";
 
 const pricelist = [
     {
-        category: "👑Quest Misi Top Up Event", options: [
-            { duration: "56", price: "16.500" },
-            { duration: "110", price: "31.000" },
-            { duration: "277", price: "77.000" },
-            { duration: "568", price: "151.000" },
-            { duration: "1136", price: "302.000" },
+        category: "👑Quest Misi Top Up Event",
+        options: [
+            { duration: <>56 <i className="ri-vip-diamond-line"></i></>, price: "16.500" },
+            { duration: <>110 <i className="ri-vip-diamond-line"></i></>, price: "31.500" },
+            { duration: <>277 <i className="ri-vip-diamond-line"></i></>, price: "77.500" },
+            { duration: <>568 <i className="ri-vip-diamond-line"></i></>, price: "151.500" },
+            { duration: <>1136 <i className="ri-vip-diamond-line"></i></>, price: "302.500" },
+        ]
+    },
+    {
+        category: "✨Weekly Diamond Pass", options: [
+            { duration: "1x WDP", price: "28.500" },
+            { duration: "2x WDP", price: "56.500" },
+            { duration: "3x WDP", price: "83.500" },
+            { duration: "4x WDP", price: "112.500" },
+            { duration: "5x WDP", price: "138.500" },
         ]
     },
 ];
@@ -57,7 +67,7 @@ export default function Page() {
                                         : ''
                                     }`}
                                 >
-                                    {option.duration} <i className="ri-vip-diamond-line"></i> → Rp {option.price}
+                                    {option.duration} → Rp {option.price}
                                 </button>
                             ))}
                         </div>
