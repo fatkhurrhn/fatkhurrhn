@@ -26,6 +26,9 @@ import DetailDM from "./PageStore/DetailDiamondML";
 import DetailCanva from "./PageStore/DetailCanva";
 import DetailCapcut from "./PageStore/DetailCapcut";
 import DetailAM from "./PageStore/DetailAlightMotion";
+import DetailBS from "./PageStore/DetailBstation";
+import DetailYT from "./PageStore/DetailYoutube";
+import DetailViu from "./PageStore/DetailViu";
 
 function App() {
   return (
@@ -56,6 +59,9 @@ function App() {
         <Route path="/store/canva" element={<DetailCanva />} />
         <Route path="/store/capcut" element={<DetailCapcut />} />
         <Route path="/store/alight-motion" element={<DetailAM />} />
+        <Route path="/store/bstation" element={<DetailBS />} />
+        <Route path="/store/youtube" element={<DetailYT />} />
+        <Route path="/store/viu" element={<DetailViu />} />
       </Routes>
     </Router>
   );

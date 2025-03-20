@@ -5,13 +5,13 @@ const pricelist = [
     {
         category: "Sharing",
         options: [
-            { duration: "1 tahun", price: "7k" }
+            { duration: "1 tahun", price: "7.000" }
         ]
     },
     {
         category: "Private",
         options: [
-            { duration: "1 tahun", price: "13k" }
+            { duration: "1 tahun", price: "13.000" }
         ]
     }
 ];
@@ -55,7 +55,7 @@ export default function Page() {
                                     onClick={() => handleSelect(item.category, option.duration, option.price)}
                                     className={`p-3 rounded-md border text-[14px] border-[#252529] bg-[#18181b] text-gray-300 transition ${selected === `${item.category} - ${option.duration} : ${option.price}` ? 'bg-blue-900 text-gray-300' : ''}`}
                                 >
-                                    {option.duration} → {option.price}
+                                    {option.duration} → Rp {option.price}
                                 </button>
                             ))}
                         </div>
