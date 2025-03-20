@@ -4,38 +4,12 @@ import Footer from "../Components/Footer";
 
 const pricelist = [
     {
-        category: "1 profil 1 user harian", options: [
-            { duration: "1 hari", price: "1k" },
-            { duration: "3 hari", price: "3k" },
-            { duration: "5 hari", price: "5k" },
-            { duration: "7 hari", price: "7k" },
-        ]
-    },
-    {
-        category: "1 profil 1 user bulanan", options: [
-            { duration: "1 bulan", price: "20k" },
-            { duration: "2 bulan", price: "38k" },
-            { duration: "3 bulan", price: "58k" },
-        ]
-    },
-    {
-        category: "1 profil 2 user", options: [
-            { duration: "1 bulan", price: "11k" },
-            { duration: "2 bulan", price: "20k" },
-            { duration: "3 bulan", price: "30k" },
-        ]
-    },
-    {
-        category: "semi private", options: [
-            { duration: "1 bulan", price: "24k" },
-            { duration: "2 bulan", price: "46k" },
-            { duration: "3 bulan", price: "70k" },
-        ]
-    },
-    {
-        category: "private", options: [
-            { duration: "7 hari", price: "30k" },
-            { duration: "1 bulan", price: "95k" },
+        category: "👑Quest Misi Top Up Event", options: [
+            { duration: "56", price: "16.500" },
+            { duration: "110", price: "31.000" },
+            { duration: "277", price: "77.000" },
+            { duration: "568", price: "151.000" },
+            { duration: "1136", price: "302.000" },
         ]
     },
 ];
@@ -44,7 +18,7 @@ export default function Page() {
     const [selected, setSelected] = useState(null);
 
     const handleSelect = (category, duration, price) => {
-        setSelected(`${category} - ${duration} : ${price}`);
+        setSelected(`${category} - Diamond ${duration} Harga Rp ${price}`);
     };
 
     const handleOrder = () => {
@@ -58,32 +32,39 @@ export default function Page() {
         <div className="bg-[#141417] min-h-screen text-gray-900 dark:text-white transition-colors duration-300 relative">
             <Navbar />
             <section className="max-w-4xl mx-auto px-5 pt-20">
-                <h1 className="text-2xl font-bold  text-center text-gray-300 mb-2">Netflix Pricelist</h1>
+                <h1 className="text-2xl font-bold text-center text-gray-300 mb-2">Diamond Montoon</h1>
                 <hr className="mb-2 mt-3 border-0 h-[1px] bg-gradient-to-r from-[#252529] to-[#ffffff]/20 dark:from-[#252529] dark:to-[#ffffff]/10" />
+                
                 {/* breadcrumb */}
                 <div className="flex justify-between items-center w-full pt-3 pb-3">
                     <h2 className="text-[15px] text-[#d4d4d4] font-sm">
-                        <a href="/store">store</a><i class="ri-arrow-drop-right-line"></i>
-                        <a href="">netflix premium</a>
+                        <a href="/store">store</a><i className="ri-arrow-drop-right-line"></i>
+                        <a href="">diamond ml</a>
                     </h2>
                 </div>
+
                 {pricelist.map((item, index) => (
                     <div key={index} className="mb-6">
                         <h2 className="text-lg text-gray-300 font-semibold mb-2">{item.category}</h2>
-                        <div className="grid grid-cols-2 gap-2">
+                        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-2">
                             {item.options.map((option, idx) => (
                                 <button
                                     key={idx}
                                     onClick={() => handleSelect(item.category, option.duration, option.price)}
-                                    className={`p-3 rounded-md border border-[#252529] bg-[#18181b] text-gray-300 transition ${selected === `${item.category} - ${option.duration} : ${option.price}` ? 'bg-blue-900 text-gray-300' : ''}`}
+                                    className={`p-3 rounded-md border border-[#252529] bg-[#18181b] text-gray-300 transition ${
+                                        selected === `${item.category} - Diamond ${option.duration} Harga Rp ${option.price}` 
+                                        ? 'bg-blue-900 text-gray-300' 
+                                        : ''
+                                    }`}
                                 >
-                                    {option.duration} - {option.price}
+                                    {option.duration} <i className="ri-vip-diamond-line"></i> → Rp {option.price}
                                 </button>
                             ))}
                         </div>
                     </div>
                 ))}
             </section>
+
             {selected && (
                 <button
                     onClick={handleOrder}
@@ -92,6 +73,7 @@ export default function Page() {
                     Order Now
                 </button>
             )}
+
             <Footer />
         </div>
     );
