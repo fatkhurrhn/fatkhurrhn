@@ -31,7 +31,7 @@ export default function Page() {
     const handleOrder = () => {
         if (!selected) return;
         const phone = "6285179917416";
-        const message = `Order ${selected}\n\nApa ada stok kak?`;
+        const message = `Order Pulsa ${selected}\n\nApa ada stok kak?`;
         window.location.href = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
     };
 
