@@ -5,33 +5,6 @@ import Footer from "../Components/Footer";
 const products = [
   {
     id: 1,
-    name: "Bstation",
-    image: "https://play-lh.googleusercontent.com/G9s84Cm1TDnKDX2P8nipS_s60cuCnYtjBRRLespF8nivjXmbV9tF1fY37clZhXMLaA=w240-h480-rw",
-    price: "Rp 8.000",
-    oldPrice: "Rp 13.000",
-    category: "Streaming",
-    link: "/store/bstation"
-  },
-  {
-    id: 2,
-    name: "Pulsa All Operator",
-    image: "https://satmesin.com/wp-content/uploads/2023/04/pulsa.jpg",
-    price: "Rp 4.000",
-    oldPrice: "Rp 7.000",
-    category: "Top Up",
-    link: "/store/pulsa"
-  },
-  {
-    id: 3,
-    name: "Viu",
-    image: "https://asset.kompas.com/crops/1SCTmFZnjyvTa8DYp1cqgCOu2QA=/141x40:623x361/1200x800/data/photo/2022/12/02/638974d5aa23b.png",
-    price: "Rp 6.000",
-    oldPrice: "Rp 10.000",
-    category: "Editing",
-    link: "/store/viu"
-  },
-  {
-    id: 4,
     name: "Netflix Premium",
     image: "https://vokasi.unair.ac.id/wp-content/uploads/2023/11/Netflix-A-Legal-Platform-Revolutionizing-Entertainment-varlie-zahrani.jpg",
     price: "Rp 13.000",
@@ -41,7 +14,7 @@ const products = [
     bestSeller: true
   },
   {
-    id: 5,
+    id: 2,
     name: "Diamond ML",
     image: "https://garudavoucher.id/blog/wp-content/uploads/2024/08/dm-ml-1024x573.webp",
     price: "Rp 3.000",
@@ -50,6 +23,34 @@ const products = [
     link: "/store/diamond-ml",
     bestSeller: true
   },
+  {
+    id: 3,
+    name: "Bstation",
+    image: "https://play-lh.googleusercontent.com/G9s84Cm1TDnKDX2P8nipS_s60cuCnYtjBRRLespF8nivjXmbV9tF1fY37clZhXMLaA=w240-h480-rw",
+    price: "Rp 8.000",
+    oldPrice: "Rp 13.000",
+    category: "Streaming",
+    link: "/store/bstation"
+  },
+  {
+    id: 4,
+    name: "Pulsa All Operator",
+    image: "https://satmesin.com/wp-content/uploads/2023/04/pulsa.jpg",
+    price: "Rp 4.000",
+    oldPrice: "Rp 7.000",
+    category: "Top Up",
+    link: "/store/pulsa"
+  },
+  {
+    id: 5,
+    name: "Viu",
+    image: "https://asset.kompas.com/crops/1SCTmFZnjyvTa8DYp1cqgCOu2QA=/141x40:623x361/1200x800/data/photo/2022/12/02/638974d5aa23b.png",
+    price: "Rp 6.000",
+    oldPrice: "Rp 10.000",
+    category: "Editing",
+    link: "/store/viu"
+  },
+
   {
     id: 6,
     name: "Canva Pro",
