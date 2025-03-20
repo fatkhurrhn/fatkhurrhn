@@ -22,7 +22,62 @@ const pricelist = [
             { Jumlah: "5x WDP", price: "138.500" },
         ]
     },
-
+    {
+        category: "💎Top Up Instant",
+        options: [
+            { Jumlah: "5💎", price: "3.000" },
+            { Jumlah: "10💎", price: "4.000" },
+            { Jumlah: "12💎", price: "5.000" },
+            { Jumlah: "22💎", price: "7.000" },
+            { Jumlah: "28💎", price: "9.000" },
+            { Jumlah: "30💎", price: "9.000" },
+            { Jumlah: "46💎", price: "14.000" },
+            { Jumlah: "54💎", price: "16.000" },
+            { Jumlah: "60💎", price: "18.000" },
+            { Jumlah: "74💎", price: "21.000" },
+            { Jumlah: "100💎", price: "29.000" },
+            { Jumlah: "129💎", price: "36.000" },
+            { Jumlah: "148💎", price: "42.000" },
+            { Jumlah: "170💎", price: "48.000" },
+            { Jumlah: "176💎", price: "51.000" },
+            { Jumlah: "222💎", price: "63.000" },
+            { Jumlah: "240💎", price: "67.000" },
+            { Jumlah: "241💎", price: "68.000" },
+            { Jumlah: "284💎", price: "79.000" },
+            { Jumlah: "296💎", price: "82.000" },
+            { Jumlah: "305💎", price: "86.000" },
+            { Jumlah: "370💎", price: "103.000" },
+            { Jumlah: "384💎", price: "107.000" },
+            { Jumlah: "408💎", price: "111.000" },
+            { Jumlah: "406💎", price: "113.000" },
+            { Jumlah: "518💎", price: "143.000" },
+            { Jumlah: "554💎", price: "153.000" },
+            { Jumlah: "716💎", price: "190.000" },
+            { Jumlah: "750💎", price: "199.000" },
+            { Jumlah: "790💎", price: "210.000" },
+            { Jumlah: "875💎", price: "229.000" },
+            { Jumlah: "874💎", price: "233.000" },
+            { Jumlah: "966💎", price: "252.000" },
+            { Jumlah: "1048💎", price: "280.000" },
+            { Jumlah: "1067💎", price: "285.000" },
+            { Jumlah: "1358💎", price: "358.000" },
+            { Jumlah: "1506💎", price: "398.000" },
+            { Jumlah: "1704💎", price: "445.000" },
+            { Jumlah: "2010💎", price: "494.000" },
+            { Jumlah: "2380💎", price: "594.000" },
+            { Jumlah: "2578💎", price: "642.000" },
+            { Jumlah: "2855💎", price: "716.000" },
+            { Jumlah: "3146💎", price: "789.000" },
+            { Jumlah: "3423💎", price: "864.000" },
+            { Jumlah: "3738💎", price: "949.000" },
+            { Jumlah: "4020💎", price: "985.000" },
+            { Jumlah: "4830💎", price: "1.182.000" },
+            { Jumlah: "4856💎", price: "1.189.000" },
+            { Jumlah: "4958💎", price: "1.232.000" },
+            { Jumlah: "5052💎", price: "1.241.000" }
+        ]
+    }
+    
 ];
 
 export default function Page() {
