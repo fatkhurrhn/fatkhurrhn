@@ -25,6 +25,7 @@ import DetailPulsa from "./PageStore/DetailPulsa";
 import DetailDM from "./PageStore/DetailDiamondML";
 import DetailCanva from "./PageStore/DetailCanva";
 import DetailCapcut from "./PageStore/DetailCapcut";
+import DetailAM from "./PageStore/DetailAlightMotion";
 
 function App() {
   return (
@@ -54,6 +55,7 @@ function App() {
         <Route path="/store/diamond-ml" element={<DetailDM />} />
         <Route path="/store/canva" element={<DetailCanva />} />
         <Route path="/store/capcut" element={<DetailCapcut />} />
+        <Route path="/store/alight-motion" element={<DetailAM />} />
       </Routes>
     </Router>
   );
