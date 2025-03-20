@@ -3,41 +3,47 @@ import Navbar from "../Components/NavbarStore";
 import Footer from "../Components/Footer";
 
 const pricelist = [
-    {
-        category: "1 profil 1 user harian", options: [
-            { duration: "1 hari", price: "1k" },
-            { duration: "3 hari", price: "3k" },
-            { duration: "5 hari", price: "5k" },
-            { duration: "7 hari", price: "7k" },
-        ]
-    },
-    {
-        category: "1 profil 1 user bulanan", options: [
-            { duration: "1 bulan", price: "20k" },
-            { duration: "2 bulan", price: "38k" },
-            { duration: "3 bulan", price: "58k" },
-        ]
-    },
-    {
-        category: "1 profil 2 user", options: [
-            { duration: "1 bulan", price: "11k" },
-            { duration: "2 bulan", price: "20k" },
-            { duration: "3 bulan", price: "30k" },
-        ]
-    },
-    {
-        category: "semi private", options: [
-            { duration: "1 bulan", price: "24k" },
-            { duration: "2 bulan", price: "46k" },
-            { duration: "3 bulan", price: "70k" },
-        ]
-    },
-    {
-        category: "private", options: [
-            { duration: "7 hari", price: "30k" },
-            { duration: "1 bulan", price: "95k" },
-        ]
-    },
+        {
+            category: "1 profil 1 user harian",
+            options: [
+                { duration: "1 hari", price: "7k" },
+                { duration: "3 hari", price: "9k" },
+                { duration: "7 hari", price: "14k" }
+            ]
+        },
+        {
+            category: "1 profil 1 user bulanan",
+            options: [
+                { duration: "1 bulan", price: "25k" },
+                { duration: "2 bulan", price: "43k" },
+                { duration: "3 bulan", price: "63k" }
+            ]
+        },
+        {
+            category: "1 profil 2 user",
+            options: [
+                { duration: "5 hari", price: "9k" },
+                { duration: "7 hari", price: "11k" },
+                { duration: "1 bulan", price: "16k" },
+                { duration: "2 bulan", price: "25k" },
+                { duration: "3 bulan", price: "35k" }
+            ]
+        },
+        {
+            category: "Semi Private",
+            options: [
+                { duration: "1 bulan", price: "29k" },
+                { duration: "2 bulan", price: "51k" },
+                { duration: "3 bulan", price: "75k" }
+            ]
+        },
+        {
+            category: "Private",
+            options: [
+                { duration: "1 minggu", price: "35k" },
+                { duration: "1 bulan", price: "105k" }
+            ]
+        }    
 ];
 
 export default function Page() {
@@ -70,7 +76,7 @@ export default function Page() {
                 {pricelist.map((item, index) => (
                     <div key={index} className="mb-6">
                         <h2 className="text-lg text-gray-300 font-semibold mb-2">{item.category}</h2>
-                        <div className="grid grid-cols-2 gap-2">
+                        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-2">
                             {item.options.map((option, idx) => (
                                 <button
                                     key={idx}

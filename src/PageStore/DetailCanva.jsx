@@ -3,23 +3,18 @@ import Navbar from "../Components/NavbarStore";
 import Footer from "../Components/Footer";
 const pricelist = [
     {
-        category: "Promo Ramadhan", options: [
-            { duration: "15rb", price: "13.000" },
-            { duration: "25rb", price: "22.000" },
+        category: "Canva",
+        options: [
+            { duration: "7 hari", price: "3k" },
+            { duration: "1 bulan", price: "6k" },
+            { duration: "3 bulan", price: "9k" },
+            { duration: "5 bulan", price: "12k" },
+            { duration: "6 bulan", price: "15k" },
+            { duration: "1 tahun", price: "25k" }
         ]
-    },
-    {
-        category: "All Operator", options: [
-            { duration: "2rb", price: "4.000" },
-            { duration: "3rb", price: "5.000" },
-            { duration: "5rb", price: "6.400" },
-            { duration: "10rb", price: "11.000" },
-            { duration: "20rb", price: "21.00" },
-            { duration: "30rb", price: "31.00" },
-        ]
-    },
-
+    }
 ];
+
 
 export default function Page() {
     const [selected, setSelected] = useState(null);
@@ -39,13 +34,13 @@ export default function Page() {
         <div className="bg-[#141417] min-h-screen text-gray-900 dark:text-white transition-colors duration-300 relative">
             <Navbar />
             <section className="max-w-4xl mx-auto px-5 pt-20">
-                <h1 className="text-2xl font-bold  text-center text-gray-300 mb-2">Pulsa All Operator</h1>
+                <h1 className="text-2xl font-bold  text-center text-gray-300 mb-2">Canva Pro</h1>
                 <hr className="mb-2 mt-3 border-0 h-[1px] bg-gradient-to-r from-[#252529] to-[#ffffff]/20 dark:from-[#252529] dark:to-[#ffffff]/10" />
                 {/* breadcrumb */}
                 <div className="flex justify-between items-center w-full pt-3 pb-3">
                     <h2 className="text-[15px] text-[#d4d4d4] font-sm">
                         <a href="/store">store</a><i class="ri-arrow-drop-right-line"></i>
-                        <a href="">pulsa</a>
+                        <a href="">canva</a>
                     </h2>
                 </div>
                 {pricelist.map((item, index) => (

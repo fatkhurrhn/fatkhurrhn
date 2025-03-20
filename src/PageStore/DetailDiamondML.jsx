@@ -146,7 +146,7 @@ export default function Page() {
                                 <button
                                     key={idx}
                                     onClick={() => handleSelect(item.category, option.Jumlah, option.price)}
-                                    className={`p-2 rounded-md border border-[#252529] bg-[#18181b] text-gray-300 transition ${
+                                    className={`p-2 rounded-md text-[14px] border border-[#252529] bg-[#18181b] text-gray-300 transition ${
                                         selected === `Order ${item.category} - Diamond ${option.Jumlah} Harga Rp ${option.price}` 
                                             ? 'bg-blue-900 text-gray-300' 
                                             : ''

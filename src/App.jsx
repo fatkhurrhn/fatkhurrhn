@@ -23,6 +23,8 @@ import DetailNetflix from "./PageStore/DetailNetflix";
 import CoomingSoon from "./PageStore/ComingSoon";
 import DetailPulsa from "./PageStore/DetailPulsa";
 import DetailDM from "./PageStore/DetailDiamondML";
+import DetailCanva from "./PageStore/DetailCanva";
+import DetailCapcut from "./PageStore/DetailCapcut";
 
 function App() {
   return (
@@ -46,10 +48,12 @@ function App() {
         <Route path="/creator/product" element={<Product />} />
 
         <Route path="/store" element={<Store />} />
-        <Route path="/store/detail-netflix" element={<DetailNetflix />} />
+        <Route path="/store/netflix" element={<DetailNetflix />} />
         <Route path="/store/coming-soon" element={<CoomingSoon />} />
-        <Route path="/store/detail-pulsa" element={<DetailPulsa />} />
-        <Route path="/store/detail-diamond-ml" element={<DetailDM />} />
+        <Route path="/store/pulsa" element={<DetailPulsa />} />
+        <Route path="/store/diamond-ml" element={<DetailDM />} />
+        <Route path="/store/canva" element={<DetailCanva />} />
+        <Route path="/store/capcut" element={<DetailCapcut />} />
       </Routes>
     </Router>
   );
