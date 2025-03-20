@@ -25,13 +25,14 @@ const products = [
   },
   {
     id: 3,
-    name: "Bstation",
-    image: "https://play-lh.googleusercontent.com/G9s84Cm1TDnKDX2P8nipS_s60cuCnYtjBRRLespF8nivjXmbV9tF1fY37clZhXMLaA=w240-h480-rw",
-    price: "Rp 8.000",
-    oldPrice: "Rp 13.000",
-    category: "Streaming",
-    link: "/store/bstation"
+    name: "Capcut Pro",
+    image: "https://images-eds-ssl.xboxlive.com/image?url=4rt9.lXDC4H_93laV1_eHHFT949fUipzkiFOBH3fAiZZUCdYojwUyX2aTonS1aIwMrx6NUIsHfUHSLzjGJFxxtHdRB6xk71KqOPxE23.XPjQ3fO1yhYCgKmfFjEd4Y9pzf.rK5H64foWSuU8wNaVbNrgfWOVi1enpBTmB3rNHc0-&format=source",
+    price: "Rp 6.000",
+    oldPrice: "Rp 10.000",
+    category: "Editing",
+    link: "/store/capcut"
   },
+  
   {
     id: 4,
     name: "Pulsa All Operator",
@@ -43,14 +44,14 @@ const products = [
   },
   {
     id: 5,
-    name: "Viu",
-    image: "https://asset.kompas.com/crops/1SCTmFZnjyvTa8DYp1cqgCOu2QA=/141x40:623x361/1200x800/data/photo/2022/12/02/638974d5aa23b.png",
-    price: "Rp 6.000",
+    name: "Alight Motion",
+    image: "https://play-lh.googleusercontent.com/OU0BlP8C9-V7ECl2crma7B48nzDbK7liSLjn0j_fpTlyWG6qyEE-mw_KFZ9aOXF0a3w",
+    price: "Rp 7.000",
     oldPrice: "Rp 10.000",
     category: "Editing",
-    link: "/store/viu"
+    link: "/store/alight-motion"
   },
-
+  
   {
     id: 6,
     name: "Canva Pro",
@@ -71,22 +72,24 @@ const products = [
   },
   {
     id: 8,
-    name: "Capcut Pro",
-    image: "https://images-eds-ssl.xboxlive.com/image?url=4rt9.lXDC4H_93laV1_eHHFT949fUipzkiFOBH3fAiZZUCdYojwUyX2aTonS1aIwMrx6NUIsHfUHSLzjGJFxxtHdRB6xk71KqOPxE23.XPjQ3fO1yhYCgKmfFjEd4Y9pzf.rK5H64foWSuU8wNaVbNrgfWOVi1enpBTmB3rNHc0-&format=source",
-    price: "Rp 6.000",
-    oldPrice: "Rp 10.000",
-    category: "Editing",
-    link: "/store/capcut"
+    name: "Bstation",
+    image: "https://play-lh.googleusercontent.com/G9s84Cm1TDnKDX2P8nipS_s60cuCnYtjBRRLespF8nivjXmbV9tF1fY37clZhXMLaA=w240-h480-rw",
+    price: "Rp 8.000",
+    oldPrice: "Rp 13.000",
+    category: "Streaming",
+    link: "/store/bstation"
   },
   {
     id: 9,
-    name: "Alight Motion",
-    image: "https://play-lh.googleusercontent.com/OU0BlP8C9-V7ECl2crma7B48nzDbK7liSLjn0j_fpTlyWG6qyEE-mw_KFZ9aOXF0a3w",
-    price: "Rp 7.000",
+    name: "Viu",
+    image: "https://asset.kompas.com/crops/1SCTmFZnjyvTa8DYp1cqgCOu2QA=/141x40:623x361/1200x800/data/photo/2022/12/02/638974d5aa23b.png",
+    price: "Rp 6.000",
     oldPrice: "Rp 10.000",
     category: "Editing",
-    link: "/store/alight-motion"
-  }
+    link: "/store/viu"
+  },
+
+  
 ];
 
 
