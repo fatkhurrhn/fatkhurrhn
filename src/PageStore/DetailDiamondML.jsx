@@ -4,13 +4,12 @@ import Footer from "../Components/Footer";
 
 const pricelist = [
     {
-        category: "👑Quest Misi Top Up Event",
-        options: [
-            { duration: <>56 <i className="ri-vip-diamond-line"></i></>, price: "16.500" },
-            { duration: <>110 <i className="ri-vip-diamond-line"></i></>, price: "31.500" },
-            { duration: <>277 <i className="ri-vip-diamond-line"></i></>, price: "77.500" },
-            { duration: <>568 <i className="ri-vip-diamond-line"></i></>, price: "151.500" },
-            { duration: <>1136 <i className="ri-vip-diamond-line"></i></>, price: "302.500" },
+        category: "👑Quest Misi Top Up Event", options: [
+            { duration: "56", price: "16.500" },
+            { duration: "110", price: "31.000" },
+            { duration: "277", price: "77.000" },
+            { duration: "568", price: "151.000" },
+            { duration: "1136", price: "302.000" },
         ]
     },
     {
@@ -27,8 +26,8 @@ const pricelist = [
 export default function Page() {
     const [selected, setSelected] = useState(null);
 
-    const handleSelect = (category, duration, price) => {
-        setSelected(`${category} - Diamond ${duration} Harga Rp ${price}`);
+    const handleSelect = (category, option) => {
+        setSelected(`${category} - Diamond ${option.duration} Harga Rp ${option.price}`);
     };
 
     const handleOrder = () => {
@@ -60,14 +59,14 @@ export default function Page() {
                             {item.options.map((option, idx) => (
                                 <button
                                     key={idx}
-                                    onClick={() => handleSelect(item.category, option.duration, option.price)}
+                                    onClick={() => handleSelect(item.category, option)}
                                     className={`p-3 rounded-md border border-[#252529] bg-[#18181b] text-gray-300 transition ${
                                         selected === `${item.category} - Diamond ${option.duration} Harga Rp ${option.price}` 
                                         ? 'bg-blue-900 text-gray-300' 
                                         : ''
                                     }`}
                                 >
-                                    {option.duration} → Rp {option.price}
+                                    {option.duration} <i className="ri-vip-diamond-line"></i> → Rp {option.price}
                                 </button>
                             ))}
                         </div>
