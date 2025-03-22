@@ -1,5 +1,6 @@
 import React from "react";
 import PP from "./assets/pp.jpg";
+import PPP from "./assets/profil.jpg";
 
 const Test = () => {
     return (
@@ -25,24 +26,24 @@ const Test = () => {
                 </div>
 
                 {/* Social Links */}
-<div className="flex flex-wrap justify-center gap-2">
-    {[
-        { href: "https://fatkhurrhn.vercel.app/", icon: "fas fa-globe", text: "Website", showOnMobile: false },
-        { href: "https://github.com/fatkhurrhn", icon: "fab fa-github", text: "Github", showOnMobile: false },
-        { href: "http://instagram.com/story.thur", icon: "fab fa-instagram", text: "Instagram", showOnMobile: true },
-        { href: "https://www.tiktok.com/@fatkhurrhnn", icon: "fab fa-tiktok", text: "Tiktok", showOnMobile: true },
-        { href: "https://www.linkedin.com/in/fatkhurrhn/", icon: "fab fa-linkedin", text: "LinkedIn", showOnMobile: true }
-    ].map(({ href, icon, text, showOnMobile }, index) => (
-        <a 
-            key={index} 
-            href={href} 
-            className={`flex items-center gap-2 border border-[#252529] dark:bg-[#18181b] text-gray-800 dark:text-white px-3 py-1 rounded-lg text-sm font-medium transition dark:hover:bg-[#1f1f24] 
+                <div className="flex flex-wrap justify-center gap-2">
+                    {[
+                        { href: "https://fatkhurrhn.vercel.app/", icon: "fas fa-globe", text: "Website", showOnMobile: false },
+                        { href: "https://github.com/fatkhurrhn", icon: "fab fa-github", text: "Github", showOnMobile: false },
+                        { href: "http://instagram.com/story.thur", icon: "fab fa-instagram", text: "Instagram", showOnMobile: true },
+                        { href: "https://www.tiktok.com/@fatkhurrhnn", icon: "fab fa-tiktok", text: "Tiktok", showOnMobile: true },
+                        { href: "https://www.linkedin.com/in/fatkhurrhn/", icon: "fab fa-linkedin", text: "LinkedIn", showOnMobile: true }
+                    ].map(({ href, icon, text, showOnMobile }, index) => (
+                        <a
+                            key={index}
+                            href={href}
+                            className={`flex items-center gap-2 border border-[#252529] dark:bg-[#18181b] text-gray-800 dark:text-white px-3 py-1 rounded-lg text-sm font-medium transition dark:hover:bg-[#1f1f24] 
             ${showOnMobile ? "" : "hidden sm:flex"}`}
-        >
-            <i className={icon}></i> {text}
-        </a>
-    ))}
-</div>
+                        >
+                            <i className={icon}></i> {text}
+                        </a>
+                    ))}
+                </div>
 
 
                 {/* Course Section */}
@@ -50,28 +51,43 @@ const Test = () => {
                     {[
                         {
                             icon: "ri-code-s-slash-line ri-1x",
-                            text: "Personal Website",
-                            href: "/" // Ganti dengan link yang sesuai
+                            text: "Personal Website & Portfolio",
+                            href: "/"
                         },
                         {
                             icon: "ri-edit-2-line ri-1x",
-                            text: "Assets gratis untuk editing",
-                            href: "/creator" // Ganti dengan link yang sesuai
+                            text: "Free Editing Assets Store",
+                            href: "/creator"
                         },
                         {
                             icon: "ri-apps-line ri-1x",
-                            text: "Aplikasi premium siap pakai",
-                            href: "/store" // Ganti dengan link yang sesuai
+                            text: "Premium Ready-to-Use Apps",
+                            href: "/store"
+                        },
+                        {
+                            icon: "ri-github-line ri-1x",
+                            text: "Explore My GitHub Projects",
+                            href: "https://github.com/fatkhurrhn"
+                        },
+                        {
+                            icon: "ri-youtube-line ri-1x",
+                            text: "Watch My YouTube Content",
+                            href: "https://youtube.com/@fatkhurrhnn"
+                        },
+                        {
+                            icon: "ri-phone-line ri-1x",
+                            text: "Contact Me on WhatsApp",
+                            href: "https://wa.me/6282285512813"
                         },
                         {
                             icon: "ri-message-2-line ri-1x",
-                            text: "Saluran Whatsap ``Reminder``",
-                            href: "https://whatsapp.com/channel/0029VabjmVDEQIahfM6pih3q" // Ganti dengan link yang sesuai
+                            text: "WhatsApp Channel for Updates",
+                            href: "https://whatsapp.com/channel/0029VabjmVDEQIahfM6pih3q"
                         },
                         {
                             icon: "ri-chat-1-line ri-1x",
-                            text: "Saluran Instagram ``Reminder``",
-                            href: "https://ig.me/j/AbYAsEmFeC7N27Jp/" // Ganti dengan link yang sesuai
+                            text: "Instagram Channel for Updates",
+                            href: "https://ig.me/j/AbYAsEmFeC7N27Jp/"
                         }
                     ].map(({ icon, text, href }, index) => (
                         <a key={index} href={href} className="no-underline">
