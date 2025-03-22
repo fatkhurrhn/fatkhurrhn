@@ -388,15 +388,9 @@ export default function Page() {
                         <div className="flex flex-col sm:flex-row justify-between gap-5">
                             {/* Left Side (Icon + Info) */}
                             <div className="flex gap-3">
-                                <div className="h-14 w-14 border border-[#252529] bg-[#1a1a1e] rounded-xl flex items-center justify-center text-[18px]">
-                                    🥶
-                                </div>
                                 <div className="mt-1">
                                     <a href="/writings/tailwind-ui-is-now-tailwind-plus" className="text-lg text-[#d4d4d4] font-black flex gap-2">
                                         Tailwind UI is now Tailwind Plus
-                                        <div className="block sm:hidden text-sm bg-[#18181b] border border-[#252529] rounded px-1 py-0.5 text-zinc-500">
-                                            # Gear
-                                        </div>
                                     </a>
                                     <ul className="text-zinc-400 flex items-center gap-2 text-sm">
                                         <li>2 min read</li>
@@ -405,18 +399,6 @@ export default function Page() {
                                     </ul>
                                 </div>
                             </div>
-
-                            {/* Tags */}
-                            <ul className="sm:flex gap-1 hidden">
-                                <li>
-                                    <a
-                                        className="text-sm bg-[#18181b] border border-[#252529] rounded px-2 py-1 text-zinc-500 hover:bg-[#252529] transition"
-                                        href="#"
-                                    >
-                                        # programmer
-                                    </a>
-                                </li>
-                            </ul>
 
                         </div>
                     </div>
