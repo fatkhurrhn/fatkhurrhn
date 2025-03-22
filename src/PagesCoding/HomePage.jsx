@@ -2,11 +2,15 @@ import React from "react";
 import GitHubCalendar from "react-github-calendar";
 import Navbar from "../Components/Navbar";
 import Footer from "../Components/Footer";
+
+import ProfileSection from "../PageSection/HomePage/Profile";
+import BlogSection from "../PageSection/HomePage/Blogs";
+import ExperienceSection from "../PageSection/HomePage/Experiences";
+
+
+// import BlogSection from "../PageSection/WritingsSection/Blogs";
+
 import Thumbnail1 from "../assets/thumbnail01.png";
-import Lintasarta from "../assets/lintasarta.png";
-import NF from "../assets/nf.jpg";
-import Senada from "../assets/senada.jpg";
-import Pintar from "../assets/pintar.png";
 import Bangkit from "../assets/bangkit.png";
 import Google from "../assets/google.png";
 import Aws from "../assets/aws.png";
@@ -17,36 +21,7 @@ export default function Page() {
             <Navbar />
             <section className="max-w-4xl mx-auto px-5 pt-20">
                 {/* Profile Section */}
-                <div className="flex flex-col md:flex-row md:items-start space-y-4 md:space-y-0 md:space-x-6">
-                    {/* Foto */}
-                    <div className="flex items-center space-x-4 md:block">
-                        <img
-                            src="https://media.licdn.com/dms/image/v2/D5603AQFSeewLSkNWqw/profile-displayphoto-shrink_400_400/B56ZOsnbZfGgAo-/0/1733767838340?e=1744243200&v=beta&t=UxHXMMALF5Qc2QZ4dhi3Ers-M-nP6NjBjaPPcrgHLY8"
-                            alt="profile pic"
-                            className="rounded-full grayscale hover:grayscale-0 duration-150 w-20 h-20 sm:w-32 sm:h-32 md:w-40 md:h-40"
-                        />
-                        {/* Nama & Role di sebelah foto (Mobile) */}
-                        <div className="md:hidden">
-                            <h1 className="text-xl sm:text-[18px] font-bold text-[#d4d4d4]">Fatkhurrhn 🪴</h1>
-                            <p className="text-xs sm:text-sm font-mono text-[#252529] dark:text-gray-300">
-                                FrontEnd Developer
-                            </p>
-                        </div>
-                    </div>
-
-                    {/* Nama & Paragraf (Desktop), Paragraf (Mobile) */}
-                    <div className="text-center md:text-left md:flex-1">
-                        <div className="hidden md:block">
-                            <h1 className="text-[18px] font-bold text-[#d4d4d4]">Fatkhurrhn 🪴</h1>
-                            <p className="text-sm font-mono text-[#252529] dark:text-gray-300">
-                                FrontEnd Developer
-                            </p>
-                        </div>
-                        <p className="mt-2 dark:text-[#d4d4d4] text-justify">
-                            I'm an Information Systems student passionate about Front-End Development. I love turning ideas into interactive, user-friendly experiences with clean and efficient code. Always exploring new web technologies, I enjoy building innovative projects and sharing knowledge to make a real impact.😎🔥
-                        </p>
-                    </div>
-                </div>
+                <ProfileSection />
 
                 {/* hr */}
                 <div className="h-[1px] my-10 bg-gradient-to-r from-gray-300 dark:from-[#252529] via-zinc-600 to-gray-300 dark:to-[#252529] max-w-lg mx-auto"></div>
@@ -255,154 +230,15 @@ export default function Page() {
                 {/* hr */}
                 <div className="h-[1px] my-10 bg-gradient-to-r from-gray-300 dark:from-[#252529] via-zinc-600 to-gray-300 dark:to-[#252529] max-w-lg mx-auto"></div>
 
-                {/* my experience */}
-                <div className="flex justify-between items-center w-full">
-                    <h2 className="text-[18px] font-bold text-[#d4d4d4]">💼 My Experience</h2>
-                    <a href="https://www.linkedin.com/in/fatkhurrhn/" className="text-xs text-zinc-500">
-                        View more
-                    </a>
-                </div> <br />
-                <div className="mt-1 sm:mt-2 grid grid-cols-1 gap-4 md:grid-cols-2">
-                    <div className="grid gap-4">
-                        <div className="rounded-xl border border-[#252529] hover:bg-[#1f1f24] bg-[141417] p-3 sm:p-4" >
-                            <div className="mb-3 sm:mb-4 flex items-center gap-3" >
-                                <img className="h-[40px] w-[40px] rounded-full" src={Lintasarta}
-                                    alt=" Company Lintasarta" />
-                                <div>
-                                    <h3 className="text-base sm:text-lg font-semibold text-[#d4d4d4] text-left">
-                                        Company Lintasarta
-                                    </h3>
-                                    <p className="text-xs sm:text-sm text-[#d4d4d4] text-left">
-                                        Capstone Project at Bangkit Academy
-                                    </p>
-                                </div>
-                            </div>
-                            <div className="flex flex-col gap-4">
-                                <p className="text-sm sm:text-base text-[#d4d4d4] text-justify">
-                                    Developed an employee recruitment website using React over two months as part of the
-                                    Capstone Project at Lintasarta, focusing on frontend development and user
-                                    experience.
-                                </p>
-                            </div>
-                        </div>
-
-                        <div className="rounded-xl border border-[#252529] hover:bg-[#1f1f24] bg-[141417] p-3 sm:p-4" >
-                            <div className="mb-3 sm:mb-4 flex items-center gap-3">
-                                <img className="h-[40px] w-[40px] rounded-full" src={NF}
-                                    alt="Assistan Lecturer 2024" />
-                                <div>
-                                    <h3 className="text-base sm:text-lg font-semibold text-[#d4d4d4] text-left">
-                                        Assistan Lecturer 2024
-                                    </h3>
-                                    <p className="text-xs sm:text-sm text-[#d4d4d4] text-left">
-                                        STT Terpadu Nurul Fikri
-                                    </p>
-                                </div>
-                            </div>
-                            <div className="flex flex-col gap-4">
-                                <p className="text-sm sm:text-base text-[#d4d4d4] text-justify">
-                                    Assisted in teaching the Big Data course for one semester, helping students
-                                    understand data processing, analytics, and visualization concepts. Provided guidance
-                                    in practical assignments, facilitated discussions, and supported the lecturer in
-                                    className activities.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="grid gap-4" >
-                        <div className="rounded-xl border border-[#252529] hover:bg-[#1f1f24] bg-[141417] p-3 sm:p-4" >
-                            <div className="mb-3 sm:mb-4 flex items-center gap-3">
-                                <img className="h-[40px] w-[40px] rounded-full"
-                                    src="https://files.klob.id/public/mig01/l32ovhf5/channels4_profile.jpg"
-                                    alt="Bangkit Academy 2024" />
-                                <div>
-                                    <h3 className="text-base sm:text-lg font-semibold text-[#d4d4d4] text-left">
-                                        Bangkit Academy 2024
-                                    </h3>
-                                    <p className="text-xs sm:text-sm text-[#d4d4d4] text-left">
-                                        Cloud Computing Cohort CC-23
-                                    </p>
-                                </div>
-                            </div>
-                            <div className="flex flex-col gap-4">
-                                <p className="text-sm sm:text-base text-[#d4d4d4] text-justify">
-                                    Participated in the Kampus Merdeka program for four months, focusing on the Cloud
-                                    Computing learning path.
-                                </p>
-                            </div>
-                        </div>
-                        <div className="rounded-xl border border-[#252529] hover:bg-[#1f1f24] bg-[141417] p-3 sm:p-4" >
-                            <div className="mb-3 sm:mb-4 flex items-center gap-3">
-                                <img className="h-[40px] w-[40px] rounded-full" src={Senada}
-                                    alt="Head of the Quran Program Department" />
-                                <div>
-                                    <h3 className="text-base sm:text-lg text-left font-semibold">
-                                        Leader of the PQ
-                                    </h3>
-                                    <p className="text-xs sm:text-sm text-left text-[#d4d4d4]">
-                                        LDK Senada STT NF
-                                    </p>
-                                </div>
-                            </div>
-                            <div className="flex flex-col gap-4">
-                                <p className="text-sm sm:text-base text-[#d4d4d4] text-justify">
-                                    an Islamic organization on the STT Nurul Fikri campus
-                                </p>
-                            </div>
-                        </div>
-                        <div className="rounded-xl border border-[#252529] hover:bg-[#1f1f24] bg-[141417] p-3 sm:p-4" >
-                            <div className="mb-3 sm:mb-4 flex items-center gap-3">
-                                <img className="h-[40px] w-[40px] rounded-full" src={Pintar}
-                                    alt="Freelance Translator" />
-                                <div>
-                                    <h3 className="text-base sm:text-lg text-left font-semibold">
-                                        Freelance Translator
-                                    </h3>
-                                    <p className="text-xs sm:text-sm text-left text-[#d4d4d4]">
-                                        Malay translator at PINTAR
-                                    </p>
-                                </div>
-                            </div>
-                            <div className="flex flex-col gap-4">
-                                <p className="text-sm sm:text-base text-[#d4d4d4] text-justify">
-                                    Translated Malay language documents for two months at PINTAR.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                {/* experience section */}
+                <ExperienceSection/>
 
                 {/* hr */}
                 <div className="h-[1px] my-10 bg-gradient-to-r from-gray-300 dark:from-[#252529] via-zinc-600 to-gray-300 dark:to-[#252529] max-w-lg mx-auto"></div>
 
-                {/* blog */}
-                <div className="flex justify-between items-center w-full">
-                    <h2 className="text-[18px] font-bold text-[#d4d4d4]">✍️ Latest Blogs</h2>
-                    <a href="/blog" className="text-xs text-zinc-500">
-                        View more
-                    </a>
-                </div>
-                {/* Single Blog Card (Full Width) */}
-                <div className="w-full mt-5">
-                    <div className="border border-[#252529] bg-[#141417] p-5 rounded-xl">
-                        <div className="flex flex-col sm:flex-row justify-between gap-5">
-                            {/* Left Side (Icon + Info) */}
-                            <div className="flex gap-3">
-                                <div className="mt-1">
-                                    <a href="/writings/tailwind-ui-is-now-tailwind-plus" className="text-lg text-[#d4d4d4] font-black flex gap-2">
-                                        Tailwind UI is now Tailwind Plus
-                                    </a>
-                                    <ul className="text-zinc-400 flex items-center gap-2 text-sm">
-                                        <li>2 min read</li>
-                                        <div className="bg-zinc-400 rounded-full h-[3px] w-[3px] aspect-square"></div>
-                                        <li>28 Jan 2025</li>
-                                    </ul>
-                                </div>
-                            </div>
+                {/* blog section */}
+                <BlogSection/>
 
-                        </div>
-                    </div>
-                </div>
             </section>
             <Footer />
         </div>
