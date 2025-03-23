@@ -53,7 +53,7 @@ function App() {
         <Route path="/creator/product" element={<Product />} />
 
         <Route path="/store" element={<Store />} />
-        <Route path="/customer" element={<DataCustomer />} />
+        <Route path="/store/customer" element={<DataCustomer />} />
         <Route path="/store/netflix" element={<DetailNetflix />} />
         <Route path="/store/coming-soon" element={<CoomingSoon />} />
         <Route path="/store/pulsa" element={<DetailPulsa />} />
