@@ -286,29 +286,29 @@ export default function Page() {
                 </div> <br />
                 <div className="grid gap-3 text-[#d4d4d4]">
                     <div className="w-full mx-auto grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-2">
-                    {certificates.map(cert => (
-                        <div key={cert.id} className="w-full bg-[#141417] rounded-lg shadow-md overflow-hidden border border-[#252529]">
-                            <div className="sertif-image">
-                                <img
-                                    src={cert.imgSrc}
-                                    alt="sertifikat"
-                                    className="w-full object-cover"
-                                />
+                        {certificates.map(cert => (
+                            <div key={cert.id} className="w-full bg-[#141417] rounded-lg shadow-md overflow-hidden border border-[#252529]">
+                                <div className="sertif-image">
+                                    <img
+                                        src={cert.imgSrc}
+                                        alt="sertifikat"
+                                        className="w-full object-cover"
+                                    />
+                                </div>
+                                <div className="p-3">
+                                    <h3 className="text-sm font-medium text-left">
+                                        {cert.issuedDate}
+                                    </h3>
+                                    <a
+                                        href={cert.link}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="mt-2 inline-block w-full border border-[#252529] bg-[#18181b] hover:bg-[#1f1f24 hover:text-white font-medium py-2 px-3 rounded-md transition duration-200 text-center text-xs"
+                                    >
+                                        View Course
+                                    </a>
+                                </div>
                             </div>
-                            <div className="p-3">
-                                <h3 className="text-sm font-medium text-left">
-                                {cert.issuedDate}
-                                </h3>
-                                <a
-                                    href={cert.link}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className="mt-2 inline-block w-full border border-[#252529] bg-[#18181b] hover:bg-[#1f1f24 hover:text-white font-medium py-2 px-3 rounded-md transition duration-200 text-center text-xs"
-                                >
-                                    View Course
-                                </a>
-                            </div>
-                        </div>
                         ))}
                     </div>
                 </div>
@@ -317,42 +317,42 @@ export default function Page() {
                 <div className="h-[1px] my-10 bg-gradient-to-r from-gray-300 dark:from-[#252529] via-zinc-600 to-gray-300 dark:to-[#252529] max-w-lg mx-auto"></div>
 
                 <div className="flex justify-between items-center w-full">
-                    <h2 className="text-[20px] font-bold">📜 My Certificates</h2>
+                    <h2 className="text-[20px] font-bold">📜 My Bagdes</h2>
                 </div> <br />
 
                 <div className="sertif bg-[#27272a] rounded-lg shadow-md overflow-hidden border border-zinc-700 w-full max-w-4xl mx-auto">
+                    <div className="sertif-image">
+                        <a href="https://www.cloudskillsboost.google/public_profiles/a0413875-4f2d-4c72-b551-524e6cffb45d" target="_blank" rel="noopener noreferrer">
+                            <img src={GCSB} alt="Badge" className="w-full object-cover" />
+                        </a>
+                    </div>
+                </div>
+                <br />
+                <div className="grid gap-3">
+                    <div className="w-full mx-auto grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-2">
+                        {bagdes.map(cert => (
+                            <div key={cert.id} className="w-full bg-[#141417] rounded-lg shadow-md overflow-hidden border border-[#252529]">
                                 <div className="sertif-image">
-                                    <a href="https://www.cloudskillsboost.google/public_profiles/a0413875-4f2d-4c72-b551-524e6cffb45d" target="_blank" rel="noopener noreferrer">
-                                        <img src={GCSB} alt="Badge" className="w-full object-cover"/>
+                                    <img
+                                        src={cert.img}
+                                        alt="sertifikat"
+                                        className="w-full object-cover"
+                                    />
+                                </div>
+                                <div className="p-3">
+                                    <h3 className="text-sm font-medium text-left">
+                                        {cert.earned}
+                                    </h3>
+                                    <a
+                                        href={cert.linkCourse}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="mt-2 inline-block w-full border border-[#252529] bg-[#18181b] hover:bg-[#1f1f24 hover:text-white font-medium py-2 px-3 rounded-md transition duration-200 text-center text-xs"
+                                    >
+                                        View Course
                                     </a>
                                 </div>
                             </div>
-<br/>
-                <div className="grid gap-3">
-                    <div className="w-full mx-auto grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-2">
-                    {bagdes.map(cert => (
-                        <div key={cert.id} className="w-full bg-[#141417] rounded-lg shadow-md overflow-hidden border border-[#252529]">
-                            <div className="sertif-image">
-                                <img
-                                    src={cert.img}
-                                    alt="sertifikat"
-                                    className="w-full object-cover"
-                                />
-                            </div>
-                            <div className="p-3">
-                                <h3 className="text-sm font-medium text-left">
-                                {cert.earned}
-                                </h3>
-                                <a
-                                    href={cert.linkCourse} 
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className="mt-2 inline-block w-full border border-[#252529] bg-[#18181b] hover:bg-[#1f1f24 hover:text-white font-medium py-2 px-3 rounded-md transition duration-200 text-center text-xs"
-                                >
-                                    View Course
-                                </a>
-                            </div>
-                        </div>
                         ))}
                     </div>
                 </div>

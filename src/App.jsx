@@ -19,6 +19,7 @@ import MentahanFoto from "./PagesCreator/MentahanFoto";
 import Product from "./PagesCreator/Product";
 
 import Store from "./PageStore/HomePage";
+import DataCustomer from "./PageStore/DataCustomer";
 import DetailNetflix from "./PageStore/DetailNetflix";
 import CoomingSoon from "./PageStore/ComingSoon";
 import DetailPulsa from "./PageStore/DetailPulsa";
@@ -52,6 +53,7 @@ function App() {
         <Route path="/creator/product" element={<Product />} />
 
         <Route path="/store" element={<Store />} />
+        <Route path="/customer" element={<DataCustomer />} />
         <Route path="/store/netflix" element={<DetailNetflix />} />
         <Route path="/store/coming-soon" element={<CoomingSoon />} />
         <Route path="/store/pulsa" element={<DetailPulsa />} />

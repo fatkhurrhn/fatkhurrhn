@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import Navbar from "./Components/Navbar";
-import Footer from "./Components/Footer";
+import Navbar from "../Components/Navbar";
+import Footer from "../Components/Footer";
 
 export default function Page() {
     const [form, setForm] = useState({
