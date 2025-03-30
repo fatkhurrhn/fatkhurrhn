@@ -1,24 +1,27 @@
-import { useState } from "react";
+import {  } from "react";
 
 const Navbar = () => {
-  const [openDropdown, setOpenDropdown] = useState(null);
+  // const [openDropdown, setOpenDropdown] = useState(null);
 
-  const handleDropdownClick = (menu) => {
-    setOpenDropdown((prev) => (prev === menu ? null : menu));
-  };
+  // const handleDropdownClick = (menu) => {
+  //   setOpenDropdown((prev) => (prev === menu ? null : menu));
+  // };
 
-  const handleClickOutside = (event) => {
-    if (!event.target.closest(".dropdown")) {
-      setOpenDropdown(null);
-    }
-  };
+  // const handleClickOutside = (event) => {
+  //   if (!event.target.closest(".dropdown")) {
+  //     setOpenDropdown(null);
+  //   }
+  // };
 
   return (
-    <div onClick={handleClickOutside} className="relative">
+    <div className="relative">
       <nav className="hidden md:flex space-x-8 font-medium dark:text-[#d4d4d4]">
         <a href="/">Home</a>
+        <a href="https://facodes.vercel.app/">Project</a>
+        <a href="/certificate">Certificate</a>
+        <a href="/guestbook">Guestbook</a>
         
-        <div className="relative dropdown">
+        {/* <div className="relative dropdown">
           <button
             className="flex items-center space-x-1 focus:outline-none"
             onClick={() => handleDropdownClick("frontend")}
@@ -33,7 +36,7 @@ const Navbar = () => {
               <li><a href="/guestbook" className="block px-4 py-2">Guestbook</a></li>
             </ul>
           )}
-        </div>
+        </div> */}
         
         <a href="/creator">Creator</a>
         <a href="/store">Store</a>
