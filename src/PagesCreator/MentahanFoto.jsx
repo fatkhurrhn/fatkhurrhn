@@ -13,7 +13,7 @@ export default function PhotoGallery() {
     { id: 6, src: "https://i.pinimg.com/474x/eb/80/61/eb80613e76b62f314ca9c35cfe414c63.jpg", category: "Nature" },
     { id: 6, src: "https://i.pinimg.com/474x/7a/c2/3a/7ac23a2d3bd64bca7c270015adbb7a6b.jpg", category: "Nature" },
     { id: 6, src: "https://i.pinimg.com/474x/d4/17/44/d417443f85264669398ba0c9e3f5e146.jpg", category: "Nature" },
-    { id: 6, src: "https://i.pinimg.com/474x/aa/c9/d1/aac9d1f37c78268bb8d846d44776fd77.jpg", category: "Nature" },
+    { id: 6, src: "https://i.pinimg.com/474x/aa/c9/d1/aac9d1f37c78268bb8d846d44776fd77.jpg", category: "Natures" },
     { id: 6, src: "https://i.pinimg.com/474x/c0/71/9c/c0719c31261693c27908508807ad9a89.jpg", category: "Nature" },
     { id: 6, src: "https://i.pinimg.com/474x/b6/5c/40/b65c401957822553a83bb7e9eb475f83.jpg", category: "Nature" },
   ];

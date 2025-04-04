@@ -53,7 +53,7 @@ const Test = () => {
                         { icon: "ri-github-line ri-1x", text: "Explore My GitHub Projects", href: "https://github.com/fatkhurrhn" },
                         { icon: "ri-youtube-line ri-1x", text: "Watch My YouTube Content", href: "https://youtube.com/@fatkhurrhnn" },
                         { icon: "ri-phone-line ri-1x", text: "Contact Me on WhatsApp", href: "https://wa.me/6282285512813" },
-                        { icon: "ri-message-2-line ri-1x", text: "WhatsApp Channel for Updates", href: "https://whatsapp.com/channel/0029VabjmVDEQIahfM6pih3q" },
+                        // { icon: "ri-message-2-line ri-1x", text: "WhatsApp Channel for Updates", href: "https://whatsapp.com/channel/0029VabjmVDEQIahfM6pih3q" },
                         { icon: "ri-chat-1-line ri-1x", text: "Instagram Channel for Updates", href: "https://ig.me/j/AbYAsEmFeC7N27Jp/" }
                     ].map(({ icon, text, href }, index) => (
                         <a key={index} href={href} className="no-underline">
