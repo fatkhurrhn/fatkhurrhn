@@ -47,7 +47,7 @@ const Test = () => {
                 {/* Course Section */}
                 <div className="w-full flex flex-col gap-3">
                     {[
-                        { icon: "ri-code-s-slash-line ri-1x", text: "Personal Website & Portfolio", href: "/" },
+                        // { icon: "ri-code-s-slash-line ri-1x", text: "Personal Website & Portfolio", href: "/" },
                         { icon: "ri-edit-2-line ri-1x", text: "Free Editing Assets Store", href: "/creator" },
                         { icon: "ri-apps-line ri-1x", text: "Premium Ready-to-Use Apps", href: "/store" },
                         { icon: "ri-github-line ri-1x", text: "Explore My GitHub Projects", href: "https://github.com/fatkhurrhn" },
