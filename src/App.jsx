@@ -12,6 +12,7 @@ import Writings1 from './PagesCoding/DetailWritings/tailwind-ui-is-now-tailwind-
 import Home from './Home';
 import Template from './Template';
 import Tess from './tes';
+import Maintenance from './Maintenance';
 
 import Creator from "./PagesCreator/HomePage";
 import MentahanVideo from "./PagesCreator/MentahanVideo";
@@ -36,7 +37,7 @@ function App() {
     <Router>
       <Routes>
         <Route path="/tes" element={<Tess />} />
-        <Route path="/" element={<HomePage />} />
+        <Route path="/home" element={<HomePage />} />
         <Route path="/project" element={<Project />} />
         <Route path="/certificate" element={<Certificate />} />
         <Route path="/writings" element={<Writing />} />
@@ -46,6 +47,7 @@ function App() {
 
         <Route path="/links" element={<Home />} />
         <Route path="/template" element={<Template />} />
+        <Route path="/" element={<Maintenance />} />
         
         <Route path="/creator" element={<Creator />} />
         <Route path="/creator/product/mentahan-video" element={<MentahanVideo />} />
