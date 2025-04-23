@@ -129,7 +129,7 @@ export default function Page() {
                         <h2 className="text-[18px] font-bold text-gray-800 flex items-center gap-2">
                             <i className="ri-tools-fill"></i> Featured Projects
                         </h2>
-                        <a href="/project" className="text-xs text-gray-500 hover:text-gray-700 transition-colors">
+                        <a href="/projects" className="text-xs text-gray-500 hover:text-gray-700 transition-colors">
                             View more
                         </a>
                     </div> <br />

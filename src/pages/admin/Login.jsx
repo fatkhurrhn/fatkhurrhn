@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { signInWithEmailAndPassword } from "firebase/auth";
-import { auth } from "../firebase";
+import { auth } from "../../firebase";
 import { useNavigate } from "react-router-dom";
 
 export default function Login() {
@@ -17,7 +17,7 @@ export default function Login() {
 
     try {
       await signInWithEmailAndPassword(auth, email, password);
-      navigate("/admin/dashboard");
+      navigate("/admin");
     } catch (err) {
       setError(err.message);
       setLoading(false);

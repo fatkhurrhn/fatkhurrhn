@@ -4,13 +4,16 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Tes from './PagesCoding/Tes';
 import HomePage from './pages/HomePage';
 import Project from './pages/Project';
+import Certificates from './pages/Certificate';
 
-import Login from './pages/Login';
+import Login from './pages/admin/Login';
+import AuthChecker from './components/AuthChecker';
 import AdminDashboard from './pages/admin/Dashboard';
 import AdminProject from './pages/admin/Project';
+import AdminCertificates from "./pages/admin/Certificate";
 
 import ProjectC from './PagesCoding/Project';
-import Certificate from './PagesCoding/Certificate';
+import CertificateC from './PagesCoding/Certificate';
 import Writing from './PagesCoding/Writings';
 import Guestbook from './PagesCoding/Guestbook';
 
@@ -46,12 +49,30 @@ function App() {
         <Route path="/tes" element={<Tess />} />
         <Route path="/" element={<HomePage />} />
         <Route path="/projects" element={<Project />} />
+        <Route path="/certificates" element={<Certificates />} />
+
         <Route path="/login" element={<Login />} />
-        <Route path="/admin/dashboard" element={<AdminDashboard />} />
-        <Route path="/admin/projects" element={<AdminProject />} />
+        {/* Proteksi halaman admin */}
+        <Route path="/admin" element={
+          <AuthChecker>
+            <AdminDashboard />
+          </AuthChecker>
+        } />
+        
+        <Route path="/admin/projects" element={
+          <AuthChecker>
+            <AdminProject />
+          </AuthChecker>
+        } />
+
+        <Route path="/admin/certificates" element={
+          <AuthChecker>
+            <AdminCertificates />
+          </AuthChecker>
+        } />
 
         <Route path="/projectx" element={<ProjectC />} />
-        <Route path="/certificate" element={<Certificate />} />
+        <Route path="/certificate" element={<CertificateC />} />
         <Route path="/writings" element={<Writing />} />
         <Route path="/guestbook" element={<Guestbook />} />
 

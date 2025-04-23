@@ -12,7 +12,7 @@ const Navbar = () => {
       <nav className="hidden md:flex space-x-8 font-medium text-gray-800">
         <a href="/">Home</a>
         <a href="/projects">Project</a>
-        <a href="/certificate">Certificate</a>        
+        <a href="/certificates">Certificate</a>        
         <div className="relative dropdown">
           <button
             className="flex items-center space-x-1 focus:outline-none"
