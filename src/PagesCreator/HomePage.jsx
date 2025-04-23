@@ -1,5 +1,5 @@
 import React from "react";
-import Navbar from "../components/Navbar-temp";
+import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 
 import Instagram from "../assets/p-instagram.png";
