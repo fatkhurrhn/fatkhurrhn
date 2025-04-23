@@ -1,8 +1,15 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+
 import Tes from './PagesCoding/Tes';
 import HomePage from './pages/HomePage';
-import Project from './PagesCoding/Project';
+import Project from './pages/Project';
+
+import Login from './pages/Login';
+import AdminDashboard from './pages/admin/Dashboard';
+import AdminProject from './pages/admin/Project';
+
+import ProjectC from './PagesCoding/Project';
 import Certificate from './PagesCoding/Certificate';
 import Writing from './PagesCoding/Writings';
 import Guestbook from './PagesCoding/Guestbook';
@@ -37,8 +44,13 @@ function App() {
     <Router>
       <Routes>
         <Route path="/tes" element={<Tess />} />
-        <Route path="/home" element={<HomePage />} />
-        <Route path="/project" element={<Project />} />
+        <Route path="/" element={<HomePage />} />
+        <Route path="/projects" element={<Project />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/admin/dashboard" element={<AdminDashboard />} />
+        <Route path="/admin/projects" element={<AdminProject />} />
+
+        <Route path="/projectx" element={<ProjectC />} />
         <Route path="/certificate" element={<Certificate />} />
         <Route path="/writings" element={<Writing />} />
         <Route path="/guestbook" element={<Guestbook />} />
@@ -47,7 +59,7 @@ function App() {
 
         <Route path="/links" element={<Home />} />
         <Route path="/template" element={<Template />} />
-        <Route path="/" element={<Maintenance />} />
+        <Route path="/d" element={<Maintenance />} />
         
         <Route path="/creator" element={<Creator />} />
         <Route path="/creator/product/mentahan-video" element={<MentahanVideo />} />

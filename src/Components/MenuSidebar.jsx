@@ -35,9 +35,9 @@ const Menu = () => {
         <a href="/creator" className="block hover:text-blue-400">Creator</a>
       </li>
 
-      {/* <li>
+      <li>
         <a href="/store" className="block hover:text-blue-400">Store</a>
-      </li> */}
+      </li>
       
       {/* <li>
         <button 
