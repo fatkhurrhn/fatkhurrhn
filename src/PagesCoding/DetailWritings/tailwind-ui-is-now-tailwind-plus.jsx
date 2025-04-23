@@ -1,6 +1,6 @@
 import React from "react";
-import Navbar from "../../Components/Navbar";
-import Footer from "../../Components/Footer";
+import Navbar from "../../components/Navbar";
+import Footer from "../../components/Footer";
 
 import Thumbnail from "../../assets/Tailwind UI is now Tailwind Plus.webp"
 

@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Tes from './PagesCoding/Tes';
-import HomePage from './PagesCoding/HomePage';
+import HomePage from './pages/HomePage';
 import Project from './PagesCoding/Project';
 import Certificate from './PagesCoding/Certificate';
 import Writing from './PagesCoding/Writings';

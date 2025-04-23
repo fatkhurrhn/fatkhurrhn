@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import Navbar from "../Components/NavbarStore";
-import Footer from "../Components/Footer";
+import Navbar from "../components/NavbarStore";
+import Footer from "../components/Footer";
 
 const pricelist = [
     {

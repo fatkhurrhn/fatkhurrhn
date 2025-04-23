@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import Navbar from "../Components/Navbar";
-import Footer from "../Components/Footer";
+import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
 import DarkVibes from "../assets/mentahan-video/dark-vibes1.mp4";
 import Landscape from "../assets/mentahan-video/pemandangan1.mp4";
 import Sky from "../assets/mentahan-video/sky1.mp4";
