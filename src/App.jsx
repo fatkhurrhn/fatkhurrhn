@@ -1,13 +1,11 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
-import Tes from './PagesCoding/Tes';
 import HomePage from './pages/HomePage';
 import Project from './pages/Project';
 import Certificates from './pages/Certificate';
 
 import Login from './pages/admin/Login';
-import AuthChecker from './components/AuthChecker';
 import AdminDashboard from './pages/admin/Dashboard';
 import AdminProject from './pages/admin/Project';
 import AdminCertificates from "./pages/admin/Certificate";
@@ -52,24 +50,9 @@ function App() {
         <Route path="/certificates" element={<Certificates />} />
 
         <Route path="/login" element={<Login />} />
-        {/* Proteksi halaman admin */}
-        <Route path="/admin" element={
-          <AuthChecker>
-            <AdminDashboard />
-          </AuthChecker>
-        } />
-        
-        <Route path="/admin/projects" element={
-          <AuthChecker>
-            <AdminProject />
-          </AuthChecker>
-        } />
-
-        <Route path="/admin/certificates" element={
-          <AuthChecker>
-            <AdminCertificates />
-          </AuthChecker>
-        } />
+        <Route path="/admin" element={<AdminDashboard />} />
+        <Route path="/admin/projects" element={<AdminProject />} />
+        <Route path="/admin/certificates" element={<AdminCertificates />} />
 
         <Route path="/projectx" element={<ProjectC />} />
         <Route path="/certificate" element={<CertificateC />} />
