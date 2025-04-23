@@ -33,13 +33,13 @@ export default function Page() {
                     {/* Foto */}
                     <div className="flex items-center space-x-4 md:block">
                         <img
-                            src="https://static-00.iconduck.com/assets.00/user-icon-1024x1024-dtzturco.png"
+                            src="https://media.licdn.com/dms/image/v2/D5603AQFJuxRd08BTDA/profile-displayphoto-shrink_400_400/B56ZZjELo4GUAg-/0/1745418765811?e=1750896000&v=beta&t=i1ZNfsrYPkUAFxxiEEUeOn-bMfdWqMai0l537FX3LvI"
                             alt="profile pic"
                             className="rounded-full grayscale hover:grayscale-0 duration-150 w-20 h-20 sm:w-32 sm:h-32 md:w-40 md:h-40 border-2 border-white shadow-md"
                         />
                         {/* Nama & Role di sebelah foto (Mobile) */}
                         <div className="md:hidden">
-                            <h1 className="text-xl sm:text-[18px] font-bold text-gray-800">Fatkhurrhn 🪴</h1>
+                            <h1 className="text-xl sm:text-[18px] font-bold text-gray-800">Fatkhurrhn</h1>
                             <p className="text-xs sm:text-sm font-mono text-gray-600">
                                 FrontEnd Developer
                             </p>
@@ -49,7 +49,7 @@ export default function Page() {
                     {/* Nama & Paragraf (Desktop), Paragraf (Mobile) */}
                     <div className="text-center md:text-left md:flex-1">
                         <div className="hidden md:block">
-                            <h1 className="text-[18px] font-bold text-gray-800">Fatkhurrhn 🪴</h1>
+                            <h1 className="text-[18px] font-bold text-gray-800">Fatkhurrhn</h1>
                             <p className="text-sm font-mono text-gray-600">
                                 FrontEnd Developer
                             </p>
