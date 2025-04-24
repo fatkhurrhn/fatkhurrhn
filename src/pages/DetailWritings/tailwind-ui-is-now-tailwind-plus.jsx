@@ -1,6 +1,6 @@
 import React from "react";
 // import Navbar from "../../components/Navbar-temp";
-import Footer from "../../components/Footer";
+// import Footer from "../../components/Footer";
 
 import Thumbnail from "../../assets/Tailwind UI is now Tailwind Plus.webp"
 
@@ -51,7 +51,7 @@ export default function Page() {
                 </article>
 
                 </section>
-            <Footer />
+            {/* <Footer /> */}
         </div>
     );
 }
