@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from "react";
 import GitHubCalendar from "react-github-calendar";
+import Navbar from "../components/Navbar";
+// import Footer from "../components/Footer";
+
 // import Thumbnail1 from "../assets/thumbnail01.png";
 // import Bangkit from "../assets/bangkit.png";
 // import Google from "../assets/google.png";
@@ -8,9 +11,6 @@ import GitHubCalendar from "react-github-calendar";
 // import NF from "../assets/nf.jpg";
 // import Senada from "../assets/senada.jpg";
 // import Pintar from "../assets/pintar.png";
-
-// import Navbar from "../components/Navbar-temp";
-// import Footer from "../components/Footer";
 
 export default function Page() {
     const [mounted, setMounted] = useState(false);
@@ -26,7 +26,7 @@ export default function Page() {
 
     return (
         <div className="bg-gray-50 min-h-screen text-gray-800 transition-colors duration-300">
-            {/* <Navbar /> */}
+            <Navbar />
             <section className="max-w-4xl mx-auto px-5 pt-[95px]">
                 {/* Profile Section */}
                 <div className="flex flex-col md:flex-row md:items-start space-y-4 md:space-y-0 md:space-x-6">
