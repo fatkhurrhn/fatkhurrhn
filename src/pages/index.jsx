@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import GitHubCalendar from "react-github-calendar";
 import Navbar from "../components/Navbar";
-// import Footer from "../components/Footer";
+import Footer from "../components/Footer";
 
 // import Thumbnail1 from "../assets/thumbnail01.png";
 // import Bangkit from "../assets/bangkit.png";
@@ -410,7 +410,7 @@ export default function Page() {
                     </div>
                 </div>
             </section>
-            {/* <Footer /> */}
+            <Footer />
         </div>
     );
 }
