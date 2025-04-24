@@ -10,7 +10,7 @@ import Senada from "../assets/senada.jpg";
 import Pintar from "../assets/pintar.png";
 
 // import Navbar from "../components/Navbar-temp";
-import Footer from "../components/Footer";
+// import Footer from "../components/Footer";
 
 export default function Page() {
     const [mounted, setMounted] = useState(false);
@@ -410,7 +410,7 @@ export default function Page() {
                     </div>
                 </div>
             </section>
-            <Footer />
+            {/* <Footer /> */}
         </div>
     );
 }

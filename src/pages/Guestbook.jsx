@@ -1,6 +1,6 @@
 import React from "react";
 // import Navbar from "../components/Navbar-temp";
-import Footer from "../components/Footer";
+// import Footer from "../components/Footer";
 import Giscus from '@giscus/react';
 
 export default function Page() {
@@ -31,7 +31,7 @@ export default function Page() {
                     loading="lazy"
                 />
             </section>
-            <Footer />
+            {/* <Footer /> */}
         </div>
     );
 }

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 // import Navbar from "../components/Navbar-temp";
-import Footer from "../components/Footer";
+// import Footer from "../components/Footer";
 import { collection, getDocs } from "firebase/firestore";
 import { db } from "../firebase";
 
@@ -176,7 +176,7 @@ export default function Certificate() {
                     </div>
                 )}
             </section>
-            <Footer />
+            {/* <Footer /> */}
         </div>
     );
 }

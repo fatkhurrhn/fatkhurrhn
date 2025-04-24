@@ -1,6 +1,6 @@
 import React from "react";
 // import Navbar from "../components/Navbar-temp";
-import Footer from "../components/Footer";
+// import Footer from "../components/Footer";
 
 export default function Page() {
     return (
@@ -38,7 +38,7 @@ export default function Page() {
             </div>
         </div>
             </section>
-            <Footer />
+            {/* <Footer /> */}
         </div>
     );
 }
