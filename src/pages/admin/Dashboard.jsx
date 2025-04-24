@@ -43,14 +43,14 @@ export default function Dashboard() {
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           <Link 
-            to="/admin/projects" 
+            to="/admin/project" 
             className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow"
           >
             <h2 className="text-xl font-semibold mb-2">Manage Projects</h2>
             <p className="text-gray-600">Add, edit, or delete projects</p>
           </Link>
           <Link 
-            to="/admin/certificates" 
+            to="/admin/certificate" 
             className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow"
           >
             <h2 className="text-xl font-semibold mb-2">Manage Certificates</h2>

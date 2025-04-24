@@ -6,13 +6,13 @@ import Thumbnail from "../../assets/Tailwind UI is now Tailwind Plus.webp"
 
 export default function Page() {
     return (
-        <div className="bg-[#141417] min-h-screen text-gray-900 dark:text-white transition-colors duration-300">
+        <div className="bg-white min-h-screen text-gray-900 dark:text-white transition-colors duration-300">
             <Navbar />
-            <section className="max-w-4xl mx-auto px-5 pt-20">
+            <section className="max-w-4xl mx-auto px-5 pt-20 text-gray-800">
 
                 {/* breadcrumb */}
                 <div className="flex justify-between items-center w-full pt-3">
-                    <h2 className="text-[15px] text-[#d4d4d4] font-sm">
+                    <h2 className="text-[15px] text-gray-800 font-sm">
                         <a href="/">home</a><i class="ri-arrow-drop-right-line"></i>
                         <a href="/writings">writings</a><i class="ri-arrow-drop-right-line"></i>
                         tailwind ui is now tailwind plus</h2>
@@ -30,7 +30,7 @@ export default function Page() {
                 </div>
 
                 {/* Article Content */}
-                <article className="mt-10 text-[16px] leading-8 text-gray-300">
+                <article className="mt-10 text-[16px] leading-8 text-gray-800">
                     <p>
                         Tailwind UI has officially rebranded as <strong>Tailwind Plus</strong>. This change marks a new era for developers
                         and designers who rely on Tailwind for building modern, sleek user interfaces effortlessly.
@@ -50,9 +50,7 @@ export default function Page() {
                     </p>
                 </article>
 
-                {/* Separator */}
-                <div className="h-[1px] my-10 bg-gradient-to-r from-gray-300 dark:from-[#252529] via-zinc-600 to-gray-300 dark:to-[#252529] max-w-lg mx-auto"></div>
-            </section>
+                </section>
             <Footer />
         </div>
     );

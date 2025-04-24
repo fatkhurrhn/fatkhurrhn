@@ -39,7 +39,7 @@ export default function Page() {
                         />
                         {/* Nama & Role di sebelah foto (Mobile) */}
                         <div className="md:hidden">
-                            <h1 className="text-xl sm:text-[18px] font-bold text-gray-800">Fatkhurrhnn</h1>
+                            <h1 className="text-xl sm:text-[18px] font-bold text-gray-800">Fatkhurrhn</h1>
                             <p className="text-xs sm:text-sm font-mono text-gray-600">
                                 FrontEnd Developer
                             </p>

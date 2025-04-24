@@ -5,13 +5,13 @@ import Giscus from '@giscus/react';
 
 export default function Page() {
     return (
-        <div className="bg-[#141417] min-h-screen text-gray-300 transition-colors duration-300">
+        <div className="bg-white min-h-screen text-gray-300 transition-colors duration-300">
             <Navbar />
             <section className="max-w-4xl mx-auto px-6 pt-20">
                 
                 <div className="flex justify-between items-center w-full">
-                    <h2 className="text-[20px] text-[#d4d4d4] font-bold">💬 Discussion</h2>
-                    <a href="/blog" className="text-xs text-zinc-500">
+                    <h2 className="text-[20px] text-gray-800 font-bold">💬 Discussion</h2>
+                    <a href="/blog" className="text-xs text-gray-800">
                     Join the conversation below!
                     </a>
                 </div>
@@ -26,7 +26,7 @@ export default function Page() {
                     reactionsEnabled="1"
                     emitMetadata="0"
                     inputPosition="top"
-                    theme="transparent_dark"
+                    theme="light"
                     lang="en"
                     loading="lazy"
                 />

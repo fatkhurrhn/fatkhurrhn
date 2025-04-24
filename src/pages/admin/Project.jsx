@@ -123,7 +123,7 @@ export default function AdminProjects() {
     <div className="min-h-screen bg-gray-50">
       <div className="max-w-4xl mx-auto px-4 py-8">
         <div className="flex justify-between items-center mb-8">
-          <h1 className="text-3xl font-bold">Manage Projects</h1>
+          <h1 className="text-3xl font-bold text-gray-800">Manage Projects</h1>
           <Link 
             to="/admin" 
             className="text-indigo-600 hover:text-indigo-800"
@@ -149,7 +149,7 @@ export default function AdminProjects() {
                   value={formData.title}
                   onChange={handleInputChange}
                   required
-                  className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                  className="w-full px-4 py-2 bg-white text-gray-800 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500"
                 />
               </div>
 
@@ -162,7 +162,7 @@ export default function AdminProjects() {
                   value={formData.category}
                   onChange={handleInputChange}
                   required
-                  className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                  className="w-full px-4 py-2 bg-white text-gray-800 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500"
                 >
                   <option value="project">Project</option>
                   <option value="template">Template</option>
@@ -193,7 +193,7 @@ export default function AdminProjects() {
                   name="thumbnail"
                   value={formData.thumbnail}
                   onChange={handleInputChange}
-                  className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                  className="w-full px-4 py-2 border bg-white text-gray-800 border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500"
                 />
               </div>
 
@@ -206,7 +206,7 @@ export default function AdminProjects() {
                   name="demoUrl"
                   value={formData.demoUrl}
                   onChange={handleInputChange}
-                  className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                  className="w-full px-4 py-2 border bg-white text-gray-800 border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500"
                 />
               </div>
 
@@ -219,7 +219,7 @@ export default function AdminProjects() {
                   name="codeUrl"
                   value={formData.codeUrl}
                   onChange={handleInputChange}
-                  className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                  className="w-full px-4 py-2 border bg-white text-gray-800 border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500"
                 />
               </div>
 
@@ -230,7 +230,7 @@ export default function AdminProjects() {
                   id="featured"
                   checked={formData.featured}
                   onChange={handleInputChange}
-                  className="h-4 w-4 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded"
+                  className="h-4 w-4 text-indigo-600 bg-white text-gray-800 focus:ring-indigo-500 border-gray-300 rounded"
                 />
                 <label htmlFor="featured" className="ml-2 block text-sm text-gray-700">
                   Featured Project

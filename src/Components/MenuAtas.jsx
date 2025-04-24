@@ -12,7 +12,7 @@ const Navbar = () => {
       <nav className="hidden md:flex space-x-8 font-medium text-gray-800">
         <a href="/">Home</a>
         <a href="/projects">Project</a>
-        <a href="/certificates">Certificate</a>        
+        <a href="/certificates">Certificate</a>
         <div className="relative dropdown">
           <button
             className="flex items-center space-x-1 focus:outline-none"
@@ -25,7 +25,7 @@ const Navbar = () => {
             <ul className="absolute left-0 mt-1 w-33 bg-white bg-gray-800 rounded-lg shadow-lg transition-opacity duration-300 ease-in-out">
               <li><a href="/creator" className="block px-4 py-2">Creator</a></li>
               <li><a href="/store" className="block px-4 py-2">Store</a></li>
-              <li><a href="/wtirings" className="block px-4 py-2">Writings</a></li>
+              <li><a href="/writings" className="block px-4 py-2">Writings</a></li>
               <li><a href="/guestbook" className="block px-4 py-2">Guestbook</a></li>
             </ul>
           )}
