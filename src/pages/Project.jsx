@@ -149,7 +149,7 @@ export default function Projects() {
                       className="w-full h-48 object-cover"
                     />
                   )}
-                  <span className="absolute top-2 left-2 bg-white/50 text-black text-xs px-2 py-1 rounded-[5px] capitalize">
+                  <span className="absolute top-2 left-2 bg-indigo-100 text-black text-xs px-2 py-1 rounded-[5px] capitalize">
                     {project.category}
                   </span>
                 </div>
