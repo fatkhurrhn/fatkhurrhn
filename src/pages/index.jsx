@@ -9,7 +9,7 @@ import NF from "../assets/nf.jpg";
 import Senada from "../assets/senada.jpg";
 import Pintar from "../assets/pintar.png";
 
-import Navbar from "../components/Navbar";
+import Navbar from "../components/Navbar-temp";
 import Footer from "../components/Footer";
 
 export default function Page() {
