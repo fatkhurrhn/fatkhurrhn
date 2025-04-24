@@ -3,14 +3,14 @@ import GitHubCalendar from "react-github-calendar";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 
-// import Thumbnail1 from "../assets/thumbnail01.png";
-// import Bangkit from "../assets/bangkit.png";
-// import Google from "../assets/google.png";
-// import Aws from "../assets/aws.png";
-// import Lintasarta from "../assets/lintasarta.png";
-// import NF from "../assets/nf.jpg";
-// import Senada from "../assets/senada.jpg";
-// import Pintar from "../assets/pintar.png";
+import Thumbnail1 from "../assets/thumbnail01.png";
+import Bangkit from "../assets/bangkit.png";
+import Google from "../assets/google.png";
+import Aws from "../assets/aws.png";
+import Lintasarta from "../assets/lintasarta.png";
+import NF from "../assets/nf.jpg";
+import Senada from "../assets/senada.jpg";
+import Pintar from "../assets/pintar.png";
 
 export default function Page() {
     const [mounted, setMounted] = useState(false);
@@ -124,7 +124,7 @@ export default function Page() {
                 <div className="h-[1px] my-10 bg-gradient-to-r from-gray-200 via-gray-400 to-gray-200 max-w-lg mx-auto"></div>
 
                 {/* project section */}
-                {/* <div>
+                <div>
                     <div className="flex justify-between items-center w-full">
                         <h2 className="text-[18px] font-bold text-gray-800 flex items-center gap-2">
                             <i className="ri-tools-fill"></i> Featured Projects
@@ -176,13 +176,13 @@ export default function Page() {
                             </div>
                         </div>
                     </div>
-                </div> */}
+                </div>
 
                 {/* Divider */}
                 <div className="h-[1px] my-10 bg-gradient-to-r from-gray-200 via-gray-400 to-gray-200 max-w-lg mx-auto"></div>
 
                 {/* sertifikat section */}
-                {/* <div>
+                <div>
                     <div className="flex justify-between items-center w-full">
                         <h2 className="text-[18px] font-bold text-gray-800 flex items-center gap-2">
                             <i className="ri-award-fill"></i> Certifications
@@ -223,13 +223,13 @@ export default function Page() {
                             ))}
                         </div>
                     </div>
-                </div> */}
+                </div>
 
                 {/* Divider */}
                 <div className="h-[1px] my-10 bg-gradient-to-r from-gray-200 via-gray-400 to-gray-200 max-w-lg mx-auto"></div>
 
                 {/* experience section */}
-                {/* <div>
+                <div>
                 <div className="flex justify-between items-center w-full">
                         <h2 className="text-[18px] font-bold text-gray-800 flex items-center gap-2">
                             <i className="ri-briefcase-4-fill"></i> Experience
@@ -372,7 +372,7 @@ export default function Page() {
                             </div>
                         </div>
                     </div>
-                </div> */}
+                </div>
 
                 {/* Divider */}
                 <div className="h-[1px] my-10 bg-gradient-to-r from-gray-200 via-gray-400 to-gray-200 max-w-lg mx-auto"></div>
