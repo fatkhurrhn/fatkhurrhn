@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import Navbar from "../components/Navbar-temp";
+// import Navbar from "../components/Navbar-temp";
 import Footer from "../components/Footer";
 import { collection, getDocs } from "firebase/firestore";
 import { db } from "../firebase";
@@ -43,7 +43,7 @@ export default function Certificate() {
 
     return (
         <div className="bg-white min-h-screen text-gray-900 dark:text-white transition-colors duration-300">
-            <Navbar />
+            {/* <Navbar /> */}
             <section className="max-w-4xl mx-auto px-5 pt-20">
             <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center w-full gap-4 mb-6">
   {/* Search Input - Left Side with Search Icon and Clear Button */}

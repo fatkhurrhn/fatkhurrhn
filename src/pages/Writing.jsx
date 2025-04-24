@@ -1,11 +1,11 @@
 import React from "react";
-import Navbar from "../components/Navbar-temp";
+// import Navbar from "../components/Navbar-temp";
 import Footer from "../components/Footer";
 
 export default function Page() {
     return (
         <div className="bg-white min-h-screen text-gray-900 transition-colors duration-300">
-            <Navbar />
+            {/* <Navbar /> */}
             <section className="max-w-4xl mx-auto px-5 pt-20">
                 {/* Blog Section */}
                 <div>

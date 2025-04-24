@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import Navbar from "../components/Navbar-temp";
+// import Navbar from "../components/Navbar-temp";
 import Footer from "../components/Footer";
 import { collection, getDocs, query, orderBy } from "firebase/firestore";
 import { db } from "../firebase";
@@ -64,7 +64,7 @@ export default function Projects() {
 
   return (
     <div className="bg-gray-50 min-h-screen text-gray-800">
-      <Navbar />
+      {/* <Navbar /> */}
       <section className="max-w-4xl mx-auto px-5 pt-20 pb-12">
         {/* Search and Category Controls - now in one row */}
         <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-8 gap-4">

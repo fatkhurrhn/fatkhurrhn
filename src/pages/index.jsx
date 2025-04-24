@@ -9,7 +9,7 @@ import NF from "../assets/nf.jpg";
 import Senada from "../assets/senada.jpg";
 import Pintar from "../assets/pintar.png";
 
-import Navbar from "../components/Navbar-temp";
+// import Navbar from "../components/Navbar-temp";
 import Footer from "../components/Footer";
 
 export default function Page() {
@@ -26,7 +26,7 @@ export default function Page() {
 
     return (
         <div className="bg-gray-50 min-h-screen text-gray-800 transition-colors duration-300">
-            <Navbar />
+            {/* <Navbar /> */}
             <section className="max-w-4xl mx-auto px-5 pt-[95px]">
                 {/* Profile Section */}
                 <div className="flex flex-col md:flex-row md:items-start space-y-4 md:space-y-0 md:space-x-6">
