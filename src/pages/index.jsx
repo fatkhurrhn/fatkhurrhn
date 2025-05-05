@@ -316,9 +316,9 @@ export default function Page() {
                                         Computing learning path.
                                     </p>
                                     <div className="flex gap-2 mt-2 flex-wrap">
-                                        <span className="text-xs bg-green-50 text-green-700 px-2 py-1 rounded">AWS</span>
-                                        <span className="text-xs bg-green-50 text-green-700 px-2 py-1 rounded">Cloud Computing</span>
-                                        <span className="text-xs bg-green-50 text-green-700 px-2 py-1 rounded">Google</span>
+                                        <span className="text-xs bg-red-50 text-red-700 px-2 py-1 rounded">AWS</span>
+                                        <span className="text-xs bg-red-50 text-red-700 px-2 py-1 rounded">Cloud Computing</span>
+                                        <span className="text-xs bg-red-50 text-red-700 px-2 py-1 rounded">Google</span>
                                     </div>
                                 </div>
                             </div>
@@ -340,9 +340,9 @@ export default function Page() {
                                         an Islamic organization on the STT Nurul Fikri campus
                                     </p>
                                     <div className="flex gap-2 mt-2 flex-wrap">
-                                        <span className="text-xs bg-yellow-50 text-yellow-700 px-2 py-1 rounded">Leadership</span>
-                                        <span className="text-xs bg-yellow-50 text-yellow-700 px-2 py-1 rounded">Organization</span>
-                                        <span className="text-xs bg-yellow-50 text-yellow-700 px-2 py-1 rounded">Mentoring</span>
+                                        <span className="text-xs bg-green-50 text-green-700 px-2 py-1 rounded">Leadership</span>
+                                        <span className="text-xs bg-green-50 text-green-700 px-2 py-1 rounded">Organization</span>
+                                        <span className="text-xs bg-green-50 text-green-700 px-2 py-1 rounded">Mentoring</span>
                                     </div>
                                 </div>
                             </div>
