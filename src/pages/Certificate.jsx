@@ -85,7 +85,7 @@ export default function Certificate() {
                   : "bg-white border-gray-200 text-gray-600 hover:bg-gray-50"
                   }`}
               >
-                Certificate
+                Certificates
               </button>
               <button
                 onClick={() => setActiveCategory("badge")}
