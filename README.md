@@ -17,7 +17,10 @@ I'm an Information Systems student passionate about Front-End Development, turni
 <img height="180em" src="https://github-readme-stats-eight-theta.vercel.app/api/top-langs/?username=kamachiii&layout=compact&theme=algolia"/>
 </a>
 </p>
- 
+
+ ## 🏆 GitHub Trophies
+![](https://github-profile-trophy.vercel.app/?username=fatkhurrhn&theme=onestar&title=MultiLanguage,Stars,Commits,Repositories,Followers,Experience,PullRequest)
+
 <!-- ## 💻 Technical Skills:
 
 - **Frontend Development:** HTML/CSS3, JavaScript, Bootstrap :v
