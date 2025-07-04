@@ -33,7 +33,7 @@ export default function Page() {
                     {/* Foto */}
                     <div className="flex items-center space-x-4 md:block">
                         <img
-                            src="https://media.licdn.com/dms/image/v2/D5603AQFJuxRd08BTDA/profile-displayphoto-shrink_400_400/B56ZZjELo4GUAg-/0/1745418765811?e=1750896000&v=beta&t=i1ZNfsrYPkUAFxxiEEUeOn-bMfdWqMai0l537FX3LvI"
+                            src="https://res.cloudinary.com/dbssvz2pe/image/upload/v1751663102/assets-gallery/ajdtk56lv99fjeg8ofy94pkvo.jpg"
                             alt="profile pic"
                             className="rounded-full grayscale hover:grayscale-0 duration-150 w-20 h-20 sm:w-32 sm:h-32 md:w-40 md:h-40 border-2 border-white shadow-md"
                         />
