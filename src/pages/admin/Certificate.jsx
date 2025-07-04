@@ -274,7 +274,7 @@ export default function AdminCertificates() {
             <div className="space-y-4">
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-1">
-                  Earned*
+                  Title*
                 </label>
                 <input
                   type="text"
@@ -311,7 +311,6 @@ export default function AdminCertificates() {
                   name="courseUrl"
                   value={formData.courseUrl}
                   onChange={handleInputChange}
-                  required
                   className="w-full px-4 py-2 bg-white text-gray-800 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500"
                   placeholder="https://example.com/course"
                 />

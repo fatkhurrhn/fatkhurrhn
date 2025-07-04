@@ -55,7 +55,9 @@ export default function Page() {
                             </p>
                         </div>
                         <p className="mt-2 text-gray-700 text-justify">
-                            I'm an Information Systems student passionate about Front-End Development. I love turning ideas into interactive, user-friendly experiences with clean and efficient code. Always exploring new web technologies, I enjoy building innovative projects and sharing knowledge to make a real impact.😎🔥
+                            I'm an Information Systems student passionate about Front-End Development. I enjoy turning ideas into interactive, user-friendly websites using React, with a focus on clean design and efficient code.
+                            <br/>
+                            Outside of coding, I'm also a content creator with 90K+ followers on Instagram, where I share motivational quotes and personal storytelling to inspire and connect with others. This has shaped my ability to communicate clearly, understand audiences, and bring empathy into every project I build. 🚀✨
                         </p>
 
                         {/* Social Links */}
@@ -230,7 +232,7 @@ export default function Page() {
 
                 {/* experience section */}
                 <div>
-                <div className="flex justify-between items-center w-full">
+                    <div className="flex justify-between items-center w-full">
                         <h2 className="text-[18px] font-bold text-gray-800 flex items-center gap-2">
                             <i className="ri-briefcase-4-fill"></i> Experience
                         </h2>

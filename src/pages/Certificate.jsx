@@ -10,6 +10,8 @@ export default function Certificate() {
   const [loading, setLoading] = useState(true);
   const [searchTerm, setSearchTerm] = useState("");
   const [activeCategory, setActiveCategory] = useState("certificate");
+  const [selectedImage, setSelectedImage] = useState(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   useEffect(() => {
     const fetchCertificates = async () => {
@@ -40,6 +42,17 @@ export default function Certificate() {
     });
     setFilteredCertificates(filtered);
   }, [searchTerm, activeCategory, certificates]);
+
+  const openModal = (certificate) => {
+    setSelectedImage(certificate);
+    setIsModalOpen(true);
+    document.body.style.overflow = 'hidden'; // Prevent scrolling when modal is open
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+    document.body.style.overflow = 'auto'; // Re-enable scrolling
+  };
 
   return (
     <div className="bg-white min-h-screen text-gray-900 dark:text-white transition-colors duration-300">
@@ -139,7 +152,10 @@ export default function Certificate() {
                   className={`w-full bg-white rounded-lg shadow-md overflow-hidden border border-gray-200 ${certificate.category === "badge" ? "border-2 border-gray-200" : ""
                     }`}
                 >
-                  <div className="sertif-image h-48 overflow-hidden relative">
+                  <div 
+                    className="sertif-image h-48 overflow-hidden relative cursor-pointer"
+                    onClick={() => openModal(certificate)}
+                  >
                     <img
                       src={certificate.imageUrl}
                       alt={certificate.title}
@@ -150,14 +166,9 @@ export default function Certificate() {
                     />
                   </div>
                   <div className="p-4">
-                    <h3 className="text-sm font-medium text-gray-800 text-left mb-2">
+                    <h3 className="text-sm font-medium text-gray-800 text-left mb-2 truncate">
                       {certificate.title}
                     </h3>
-                    {certificate.description && (
-                      <p className="text-xs text-gray-600 mb-3 line-clamp-2">
-                        {certificate.description}
-                      </p>
-                    )}
                     <a
                       href={certificate.courseUrl}
                       target="_blank"
@@ -177,6 +188,35 @@ export default function Certificate() {
         )}
       </section>
       <Footer />
+
+      {/* Image Modal */}
+      {isModalOpen && selectedImage && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-75 p-4">
+          <div className="relative max-w-4xl w-full max-h-[90vh]">
+            <button
+              onClick={closeModal}
+              className="absolute -top-10 right-0 text-white hover:text-gray-300 focus:outline-none"
+            >
+              <svg className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </button>
+            <div className="bg-white rounded-lg overflow-hidden">
+              <img
+                src={selectedImage.imageUrl}
+                alt={selectedImage.title}
+                className="w-full h-auto max-h-[80vh] object-contain"
+              />
+              <div className="p-4">
+                <h3 className="text-lg font-medium text-gray-800">{selectedImage.title}</h3>
+                {selectedImage.description && (
+                  <p className="text-gray-600 mt-2">{selectedImage.description}</p>
+                )}
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
