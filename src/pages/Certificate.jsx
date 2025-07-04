@@ -3,6 +3,7 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import { collection, getDocs } from "firebase/firestore";
 import { db } from "../firebase";
+import { Link } from "react-router-dom";
 
 export default function Certificate() {
   const [certificates, setCertificates] = useState([]);
@@ -72,7 +73,7 @@ export default function Certificate() {
                 placeholder="Search certificates..."
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
-                className="w-full pl-10 pr-4 py-2 border bg-white border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                className="w-full pl-10 pr-4 py-2 border text-gray-700 bg-white border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500"
               />
               {searchTerm && (
                 <button
@@ -145,6 +146,14 @@ export default function Certificate() {
           </div>
         ) : (
           <div className="grid gap-3 text-gray-800 dark:text-gray-200">
+            {/* Only show this image when in the badge tab */}
+            {activeCategory === "badge" && (
+              <div className="">
+                <a href="https://www.cloudskillsboost.google/public_profiles/a0413875-4f2d-4c72-b551-524e6cffb45d" target="_blank" rel="noopener noreferrer">
+                  <img src="https://i.ibb.co.com/PZsQdbPZ/Screenshot-2025-02-08-013127.png" alt="Badge" className="w-full object-cover border border-gray-200 shadow-md rounded-[10px]" />
+                </a>
+              </div>
+            )}
             <div className="w-full mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
               {filteredCertificates.map((certificate) => (
                 <div
@@ -152,7 +161,7 @@ export default function Certificate() {
                   className={`w-full bg-white rounded-lg shadow-md overflow-hidden border border-gray-200 ${certificate.category === "badge" ? "border-2 border-gray-200" : ""
                     }`}
                 >
-                  <div 
+                  <div
                     className="sertif-image h-48 overflow-hidden relative cursor-pointer"
                     onClick={() => openModal(certificate)}
                   >
