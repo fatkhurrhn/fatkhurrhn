@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 export default function CertificatesSection() {
   return (
     <div>
@@ -5,9 +7,9 @@ export default function CertificatesSection() {
         <h2 className="text-[18px] font-bold text-gray-800 flex items-center gap-2">
           <i className="ri-award-fill"></i> Certifications
         </h2>
-        <a href="/certificate" className="text-xs text-gray-500 hover:text-gray-700 transition-colors">
+        <Link to="/certificate" className="text-xs text-gray-500 hover:text-gray-700 transition-colors">
           View more
-        </a>
+        </Link>
       </div> <br />
       <div className="grid gap-4">
         <div className="w-full mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -28,14 +30,14 @@ export default function CertificatesSection() {
                 <h3 className="text-sm font-medium text-gray-600 text-left">
                   {cert.date}
                 </h3>
-                <a
-                  href="#"
+                <Link
+                  to="#"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="mt-2 inline-block w-full border border-gray-200 bg-gray-50 hover:bg-gray-100 text-gray-700 font-medium py-2 px-3 rounded-md transition duration-200 text-center text-xs"
                 >
                   View Certificate
-                </a>
+                </Link>
               </div>
             </div>
           ))}

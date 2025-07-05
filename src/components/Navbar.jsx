@@ -64,9 +64,9 @@ const Navbar = () => {
 
                     <div className="relative">
                         <nav className="hidden md:flex space-x-8 font-medium text-gray-800">
-                            <a href="/">Home</a>
-                            <a href="/projects">Project</a>
-                            <a href="/certificates">Certificate</a>
+                            <Link to="/">Home</Link>
+                            <Link to="/projects">Project</Link>
+                            <Link to="/certificates">Certificate</Link>
                             <div className="relative dropdown">
                                 <button
                                     className="flex items-center space-x-1 focus:outline-none"
@@ -77,10 +77,10 @@ const Navbar = () => {
                                 </button>
                                 {openDropdown === "Pages" && (
                                     <ul className="absolute left-0 mt-1 w-33 bg-white bg-gray-800 rounded-lg shadow-lg transition-opacity duration-300 ease-in-out">
-                                        <li><a href="/creator" className="block px-4 py-2">Creator</a></li>
-                                        <li><a href="/store" className="block px-4 py-2">Store</a></li>
-                                        <li><a href="/writings" className="block px-4 py-2">Writings</a></li>
-                                        <li><a href="/guestbook" className="block px-4 py-2">Guestbook</a></li>
+                                        <li><Link to="/creator" className="block px-4 py-2">Creator</Link></li>
+                                        <li><Link to="/store" className="block px-4 py-2">Store</Link></li>
+                                        <li><Link to="/writings" className="block px-4 py-2">Writings</Link></li>
+                                        <li><Link to="/guestbook" className="block px-4 py-2">Guestbook</Link></li>
                                     </ul>
                                 )}
                             </div>
@@ -112,7 +112,7 @@ const Navbar = () => {
                     {/* Sidebar Menu */}
                     <ul className="pt-8 ml-2 mt-16 space-y-3">
                         <li>
-                            <a href="/" className="block hover:text-blue-400">Home</a>
+                            <Link to="/" className="block hover:text-blue-400">Home</Link>
                         </li>
 
                         <li>
@@ -126,40 +126,40 @@ const Navbar = () => {
 
                             {openDropdown === "frontend" && (
                                 <ul className="mt-2 ml-4 space-y-2 border-l-2 border-gray-600 pl-4">
-                                    <li><a href="/project" className="block hover:text-blue-400">Project</a></li>
-                                    <li><a href="/certificate" className="block hover:text-blue-400">Certificate</a></li>
-                                    <li><a href="/guestbook" className="block hover:text-blue-400">Guestbook</a></li>
+                                    <li><Link to="/project" className="block hover:text-blue-400">Project</Link></li>
+                                    <li><Link to="/certificate" className="block hover:text-blue-400">Certificate</Link></li>
+                                    <li><Link to="/guestbook" className="block hover:text-blue-400">Guestbook</Link></li>
                                 </ul>
                             )}
                         </li>
 
                         <li>
-                            <a href="/creator" className="block hover:text-blue-400">Creator</a>
+                            <Link to="/creator" className="block hover:text-blue-400">Creator</Link>
                         </li>
 
                         <li>
-                            <a href="/store" className="block hover:text-blue-400">Store</a>
+                            <Link to="/store" className="block hover:text-blue-400">Store</Link>
                         </li>
 
                         <li>
-                            <a href="/writings" className="block hover:text-blue-400">Writings</a>
+                            <Link to="/writings" className="block hover:text-blue-400">Writings</Link>
                         </li>
                     </ul>
 
                     {/* Social Media Icons */}
                     <div className="absolute bottom-5 left-0 w-full flex justify-center gap-4 ">
-                        <a href="https://youtube.com/fatkhurrhnn" target="_blank" rel="noopener noreferrer">
+                        <Link to="https://youtube.com/fatkhurrhnn" target="_blank" rel="noopener noreferrer">
                             <i className="ri-youtube-fill text-gray-400 text-xl text-gray-800 hover:text-white transition-all"></i>
-                        </a>
-                        <a href="https://linkedin.com/fatkhurrhn" target="_blank" rel="noopener noreferrer">
+                        </Link>
+                        <Link to="https://linkedin.com/fatkhurrhn" target="_blank" rel="noopener noreferrer">
                             <i className="ri-linkedin-box-fill text-gray-400 text-xl text-gray-800 hover:text-white transition-all"></i>
-                        </a>
-                        <a href="https://tiktok.com/fatkhurrhnn" target="_blank" rel="noopener noreferrer">
+                        </Link>
+                        <Link to="https://tiktok.com/fatkhurrhnn" target="_blank" rel="noopener noreferrer">
                             <i className="ri-tiktok-fill text-gray-400 text-xl text-gray-800 hover:text-white transition-all"></i>
-                        </a>
-                        <a href="https://instagram.com/fatkhurrhn" target="_blank" rel="noopener noreferrer">
+                        </Link>
+                        <Link to="https://instagram.com/fatkhurrhn" target="_blank" rel="noopener noreferrer">
                             <i className="ri-instagram-fill text-gray-400 text-xl text-gray-800 hover:text-white transition-all"></i>
-                        </a>
+                        </Link>
                     </div>
                 </div>
 

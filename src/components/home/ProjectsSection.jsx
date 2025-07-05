@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 export default function ProjectsSection() {
   return (
     <div>
@@ -5,9 +7,9 @@ export default function ProjectsSection() {
         <h2 className="text-[18px] font-bold text-gray-800 flex items-center gap-2">
           <i className="ri-tools-fill"></i> Featured Projects
         </h2>
-        <a href="/projects" className="text-xs text-gray-500 hover:text-gray-700 transition-colors">
+        <Link to="/projects" className="text-xs text-gray-500 hover:text-gray-700 transition-colors">
           View more
-        </a>
+        </Link>
       </div> <br />
       <div className="grid gap-2">
         <div className="border border-gray-200 bg-white rounded-xl sm:flex items-center transition-all hover:shadow-md">
@@ -23,13 +25,13 @@ export default function ProjectsSection() {
           <div className="p-3 w-full">
             <div className="flex justify-between items-center">
               <h1 className="text-[18px] text-gray-800 font-black">Personal Website</h1>
-              <a
+              <Link
                 target="_blank"
-                href="https://fatkhurrhn.vercel.app/"
+                to="https://fatkhurrhn.vercel.app/"
                 className="border border-gray-200 bg-white hover:bg-gray-100 duration-200 px-5 py-2 flex items-center rounded-lg text-gray-800 gap-2"
               >
                 <i className="ri-a-m" /> Preview
-              </a>
+              </Link>
             </div>
             <hr className="border-1 border-gray-200 border-dashed my-3" />
             <div className="flex items-center gap-5">
