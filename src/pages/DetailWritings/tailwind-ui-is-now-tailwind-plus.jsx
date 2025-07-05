@@ -2,8 +2,6 @@ import React from "react";
 import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
 
-import Thumbnail from "../../assets/Tailwind UI is now Tailwind Plus.webp"
-
 export default function Page() {
     return (
         <div className="bg-white min-h-screen text-gray-900 dark:text-white transition-colors duration-300">
@@ -26,7 +24,7 @@ export default function Page() {
 
                 {/* Thumbnail */}
                 <div className="mt-5">
-                    <img src={Thumbnail} alt="Tailwind Plus" className="w-full rounded-lg shadow-lg" />
+                    <img src="/assets/Tailwind UI is now Tailwind Plus.webp" alt="Tailwind Plus" className="w-full rounded-lg shadow-lg" />
                 </div>
 
                 {/* Article Content */}
