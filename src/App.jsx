@@ -14,6 +14,7 @@ import Login from './pages/admin/Login';
 import Dashboard from './pages/admin/Dashboard';
 import AdminProject from './pages/admin/Project';
 import AdminCertificate from './pages/admin/Certificate';
+import Anime from './pages/Anime';
 
 
 function App() {
@@ -21,6 +22,7 @@ function App() {
     <Router>
       <Routes>
         <Route path="/" element={<HomePage />} />
+        <Route path="/anime" element={<Anime />} />
         <Route path="/projects" element={<Project />} />
         <Route path="/certificates" element={<Certificate />} />
         <Route path="/guestbook" element={<Guestbook />} />
