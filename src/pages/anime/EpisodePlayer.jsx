@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import Plyr from 'plyr-react';
 import 'plyr-react/plyr.css';
-import { animeData } from '../data/animeData.js';
+import { animeData } from '../../data/animeData.js';
 
 const EpisodePlayer = () => {
   const { id, episodeNumber } = useParams();

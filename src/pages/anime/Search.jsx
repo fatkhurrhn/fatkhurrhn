@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import AnimeCard from '../components/AnimeCard.jsx';
-import { animeData, genres } from '../data/animeData.js';
+import AnimeCard from '../../components/anime/AnimeCard.jsx';
+import { animeData, genres } from '../../data/animeData.js';
 
 const Search = () => {
   const [searchTerm, setSearchTerm] = useState('');

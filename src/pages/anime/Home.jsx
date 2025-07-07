@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import AnimeCard from '../components/AnimeCard.jsx';
-import Pagination from '../components/Pagination.jsx';
-import { animeData } from '../data/animeData.js';
+import AnimeCard from '../../components/anime/AnimeCard.jsx';
+import Pagination from '../../components/anime/Pagination.jsx';
+import { animeData } from '../../data/animeData.js';
 
 const Home = () => {
   const [currentPage, setCurrentPage] = useState(1);

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import AnimeCard from '../components/AnimeCard.jsx';
-import { animeData } from '../data/animeData.js';
+import AnimeCard from '../../components/anime/AnimeCard.jsx';
+import { animeData } from '../../data/animeData.js';
 
 const Status = () => {
   const [activeTab, setActiveTab] = useState('completed');

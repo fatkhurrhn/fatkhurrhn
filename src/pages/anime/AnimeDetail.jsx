@@ -1,6 +1,6 @@
 import React from 'react';
 import { useParams, Link } from 'react-router-dom';
-import { animeData } from '../data/animeData.js';
+import { animeData } from '../../data/animeData.js';
 
 const AnimeDetail = () => {
   const { id } = useParams();
