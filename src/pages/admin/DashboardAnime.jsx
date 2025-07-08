@@ -8,7 +8,7 @@ import LogoutConfirmModal from "../../components/LogoutConfirmModal";
 
 const genres = [
   "Action", "Rencarnation", "Comedy", "Drama", "Fantasy", "Harem",
-  "Romance", "Seinen", "Shounen", "Sci-Fi", "Supernatural", "Mithology", "Thriller", "School",
+  "Romance", "Seinen", "Shounen", "Sci-Fi", "Supernatural", "Mithology", "Thriller", "School", "Slice of Life",
   "Martial Arts", "Magic", "Historical", "Psychology", "Military"
 ];
 
@@ -376,57 +376,57 @@ const DashboardAnime = () => {
                 <form onSubmit={handleSubmit}>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
                     <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-1">Title*</label>
+                      <label className="block text-sm font-medium text-gray-700 mb-1">Title</label>
                       <input
                         type="text"
                         name="title"
                         value={formData.title}
                         onChange={handleInputChange}
                         className="w-full px-3 py-2 bg-white text-gray-800 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500"
-                        required
+                        
                       />
                     </div>
                     
                     <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-1">Studio*</label>
+                      <label className="block text-sm font-medium text-gray-700 mb-1">Studio</label>
                       <input
                         type="text"
                         name="studio"
                         value={formData.studio}
                         onChange={handleInputChange}
                         className="w-full px-3 py-2 bg-white text-gray-800 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500"
-                        required
+                        
                       />
                     </div>
                   </div>
 
                   <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
                     <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-1">Year*</label>
+                      <label className="block text-sm font-medium text-gray-700 mb-1">Year</label>
                       <input
                         type="text"
                         name="year"
                         value={formData.year}
                         onChange={handleInputChange}
                         className="w-full px-3 py-2 bg-white text-gray-800 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500"
-                        required
+                        
                       />
                     </div>
                     
                     <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-1">Episodes*</label>
+                      <label className="block text-sm font-medium text-gray-700 mb-1">Episodes</label>
                       <input
                         type="text"
                         name="episodes"
                         value={formData.episodes}
                         onChange={handleInputChange}
                         className="w-full px-3 py-2 bg-white text-gray-800 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500"
-                        required
+                        
                       />
                     </div>
                     
                     <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-1">Rating*</label>
+                      <label className="block text-sm font-medium text-gray-700 mb-1">Rating</label>
                       <input
                         type="text"
                         step="0.1"
@@ -436,13 +436,13 @@ const DashboardAnime = () => {
                         value={formData.rating}
                         onChange={handleInputChange}
                         className="w-full px-3 py-2 bg-white text-gray-800 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500"
-                        required
+                        
                       />
                     </div>
                   </div>
 
                   <div className="mb-4">
-                    <label className="block text-sm font-medium text-gray-700 mb-1">Status*</label>
+                    <label className="block text-sm font-medium text-gray-700 mb-1">Status</label>
                     <select
                       name="status"
                       value={formData.status}
@@ -468,14 +468,14 @@ const DashboardAnime = () => {
                   )}
 
                   <div className="mb-4">
-                    <label className="block text-sm font-medium text-gray-700 mb-1">Thumbnail URL*</label>
+                    <label className="block text-sm font-medium text-gray-700 mb-1">Thumbnail URL</label>
                     <input
                       type="url"
                       name="thumbnail"
                       value={formData.thumbnail}
                       onChange={handleInputChange}
                       className="w-full px-3 py-2 bg-white text-gray-800 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500"
-                      required
+                      
                     />
                     {formData.thumbnail && (
                       <div className="mt-2">
@@ -489,19 +489,19 @@ const DashboardAnime = () => {
                   </div>
 
                   <div className="mb-4">
-                    <label className="block text-sm font-medium text-gray-700 mb-1">Description*</label>
+                    <label className="block text-sm font-medium text-gray-700 mb-1">Description</label>
                     <textarea
                       name="description"
                       value={formData.description}
                       onChange={handleInputChange}
                       rows="4"
                       className="w-full px-3 py-2 bg-white text-gray-800 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500"
-                      required
+                      
                     ></textarea>
                   </div>
 
                   <div className="mb-6">
-                    <label className="block text-sm font-medium text-gray-700 mb-2">Genres*</label>
+                    <label className="block text-sm font-medium text-gray-700 mb-2">Genres</label>
                     <div className="flex flex-wrap gap-2">
                       {genres.map(genre => (
                         <button
