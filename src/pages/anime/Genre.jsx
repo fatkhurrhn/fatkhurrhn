@@ -48,7 +48,6 @@ const Genre = () => {
     <div className="bg-gray-50 min-h-screen text-gray-800">
       <Nav />
       <div className="container mx-auto px-4 max-w-4xl pb-20">
-        
         <div className="mb-3"> 
           <p className="text-gray-600 text-lg">
             Jelajai anime genre favoritmu
@@ -56,7 +55,6 @@ const Genre = () => {
         </div>
 
         {/* Genre Selection */}
-        <div className="bg-white rounded-lg shadow-md p-4 mb-4"> {/* Mengurangi p dari 6 ke 4 dan mb dari 6 ke 4 */}
           
           {/* Mobile Select Dropdown */}
           <div className="md:hidden mb-3"> {/* Mengurangi mb dari 4 ke 3 */}
@@ -92,7 +90,6 @@ const Genre = () => {
               </button>
             ))}
           </div>
-        </div>
 
         {/* Results - bagian ini tidak diubah kecuali spacing yang berlebihan */}
         {loading ? (

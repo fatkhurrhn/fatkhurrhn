@@ -20,7 +20,7 @@ const NavigationWrapper = ({ children }) => {
           <div className="flex items-center justify-between">
             <Link to="/" className="flex items-center space-x-2">
               <i className="ri-play-circle-line text-2xl text-blue-600"></i>
-              <span className="text-xl font-bold text-gray-800">AnineVault</span>
+              <span className="text-xl font-bold text-gray-800">KoleksiAnimeKu</span>
             </Link>
 
             <div className="hidden md:flex items-center space-x-6">

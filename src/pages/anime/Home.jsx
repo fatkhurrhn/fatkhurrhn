@@ -46,7 +46,6 @@ const Home = () => {
   if (loading) {
     return (
       <div className="bg-gray-50 min-h-screen text-gray-800">
-        <Nav>
           <div className="container mx-auto px-4 py-6 max-w-4xl">
             <div className="mb-8">
               <div className="h-8 w-64 bg-gray-200 rounded animate-pulse mb-2"></div>
@@ -68,7 +67,6 @@ const Home = () => {
               ))}
             </div>
           </div>
-        </Nav>
       </div>
     );
   }
