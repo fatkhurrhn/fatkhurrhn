@@ -68,7 +68,7 @@ const AnimeDetail = () => {
   return (
     <div className="bg-gray-50 min-h-screen text-gray-800">
       <Nav />
-      <div className="container mx-auto px-4 max-w-4xl pb-[60px]">
+      <div className="container mx-auto px-4 max-w-4xl pb-[70px]">
         <button onClick={() => navigate(-1)} className="text-gray-600 text-[15px] pb-2 flex items-center hover:text-blue-600 transition-colors">
           <i className="ri-arrow-left-line mr-1"></i> Kembali
         </button>

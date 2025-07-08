@@ -4,6 +4,7 @@ import Plyr from 'plyr-react';
 import 'plyr-react/plyr.css';
 import { doc, getDoc } from 'firebase/firestore';
 import { db } from '../../firebase';
+import Nav from '../../components/anime/NavigationWrapper.jsx';
 
 const EpisodePlayer = () => {
   const { id, episodeNumber } = useParams();
@@ -17,11 +18,11 @@ const EpisodePlayer = () => {
       try {
         const docRef = doc(db, 'animes', id);
         const docSnap = await getDoc(docRef);
-        
+
         if (docSnap.exists()) {
           const animeData = { id: docSnap.id, ...docSnap.data() };
           setAnime(animeData);
-          
+
           if (animeData.episodeList) {
             const episode = animeData.episodeList.find(
               ep => ep.number === parseInt(episodeNumber)
@@ -45,16 +46,29 @@ const EpisodePlayer = () => {
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-gray-900 flex items-center justify-center">
-        <p className="text-white">Loading...</p>
+      <div className="min-h-screen bg-white flex items-center justify-center">
+        <div className="animate-pulse flex flex-col items-center">
+          <div className="w-16 h-16 bg-gray-200 rounded-full mb-4"></div>
+          <p className="text-gray-600">Memuat episode...</p>
+        </div>
       </div>
     );
   }
 
   if (!anime || !currentEpisode) {
     return (
-      <div className="min-h-screen bg-gray-900 flex items-center justify-center">
-        <p className="text-white">Episode tidak ditemukan</p>
+      <div className="min-h-screen bg-white flex flex-col items-center justify-center p-4 text-center">
+        <div className="bg-red-100 p-4 rounded-full mb-4">
+          <i className="ri-error-warning-line text-red-500 text-3xl"></i>
+        </div>
+        <h2 className="text-xl font-bold text-gray-800 mb-2">Episode tidak ditemukan</h2>
+        <p className="text-gray-600 mb-4">Episode yang Anda cari tidak tersedia</p>
+        <Link
+          to={`/anime/${id}`}
+          className="px-6 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-colors"
+        >
+          Kembali ke Detail Anime
+        </Link>
       </div>
     );
   }
@@ -63,92 +77,103 @@ const EpisodePlayer = () => {
   const nextEpisode = currentEpisode.number < anime.episodeList.length ? currentEpisode.number + 1 : null;
 
   return (
-    <div className="min-h-screen bg-gray-900">
-      <div className="container mx-auto px-4 py-6">
-        {/* Header */}
-        <div className="flex items-center justify-between mb-4">
-          <Link 
-            to={`/anime/${anime.id}`}
-            className="flex items-center text-white hover:text-blue-400 transition-colors"
-          >
-            <i className="ri-arrow-left-line mr-2"></i>
-            Kembali
-          </Link>
-          <div className="text-white text-center">
-            <h1 className="text-lg font-bold">{anime.title}</h1>
-            <p className="text-sm text-gray-400">Episode {currentEpisode.number}</p>
-          </div>
-          <div className="w-16"></div>
-        </div>
-
-        {/* Video Player */}
+    <div className="bg-gray-50 min-h-screen text-gray-800">
+      <Nav />
+      <div className="container mx-auto px-4 max-w-4xl pb-20 pt-2">
+        {/* Video Player Section */}
         <div className="mb-6">
-          <Plyr
-            source={{
-              type: 'video',
-              sources: [
-                {
-                  src: currentEpisode.videoUrl,
-                  type: 'video/mp4',
-                },
-              ],
-            }}
-            options={{
-              controls: [
-                'play-large',
-                'play',
-                'progress',
-                'current-time',
-                'mute',
-                'volume',
-                'settings',
-                'fullscreen',
-              ],
-            }}
-          />
-        </div>
+          {/* Player Header with Navigation */}
+          <div className="flex justify-between items-center mb-2">
+            <Link
+              to={`/anime/${anime.id}`}
+              className="flex items-center text-gray-800"
+            >
+              <i className="ri-arrow-left-line mr-1"></i>
+              <span className="text-sm">Kembali</span>
+            </Link>
 
-        {/* Episode Navigation */}
-        <div className="flex items-center justify-between mb-6">
-          <button
-            onClick={() => previousEpisode && goToEpisode(previousEpisode)}
-            disabled={!previousEpisode}
-            className="flex items-center px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed"
-          >
-            <i className="ri-arrow-left-line mr-2"></i>
-            Previous
-          </button>
+            <div className="flex space-x-3">
+              <button
+                onClick={() => previousEpisode && goToEpisode(previousEpisode)}
+                disabled={!previousEpisode}
+                title="Previous Episode"
+                className={`px-2 py-0 rounded-lg border transition-all duration-200 text-sm font-medium
+      ${!previousEpisode
+                    ? 'bg-gray-200 text-gray-400 cursor-not-allowed border-gray-200'
+                    : 'bg-black/80 text-white hover:bg-black hover:scale-105 border-gray-700'}
+    `}
+              >
+                <i className="ri-arrow-left-line text-base" />
+              </button>
 
-          <div className="text-white text-center">
-            <h2 className="font-semibold">{currentEpisode.title}</h2>
-            <p className="text-sm text-gray-400">
-              Episode {currentEpisode.number} of {anime.episodeList.length}
+              <button
+                onClick={() => nextEpisode && goToEpisode(nextEpisode)}
+                disabled={!nextEpisode}
+                title="Next Episode"
+                className={`px-2 py-0 rounded-lg border transition-all duration-200 text-sm font-medium
+      ${!nextEpisode
+                    ? 'bg-gray-200 text-gray-400 cursor-not-allowed border-gray-200'
+                    : 'bg-black/80 text-white hover:bg-black hover:scale-105 border-gray-700'}
+    `}
+              >
+                <i className="ri-arrow-right-line text-base" />
+              </button>
+            </div>
+
+          </div>
+
+          {/* Video Player */}
+          <div className="rounded-xl overflow-hidden shadow-md">
+            <Plyr
+              source={{
+                type: 'video',
+                sources: [
+                  {
+                    src: currentEpisode.videoUrl,
+                    type: 'video/mp4',
+                  },
+                ],
+              }}
+              options={{
+                controls: [
+                  'play-large',
+                  'play',
+                  'progress',
+                  'current-time',
+                  'mute',
+                  'volume',
+                  'settings',
+                  'fullscreen',
+                ],
+                ratio: '16:9',
+              }}
+            />
+          </div>
+
+          {/* Anime Title */}
+          <div className="mt-3 px-2">
+            <h1 className="text-lg font-bold text-gray-800">{anime.title}</h1>
+            <p className="text-sm text-gray-600">
+              Episode ke {currentEpisode.number} dari total {anime.episodeList.length} episode
             </p>
           </div>
-
-          <button
-            onClick={() => nextEpisode && goToEpisode(nextEpisode)}
-            disabled={!nextEpisode}
-            className="flex items-center px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed"
-          >
-            Next
-            <i className="ri-arrow-right-line ml-2"></i>
-          </button>
         </div>
 
+        {/* Divider */}
+        <hr className="my-4 border-t border-gray-200" />
+
         {/* Episode List */}
-        <div className="bg-gray-800 rounded-lg p-6">
-          <h3 className="text-white text-lg font-semibold mb-4">Semua Episode</h3>
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3">
+        <div>
+          <h3 className="text-lg font-semibold text-gray-800 mb-3">Daftar Episode</h3>
+          <div className="grid grid-cols-4 sm:grid-cols-5 md:grid-cols-6 lg:grid-cols-8 gap-2">
             {anime.episodeList.map((episode) => (
               <button
                 key={episode.number}
                 onClick={() => goToEpisode(episode.number)}
-                className={`p-3 rounded-lg text-center transition-all ${
-                  episode.number === currentEpisode.number
-                    ? 'bg-blue-600 text-white'
-                    : 'bg-gray-700 text-gray-300 hover:bg-gray-600'
-                }`}
+                className={`p-2 rounded-md text-center transition-all ${episode.number === currentEpisode.number
+                    ? 'bg-blue-500 text-white shadow-sm'
+                    : 'bg-white text-gray-700 hover:bg-gray-100 border border-gray-200'
+                  }`}
               >
                 <div className="text-sm font-medium">
                   {episode.number}
