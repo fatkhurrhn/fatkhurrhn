@@ -2,6 +2,9 @@ import React, { useState, useEffect } from 'react';
 import { collection, addDoc, getDocs, doc, updateDoc, deleteDoc, query, orderBy } from 'firebase/firestore';
 import { db, serverTimestamp } from '../../firebase';
 import { useNavigate } from 'react-router-dom';
+import { auth } from "../../firebase";
+import { signOut } from "firebase/auth";
+import LogoutConfirmModal from "../../components/LogoutConfirmModal";
 
 const genres = [
   "Action", "Rencarnation", "Comedy", "Drama", "Fantasy", "Harem",
@@ -36,6 +39,18 @@ const DashboardAnime = () => {
   const [showDeleteModal, setShowDeleteModal] = useState(false);
   const [animeToDelete, setAnimeToDelete] = useState(null);
   const navigate = useNavigate();
+
+    const [showLogoutModal, setShowLogoutModal] = useState(false);
+
+  const handleLogout = async () => {
+    try {
+      await signOut(auth);
+      navigate("/anime");
+    } catch (error) {
+      console.error("Error logging out: ", error);
+      alert("Logout gagal: " + error.message);
+    }
+  };
 
   useEffect(() => {
     const fetchAnimes = async () => {
@@ -233,6 +248,15 @@ const DashboardAnime = () => {
             >
               Add New Anime
             </button>
+            <button
+            onClick={() => setShowLogoutModal(true)}
+            className="flex items-center gap-2 px-4 py-2 bg-red-50 text-red-600 rounded-md hover:bg-red-100 transition-colors"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+              <path fillRule="evenodd" d="M3 3a1 1 0 00-1 1v12a1 1 0 102 0V4a1 1 0 00-1-1zm10.293 9.293a1 1 0 001.414 1.414l3-3a1 1 0 000-1.414l-3-3a1 1 0 10-1.414 1.414L14.586 9H7a1 1 0 100 2h7.586l-1.293 1.293z" clipRule="evenodd" />
+            </svg>
+            Logout
+          </button>
           </div>
         </div>
 
@@ -594,6 +618,13 @@ const DashboardAnime = () => {
             </div>
           </div>
         )}
+
+        {/* Modal Konfirmasi */}
+              <LogoutConfirmModal
+                isOpen={showLogoutModal}
+                onClose={() => setShowLogoutModal(false)}
+                onConfirm={handleLogout}
+              />
 
         {/* Delete Confirmation Modal */}
         {showDeleteModal && (
