@@ -9,7 +9,7 @@ const NavigationWrapper = ({ children }) => {
     { path: '/anime/genre', icon: 'ri-bookmark-line', activeIcon: 'ri-bookmark-fill', label: 'Genre' },
     { path: '/anime/search', icon: 'ri-search-line', activeIcon: 'ri-search-fill', label: 'Search' },
     { path: '/anime/status', icon: 'ri-time-line', activeIcon: 'ri-time-fill', label: 'Status' },
-    { path: '/anime/more', icon: 'ri-time-line', activeIcon: 'ri-time-fill', label: 'More' },
+    { path: '/anime/more', icon: 'ri-apps-line', activeIcon: 'ri-apps-fill', label: 'More' },
   ];
 
   return (
@@ -42,17 +42,17 @@ const NavigationWrapper = ({ children }) => {
 
       {/* Bottom Navigation (Mobile Only) */}
       <div className="fixed bottom-0 left-0 right-0 md:hidden z-50 bg-white shadow-lg border-t border-gray-100">
-        <div className="grid grid-cols-4 h-16">
+        <div className="grid grid-cols-5 h-16">
           {navItems.map((item) => {
             const isActive = location.pathname === item.path;
             return (
               <Link
                 key={item.path}
                 to={item.path}
-                className="nav-item flex flex-col items-center justify-center text-xs transition-colors"
+                className="nav-item flex flex-col items-center justify-center text-[12px] transition-colors"
               >
                 <i
-                  className={`${isActive ? item.activeIcon : item.icon} text-xl mb-1 ${
+                  className={`${isActive ? item.activeIcon : item.icon} text-[18px] ${
                     isActive ? 'text-blue-600' : 'text-gray-500'
                   }`}
                 ></i>
