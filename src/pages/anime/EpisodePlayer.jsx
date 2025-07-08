@@ -48,7 +48,6 @@ const EpisodePlayer = () => {
     return (
       <div className="min-h-screen bg-white flex items-center justify-center">
         <div className="animate-pulse flex flex-col items-center">
-          <div className="w-16 h-16 bg-gray-200 rounded-full mb-4"></div>
           <p className="text-gray-600">Memuat episode...</p>
         </div>
       </div>
