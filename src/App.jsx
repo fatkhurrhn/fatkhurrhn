@@ -21,6 +21,7 @@ import Genre from './pages/anime/Genre';
 import Status from './pages/anime/Status';
 import More from './pages/anime/More';
 import Layout from './components/anime/Layout';
+import DashboardAnime from './pages/admin/DashboardAnime';
 
 
 function App() {
@@ -38,8 +39,9 @@ function App() {
         {/* Route Admin */}
         <Route path="/login" element={<Login />} />
         <Route path="/admin" element={<Dashboard />} />
-        <Route path="/admin/project" element={<AdminProject />} />
-        <Route path="/admin/certificate" element={<AdminCertificate />} />
+        <Route path="/admin/projects" element={<AdminProject />} />
+        <Route path="/admin/certificates" element={<AdminCertificate />} />
+        <Route path="/admin/dashboard-animes" element={<DashboardAnime />} />
       </Routes>
 
       {/* Route Anime */}

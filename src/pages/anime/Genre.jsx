@@ -1,22 +1,46 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import AnimeCard from '../../components/anime/AnimeCard.jsx';
-import { animeData, genres } from '../../data/animeData.js';
+import { collection, getDocs, query, where } from 'firebase/firestore';
+import { db } from '../../firebase';
+
+const genres = [
+  "Action", "Adventure", "Comedy", "Drama", "Fantasy", "Horror",
+  "Romance", "Sci-Fi", "Supernatural", "Thriller", "School",
+  "Martial Arts", "Magic", "Historical", "Psychology", "Military"
+];
 
 const Genre = () => {
   const { genreName } = useParams();
   const [selectedGenre, setSelectedGenre] = useState(genreName || '');
   const [filteredAnime, setFilteredAnime] = useState([]);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    if (selectedGenre) {
-      const filtered = animeData.filter(anime =>
-        anime.genres.includes(selectedGenre)
-      );
-      setFilteredAnime(filtered);
-    } else {
-      setFilteredAnime([]);
-    }
+    const fetchAnimesByGenre = async () => {
+      if (selectedGenre) {
+        setLoading(true);
+        try {
+          const q = query(
+            collection(db, 'animes'), 
+            where('genres', 'array-contains', selectedGenre)
+          );
+          const querySnapshot = await getDocs(q);
+          const animesData = querySnapshot.docs.map(doc => ({
+            id: doc.id,
+            ...doc.data()
+          }));
+          setFilteredAnime(animesData);
+        } catch (error) {
+          console.error("Error fetching animes by genre: ", error);
+        }
+        setLoading(false);
+      } else {
+        setFilteredAnime([]);
+      }
+    };
+
+    fetchAnimesByGenre();
   }, [selectedGenre]);
 
   return (
@@ -50,37 +74,45 @@ const Genre = () => {
       </div>
 
       {/* Results */}
-      {selectedGenre && (
-        <div className="mb-4">
-          <h2 className="text-xl font-semibold text-gray-800 mb-2">
-            Anime Genre: {selectedGenre}
-          </h2>
-          <p className="text-gray-600">
-            Ditemukan {filteredAnime.length} anime
-          </p>
-        </div>
-      )}
-
-      {selectedGenre && filteredAnime.length > 0 && (
-        <div className="space-y-4">
-          {filteredAnime.map((anime) => (
-            <AnimeCard key={anime.id} anime={anime} />
-          ))}
-        </div>
-      )}
-
-      {selectedGenre && filteredAnime.length === 0 && (
+      {loading ? (
         <div className="text-center py-8">
-          <i className="ri-bookmark-line text-4xl text-gray-400 mb-4"></i>
-          <p className="text-gray-600">Tidak ada anime dengan genre ini</p>
+          <p className="text-gray-600">Loading...</p>
         </div>
-      )}
+      ) : (
+        <>
+          {selectedGenre && (
+            <div className="mb-4">
+              <h2 className="text-xl font-semibold text-gray-800 mb-2">
+                Anime Genre: {selectedGenre}
+              </h2>
+              <p className="text-gray-600">
+                Ditemukan {filteredAnime.length} anime
+              </p>
+            </div>
+          )}
 
-      {!selectedGenre && (
-        <div className="text-center py-8">
-          <i className="ri-bookmark-line text-4xl text-gray-400 mb-4"></i>
-          <p className="text-gray-600">Pilih genre untuk melihat anime</p>
-        </div>
+          {selectedGenre && filteredAnime.length > 0 && (
+            <div className="space-y-4">
+              {filteredAnime.map((anime) => (
+                <AnimeCard key={anime.id} anime={anime} />
+              ))}
+            </div>
+          )}
+
+          {selectedGenre && filteredAnime.length === 0 && !loading && (
+            <div className="text-center py-8">
+              <i className="ri-bookmark-line text-4xl text-gray-400 mb-4"></i>
+              <p className="text-gray-600">Tidak ada anime dengan genre ini</p>
+            </div>
+          )}
+
+          {!selectedGenre && (
+            <div className="text-center py-8">
+              <i className="ri-bookmark-line text-4xl text-gray-400 mb-4"></i>
+              <p className="text-gray-600">Pilih genre untuk melihat anime</p>
+            </div>
+          )}
+        </>
       )}
     </div>
   );

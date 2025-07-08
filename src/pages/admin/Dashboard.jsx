@@ -43,14 +43,21 @@ export default function Dashboard() {
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           <Link 
-            to="/admin/project" 
+            to="/admin/dashboard-animes" 
+            className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow"
+          >
+            <h2 className="text-xl font-semibold mb-2">Manage Animes</h2>
+            <p className="text-gray-600">Add, edit, or delete Animes</p>
+          </Link>
+          <Link 
+            to="/admin/projects" 
             className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow"
           >
             <h2 className="text-xl font-semibold mb-2">Manage Projects</h2>
             <p className="text-gray-600">Add, edit, or delete projects</p>
           </Link>
           <Link 
-            to="/admin/certificate" 
+            to="/admin/certificates" 
             className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow"
           >
             <h2 className="text-xl font-semibold mb-2">Manage Certificates</h2>

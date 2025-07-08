@@ -28,7 +28,7 @@ const AnimeCard = ({ anime }) => {
             <div className="space-y-1 text-sm text-gray-600">
               <p className="flex items-center">
                 <i className="ri-bookmark-line mr-2"></i>
-                {anime.genres.slice(0, 2).join(', ')}
+                {anime.genres?.slice(0, 2).join(', ')}
               </p>
               <p className="flex items-center">
                 <i className="ri-film-line mr-2"></i>

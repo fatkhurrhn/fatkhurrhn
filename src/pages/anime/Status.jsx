@@ -1,18 +1,86 @@
 import React, { useState, useEffect } from 'react';
 import AnimeCard from '../../components/anime/AnimeCard.jsx';
-import { animeData } from '../../data/animeData.js';
+import { collection, getDocs, query, where } from 'firebase/firestore';
+import { db } from '../../firebase';
 
 const Status = () => {
   const [activeTab, setActiveTab] = useState('completed');
   const [filteredAnime, setFilteredAnime] = useState([]);
+  const [completedCount, setCompletedCount] = useState(0);
+  const [watchingCount, setWatchingCount] = useState(0);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const filtered = animeData.filter(anime => anime.status === activeTab);
-    setFilteredAnime(filtered);
+    const fetchAnimes = async () => {
+      try {
+        // Fetch completed count
+        const completedQuery = query(
+          collection(db, 'animes'), 
+          where('status', '==', 'completed')
+        );
+        const completedSnapshot = await getDocs(completedQuery);
+        setCompletedCount(completedSnapshot.size);
+
+        // Fetch watching count
+        const watchingQuery = query(
+          collection(db, 'animes'), 
+          where('status', '==', 'watching')
+        );
+        const watchingSnapshot = await getDocs(watchingQuery);
+        setWatchingCount(watchingSnapshot.size);
+
+        // Fetch initial data based on active tab
+        const initialQuery = query(
+          collection(db, 'animes'), 
+          where('status', '==', activeTab)
+        );
+        const initialSnapshot = await getDocs(initialQuery);
+        const animesData = initialSnapshot.docs.map(doc => ({
+          id: doc.id,
+          ...doc.data()
+        }));
+        setFilteredAnime(animesData);
+        
+        setLoading(false);
+      } catch (error) {
+        console.error("Error fetching animes: ", error);
+        setLoading(false);
+      }
+    };
+
+    fetchAnimes();
+  }, []);
+
+  useEffect(() => {
+    const fetchAnimesByStatus = async () => {
+      setLoading(true);
+      try {
+        const q = query(
+          collection(db, 'animes'), 
+          where('status', '==', activeTab)
+        );
+        const querySnapshot = await getDocs(q);
+        const animesData = querySnapshot.docs.map(doc => ({
+          id: doc.id,
+          ...doc.data()
+        }));
+        setFilteredAnime(animesData);
+      } catch (error) {
+        console.error("Error fetching animes by status: ", error);
+      }
+      setLoading(false);
+    };
+
+    fetchAnimesByStatus();
   }, [activeTab]);
 
-  const completedCount = animeData.filter(anime => anime.status === 'completed').length;
-  const watchingCount = animeData.filter(anime => anime.status === 'watching').length;
+  if (loading) {
+    return (
+      <div className="container mx-auto px-4 py-6 text-center">
+        <p className="text-gray-600">Loading...</p>
+      </div>
+    );
+  }
 
   return (
     <div className="container mx-auto px-4 py-6">
@@ -72,7 +140,11 @@ const Status = () => {
       </div>
 
       {/* Results */}
-      {filteredAnime.length > 0 ? (
+      {loading ? (
+        <div className="text-center py-8">
+          <p className="text-gray-600">Loading...</p>
+        </div>
+      ) : filteredAnime.length > 0 ? (
         <div className="space-y-4">
           {filteredAnime.map((anime) => (
             <AnimeCard key={anime.id} anime={anime} />

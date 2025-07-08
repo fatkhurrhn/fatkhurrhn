@@ -2,34 +2,62 @@ import React, { useState, useEffect } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import Plyr from 'plyr-react';
 import 'plyr-react/plyr.css';
-import { animeData } from '../../data/animeData.js';
+import { doc, getDoc } from 'firebase/firestore';
+import { db } from '../../firebase';
 
 const EpisodePlayer = () => {
   const { id, episodeNumber } = useParams();
   const navigate = useNavigate();
   const [anime, setAnime] = useState(null);
   const [currentEpisode, setCurrentEpisode] = useState(null);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const animeFound = animeData.find(a => a.id === parseInt(id));
-    if (animeFound) {
-      setAnime(animeFound);
-      const episode = animeFound.episodeList.find(ep => ep.number === parseInt(episodeNumber));
-      setCurrentEpisode(episode);
-    }
-  }, [id, episodeNumber]);
+    const fetchAnime = async () => {
+      try {
+        const docRef = doc(db, 'animes', id);
+        const docSnap = await getDoc(docRef);
+        
+        if (docSnap.exists()) {
+          const animeData = { id: docSnap.id, ...docSnap.data() };
+          setAnime(animeData);
+          
+          if (animeData.episodeList) {
+            const episode = animeData.episodeList.find(
+              ep => ep.number === parseInt(episodeNumber)
+            );
+            setCurrentEpisode(episode);
+          }
+        }
+        setLoading(false);
+      } catch (error) {
+        console.error("Error fetching anime: ", error);
+        setLoading(false);
+      }
+    };
 
-  if (!anime || !currentEpisode) {
-    return (
-      <div className="container mx-auto px-4 py-8 text-center">
-        <p className="text-gray-600">Episode tidak ditemukan</p>
-      </div>
-    );
-  }
+    fetchAnime();
+  }, [id, episodeNumber]);
 
   const goToEpisode = (episodeNum) => {
     navigate(`/anime/${anime.id}/episode/${episodeNum}`);
   };
+
+  if (loading) {
+    return (
+      <div className="min-h-screen bg-gray-900 flex items-center justify-center">
+        <p className="text-white">Loading...</p>
+      </div>
+    );
+  }
+
+  if (!anime || !currentEpisode) {
+    return (
+      <div className="min-h-screen bg-gray-900 flex items-center justify-center">
+        <p className="text-white">Episode tidak ditemukan</p>
+      </div>
+    );
+  }
 
   const previousEpisode = currentEpisode.number > 1 ? currentEpisode.number - 1 : null;
   const nextEpisode = currentEpisode.number < anime.episodeList.length ? currentEpisode.number + 1 : null;

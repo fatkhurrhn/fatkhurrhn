@@ -1,21 +1,51 @@
 import React, { useState, useEffect } from 'react';
 import AnimeCard from '../../components/anime/AnimeCard.jsx';
-import { animeData, genres } from '../../data/animeData.js';
+import { collection, getDocs, query, where, or } from 'firebase/firestore';
+import { db } from '../../firebase';
+
+const genres = [
+  "Action", "Adventure", "Comedy", "Drama", "Fantasy", "Horror",
+  "Romance", "Sci-Fi", "Supernatural", "Thriller", "School",
+  "Martial Arts", "Magic", "Historical", "Psychology", "Military"
+];
 
 const Search = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedGenre, setSelectedGenre] = useState('');
   const [selectedStatus, setSelectedStatus] = useState('');
-  const [filteredAnime, setFilteredAnime] = useState(animeData);
+  const [filteredAnime, setFilteredAnime] = useState([]);
+  const [allAnimes, setAllAnimes] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    let filtered = animeData;
+    const fetchAnimes = async () => {
+      try {
+        const querySnapshot = await getDocs(collection(db, 'animes'));
+        const animesData = querySnapshot.docs.map(doc => ({
+          id: doc.id,
+          ...doc.data()
+        }));
+        setAllAnimes(animesData);
+        setFilteredAnime(animesData);
+        setLoading(false);
+      } catch (error) {
+        console.error("Error fetching animes: ", error);
+        setLoading(false);
+      }
+    };
+
+    fetchAnimes();
+  }, []);
+
+  useEffect(() => {
+    let filtered = allAnimes;
 
     // Filter by search term
     if (searchTerm) {
+      const term = searchTerm.toLowerCase();
       filtered = filtered.filter(anime =>
-        anime.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        anime.genres.some(genre => genre.toLowerCase().includes(searchTerm.toLowerCase()))
+        anime.title.toLowerCase().includes(term) ||
+        anime.genres.some(genre => genre.toLowerCase().includes(term))
       );
     }
 
@@ -34,7 +64,15 @@ const Search = () => {
     }
 
     setFilteredAnime(filtered);
-  }, [searchTerm, selectedGenre, selectedStatus]);
+  }, [searchTerm, selectedGenre, selectedStatus, allAnimes]);
+
+  if (loading) {
+    return (
+      <div className="container mx-auto px-4 py-6 text-center">
+        <p className="text-gray-600">Loading...</p>
+      </div>
+    );
+  }
 
   return (
     <div className="container mx-auto px-4 py-6">

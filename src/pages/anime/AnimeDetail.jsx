@@ -1,18 +1,33 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
-import { animeData } from '../../data/animeData.js';
+import { doc, getDoc } from 'firebase/firestore';
+import { db } from '../../firebase';
 
 const AnimeDetail = () => {
   const { id } = useParams();
-  const anime = animeData.find(a => a.id === parseInt(id));
+  const [anime, setAnime] = useState(null);
+  const [loading, setLoading] = useState(true);
 
-  if (!anime) {
-    return (
-      <div className="container mx-auto px-4 py-8 text-center">
-        <p className="text-gray-600">Anime tidak ditemukan</p>
-      </div>
-    );
-  }
+  useEffect(() => {
+    const fetchAnime = async () => {
+      try {
+        const docRef = doc(db, 'animes', id);
+        const docSnap = await getDoc(docRef);
+        
+        if (docSnap.exists()) {
+          setAnime({ id: docSnap.id, ...docSnap.data() });
+        } else {
+          setAnime(null);
+        }
+        setLoading(false);
+      } catch (error) {
+        console.error("Error fetching anime: ", error);
+        setLoading(false);
+      }
+    };
+
+    fetchAnime();
+  }, [id]);
 
   const getStatusColor = (status) => {
     return status === 'completed' ? 'bg-green-100 text-green-800' : 'bg-orange-100 text-orange-800';
@@ -21,6 +36,22 @@ const AnimeDetail = () => {
   const getStatusText = (status) => {
     return status === 'completed' ? 'Selesai' : 'Belum Selesai';
   };
+
+  if (loading) {
+    return (
+      <div className="container mx-auto px-4 py-8 text-center">
+        <p className="text-gray-600">Loading...</p>
+      </div>
+    );
+  }
+
+  if (!anime) {
+    return (
+      <div className="container mx-auto px-4 py-8 text-center">
+        <p className="text-gray-600">Anime tidak ditemukan</p>
+      </div>
+    );
+  }
 
   return (
     <div className="container mx-auto px-4 py-6">
@@ -91,32 +122,34 @@ const AnimeDetail = () => {
         </div>
       </div>
 
-      <div className="mt-8 bg-white rounded-lg shadow-md p-6">
-        <h2 className="text-xl font-bold text-gray-800 mb-4">
-          Daftar Episode
-        </h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-          {anime.episodeList.map((episode) => (
-            <Link
-              key={episode.number}
-              to={`/anime/${anime.id}/episode/${episode.number}`}
-              className="episode-card p-4 border border-gray-200 rounded-lg hover:border-blue-300 transition-all"
-            >
-              <div className="flex items-center justify-between">
-                <div>
-                  <h3 className="font-semibold text-gray-800">
-                    Episode {episode.number}
-                  </h3>
-                  <p className="text-sm text-gray-600 line-clamp-2">
-                    {episode.title}
-                  </p>
+      {anime.episodeList && anime.episodeList.length > 0 && (
+        <div className="mt-8 bg-white rounded-lg shadow-md p-6">
+          <h2 className="text-xl font-bold text-gray-800 mb-4">
+            Daftar Episode
+          </h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+            {anime.episodeList.map((episode) => (
+              <Link
+                key={episode.number}
+                to={`/anime/${anime.id}/episode/${episode.number}`}
+                className="episode-card p-4 border border-gray-200 rounded-lg hover:border-blue-300 transition-all"
+              >
+                <div className="flex items-center justify-between">
+                  <div>
+                    <h3 className="font-semibold text-gray-800">
+                      Episode {episode.number}
+                    </h3>
+                    <p className="text-sm text-gray-600 line-clamp-2">
+                      {episode.title}
+                    </p>
+                  </div>
+                  <i className="ri-play-circle-line text-2xl text-blue-600"></i>
                 </div>
-                <i className="ri-play-circle-line text-2xl text-blue-600"></i>
-              </div>
-            </Link>
-          ))}
+              </Link>
+            ))}
+          </div>
         </div>
-      </div>
+      )}
     </div>
   );
 };
