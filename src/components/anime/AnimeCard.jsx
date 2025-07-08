@@ -23,7 +23,7 @@ const AnimeCard = ({ anime }) => {
           <div className="w-[30%] relative bg-gray-100 overflow-hidden">
             {/* Rating badge */}
             <div className="absolute top-1 left-1 bg-black/70 text-white text-[10px] px-1 py-[1px] rounded-[3px] z-10 flex items-center">
-              ⭐{anime.rating}
+              ⭐ {anime.rating}
             </div>
             <img
               src={anime.thumbnail}
