@@ -76,7 +76,7 @@ const Home = () => {
   return (
     <div className="bg-gray-50 min-h-screen text-gray-800">
       <Nav>
-        <div className="container mx-auto px-4 py-3 max-w-4xl">
+        <div className="container mx-auto px-4 pt-[68px] max-w-4xl">
           <div className="mb-5">
             <p className="text-gray-600 text-lg">
               {allAnimes.length} {allAnimes.length === 1 ? 'anime' : 'animes'} in your collection

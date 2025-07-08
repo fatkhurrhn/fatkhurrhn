@@ -66,7 +66,7 @@ const NavigationWrapper = ({ children }) => {
       </div>
 
       {/* Konten halaman dengan padding biar ga ketiban */}
-      <main className="pt-[60px] pb-[64px]">{children}</main>
+      <main className="pb-[64px]">{children}</main>
     </>
   );
 };
