@@ -208,7 +208,7 @@ const DashboardAnime = () => {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      <div className="container mx-auto px-4 py-8 pt-20">
+      <div className="container mx-auto max-w-4xl px-4 py-8">
         <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-6">
           <h1 className="text-2xl font-bold text-gray-800 mb-4 md:mb-0">Anime Management</h1>
           <div className="flex space-x-2">
@@ -232,10 +232,6 @@ const DashboardAnime = () => {
 
         {/* Anime List */}
         <div className="bg-white rounded-lg shadow-sm overflow-hidden">
-          <div className="p-4 border-b">
-            <h2 className="text-lg font-semibold text-gray-800">Anime List</h2>
-          </div>
-          
           {loading && !animes.length ? (
             <div className="p-8 text-center">
               <p className="text-gray-500">Loading...</p>

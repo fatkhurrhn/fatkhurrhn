@@ -15,7 +15,7 @@ const AnimeCard = ({ anime }) => {
 
   return (
     <Link to={`/anime/${anime.id}`} className="block transition-transform hover:scale-[1.01]">
-      <div className="bg-white min-h-[100px] rounded-xl shadow-sm hover:shadow-md border border-gray-100 overflow-hidden transition-all duration-200">
+      <div className="bg-white min-h-[100px] rounded-[7px] shadow-sm hover:shadow-md border border-gray-100 overflow-hidden transition-all duration-200">
         <div className="flex h-full">
           <div className="w-[30%] relative bg-gray-100 overflow-hidden">
             <img
