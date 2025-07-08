@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import { collection, addDoc, getDocs, doc, updateDoc, deleteDoc } from 'firebase/firestore';
+import { collection, addDoc, getDocs, doc, updateDoc, deleteDoc, query, orderBy } from 'firebase/firestore';
 import { db, serverTimestamp } from '../../firebase';
 import { useNavigate } from 'react-router-dom';
 
 const genres = [
-  "Action", "Adventure", "Comedy", "Drama", "Fantasy", "Horror",
-  "Romance", "Sci-Fi", "Supernatural", "Thriller", "School",
+  "Action", "Rencarnation", "Comedy", "Drama", "Fantasy", "Harem",
+  "Romance", "Seinen", "Shounen", "Sci-Fi", "Supernatural", "Mithology", "Thriller", "School",
   "Martial Arts", "Magic", "Historical", "Psychology", "Military"
 ];
 
@@ -40,7 +40,9 @@ const DashboardAnime = () => {
   useEffect(() => {
     const fetchAnimes = async () => {
       try {
-        const querySnapshot = await getDocs(collection(db, 'animes'));
+        // Mengurutkan berdasarkan createdAt descending (terbaru di atas)
+        const q = query(collection(db, 'animes'), orderBy('createdAt', 'desc'));
+        const querySnapshot = await getDocs(q);
         const animesData = querySnapshot.docs.map(doc => ({
           id: doc.id,
           ...doc.data()
@@ -119,12 +121,14 @@ const DashboardAnime = () => {
 
     try {
       if (editMode) {
+        // Saat edit, hanya update updatedAt
         const animeRef = doc(db, 'animes', currentId);
         await updateDoc(animeRef, {
           ...formData,
           updatedAt: serverTimestamp()
         });
       } else {
+        // Saat create, set createdAt dan updatedAt
         await addDoc(collection(db, 'animes'), {
           ...formData,
           createdAt: serverTimestamp(),
@@ -133,7 +137,9 @@ const DashboardAnime = () => {
       }
 
       resetForm();
-      const querySnapshot = await getDocs(collection(db, 'animes'));
+      // Setelah submit, ambil ulang data dengan urutan yang benar
+      const q = query(collection(db, 'animes'), orderBy('createdAt', 'desc'));
+      const querySnapshot = await getDocs(q);
       const animesData = querySnapshot.docs.map(doc => ({
         id: doc.id,
         ...doc.data()
@@ -244,37 +250,78 @@ const DashboardAnime = () => {
             <div className="divide-y">
               {animes.map(anime => (
                 <div key={anime.id} className="p-4 hover:bg-gray-50 transition-colors">
-                  <div className="flex flex-col sm:flex-row sm:items-center justify-between">
-                    <div className="mb-2 sm:mb-0">
-                      <h3 className="font-medium text-gray-800">{anime.title}</h3>
-                      <div className="flex flex-wrap gap-1 mt-1">
-                        {anime.genres.slice(0, 3).map(genre => (
-                          <span key={genre} className="text-xs bg-gray-100 px-2 py-1 rounded text-gray-600">
-                            {genre}
-                          </span>
-                        ))}
-                      </div>
+                  <div className="flex flex-col sm:flex-row gap-4">
+                    {/* Thumbnail */}
+                    <div className="w-24 flex-shrink-0">
+                      <img 
+                        src={anime.thumbnail} 
+                        alt={anime.title} 
+                        className="w-full h-32 object-cover rounded-md shadow-sm"
+                      />
                     </div>
-                    <div className="flex items-center space-x-2">
-                      <span className="text-sm text-gray-500">{anime.episodes} eps • {anime.year}</span>
-                      <button
-                        onClick={() => editAnime(anime)}
-                        className="text-blue-500 hover:text-blue-700 p-1"
-                        title="Edit"
-                      >
-                        <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
-                        </svg>
-                      </button>
-                      <button
-                        onClick={() => confirmDelete(anime)}
-                        className="text-red-500 hover:text-red-700 p-1"
-                        title="Delete"
-                      >
-                        <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
-                        </svg>
-                      </button>
+                    
+                    {/* Anime Info */}
+                    <div className="flex-1">
+                      <div className="flex flex-col sm:flex-row sm:items-center justify-between">
+                        <div className="mb-2 sm:mb-0">
+                          <h3 className="font-medium text-gray-800 text-lg">{anime.title}</h3>
+                          <div className="flex flex-wrap gap-1 mt-1">
+                            {anime.genres.slice(0, 3).map(genre => (
+                              <span key={genre} className="text-xs bg-gray-100 px-2 py-1 rounded text-gray-600">
+                                {genre}
+                              </span>
+                            ))}
+                            {anime.genres.length > 3 && (
+                              <span className="text-xs bg-gray-100 px-2 py-1 rounded text-gray-600">
+                                +{anime.genres.length - 3} more
+                              </span>
+                            )}
+                          </div>
+                        </div>
+                        <div className="flex items-center space-x-2">
+                          <span className="text-sm text-gray-500">
+                            {anime.episodes} eps • {anime.year} • ⭐{anime.rating}
+                          </span>
+                        </div>
+                      </div>
+                      
+                      <p className="text-sm text-gray-600 mt-2 line-clamp-2">
+                        {anime.description}
+                      </p>
+                      
+                      <div className="flex items-center justify-between mt-3">
+                        <span className={`text-xs px-2 py-1 rounded ${
+                          anime.status === 'completed' 
+                            ? 'bg-green-100 text-green-800' 
+                            : 'bg-blue-100 text-blue-800'
+                        }`}>
+                          {anime.status === 'completed' ? 'Completed' : 'Watching'}
+                          {anime.status === 'watching' && anime.lastWatchedEpisode && (
+                            ` (Ep ${anime.lastWatchedEpisode})`
+                          )}
+                        </span>
+                        
+                        <div className="flex items-center space-x-2">
+                          <button
+                            onClick={() => editAnime(anime)}
+                            className="text-blue-500 hover:text-blue-700 p-1"
+                            title="Edit"
+                          >
+                            <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
+                            </svg>
+                          </button>
+                          <button
+                            onClick={() => confirmDelete(anime)}
+                            className="text-red-500 hover:text-red-700 p-1"
+                            title="Delete"
+                          >
+                            <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                            </svg>
+                          </button>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -333,7 +380,7 @@ const DashboardAnime = () => {
                     <div>
                       <label className="block text-sm font-medium text-gray-700 mb-1">Year*</label>
                       <input
-                        type="number"
+                        type="text"
                         name="year"
                         value={formData.year}
                         onChange={handleInputChange}
@@ -345,7 +392,7 @@ const DashboardAnime = () => {
                     <div>
                       <label className="block text-sm font-medium text-gray-700 mb-1">Episodes*</label>
                       <input
-                        type="number"
+                        type="text"
                         name="episodes"
                         value={formData.episodes}
                         onChange={handleInputChange}
@@ -357,7 +404,7 @@ const DashboardAnime = () => {
                     <div>
                       <label className="block text-sm font-medium text-gray-700 mb-1">Rating*</label>
                       <input
-                        type="number"
+                        type="text"
                         step="0.1"
                         min="0"
                         max="10"

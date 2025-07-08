@@ -5,10 +5,11 @@ const NavigationWrapper = ({ children }) => {
   const location = useLocation();
 
   const navItems = [
-    { path: '/', icon: 'ri-home-4-line', activeIcon: 'ri-home-4-fill', label: 'Home' },
-    { path: '/genre', icon: 'ri-bookmark-line', activeIcon: 'ri-bookmark-fill', label: 'Genre' },
-    { path: '/search', icon: 'ri-search-line', activeIcon: 'ri-search-fill', label: 'Search' },
-    { path: '/status', icon: 'ri-time-line', activeIcon: 'ri-time-fill', label: 'Status' },
+    { path: '/anime', icon: 'ri-home-4-line', activeIcon: 'ri-home-4-fill', label: 'Home' },
+    { path: '/anime/genre', icon: 'ri-bookmark-line', activeIcon: 'ri-bookmark-fill', label: 'Genre' },
+    { path: '/anime/search', icon: 'ri-search-line', activeIcon: 'ri-search-fill', label: 'Search' },
+    { path: '/anime/status', icon: 'ri-time-line', activeIcon: 'ri-time-fill', label: 'Status' },
+    { path: '/anime/more', icon: 'ri-time-line', activeIcon: 'ri-time-fill', label: 'More' },
   ];
 
   return (

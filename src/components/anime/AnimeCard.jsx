@@ -9,15 +9,22 @@ const AnimeCard = ({ anime }) => {
       : 'bg-amber-100 text-amber-800';
   };
 
-  const getStatusText = (status) => {
-    return status === 'completed' ? 'Completed' : 'Watching';
+  const getStatusText = (status, lastEp) => {
+    return status === 'completed'
+      ? 'selesai ditonton hhe'
+      : `terakhir nonton episode ${lastEp}`;
   };
 
   return (
     <Link to={`/anime/${anime.id}`} className="block transition-transform hover:scale-[1.01]">
       <div className="bg-white min-h-[100px] rounded-[7px] shadow-sm hover:shadow-md border border-gray-100 overflow-hidden transition-all duration-200">
         <div className="flex h-full">
+          {/* Thumbnail */}
           <div className="w-[30%] relative bg-gray-100 overflow-hidden">
+            {/* Rating badge */}
+            <div className="absolute top-1 left-1 bg-black/70 text-white text-[10px] px-1 py-[1px] rounded-[3px] z-10 flex items-center">
+              ⭐{anime.rating}
+            </div>
             <img
               src={anime.thumbnail}
               alt={anime.title}
@@ -28,12 +35,15 @@ const AnimeCard = ({ anime }) => {
               }}
             />
           </div>
-          <div className="w-[70%] p-4 flex flex-col justify-between">
+
+
+          {/* Info */}
+          <div className="w-[70%] py-3 px-4 flex flex-col justify-between">
             <div>
-              <h3 className="font-bold text-[17px] md:text-xl mb-2 text-gray-900 line-clamp-1">
+              <h3 className="font-bold text-[18px] md:text-xl mb-1 text-gray-900 line-clamp-1">
                 {anime.title}
               </h3>
-              <div className="space-y-1.5 text-sm text-gray-600">
+              <div className="space-y-1 text-[13px] text-gray-600">
                 <p className="flex items-center">
                   <i className="ri-bookmark-line mr-2 text-gray-400"></i>
                   {anime.genres?.slice(0, 3).join(', ')}
@@ -48,15 +58,12 @@ const AnimeCard = ({ anime }) => {
                 </p>
               </div>
             </div>
-            <div className="flex items-center justify-between mt-3">
+
+            {/* Status */}
+            <div className="flex items-center justify-between mt-2">
               <span className={`px-3 py-1 rounded-full text-xs font-medium ${getStatusColor(anime.status)}`}>
-                {getStatusText(anime.status)}
+                {getStatusText(anime.status, anime.lastWatchedEpisode)}
               </span>
-              {anime.status === 'watching' && (
-                <span className="text-sm text-blue-600 font-medium">
-                  Episode {anime.lastWatchedEpisode}
-                </span>
-              )}
             </div>
           </div>
         </div>

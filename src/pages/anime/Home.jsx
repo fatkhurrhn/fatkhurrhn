@@ -15,7 +15,8 @@ const Home = () => {
   useEffect(() => {
     const fetchAnimes = async () => {
       try {
-        const q = query(collection(db, 'animes'), orderBy('title'));
+        // Sort by createdAt DESC so newest is first
+        const q = query(collection(db, 'animes'), orderBy('createdAt', 'desc'));
         const querySnapshot = await getDocs(q);
         const animesData = querySnapshot.docs.map(doc => ({
           id: doc.id,

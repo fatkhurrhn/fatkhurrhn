@@ -6,7 +6,7 @@ import { db } from '../../firebase';
 
 const genres = [
   "Action", "Adventure", "Comedy", "Drama", "Fantasy", "Horror",
-  "Romance", "Sci-Fi", "Supernatural", "Thriller", "School",
+  "Romance", "Seinen", "Sci-Fi", "Supernatural", "Thriller", "School",
   "Martial Arts", "Magic", "Historical", "Psychology", "Military"
 ];
 
