@@ -357,7 +357,7 @@ const DashboardAnime = () => {
         {/* Add/Edit Modal */}
         {showModal && (
           <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
-            <div className="bg-white rounded-lg shadow-lg w-full max-w-4xl max-h-[90vh] overflow-y-auto">
+            <div className="bg-white rounded-lg shadow-lg w-full max-w-3xl max-h-[90vh] overflow-y-auto">
               <div className="p-6">
                 <div className="flex justify-between items-center mb-4">
                   <h2 className="text-xl font-semibold text-gray-800">
@@ -458,7 +458,7 @@ const DashboardAnime = () => {
                     <div className="mb-4">
                       <label className="block text-sm font-medium text-gray-700 mb-1">Last Watched Episode</label>
                       <input
-                        type="number"
+                        type="text"
                         name="lastWatchedEpisode"
                         value={formData.lastWatchedEpisode}
                         onChange={handleInputChange}
@@ -527,7 +527,7 @@ const DashboardAnime = () => {
                       <div>
                         <label className="block text-sm font-medium text-gray-700 mb-1">Episode Number</label>
                         <input
-                          type="number"
+                          type="text"
                           name="number"
                           value={currentEpisode.number}
                           onChange={handleEpisodeInputChange}
