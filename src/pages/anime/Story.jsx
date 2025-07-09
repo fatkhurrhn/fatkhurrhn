@@ -25,13 +25,6 @@ export default function Story() {
     { id: 'haruto', name: 'Haruto' }
   ];
 
-  const categories = [
-    { id: 'all', name: 'All Categories' },
-    { id: 'anime', name: 'Anime' },
-    { id: 'donghua', name: 'Donghua' },
-    { id: 'manhwa', name: 'Manhwa' }
-  ];
-
   // Format tanggal
   const formatDate = (timestamp) => {
     if (!timestamp) return '';
@@ -121,8 +114,7 @@ export default function Story() {
     <div className="bg-gray-50 min-h-screen text-gray-800">
       <Nav />
       <div className="container mx-auto px-4 max-w-4xl pb-20">
-        <h1 className="text-3xl font-bold text-center py-8">Anime Stories</h1>
-        
+        <h1 className="text-3xl font-bold text-center py-2 pt-3">Anime Stories</h1>
         {/* Filter Section */}
         <div className="bg-white rounded-lg shadow p-4 mb-6">
           <div className="flex flex-wrap gap-4 mb-4">
@@ -154,20 +146,6 @@ export default function Story() {
                   </button>
                 ))}
               </div>
-            </div>
-            
-            {/* Filter Kategori */}
-            <div className="flex-1 min-w-[200px]">
-              <label className="block text-sm font-medium mb-1">Category</label>
-              <select
-                value={selectedCategory}
-                onChange={(e) => setSelectedCategory(e.target.value)}
-                className="w-full p-2 border rounded focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition bg-white text-gray-800"
-              >
-                {categories.map((cat) => (
-                  <option key={cat.id} value={cat.id}>{cat.name}</option>
-                ))}
-              </select>
             </div>
             
             {/* Sort Order */}
@@ -225,26 +203,19 @@ export default function Story() {
               <div key={story.id} className="bg-white rounded-lg shadow overflow-hidden transition hover:shadow-md">
                 {/* Story Header */}
                 <div className="p-4 border-b">
-                  <h2 className="text-xl font-semibold">{story.title}</h2>
-                  <div className="flex flex-wrap items-center gap-4 text-sm text-gray-600 mt-1">
-                    <span className="flex items-center">
-                      <i className="ri-user-3-line mr-1"></i> 
-                      {formatCharacters(story.characters)}
-                    </span>
+                  <div className="flex flex-wrap items-center gap-4 text-sm text-gray-600 mt-0">
                     <span className="flex items-center">
                       <i className="ri-film-line mr-1"></i> 
                       <span className="capitalize">{story.category}</span>
                     </span>
                     <span className="flex items-center">
+                      <i className="ri-user-3-line mr-1"></i> 
+                      {formatCharacters(story.characters)}
+                    </span>
+                    <span className="flex items-center">
                       <i className="ri-calendar-line mr-1"></i> 
                       {formatDate(story.uploadDate)}
                     </span>
-                    {story.updatedAt && (
-                      <span className="flex items-center text-xs text-gray-500">
-                        <i className="ri-refresh-line mr-1"></i> 
-                        Updated: {formatDate(story.updatedAt)}
-                      </span>
-                    )}
                   </div>
                 </div>
                 
