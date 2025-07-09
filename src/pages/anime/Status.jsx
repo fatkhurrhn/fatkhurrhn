@@ -79,7 +79,7 @@ const Status = () => {
     <div className="bg-gray-50 min-h-screen text-gray-800">
       <Nav />
       <div className="container mx-auto px-4 max-w-4xl pb-20">
-<div className="mb-3"> 
+        <div className="mb-3">
           <p className="text-gray-600 text-lg">
             Status Menonton
           </p>
@@ -113,20 +113,20 @@ const Status = () => {
             <button
               onClick={() => setActiveTab('completed')}
               className={`flex-1 py-4 px-6 text-center font-medium transition-colors ${activeTab === 'completed'
-                  ? 'text-blue-600 border-b-2 border-blue-600'
-                  : 'text-gray-500 hover:text-gray-700'
+                ? 'text-blue-600 border-b-2 border-blue-600'
+                : 'text-gray-500 hover:text-gray-700'
                 }`}
             >
-{completedCount} Completed
+              {completedCount} Completed
             </button>
             <button
               onClick={() => setActiveTab('watching')}
               className={`flex-1 py-4 px-6 text-center font-medium transition-colors ${activeTab === 'watching'
-                  ? 'text-blue-600 border-b-2 border-blue-600'
-                  : 'text-gray-500 hover:text-gray-700'
+                ? 'text-blue-600 border-b-2 border-blue-600'
+                : 'text-gray-500 hover:text-gray-700'
                 }`}
             >
-            {watchingCount} Watching
+              {watchingCount} Watching
             </button>
           </div>
         </div>

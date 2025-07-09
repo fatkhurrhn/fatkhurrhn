@@ -23,7 +23,7 @@ export const animeData = [
       { number: 9, title: "The Demonized Soldiers", videoUrl: "https://archive.org/download/kenja-no-mago-eps9/kenja-no-mago-eps9.mp4" },
       { number: 10, title: "The Demonized Soldiers", videoUrl: "https://archive.org/download/kenja-no-mago-eps10/kenja-no-mago-eps10.mp4" },
       { number: 11, title: "The Demonized Soldiers", videoUrl: "https://archive.org/download/kenja-no-mago-eps11/kenja-no-mago-eps11.mp4" },
-      { number: 12, title: "The Demonized Soldiers", videoUrl: "https://archive.org/download/kenja-no-mago-eps12/kenja-no-mago-eps12.mp4" }
+      { number: 12, title: "The Demonized Soldiers", videoUrl: "https://archive.org/download/yuki-kuze-alya/yuki-kuze-alya.mp4" }
     ]
   },
   {

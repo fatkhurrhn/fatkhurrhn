@@ -16,11 +16,12 @@ import AdminCertificate from './pages/admin/Certificate';
 import HomeAnime from './pages/anime/Home';
 import AnimeDetail from './pages/anime/AnimeDetail';
 import EpisodePlayer from './pages/anime/EpisodePlayer';
-import Search from './pages/anime/Search';
+import Story from './pages/anime/Story';
 import Genre from './pages/anime/Genre';
 import Status from './pages/anime/Status';
 import More from './pages/anime/More';
 import DashboardAnime from './pages/admin/DashboardAnime';
+import DashboardStoryAnime from './pages/admin/DashboardStoryAnime';
 
 
 function App() {
@@ -41,12 +42,13 @@ function App() {
         <Route path="/admin/projects" element={<AdminProject />} />
         <Route path="/admin/certificates" element={<AdminCertificate />} />
         <Route path="/admin/dashboard-animes" element={<DashboardAnime />} />
+        <Route path="/admin/dashboard-animes-story" element={<DashboardStoryAnime />} />
 
         {/* Route Anime */}
         <Route path="/anime" element={<HomeAnime />} />
         <Route path="/anime/:id" element={<AnimeDetail />} />
         <Route path="/anime/:id/episode/:episodeNumber" element={<EpisodePlayer />} />
-        <Route path="/anime/search" element={<Search />} />
+        <Route path="/anime/story" element={<Story />} />
         <Route path="/anime/genre" element={<Genre />} />
         <Route path="/genre/:genreName" element={<Genre />} />
         <Route path="/anime/status" element={<Status />} />
