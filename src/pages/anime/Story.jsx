@@ -38,7 +38,7 @@ export default function Story() {
 
   // Format karakter
   const formatCharacters = (characterIds) => {
-    return characterIds.map(id => 
+    return characterIds.map(id =>
       allCharacters.find(c => c.id === id)?.name || id
     ).join(', ');
   };
@@ -63,7 +63,7 @@ export default function Story() {
 
         // Filter karakter di client side
         if (!selectedCharacters.includes('all')) {
-          storiesData = storiesData.filter(story => 
+          storiesData = storiesData.filter(story =>
             story.characters.some(char => selectedCharacters.includes(char))
           );
         }
@@ -84,30 +84,14 @@ export default function Story() {
     if (characterId === 'all') {
       setSelectedCharacters(['all']);
     } else {
-      const newSelected = selectedCharacters.includes('all') 
+      const newSelected = selectedCharacters.includes('all')
         ? [characterId]
         : selectedCharacters.includes(characterId)
           ? selectedCharacters.filter(id => id !== characterId)
           : [...selectedCharacters, characterId];
-      
+
       setSelectedCharacters(newSelected.length === 0 ? ['all'] : newSelected);
     }
-  };
-
-  // Konfigurasi Plyr
-  const plyrOptions = {
-    controls: [
-      'play-large',
-      'play',
-      'progress',
-      'current-time',
-      'mute',
-      'volume',
-      'settings',
-      'fullscreen'
-    ],
-    settings: ['quality', 'speed'],
-    ratio: '16:9'
   };
 
   return (
@@ -124,11 +108,10 @@ export default function Story() {
               <div className="flex flex-wrap gap-2">
                 <button
                   onClick={() => setSelectedCharacters(['all'])}
-                  className={`px-3 py-1 text-sm rounded-full border flex items-center ${
-                    selectedCharacters.includes('all') 
-                      ? 'bg-blue-100 border-blue-500 text-blue-700' 
-                      : 'bg-white hover:bg-gray-50'
-                  }`}
+                  className={`px-3 py-1 text-sm rounded-full border flex items-center ${selectedCharacters.includes('all')
+                    ? 'bg-blue-100 border-blue-500 text-blue-700'
+                    : 'bg-white hover:bg-gray-50'
+                    }`}
                 >
                   All Characters
                 </button>
@@ -136,39 +119,36 @@ export default function Story() {
                   <button
                     key={char.id}
                     onClick={() => toggleCharacter(char.id)}
-                    className={`px-3 py-1 text-sm rounded-full border flex items-center ${
-                      selectedCharacters.includes(char.id) 
-                        ? 'bg-blue-100 border-blue-500 text-blue-700' 
-                        : 'bg-white hover:bg-gray-50'
-                    }`}
+                    className={`px-3 py-1 text-sm rounded-full border flex items-center ${selectedCharacters.includes(char.id)
+                      ? 'bg-blue-100 border-blue-500 text-blue-700'
+                      : 'bg-white hover:bg-gray-50'
+                      }`}
                   >
                     {char.name}
                   </button>
                 ))}
               </div>
             </div>
-            
+
             {/* Sort Order */}
             <div className="flex-1 min-w-[200px]">
               <label className="block text-sm font-medium mb-1">Sort Order</label>
               <div className="flex items-center gap-2">
                 <button
                   onClick={() => setSortOrder('desc')}
-                  className={`p-2 border rounded flex items-center gap-1 ${
-                    sortOrder === 'desc' 
-                      ? 'bg-blue-100 border-blue-500 text-blue-700' 
-                      : 'bg-white hover:bg-gray-50'
-                  }`}
+                  className={`p-2 border rounded flex items-center gap-1 ${sortOrder === 'desc'
+                    ? 'bg-blue-100 border-blue-500 text-blue-700'
+                    : 'bg-white hover:bg-gray-50'
+                    }`}
                 >
                   <i className="ri-sort-desc"></i> Newest
                 </button>
                 <button
                   onClick={() => setSortOrder('asc')}
-                  className={`p-2 border rounded flex items-center gap-1 ${
-                    sortOrder === 'asc' 
-                      ? 'bg-blue-100 border-blue-500 text-blue-700' 
-                      : 'bg-white hover:bg-gray-50'
-                  }`}
+                  className={`p-2 border rounded flex items-center gap-1 ${sortOrder === 'asc'
+                    ? 'bg-blue-100 border-blue-500 text-blue-700'
+                    : 'bg-white hover:bg-gray-50'
+                    }`}
                 >
                   <i className="ri-sort-asc"></i> Oldest
                 </button>
@@ -176,7 +156,7 @@ export default function Story() {
             </div>
           </div>
         </div>
-        
+
         {/* Stories List */}
         {loading ? (
           <div className="text-center py-8">
@@ -187,7 +167,7 @@ export default function Story() {
           <div className="text-center py-8 bg-white rounded-lg shadow">
             <i className="ri-emotion-sad-line text-2xl text-gray-400"></i>
             <p className="mt-2 text-gray-600">No stories found with the selected filters.</p>
-            <button 
+            <button
               onClick={() => {
                 setSelectedCharacters(['all']);
                 setSelectedCategory('all');
@@ -198,45 +178,26 @@ export default function Story() {
             </button>
           </div>
         ) : (
-          <div className="space-y-6">
+          <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-4">
             {stories.map((story) => (
-              <div key={story.id} className="bg-white rounded-lg shadow overflow-hidden transition hover:shadow-md">
-                {/* Story Header */}
-                <div className="p-4 border-b">
-                  <div className="flex flex-wrap items-center gap-4 text-sm text-gray-600 mt-0">
-                    <span className="flex items-center">
-                      <i className="ri-film-line mr-1"></i> 
-                      <span className="capitalize">{story.category}</span>
-                    </span>
-                    <span className="flex items-center">
-                      <i className="ri-user-3-line mr-1"></i> 
-                      {formatCharacters(story.characters)}
-                    </span>
-                    <span className="flex items-center">
-                      <i className="ri-calendar-line mr-1"></i> 
-                      {formatDate(story.uploadDate)}
-                    </span>
-                  </div>
+              <div key={story.id} className="relative">
+                {/* Upload Date Overlay */}
+                <div className="absolute top-1 left-1 bg-white/80 text-[10px] text-gray-800 px-1 py-0 rounded-[3px] shadow z-10">
+                  <i className="ri-calendar-line mr-1"></i>
+                  {formatDate(story.uploadDate)}
                 </div>
-                
-                {/* Video Player dengan Plyr */}
-                <div className="w-full bg-black p-2">
-                  <div className="plyr-container max-w-full mx-auto">
-                    <Plyr
-                      source={{
-                        type: 'video',
-                        sources: [{
-                          src: story.videoUrl,
-                          type: 'video/mp4'
-                        }]
-                      }}
-                      options={plyrOptions}
-                    />
-                  </div>
-                </div>
+
+                {/* Native Video */}
+                <video
+                  controls
+                  src={story.videoUrl}
+                  className="w-full h-auto block"
+                />
               </div>
             ))}
           </div>
+
+
         )}
       </div>
     </div>
