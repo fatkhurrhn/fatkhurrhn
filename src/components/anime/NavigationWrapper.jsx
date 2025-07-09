@@ -7,7 +7,7 @@ const NavigationWrapper = ({ children }) => {
   const navItems = [
     { path: '/anime', icon: 'ri-home-4-line', activeIcon: 'ri-home-4-fill', label: 'Home' },
     { path: '/anime/genre', icon: 'ri-bookmark-line', activeIcon: 'ri-bookmark-fill', label: 'Genre' },
-    { path: '/anime/story', icon: 'ri-search-line', activeIcon: 'ri-search-fill', label: 'Story' },
+    { path: '/anime/story', icon: 'ri-search-line', activeIcon: 'ri-search-eye-fill', label: 'Story' },
     { path: '/anime/status', icon: 'ri-time-line', activeIcon: 'ri-time-fill', label: 'Status' },
     { path: '/anime/more', icon: 'ri-apps-line', activeIcon: 'ri-apps-fill', label: 'More' },
   ];

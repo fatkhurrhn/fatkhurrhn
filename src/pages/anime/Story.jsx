@@ -3,6 +3,7 @@ import { collection, query, orderBy, where, getDocs } from 'firebase/firestore';
 import { db } from '../../firebase';
 import Plyr from 'plyr-react';
 import 'plyr-react/plyr.css';
+import Nav from '../../components/anime/NavigationWrapper.jsx';
 
 export default function Story() {
   const [stories, setStories] = useState([]);
@@ -118,6 +119,7 @@ export default function Story() {
 
   return (
     <div className="bg-gray-50 min-h-screen text-gray-800">
+      <Nav />
       <div className="container mx-auto px-4 max-w-4xl pb-20">
         <h1 className="text-3xl font-bold text-center py-8">Anime Stories</h1>
         
