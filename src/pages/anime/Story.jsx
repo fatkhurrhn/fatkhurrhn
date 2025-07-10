@@ -277,7 +277,7 @@ export default function Story() {
           </div>
         )}
 
-        {/* Reels Modal */}
+        {/* Reels Modal - Improved for mobile */}
         {selectedStoryIndex !== null && (
           <div className="fixed inset-0 bg-black z-50">
             {/* Reels Container */}
@@ -292,16 +292,16 @@ export default function Story() {
                   className="h-screen w-full snap-start relative reel-video-container"
                   onClick={() => togglePlayPause(index)}
                 >
-                  {/* Video with safe area */}
-                  <div className="absolute inset-0 flex items-center justify-center">
+                  {/* Video with safe area calculation */}
+                  <div className="absolute inset-0 flex items-center justify-center pt-12 pb-24">
                     <video
                       ref={el => videoRefs.current[index] = el}
                       src={story.videoUrl}
                       className={`
-                max-h-[calc(100vh-120px)] 
-                ${story.aspectRatio === '1:1' ? 'aspect-square max-w-[80vw]' : 'aspect-video max-w-full'}
-                object-contain
-              `}
+                        h-full
+                        ${story.aspectRatio === '1:1' ? 'aspect-square max-w-[80vw]' : 'aspect-video w-full'}
+                        object-contain
+                      `}
                       autoPlay={selectedStoryIndex === index}
                       playsInline
                       loop
@@ -309,7 +309,7 @@ export default function Story() {
                     />
                   </div>
 
-                  {/* Header Overlay */}
+                  {/* Header Overlay - Fixed position */}
                   <div className="absolute top-0 left-0 right-0 p-4 bg-gradient-to-b from-black/70 to-transparent text-white z-10">
                     <div className="flex items-center justify-between">
                       <button
@@ -327,13 +327,13 @@ export default function Story() {
                   {pausedVideo === index && (
                     <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
                       <div className="w-16 h-16 bg-black/50 rounded-full flex items-center justify-center">
-                        <i className="ri-pause-fill text-white text-3xl"></i>
+                        <i className="ri-play-fill text-white text-3xl"></i>
                       </div>
                     </div>
                   )}
 
-                  {/* Video Info - Fixed position at bottom with safe area */}
-                  <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/70 to-transparent text-white pb-[calc(env(safe-area-inset-bottom)+16px)]">
+                  {/* Video Info - Fixed position with safe area */}
+                  <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/70 to-transparent text-white z-10">
                     <h3 className="font-bold text-lg">{story.title}</h3>
                     <div className="flex flex-wrap gap-2 mt-2 text-sm">
                       <span className="bg-white/20 px-2 py-1 rounded-full">
