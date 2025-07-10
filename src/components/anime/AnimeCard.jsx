@@ -6,14 +6,18 @@ const AnimeCard = ({ anime }) => {
   const getStatusColor = (status) => {
     return status === 'completed'
       ? 'bg-green-100 text-green-800'
-      : 'bg-amber-100 text-amber-800';
+      : status === 'watching'
+      ? 'bg-blue-100 text-blue-800'
+      : 'bg-purple-100 text-purple-800';
   };
 
   const getStatusText = (status, lastEp) => {
-    return status === 'completed'
-      ? 'selesai ditonton hhe'
-      : `terakhir nonton episode ${lastEp}`;
-  };
+  return status === 'completed'
+? `completed ${anime.episodes} eps`
+    : status === 'watching'
+    ? `watching - episode ${lastEp}`
+    : 'Planned for Tomorrow';
+};
 
   return (
     <Link to={`/anime/${anime.id}`} className="block transition-transform hover:scale-[1.01]">
@@ -35,7 +39,6 @@ const AnimeCard = ({ anime }) => {
               }}
             />
           </div>
-
 
           {/* Info */}
           <div className="w-[70%] py-3 px-4 flex flex-col justify-between">

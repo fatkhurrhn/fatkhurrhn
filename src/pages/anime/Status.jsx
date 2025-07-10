@@ -9,6 +9,7 @@ const Status = () => {
   const [filteredAnime, setFilteredAnime] = useState([]);
   const [completedCount, setCompletedCount] = useState(0);
   const [watchingCount, setWatchingCount] = useState(0);
+  const [planningCount, setPlanningCount] = useState(0);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -29,6 +30,14 @@ const Status = () => {
         );
         const watchingSnapshot = await getDocs(watchingQuery);
         setWatchingCount(watchingSnapshot.size);
+
+        // Fetch planning count
+        const planningQuery = query(
+          collection(db, 'animes'),
+          where('status', '==', 'planning')
+        );
+        const planningSnapshot = await getDocs(planningQuery);
+        setPlanningCount(planningSnapshot.size);
 
         // Fetch initial data based on active tab
         const initialQuery = query(
@@ -85,7 +94,7 @@ const Status = () => {
           </p>
         </div>
         {/* Statistics */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-6">
           <div className="bg-green-50 border border-green-200 rounded-lg p-4">
             <div className="flex items-center">
               <i className="ri-checkbox-circle-line text-2xl text-green-600 mr-3"></i>
@@ -96,12 +105,22 @@ const Status = () => {
             </div>
           </div>
 
-          <div className="bg-orange-50 border border-orange-200 rounded-lg p-4">
+          <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
             <div className="flex items-center">
-              <i className="ri-time-line text-2xl text-orange-600 mr-3"></i>
+              <i className="ri-time-line text-2xl text-blue-600 mr-3"></i>
               <div>
-                <h3 className="font-semibold text-orange-800">Sedang Ditonton</h3>
-                <p className="text-orange-600">{watchingCount} anime</p>
+                <h3 className="font-semibold text-blue-800">Sedang Ditonton</h3>
+                <p className="text-blue-600">{watchingCount} anime</p>
+              </div>
+            </div>
+          </div>
+
+          <div className="bg-purple-50 border border-purple-200 rounded-lg p-4">
+            <div className="flex items-center">
+              <i className="ri-calendar-todo-line text-2xl text-purple-600 mr-3"></i>
+              <div>
+                <h3 className="font-semibold text-purple-800">Rencana Nonton</h3>
+                <p className="text-purple-600">{planningCount} anime</p>
               </div>
             </div>
           </div>
@@ -127,6 +146,15 @@ const Status = () => {
                 }`}
             >
               {watchingCount} Watching
+            </button>
+            <button
+              onClick={() => setActiveTab('planning')}
+              className={`flex-1 py-4 px-6 text-center font-medium transition-colors ${activeTab === 'planning'
+                ? 'text-blue-600 border-b-2 border-blue-600'
+                : 'text-gray-500 hover:text-gray-700'
+                }`}
+            >
+              {planningCount} Planned
             </button>
           </div>
         </div>

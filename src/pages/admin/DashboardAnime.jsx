@@ -7,9 +7,11 @@ import { signOut } from "firebase/auth";
 import LogoutConfirmModal from "../../components/LogoutConfirmModal";
 
 const genres = [
-  "Action", "Rencarnation", "Comedy", "Drama", "Fantasy", "Harem",
-  "Romance", "Seinen", "Shounen", "Sci-Fi", "Supernatural", "Mithology", "Thriller", "School", "Slice of Life",
-  "Martial Arts", "Magic", "Historical", "Psychology", "Military"
+  "Action", "Adventure", "Reincarnation", "Comedy", "Drama", "Fantasy", "Harem",
+  "Romance", "Seinen", "Shounen", "Sci-Fi", "Supernatural", "Mythology", "Thriller", "School",
+  "Slice of Life", "Martial Arts", "Magic", "Historical", "Psychology", "Military", "Sports",
+  "Music", "Mecha", "Demons", "Vampire", "Horror", "Game", "Isekai", "Dementia", "Parody",
+  "Police", "Samurai", "Kids", "Josei", "Shoujo", "Yaoi", "Yuri", "Ecchi"
 ];
 
 const DashboardAnime = () => {
@@ -287,7 +289,7 @@ const DashboardAnime = () => {
                         <span className="text-xs text-gray-300">
                           {anime.episodes} eps • {anime.year}
                         </span>
-                        <span className="text-xs bg-yellow-500 text-white px-1.5 py-0.5 rounded">
+                        <span className="text-xs bg-black/70 text-white px-1.5 py-0.5 rounded">
                           ⭐{anime.rating}
                         </span>
                       </div>
@@ -316,11 +318,14 @@ const DashboardAnime = () => {
                     <div className="flex items-center justify-between">
                       <span className={`text-xs px-2 py-1 rounded ${anime.status === 'completed'
                           ? 'bg-green-100 text-green-800'
-                          : 'bg-blue-100 text-blue-800'
+                          : anime.status === 'watching'
+                            ? 'bg-blue-100 text-blue-800'
+                            : 'bg-purple-100 text-purple-800'
                         }`}>
-                        {anime.status === 'completed' ? 'Completed' : 'Watching'}
+                        {anime.status === 'completed' ? 'Completed all eps' : 
+                         anime.status === 'watching' ? 'Watching' : 'Planned for Tomorrow'}
                         {anime.status === 'watching' && anime.lastWatchedEpisode && (
-                          ` (Ep ${anime.lastWatchedEpisode})`
+                          ` - Episode ${anime.lastWatchedEpisode}`
                         )}
                       </span>
 
@@ -449,6 +454,7 @@ const DashboardAnime = () => {
                     >
                       <option value="completed">Completed</option>
                       <option value="watching">Watching</option>
+                      <option value="planning">Planning</option>
                     </select>
                   </div>
 

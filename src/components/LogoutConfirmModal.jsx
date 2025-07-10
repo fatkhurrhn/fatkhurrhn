@@ -1,11 +1,10 @@
-
 export default function LogoutConfirmModal({ isOpen, onClose, onConfirm }) {
   if (!isOpen) return null;
 
   return (
     <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
       <div className="bg-white rounded-lg p-6 max-w-sm w-full">
-        <h3 className="text-lg font-medium mb-4">Konfirmasi Logout</h3>
+        <h3 className="text-lg text-gray-800 font-medium mb-4">Konfirmasi Logout</h3>
         <p className="text-gray-600 mb-6">Apakah Anda yakin ingin keluar dari admin panel?</p>
         
         <div className="flex justify-end gap-3">
