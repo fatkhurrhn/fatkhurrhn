@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { collection, query, orderBy, where, addDoc, updateDoc, doc, deleteDoc, getDocs, serverTimestamp } from 'firebase/firestore';
 import { db } from '../../firebase';
 import Modal from 'react-modal';
+import { Link } from 'react-router-dom';
 
 // Set app element for accessibility
 Modal.setAppElement('#root');
@@ -10,6 +11,8 @@ export default function DashboardStoryAnime() {
   const [stories, setStories] = useState([]);
   const [loading, setLoading] = useState(true);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isVideoModalOpen, setIsVideoModalOpen] = useState(false);
+  const [currentVideoUrl, setCurrentVideoUrl] = useState('');
   const [formData, setFormData] = useState({
     title: '',
     characters: [],
@@ -48,7 +51,6 @@ export default function DashboardStoryAnime() {
         setLoading(true);
         let q = query(collection(db, 'anime-story'), orderBy('uploadDate', 'desc'));
 
-        // Jika ada search term
         if (searchTerm) {
           q = query(q, where('title', '>=', searchTerm), where('title', '<=', searchTerm + '\uf8ff'));
         }
@@ -99,10 +101,22 @@ export default function DashboardStoryAnime() {
     resetForm();
   };
 
+  // Buka modal video
+  const openVideoModal = (videoUrl) => {
+    setCurrentVideoUrl(videoUrl);
+    setIsVideoModalOpen(true);
+  };
+
+  // Tutup modal video
+  const closeVideoModal = () => {
+    setIsVideoModalOpen(false);
+    setCurrentVideoUrl('');
+  };
+
   // Handle submit form
   const handleSubmit = async (e) => {
     e.preventDefault();
-    
+
     try {
       setLoading(true);
       const storyData = {
@@ -116,18 +130,15 @@ export default function DashboardStoryAnime() {
       };
 
       if (editId) {
-        // Update existing story
         await updateDoc(doc(db, 'anime-story', editId), {
           ...storyData,
-          createdAt: formData.createdAt, // Pertahankan createdAt asli
+          createdAt: formData.createdAt,
           updatedAt: serverTimestamp()
         });
       } else {
-        // Add new story
         await addDoc(collection(db, 'anime-story'), storyData);
       }
 
-      // Refresh list
       const q = query(collection(db, 'anime-story'), orderBy('uploadDate', 'desc'));
       const querySnapshot = await getDocs(q);
       const storiesData = [];
@@ -135,7 +146,7 @@ export default function DashboardStoryAnime() {
         storiesData.push({ id: doc.id, ...doc.data() });
       });
       setStories(storiesData);
-      
+
       closeModal();
       setLoading(false);
     } catch (error) {
@@ -192,26 +203,26 @@ export default function DashboardStoryAnime() {
     return date.toLocaleDateString('id-ID', {
       day: 'numeric',
       month: 'short',
-      year: 'numeric',
-      hour: '2-digit',
-      minute: '2-digit'
+      year: 'numeric'
     });
   };
 
   // Format karakter
   const formatCharacters = (characterIds) => {
-    return characterIds.map(id => 
+    return characterIds.map(id =>
       allCharacters.find(c => c.id === id)?.name || id
     ).join(', ');
   };
 
   return (
     <div className="bg-gray-50 min-h-screen text-gray-800">
-      <div className="container mx-auto px-4 max-w-6xl py-8">
-        <h1 className="text-3xl font-bold mb-6 flex items-center gap-2">
-          <i className="ri-dashboard-line"></i> Manage Anime Stories
+      <div className="container mx-auto px-4 max-w-4xl py-8">
+        <Link to="/admin">
+          <h1 className="text-3xl font-bold mb-6 flex items-center gap-2">
+          <i class="ri-arrow-left-line"></i> Kembali
         </h1>
-        
+        </Link>
+
         {/* Search and Add Button */}
         <div className="flex flex-col md:flex-row justify-between gap-4 mb-6">
           <div className="relative flex-1">
@@ -228,19 +239,26 @@ export default function DashboardStoryAnime() {
             onClick={openModal}
             className="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 flex items-center gap-1"
           >
-            <i className="ri-add-line"></i> Add New Story
+            <i className="ri-add-line"></i> Add New Reels
           </button>
         </div>
-        
-        {/* Stories List */}
-        <div className="bg-white rounded-lg shadow overflow-hidden">
+
+        {/* Stories List - Card Layout */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
           {loading ? (
-            <div className="text-center py-8">
-              <i className="ri-loader-4-line animate-spin text-2xl text-blue-500"></i>
-              <p className="mt-2 text-gray-600">Loading stories...</p>
-            </div>
+            Array.from({ length: 6 }).map((_, index) => (
+              <div key={index} className="bg-white rounded-lg shadow p-4 animate-pulse">
+                <div className="h-6 bg-gray-200 rounded w-3/4 mb-3"></div>
+                <div className="h-4 bg-gray-200 rounded w-full mb-2"></div>
+                <div className="h-4 bg-gray-200 rounded w-5/6 mb-4"></div>
+                <div className="flex justify-between">
+                  <div className="h-8 bg-gray-200 rounded w-16"></div>
+                  <div className="h-8 bg-gray-200 rounded w-16"></div>
+                </div>
+              </div>
+            ))
           ) : stories.length === 0 ? (
-            <div className="text-center py-8">
+            <div className="col-span-full text-center py-8 bg-white rounded-lg shadow">
               <i className="ri-emotion-sad-line text-2xl text-gray-400"></i>
               <p className="mt-2 text-gray-600">
                 {searchTerm ? 'No stories found matching your search.' : 'No stories found.'}
@@ -255,85 +273,61 @@ export default function DashboardStoryAnime() {
               )}
             </div>
           ) : (
-            <div className="divide-y">
-              {stories.map((story) => (
-                <div key={story.id} className="p-4 hover:bg-gray-50 transition">
-                  <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4">
-                    {/* Story Info */}
-                    <div className="flex-1">
-                      <h3 className="font-medium">{story.title}</h3>
-                      <div className="flex flex-wrap items-center gap-4 text-sm text-gray-600 mt-1">
-                        <span className="flex items-center">
-                          <i className="ri-user-3-line mr-1"></i> 
-                          {formatCharacters(story.characters || [])}
-                        </span>
-                        <span className="flex items-center">
-                          <i className="ri-film-line mr-1"></i> 
-                          <span className="capitalize">{story.category}</span>
-                        </span>
-                        <span className="flex items-center">
-                          <i className="ri-calendar-line mr-1"></i> 
-                          {formatDate(story.uploadDate)}
-                        </span>
-                      </div>
-                      <div className="mt-2 text-xs text-gray-500">
-                        {story.createdAt && (
-                          <span className="flex items-center">
-                            <i className="ri-time-line mr-1"></i> 
-                            Created: {formatDate(story.createdAt)}
-                          </span>
-                        )}
-                        {story.updatedAt && story.updatedAt !== story.createdAt && (
-                          <span className="flex items-center mt-1">
-                            <i className="ri-refresh-line mr-1"></i> 
-                            Updated: {formatDate(story.updatedAt)}
-                          </span>
-                        )}
-                      </div>
-                    </div>
-                    
-                    {/* Action Buttons */}
+            stories.map((story) => (
+              <div key={story.id} className="bg-white rounded-lg shadow overflow-hidden hover:shadow-md transition">
+                <div className="p-4">
+                  <h3 className="font-medium text-lg mb-1 line-clamp-2">{story.title}</h3>
+
+                  <div className="flex items-center gap-2 text-sm text-gray-600 mb-1">
+                    UploadDate:
+                    <span className="text-sm">
+                      {formatDate(story.uploadDate)}
+                    </span>
+                  </div>
+
+                  <div className="mb-2">
+                    <p className="text-sm text-gray-700 line-clamp-2">
+                      <span className="font-medium">Characters:</span> {formatCharacters(story.characters || [])}
+                    </p>
+                  </div>
+
+                  <div className="flex justify-between items-center">
+                    <button
+                      onClick={() => openVideoModal(story.videoUrl)}
+                      className="text-blue-600 hover:text-blue-800 flex items-center gap-1 text-sm"
+                    >
+                      <i className="ri-play-circle-line"></i> Play Video
+                    </button>
+
                     <div className="flex gap-2">
                       <button
                         onClick={() => handleEdit(story)}
-                        className="p-2 text-blue-600 hover:bg-blue-50 rounded flex items-center gap-1"
+                        className="text-gray-600 hover:text-blue-600"
                         title="Edit"
                       >
                         <i className="ri-edit-line"></i>
-                        <span className="md:hidden">Edit</span>
                       </button>
                       <button
                         onClick={() => handleDelete(story.id)}
-                        className="p-2 text-red-600 hover:bg-red-50 rounded flex items-center gap-1"
+                        className="text-gray-600 hover:text-red-600"
                         title="Delete"
                       >
                         <i className="ri-delete-bin-line"></i>
-                        <span className="md:hidden">Delete</span>
                       </button>
-                      <a 
-                        href={story.videoUrl} 
-                        target="_blank" 
-                        rel="noopener noreferrer"
-                        className="p-2 text-green-600 hover:bg-green-50 rounded flex items-center gap-1"
-                        title="View Video"
-                      >
-                        <i className="ri-external-link-line"></i>
-                        <span className="md:hidden">View</span>
-                      </a>
                     </div>
                   </div>
                 </div>
-              ))}
-            </div>
+              </div>
+            ))
           )}
         </div>
 
-        {/* Modal Form */}
+        {/* Form Modal */}
         <Modal
           isOpen={isModalOpen}
           onRequestClose={closeModal}
           contentLabel="Story Form"
-          className="modal-content bg-white rounded-lg shadow-xl p-6 max-w-md w-full mx-auto my-8"
+          className="modal-content bg-white rounded-lg shadow-xl p-6 max-w-2xl w-full mx-auto my-8"
           overlayClassName="modal-overlay fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4"
         >
           <h2 className="text-xl font-semibold mb-4 flex items-center gap-2">
@@ -347,24 +341,74 @@ export default function DashboardStoryAnime() {
               </>
             )}
           </h2>
-          
+
           <form onSubmit={handleSubmit}>
-            {/* Title */}
-            <div className="mb-4">
-              <label className="block text-sm font-medium mb-1 text-gray-800">Title*</label>
-              <input
-                type="text"
-                name="title"
-                value={formData.title}
-                onChange={handleInputChange}
-                className="w-full p-2 border rounded focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition bg-white text-gray-800"
-                required
-                placeholder="Story title"
-              />
+            {/* Top Row: Title - Upload Date - Category */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
+              {/* Title */}
+              <div>
+                <label className="block text-sm font-medium mb-1 text-gray-800">Title*</label>
+                <input
+                  type="text"
+                  name="title"
+                  value={formData.title}
+                  onChange={handleInputChange}
+                  className="w-full p-2 border rounded bg-white text-gray-800 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition"
+                  required
+                  placeholder="Story title"
+                />
+              </div>
+
+              {/* Upload Date */}
+              <div>
+                <label className="block text-sm font-medium mb-1 text-gray-800">Upload Date*</label>
+                <input
+                  type="date"
+                  name="uploadDate"
+                  value={formData.uploadDate}
+                  onChange={handleInputChange}
+                  className="w-full p-2 border rounded bg-white text-gray-800 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition"
+                  required
+                />
+              </div>
+
+              {/* Category */}
+              <div>
+                <label className="block text-sm font-medium mb-1 text-gray-800">Category*</label>
+                <select
+                  name="category"
+                  value={formData.category}
+                  onChange={handleInputChange}
+                  className="w-full p-2 border rounded bg-white text-gray-800 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition"
+                  required
+                >
+                  <option value="">Select Category</option>
+                  {categories.map((cat) => (
+                    <option key={cat.id} value={cat.id}>{cat.name}</option>
+                  ))}
+                </select>
+              </div>
             </div>
-            
+
+            {/* Video URL Row */}
+            <div className="mb-6">
+              <label className="block text-sm font-medium mb-1 text-gray-800">Video URL (.mp4)*</label>
+              <input
+                type="url"
+                name="videoUrl"
+                value={formData.videoUrl}
+                onChange={handleInputChange}
+                className="w-full p-2 border rounded bg-white text-gray-800 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition"
+                required
+                placeholder="https://example.com/video.mp4"
+                pattern="https?://.+\.mp4"
+                title="Please enter a valid .mp4 URL"
+              />
+              <p className="text-xs text-gray-500 mt-1">Must be a direct link to .mp4 file</p>
+            </div>
+
             {/* Characters */}
-            <div className="mb-4">
+            <div className="mb-6">
               <label className="block text-sm font-medium mb-1 text-gray-800">Characters*</label>
               <div className="flex flex-wrap gap-2">
                 {allCharacters.map((char) => (
@@ -372,11 +416,10 @@ export default function DashboardStoryAnime() {
                     key={char.id}
                     type="button"
                     onClick={() => toggleCharacter(char.id)}
-                    className={`px-3 py-1 text-sm rounded-full border flex items-center ${
-                      formData.characters.includes(char.id)
-                        ? 'bg-blue-100 border-blue-500 text-blue-700'
-                        : 'bg-white border-gray-300 text-gray-800 hover:bg-gray-50'
-                    }`}
+                    className={`px-3 py-1 text-sm rounded-full border flex items-center transition ${formData.characters.includes(char.id)
+                      ? 'bg-blue-100 border-blue-500 text-blue-700'
+                      : 'bg-white border-gray-300 text-gray-800 hover:bg-gray-50'
+                      }`}
                   >
                     {char.name}
                   </button>
@@ -386,55 +429,7 @@ export default function DashboardStoryAnime() {
                 <p className="text-xs text-red-500 mt-1">Please select at least one character</p>
               )}
             </div>
-            
-            {/* Category */}
-            <div className="mb-4">
-              <label className="block text-sm font-medium mb-1 text-gray-800">Category*</label>
-              <select
-                name="category"
-                value={formData.category}
-                onChange={handleInputChange}
-                className="w-full p-2 border rounded focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition bg-white text-gray-800"
-                required
-              >
-                <option value="">Select Category</option>
-                {categories.map((cat) => (
-                  <option key={cat.id} value={cat.id}>{cat.name}</option>
-                ))}
-              </select>
-            </div>
-            
-            {/* Upload Date */}
-            <div className="mb-4">
-              <label className="block text-sm font-medium mb-1 text-gray-800">Upload Date*</label>
-              <input
-                type="date"
-                name="uploadDate"
-                value={formData.uploadDate}
-                onChange={handleInputChange}
-                className="w-full p-2 border rounded focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition bg-white text-gray-800"
-                required
-              />
-            </div>
-            
-            {/* Video URL */}
-            <div className="mb-6">
-              <label className="block text-sm font-medium mb-1 text-gray-800">Video URL (.mp4)*</label>
-              <input
-                type="url"
-                name="videoUrl"
-                value={formData.videoUrl}
-                onChange={handleInputChange}
-                className="w-full p-2 border rounded focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition bg-white text-gray-800"
-                required
-                placeholder="https://example.com/video.mp4"
-                pattern="https?://.+\.mp4"
-                title="Please enter a valid .mp4 URL"
-              />
-              <p className="text-xs text-gray-500 mt-1">Must be a direct link to .mp4 file</p>
-            
-            </div>
-            
+
             {/* Form Actions */}
             <div className="flex justify-end gap-2">
               <button
@@ -469,6 +464,31 @@ export default function DashboardStoryAnime() {
               </button>
             </div>
           </form>
+
+        </Modal>
+
+        {/* Video Modal */}
+        <Modal
+          isOpen={isVideoModalOpen}
+          onRequestClose={closeVideoModal}
+          contentLabel="Video Player"
+          className="modal-content bg-black rounded-lg overflow-hidden max-w-4xl w-full mx-auto my-8"
+          overlayClassName="modal-overlay fixed inset-0 bg-black bg-opacity-90 flex items-center justify-center p-4"
+        >
+          <div className="relative pt-[56.25%]"> {/* 16:9 aspect ratio */}
+            <video
+              src={currentVideoUrl}
+              controls
+              autoPlay
+              className="absolute top-0 left-0 w-full h-full"
+            />
+          </div>
+          <button
+            onClick={closeVideoModal}
+            className="absolute top-4 right-4 text-white text-2xl hover:text-gray-300"
+          >
+            <i className="ri-close-line"></i>
+          </button>
         </Modal>
       </div>
     </div>

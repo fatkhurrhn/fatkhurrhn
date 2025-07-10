@@ -212,7 +212,7 @@ export default function Story() {
   return (
     <div className="bg-gray-50 min-h-screen text-gray-800">
       <Nav />
-      <div className="container mx-auto px-4 pb-20">
+      <div className="container max-w-4xl mx-auto px-4 pb-20">
         <h1 className="text-3xl font-bold text-center py-2 pt-3">Anime Stories</h1>
 
         {/* Stories Grid */}

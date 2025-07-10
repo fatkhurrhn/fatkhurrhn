@@ -53,8 +53,8 @@ export default function Dashboard() {
             to="/admin/dashboard-animes-story" 
             className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow"
           >
-            <h2 className="text-xl font-semibold mb-2">Manage Animes Story</h2>
-            <p className="text-gray-600">Add, edit, or delete Animes Story</p>
+            <h2 className="text-xl font-semibold mb-2">Manage Animes Reels</h2>
+            <p className="text-gray-600">Add, edit, or delete Animes Reels</p>
           </Link>
           <Link 
             to="/admin/projects" 
