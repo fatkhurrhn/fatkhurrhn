@@ -289,62 +289,65 @@ export default function Story() {
               {stories.map((story, index) => (
                 <div
                   key={story.id}
-                  className="h-screen w-full snap-start relative reel-video-container flex items-center justify-center"
+                  className="h-screen w-full snap-start relative reel-video-container"
                   onClick={() => togglePlayPause(index)}
                 >
-                  {/* Video Container */}
-                  <div className="relative w-full h-full max-w-md mx-auto flex items-center justify-center">
-                    {/* Video - maintains original aspect ratio */}
+                  {/* Video with safe area */}
+                  <div className="absolute inset-0 flex items-center justify-center">
                     <video
                       ref={el => videoRefs.current[index] = el}
                       src={story.videoUrl}
-                      className={`max-h-full ${story.aspectRatio === '1:1' ? 'max-w-[80%] aspect-square' : 'max-w-full'} object-contain`}
+                      className={`
+                max-h-[calc(100vh-120px)] 
+                ${story.aspectRatio === '1:1' ? 'aspect-square max-w-[80vw]' : 'aspect-video max-w-full'}
+                object-contain
+              `}
                       autoPlay={selectedStoryIndex === index}
                       playsInline
                       loop
                       muted={false}
                     />
+                  </div>
 
-                    {/* Header Overlay */}
-                    <div className="absolute top-0 left-0 right-0 p-4 bg-gradient-to-b from-black/70 to-transparent text-white z-10">
-                      <div className="flex items-center justify-between">
-                        <button
-                          onClick={closeModal}
-                          className="text-2xl"
-                        >
-                          <i className="ri-close-line"></i>
-                        </button>
-                        <h2 className="text-xl font-bold">Anime Reels</h2>
-                        <div className="w-8"></div>
+                  {/* Header Overlay */}
+                  <div className="absolute top-0 left-0 right-0 p-4 bg-gradient-to-b from-black/70 to-transparent text-white z-10">
+                    <div className="flex items-center justify-between">
+                      <button
+                        onClick={closeModal}
+                        className="text-2xl"
+                      >
+                        <i className="ri-close-line"></i>
+                      </button>
+                      <h2 className="text-xl font-bold">Anime Reels</h2>
+                      <div className="w-8"></div>
+                    </div>
+                  </div>
+
+                  {/* Pause indicator */}
+                  {pausedVideo === index && (
+                    <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+                      <div className="w-16 h-16 bg-black/50 rounded-full flex items-center justify-center">
+                        <i className="ri-pause-fill text-white text-3xl"></i>
                       </div>
                     </div>
+                  )}
 
-                    {/* Pause indicator */}
-                    {pausedVideo === index && (
-                      <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-                        <div className="w-16 h-16 bg-black/50 rounded-full flex items-center justify-center">
-                          <i className="ri-play-fill text-white text-3xl"></i>
-                        </div>
-                      </div>
-                    )}
-
-                    {/* Video Info */}
-                    <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/70 to-transparent text-white">
-                      <h3 className="font-bold text-lg">{story.title}</h3>
-                      <div className="flex flex-wrap gap-2 mt-2 text-sm">
-                        <span className="bg-white/20 px-2 py-1 rounded-full">
-                          {story.category}
+                  {/* Video Info - Fixed position at bottom with safe area */}
+                  <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/70 to-transparent text-white pb-[calc(env(safe-area-inset-bottom)+16px)]">
+                    <h3 className="font-bold text-lg">{story.title}</h3>
+                    <div className="flex flex-wrap gap-2 mt-2 text-sm">
+                      <span className="bg-white/20 px-2 py-1 rounded-full">
+                        {story.category}
+                      </span>
+                      {story.characters?.map(char => (
+                        <span key={char} className="bg-white/20 px-2 py-1 rounded-full">
+                          #{char}
                         </span>
-                        {story.characters?.map(char => (
-                          <span key={char} className="bg-white/20 px-2 py-1 rounded-full">
-                            #{char}
-                          </span>
-                        ))}
-                      </div>
-                      <p className="text-xs mt-2 opacity-80">
-                        {formatDate(story.uploadDate)}
-                      </p>
+                      ))}
                     </div>
+                    <p className="text-xs mt-2 opacity-80">
+                      {formatDate(story.uploadDate)}
+                    </p>
                   </div>
                 </div>
               ))}
