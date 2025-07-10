@@ -30,7 +30,9 @@ export default function DashboardStoryAnime() {
     { id: 'elaina', name: 'Elaina' },
     { id: 'wagiru', name: 'Wagiru' },
     { id: 'kuro', name: 'Kuro' },
-    { id: 'haruto', name: 'Haruto' }
+    { id: 'haruto', name: 'Haruto' },
+    { id: 'dennis', name: 'Dennis' },
+    { id: 'artielle', name: 'Artielle' }
   ];
 
   const categories = [
