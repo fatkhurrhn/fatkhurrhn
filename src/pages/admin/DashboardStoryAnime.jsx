@@ -35,13 +35,14 @@ export default function DashboardStoryAnime() {
     { id: 'kuro', name: 'Kuro' },
     { id: 'haruto', name: 'Haruto' },
     { id: 'dennis', name: 'Dennis' },
-    { id: 'artielle', name: 'Artielle' }
+    { id: 'artielle', name: 'Artielle' },
+    { id: 'other', name: 'Other' }
   ];
 
   const categories = [
     { id: 'anime', name: 'Anime' },
     { id: 'donghua', name: 'Donghua' },
-    { id: 'manhwa', name: 'Manhwa' }
+    { id: 'quote', name: 'Quote' }
   ];
 
   // Ambil data dari Firestore
@@ -382,7 +383,6 @@ export default function DashboardStoryAnime() {
                   className="w-full p-2 border rounded bg-white text-gray-800 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition"
                   required
                 >
-                  <option value="">Select Category</option>
                   {categories.map((cat) => (
                     <option key={cat.id} value={cat.id}>{cat.name}</option>
                   ))}

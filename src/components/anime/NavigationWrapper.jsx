@@ -58,7 +58,7 @@ const NavigationWrapper = ({ children }) => {
                   className="nav-item flex flex-col items-center justify-center text-[12px] transition-colors"
                 >
                   <i
-                    className={`${isActive ? item.activeIcon : item.icon} text-[18px] ${
+                    className={`${isActive ? item.activeIcon : item.icon} text-[22px] ${
                       isActive ? 'text-blue-600' : 'text-gray-500'
                     }`}
                   ></i>
