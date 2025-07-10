@@ -258,13 +258,13 @@ const handleDownload = async (videoUrl, title) => {
     <div className="bg-gray-50 min-h-screen text-gray-800">
       <Nav />
       <div className="container max-w-4xl mx-auto px-4 pb-20">
-        <h1 className="text-3xl font-bold text-center py-2 pt-3">Anime Stories</h1>
+        <h1 className="text-3xl font-bold text-center py-2 pt-3">Anime Reels</h1>
 
         {/* Stories Grid */}
         {loading ? (
           <div className="text-center py-8">
             <i className="ri-loader-4-line animate-spin text-2xl text-blue-500"></i>
-            <p className="mt-2 text-gray-600">Loading stories...</p>
+            <p className="mt-2 text-gray-600">Loading reels...</p>
           </div>
         ) : stories.length === 0 ? (
           <div className="text-center py-8 bg-white rounded-lg shadow">
@@ -272,7 +272,7 @@ const handleDownload = async (videoUrl, title) => {
             <p className="mt-2 text-gray-600">No stories found.</p>
           </div>
         ) : (
-          <div className="grid grid-cols-3 md:grid-cols-3 lg:grid-cols-4 gap-2">
+          <div className="grid grid-cols-3 md:grid-cols-3 lg:grid-cols-4 gap-1">
             {stories.map((story, index) => (
               <div
                 key={story.id}
@@ -280,7 +280,7 @@ const handleDownload = async (videoUrl, title) => {
                 onClick={() => handleVideoClick(index)}
               >
                 {/* Thumbnail container */}
-                <div className="w-full h-full overflow-hidden rounded-lg bg-gray-200 relative">
+                <div className="w-full h-full overflow-hidden bg-gray-200 relative">
                   {thumbnails[story.id] ? (
                     <img
                       src={thumbnails[story.id]}

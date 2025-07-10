@@ -36,7 +36,8 @@ export default function DashboardStoryAnime() {
     { id: 'haruto', name: 'Haruto' },
     { id: 'dennis', name: 'Dennis' },
     { id: 'artielle', name: 'Artielle' },
-    { id: 'other', name: 'Other' }
+    { id: 'other', name: 'Other' },
+    { id: 'fyp', name: 'foryoupage' }
   ];
 
   const categories = [
