@@ -210,26 +210,61 @@ export default function Story() {
   };
 
   // Handle video download
-  const handleDownload = (videoUrl, title) => {
+  // Ganti fungsi handleDownload dengan ini:
+const handleDownload = async (videoUrl, title) => {
+  try {
+    // Tampilkan indikator loading
+    const downloadBtn = document.querySelector('.download-btn');
+    if (downloadBtn) {
+      downloadBtn.innerHTML = '<i class="ri-loader-4-line animate-spin text-xl"></i>';
+    }
+
+    // Fetch video sebagai blob
+    const response = await fetch(videoUrl);
+    if (!response.ok) throw new Error('Failed to fetch video');
+    
+    const blob = await response.blob();
+    const blobUrl = window.URL.createObjectURL(blob);
+    
+    // Buat elemen a untuk download
     const a = document.createElement('a');
-    a.href = videoUrl;
-    a.download = title || 'anime-story';
+    a.href = blobUrl;
+    a.download = title ? `${title.replace(/[^a-z0-9]/gi, '_')}.mp4` : 'anime-story.mp4';
     document.body.appendChild(a);
     a.click();
+    
+    // Cleanup
+    window.URL.revokeObjectURL(blobUrl);
     document.body.removeChild(a);
-  };
+    
+    // Kembalikan icon download
+    if (downloadBtn) {
+      downloadBtn.innerHTML = '<i class="ri-download-line text-xl"></i>';
+    }
+  } catch (error) {
+    console.error('Download error:', error);
+    // Fallback: Buka tab baru jika fetch gagal
+    window.open(videoUrl, '_blank');
+    
+    // Kembalikan icon download
+    const downloadBtn = document.querySelector('.download-btn');
+    if (downloadBtn) {
+      downloadBtn.innerHTML = '<i class="ri-download-line text-xl"></i>';
+    }
+  }
+};
 
   return (
     <div className="bg-gray-50 min-h-screen text-gray-800">
       <Nav />
       <div className="container max-w-4xl mx-auto px-4 pb-20">
-        <h1 className="text-3xl font-bold text-center py-2 pt-3">Anime Stories</h1>
+        <h1 className="text-3xl font-bold text-center py-2 pt-3">Anime Reels</h1>
 
         {/* Stories Grid */}
         {loading ? (
           <div className="text-center py-8">
             <i className="ri-loader-4-line animate-spin text-2xl text-blue-500"></i>
-            <p className="mt-2 text-gray-600">Loading stories...</p>
+            <p className="mt-2 text-gray-600">Loading reels...</p>
           </div>
         ) : stories.length === 0 ? (
           <div className="text-center py-8 bg-white rounded-lg shadow">
@@ -237,7 +272,7 @@ export default function Story() {
             <p className="mt-2 text-gray-600">No stories found.</p>
           </div>
         ) : (
-          <div className="grid grid-cols-3 md:grid-cols-3 lg:grid-cols-4 gap-2">
+          <div className="grid grid-cols-3 md:grid-cols-3 lg:grid-cols-4 gap-1">
             {stories.map((story, index) => (
               <div
                 key={story.id}
@@ -245,7 +280,7 @@ export default function Story() {
                 onClick={() => handleVideoClick(index)}
               >
                 {/* Thumbnail container */}
-                <div className="w-full h-full overflow-hidden rounded-lg bg-gray-200 relative">
+                <div className="w-full h-full overflow-hidden bg-gray-200 relative">
                   {thumbnails[story.id] ? (
                     <img
                       src={thumbnails[story.id]}
@@ -335,7 +370,7 @@ export default function Story() {
                         e.stopPropagation();
                         handleDownload(story.videoUrl, story.title);
                       }}
-                      className="absolute bottom-5 right-4 bg-black/50 hover:bg-black/70 text-white rounded-full w-12 h-12 z-10 transition-all"
+                      className="download-btn absolute bottom-center right-4 bg-black/50 hover:bg-black/70 text-white rounded-full w-12 h-12 z-10 transition-all flex items-center justify-center"
                       title="Download video"
                     >
                       <i className="ri-download-line text-xl"></i>

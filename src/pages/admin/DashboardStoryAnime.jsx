@@ -37,13 +37,13 @@ export default function DashboardStoryAnime() {
     { id: 'dennis', name: 'Dennis' },
     { id: 'artielle', name: 'Artielle' },
     { id: 'other', name: 'Other' },
-    { id: 'fyp', name: 'foryoupage' }
+    { id: 'foryoupage', name: 'foryoupage' }
   ];
 
   const categories = [
     { id: 'anime', name: 'Anime' },
     { id: 'donghua', name: 'Donghua' },
-    { id: 'quote', name: 'Quote' }
+    { id: 'quote', name: 'Quotes' }
   ];
 
   // Ambil data dari Firestore
