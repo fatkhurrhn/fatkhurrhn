@@ -370,7 +370,7 @@ const handleDownload = async (videoUrl, title) => {
                         e.stopPropagation();
                         handleDownload(story.videoUrl, story.title);
                       }}
-                      className="download-btn absolute bottom-20 right-4 bg-black/50 hover:bg-black/70 text-white rounded-full p-3 z-10 transition-all flex items-center justify-center"
+                      className="download-btn absolute bottom-center right-4 bg-black/50 hover:bg-black/70 text-white rounded-full w-12 h-12 z-10 transition-all flex items-center justify-center"
                       title="Download video"
                     >
                       <i className="ri-download-line text-xl"></i>
