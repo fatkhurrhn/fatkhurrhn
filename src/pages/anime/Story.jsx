@@ -1,29 +1,13 @@
-import React, { useState, useEffect } from 'react';
-import { collection, query, orderBy, where, getDocs } from 'firebase/firestore';
+import React, { useState, useEffect, useRef } from 'react';
+import { collection, query, orderBy, getDocs } from 'firebase/firestore';
 import { db } from '../../firebase';
-import Plyr from 'plyr-react';
-import 'plyr-react/plyr.css';
 import Nav from '../../components/anime/NavigationWrapper.jsx';
 
 export default function Story() {
   const [stories, setStories] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [selectedCharacters, setSelectedCharacters] = useState(['all']);
-  const [selectedCategory, setSelectedCategory] = useState('all');
-  const [sortOrder, setSortOrder] = useState('desc');
-
-  // Daftar karakter dan kategori
-  const allCharacters = [
-    { id: 'alya', name: 'Alya' },
-    { id: 'yuki', name: 'Yuki' },
-    { id: 'mahiru', name: 'Mahiru' },
-    { id: 'sikhimori', name: 'Sikhimori' },
-    { id: 'kuze', name: 'Kuze' },
-    { id: 'elaina', name: 'Elaina' },
-    { id: 'wagiru', name: 'Wagiru' },
-    { id: 'kuro', name: 'Kuro' },
-    { id: 'haruto', name: 'Haruto' }
-  ];
+  const [selectedStory, setSelectedStory] = useState(null);
+  const videoRefs = useRef([]);
 
   // Format tanggal
   const formatDate = (timestamp) => {
@@ -36,37 +20,18 @@ export default function Story() {
     });
   };
 
-  // Format karakter
-  const formatCharacters = (characterIds) => {
-    return characterIds.map(id =>
-      allCharacters.find(c => c.id === id)?.name || id
-    ).join(', ');
-  };
-
   // Ambil data dari Firestore
   useEffect(() => {
     const fetchStories = async () => {
       try {
         setLoading(true);
-        let q = query(collection(db, 'anime-story'), orderBy('uploadDate', sortOrder));
-
-        // Filter kategori
-        if (selectedCategory !== 'all') {
-          q = query(q, where('category', '==', selectedCategory));
-        }
-
+        const q = query(collection(db, 'anime-story'), orderBy('uploadDate', 'desc'));
         const querySnapshot = await getDocs(q);
-        let storiesData = [];
+        const storiesData = [];
+        
         querySnapshot.forEach((doc) => {
           storiesData.push({ id: doc.id, ...doc.data() });
         });
-
-        // Filter karakter di client side
-        if (!selectedCharacters.includes('all')) {
-          storiesData = storiesData.filter(story =>
-            story.characters.some(char => selectedCharacters.includes(char))
-          );
-        }
 
         setStories(storiesData);
         setLoading(false);
@@ -77,87 +42,61 @@ export default function Story() {
     };
 
     fetchStories();
-  }, [selectedCharacters, selectedCategory, sortOrder]);
+  }, []);
 
-  // Toggle karakter selected
-  const toggleCharacter = (characterId) => {
-    if (characterId === 'all') {
-      setSelectedCharacters(['all']);
-    } else {
-      const newSelected = selectedCharacters.includes('all')
-        ? [characterId]
-        : selectedCharacters.includes(characterId)
-          ? selectedCharacters.filter(id => id !== characterId)
-          : [...selectedCharacters, characterId];
+  // Handle video click
+  const handleVideoClick = (story) => {
+    setSelectedStory(story);
+    document.body.style.overflow = 'hidden';
+  };
 
-      setSelectedCharacters(newSelected.length === 0 ? ['all'] : newSelected);
-    }
+  // Close modal
+  const closeModal = () => {
+    setSelectedStory(null);
+    document.body.style.overflow = 'auto';
+    // Pause all videos when closing modal
+    videoRefs.current.forEach(video => {
+      if (video) video.pause();
+    });
+  };
+
+  // Handle scroll in modal
+  const handleScroll = (e) => {
+    e.preventDefault();
+    const container = e.currentTarget;
+    const scrollPosition = container.scrollTop;
+    const containerHeight = container.clientHeight;
+    
+    // Find which video is currently in view
+    const videos = container.querySelectorAll('.reel-video-container');
+    videos.forEach((videoEl, index) => {
+      const rect = videoEl.getBoundingClientRect();
+      const videoTop = rect.top - container.getBoundingClientRect().top + scrollPosition;
+      const videoBottom = videoTop + rect.height;
+      
+      // If at least 50% of the video is visible
+      if (videoTop <= scrollPosition + containerHeight * 0.5 && 
+          videoBottom >= scrollPosition + containerHeight * 0.5) {
+        // Play the video that's in view
+        const video = videoRefs.current[index];
+        if (video) {
+          video.play().catch(e => console.log("Autoplay prevented:", e));
+        }
+      } else {
+        // Pause other videos
+        const video = videoRefs.current[index];
+        if (video) video.pause();
+      }
+    });
   };
 
   return (
     <div className="bg-gray-50 min-h-screen text-gray-800">
       <Nav />
-      <div className="container mx-auto px-4 max-w-4xl pb-20">
+      <div className="container mx-auto px-4 pb-20">
         <h1 className="text-3xl font-bold text-center py-2 pt-3">Anime Stories</h1>
-        {/* Filter Section */}
-        <div className="bg-white rounded-lg shadow p-4 mb-6">
-          <div className="flex flex-wrap gap-4 mb-4">
-            {/* Filter Karakter */}
-            <div className="w-full">
-              <label className="block text-sm font-medium mb-2">Characters</label>
-              <div className="flex flex-wrap gap-2">
-                <button
-                  onClick={() => setSelectedCharacters(['all'])}
-                  className={`px-3 py-1 text-sm rounded-full border flex items-center ${selectedCharacters.includes('all')
-                    ? 'bg-blue-100 border-blue-500 text-blue-700'
-                    : 'bg-white hover:bg-gray-50'
-                    }`}
-                >
-                  All Characters
-                </button>
-                {allCharacters.map((char) => (
-                  <button
-                    key={char.id}
-                    onClick={() => toggleCharacter(char.id)}
-                    className={`px-3 py-1 text-sm rounded-full border flex items-center ${selectedCharacters.includes(char.id)
-                      ? 'bg-blue-100 border-blue-500 text-blue-700'
-                      : 'bg-white hover:bg-gray-50'
-                      }`}
-                  >
-                    {char.name}
-                  </button>
-                ))}
-              </div>
-            </div>
 
-            {/* Sort Order */}
-            <div className="flex-1 min-w-[200px]">
-              <label className="block text-sm font-medium mb-1">Sort Order</label>
-              <div className="flex items-center gap-2">
-                <button
-                  onClick={() => setSortOrder('desc')}
-                  className={`p-2 border rounded flex items-center gap-1 ${sortOrder === 'desc'
-                    ? 'bg-blue-100 border-blue-500 text-blue-700'
-                    : 'bg-white hover:bg-gray-50'
-                    }`}
-                >
-                  <i className="ri-sort-desc"></i> Newest
-                </button>
-                <button
-                  onClick={() => setSortOrder('asc')}
-                  className={`p-2 border rounded flex items-center gap-1 ${sortOrder === 'asc'
-                    ? 'bg-blue-100 border-blue-500 text-blue-700'
-                    : 'bg-white hover:bg-gray-50'
-                    }`}
-                >
-                  <i className="ri-sort-asc"></i> Oldest
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Stories List */}
+        {/* Stories Grid */}
         {loading ? (
           <div className="text-center py-8">
             <i className="ri-loader-4-line animate-spin text-2xl text-blue-500"></i>
@@ -166,38 +105,90 @@ export default function Story() {
         ) : stories.length === 0 ? (
           <div className="text-center py-8 bg-white rounded-lg shadow">
             <i className="ri-emotion-sad-line text-2xl text-gray-400"></i>
-            <p className="mt-2 text-gray-600">No stories found with the selected filters.</p>
-            <button
-              onClick={() => {
-                setSelectedCharacters(['all']);
-                setSelectedCategory('all');
-              }}
-              className="mt-2 text-blue-500 hover:text-blue-700 flex items-center justify-center mx-auto"
-            >
-              <i className="ri-arrow-go-back-line mr-1"></i> Reset filters
-            </button>
+            <p className="mt-2 text-gray-600">No stories found.</p>
           </div>
         ) : (
-          <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-            {stories.map((story) => (
-              <div key={story.id} className="relative">
-                {/* Upload Date Overlay */}
-                <div className="absolute top-1 left-1 bg-white/80 text-[10px] text-gray-800 px-1 py-0 rounded-[3px] shadow z-10">
-                  <i className="ri-calendar-line mr-1"></i>
-                  {formatDate(story.uploadDate)}
-                </div>
-
-                {/* Native Video */}
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2">
+            {stories.map((story, index) => (
+              <div 
+                key={story.id} 
+                className="relative aspect-[9/16] cursor-pointer"
+                onClick={() => handleVideoClick(story)}
+              >
                 <video
-                  controls
                   src={story.videoUrl}
-                  className="w-full h-auto block"
+                  className="w-full h-full object-cover rounded-lg"
+                  muted
+                  loop
+                  playsInline
                 />
+                <div className="absolute bottom-0 left-0 right-0 p-2 bg-gradient-to-t from-black/70 to-transparent text-white text-sm">
+                  <p className="font-medium truncate">{story.title}</p>
+                  <p className="text-xs opacity-80">{formatDate(story.uploadDate)}</p>
+                </div>
               </div>
             ))}
           </div>
+        )}
 
+        {/* Reels Modal */}
+        {selectedStory && (
+          <div className="fixed inset-0 bg-black z-50 flex flex-col">
+            {/* Header */}
+            <div className="flex items-center justify-between p-4 text-white">
+              <button 
+                onClick={closeModal}
+                className="text-2xl"
+              >
+                <i className="ri-close-line"></i>
+              </button>
+              <h2 className="text-xl font-bold">Anime Stories</h2>
+              <div className="w-8"></div> {/* Spacer for balance */}
+            </div>
 
+            {/* Reels Container */}
+            <div 
+              className="flex-1 overflow-y-auto snap-y snap-mandatory"
+              onScroll={handleScroll}
+            >
+              {stories.map((story, index) => (
+                <div 
+                  key={story.id} 
+                  className="h-full w-full snap-start flex items-center justify-center relative reel-video-container"
+                >
+                  <div className="relative w-full max-w-md mx-auto h-full flex items-center justify-center">
+                    {/* Video */}
+                    <video
+                      ref={el => videoRefs.current[index] = el}
+                      src={story.videoUrl}
+                      className="max-h-full max-w-full object-contain"
+                      controls
+                      autoPlay={selectedStory.id === story.id}
+                      playsInline
+                    />
+
+                    {/* Video Info */}
+                    <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/70 to-transparent text-white">
+                      <h3 className="font-bold text-lg">{story.title}</h3>
+                      <div className="flex flex-wrap gap-2 mt-2 text-sm">
+                        <span className="bg-white/20 px-2 py-1 rounded-full">
+                          {story.category}
+                        </span>
+                        {story.characters.map(char => (
+                          <span key={char} className="bg-white/20 px-2 py-1 rounded-full">
+                            {char}
+                          </span>
+                        ))}
+                      </div>
+                      <p className="text-xs mt-2 opacity-80">
+                        {formatDate(story.uploadDate)}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
         )}
       </div>
     </div>
