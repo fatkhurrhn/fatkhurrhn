@@ -10,10 +10,10 @@ export default function Story() {
   const [pausedVideo, setPausedVideo] = useState(null);
   const [thumbnails, setThumbnails] = useState({});
   const videoRefs = useRef([]);
-  const thumbnailVideoRefs = useRef([]);
   const reelsContainerRef = useRef(null);
+  const thumbnailPromises = useRef({});
 
-  // Format tanggal
+  // Format date
   const formatDate = (timestamp) => {
     if (!timestamp) return '';
     const date = timestamp.toDate();
@@ -24,36 +24,63 @@ export default function Story() {
     });
   };
 
-  // Generate thumbnail dari video
-  const generateThumbnail = (videoElement, id) => {
+  // Generate thumbnail from video
+  const generateThumbnail = (videoUrl, id) => {
     return new Promise((resolve) => {
-      const canvas = document.createElement('canvas');
-      canvas.width = videoElement.videoWidth;
-      canvas.height = videoElement.videoHeight;
-      const ctx = canvas.getContext('2d');
-      
-      // Coba ambil frame di detik ke-5
-      videoElement.currentTime = 7;
-      
-      videoElement.onseeked = () => {
-        ctx.drawImage(videoElement, 0, 0, canvas.width, canvas.height);
+      const video = document.createElement('video');
+      video.crossOrigin = 'anonymous';
+      video.src = videoUrl;
+      video.preload = 'metadata';
+
+      let timeout;
+
+      const cleanup = () => {
+        video.removeEventListener('seeked', onSeeked);
+        video.removeEventListener('error', onError);
+        clearTimeout(timeout);
+      };
+
+      const onSeeked = () => {
+        const canvas = document.createElement('canvas');
+        canvas.width = video.videoWidth || 640;
+        canvas.height = video.videoHeight || 360;
+        const ctx = canvas.getContext('2d');
+        ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
+        
         const thumbnailUrl = canvas.toDataURL('image/jpeg');
-        resolve(thumbnailUrl);
-      };
-      
-      videoElement.onerror = () => {
-        // Fallback ke frame pertama jika gagal
-        videoElement.currentTime = 0;
-        videoElement.onseeked = () => {
-          ctx.drawImage(videoElement, 0, 0, canvas.width, canvas.height);
-          const thumbnailUrl = canvas.toDataURL('image/jpeg');
+        if (thumbnailUrl && !thumbnailUrl.includes('data:,')) {
+          cleanup();
           resolve(thumbnailUrl);
-        };
+        } else {
+          // Try fallback to first frame
+          video.currentTime = 0;
+          video.addEventListener('seeked', () => {
+            ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
+            cleanup();
+            resolve(canvas.toDataURL('image/jpeg'));
+          }, { once: true });
+        }
       };
+
+      const onError = () => {
+        cleanup();
+        resolve(null);
+      };
+
+      video.addEventListener('seeked', onSeeked, { once: true });
+      video.addEventListener('error', onError, { once: true });
+
+      // Set timeout if video doesn't load
+      timeout = setTimeout(() => {
+        cleanup();
+        resolve(null);
+      }, 5000);
+
+      video.currentTime = Math.min(5, video.duration || 5);
     });
   };
 
-  // Ambil data dari Firestore
+  // Fetch data from Firestore
   useEffect(() => {
     const fetchStories = async () => {
       try {
@@ -67,23 +94,33 @@ export default function Story() {
         });
 
         setStories(storiesData);
+
+        // Generate thumbnails in parallel with concurrency control
+        const thumbnailResults = {};
+        const MAX_CONCURRENT = 3;
+        const batches = [];
         
-        // Generate thumbnails setelah video siap
-        setTimeout(() => {
-          const newThumbnails = {};
-          thumbnailVideoRefs.current.forEach(async (video, index) => {
-            if (video && storiesData[index]) {
+        for (let i = 0; i < storiesData.length; i += MAX_CONCURRENT) {
+          batches.push(storiesData.slice(i, i + MAX_CONCURRENT));
+        }
+
+        for (const batch of batches) {
+          await Promise.all(
+            batch.map(async (story) => {
               try {
-                const thumbnail = await generateThumbnail(video, storiesData[index].id);
-                newThumbnails[storiesData[index].id] = thumbnail;
-                setThumbnails({...newThumbnails});
+                if (!thumbnailPromises.current[story.id]) {
+                  thumbnailPromises.current[story.id] = generateThumbnail(story.videoUrl, story.id);
+                }
+                thumbnailResults[story.id] = await thumbnailPromises.current[story.id];
+                setThumbnails(prev => ({ ...prev, [story.id]: thumbnailResults[story.id] }));
               } catch (error) {
                 console.error('Error generating thumbnail:', error);
+                thumbnailResults[story.id] = null;
               }
-            }
-          });
-        }, 500);
-        
+            })
+          );
+        }
+
         setLoading(false);
       } catch (error) {
         console.error('Error fetching stories:', error);
@@ -95,7 +132,7 @@ export default function Story() {
   }, []);
 
   // Handle video click
-  const handleVideoClick = (story, index) => {
+  const handleVideoClick = (index) => {
     setSelectedStoryIndex(index);
     document.body.style.overflow = 'hidden';
   };
@@ -195,16 +232,8 @@ export default function Story() {
               <div 
                 key={story.id} 
                 className="relative aspect-[9/16] cursor-pointer group"
-                onClick={() => handleVideoClick(story, index)}
+                onClick={() => handleVideoClick(index)}
               >
-                {/* Hidden video element for thumbnail generation */}
-                <video
-                  ref={el => thumbnailVideoRefs.current[index] = el}
-                  src={story.videoUrl}
-                  className="hidden"
-                  crossOrigin="anonymous"
-                />
-                
                 {/* Thumbnail container */}
                 <div className="w-full h-full overflow-hidden rounded-lg bg-gray-200 relative">
                   {thumbnails[story.id] ? (
@@ -212,9 +241,15 @@ export default function Story() {
                       src={thumbnails[story.id]} 
                       alt="Thumbnail" 
                       className="w-full h-full object-cover"
+                      onError={(e) => {
+                        e.target.onerror = null;
+                        e.target.src = '/default-thumbnail.jpg';
+                      }}
                     />
                   ) : (
-                    <div className="w-full h-full bg-gray-300 animate-pulse"></div>
+                    <div className="w-full h-full bg-gradient-to-br from-gray-300 to-gray-400 animate-pulse flex items-center justify-center">
+                      <i className="ri-film-line text-4xl text-gray-500"></i>
+                    </div>
                   )}
                   
                   {/* Play button overlay */}
@@ -223,6 +258,13 @@ export default function Story() {
                       <i className="ri-play-fill text-2xl text-black"></i>
                     </div>
                   </div>
+                  
+                  {/* Duration badge */}
+                  {story.duration && (
+                    <div className="absolute bottom-2 right-2 bg-black/70 text-white text-xs px-1.5 py-0.5 rounded">
+                      {story.duration}
+                    </div>
+                  )}
                 </div>
                 
                 {/* Video info overlay */}
@@ -290,7 +332,7 @@ export default function Story() {
                         <span className="bg-white/20 px-2 py-1 rounded-full">
                           {story.category}
                         </span>
-                        {story.characters.map(char => (
+                        {story.characters?.map(char => (
                           <span key={char} className="bg-white/20 px-2 py-1 rounded-full">
                             #{char}
                           </span>
