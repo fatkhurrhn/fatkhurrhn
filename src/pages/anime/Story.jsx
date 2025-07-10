@@ -46,7 +46,7 @@ export default function Story() {
         canvas.height = video.videoHeight || 360;
         const ctx = canvas.getContext('2d');
         ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
-        
+
         const thumbnailUrl = canvas.toDataURL('image/jpeg');
         if (thumbnailUrl && !thumbnailUrl.includes('data:,')) {
           cleanup();
@@ -88,7 +88,7 @@ export default function Story() {
         const q = query(collection(db, 'anime-story'), orderBy('uploadDate', 'desc'));
         const querySnapshot = await getDocs(q);
         const storiesData = [];
-        
+
         querySnapshot.forEach((doc) => {
           storiesData.push({ id: doc.id, ...doc.data() });
         });
@@ -99,7 +99,7 @@ export default function Story() {
         const thumbnailResults = {};
         const MAX_CONCURRENT = 3;
         const batches = [];
-        
+
         for (let i = 0; i < storiesData.length; i += MAX_CONCURRENT) {
           batches.push(storiesData.slice(i, i + MAX_CONCURRENT));
         }
@@ -142,14 +142,14 @@ export default function Story() {
     if (selectedStoryIndex !== null && reelsContainerRef.current) {
       const container = reelsContainerRef.current;
       const videoElement = container.children[selectedStoryIndex];
-      
+
       if (videoElement) {
         requestAnimationFrame(() => {
           container.scrollTo({
             top: videoElement.offsetTop,
             behavior: 'instant'
           });
-          
+
           const video = videoRefs.current[selectedStoryIndex];
           if (video) {
             video.play().catch(e => console.log("Autoplay prevented:", e));
@@ -175,15 +175,15 @@ export default function Story() {
     const container = e.currentTarget;
     const scrollPosition = container.scrollTop;
     const containerHeight = container.clientHeight;
-    
+
     const videos = container.querySelectorAll('.reel-video-container');
     videos.forEach((videoEl, index) => {
       const rect = videoEl.getBoundingClientRect();
       const videoTop = rect.top - container.getBoundingClientRect().top + scrollPosition;
       const videoBottom = videoTop + rect.height;
-      
-      if (videoTop <= scrollPosition + containerHeight * 0.5 && 
-          videoBottom >= scrollPosition + containerHeight * 0.5) {
+
+      if (videoTop <= scrollPosition + containerHeight * 0.5 &&
+        videoBottom >= scrollPosition + containerHeight * 0.5) {
         const video = videoRefs.current[index];
         if (video && pausedVideo !== index) {
           video.play().catch(e => console.log("Autoplay prevented:", e));
@@ -212,7 +212,7 @@ export default function Story() {
   return (
     <div className="bg-gray-50 min-h-screen text-gray-800">
       <Nav />
-      <div className="container mx-auto px-4 pb-20">
+      <div className="container max-w-4xl mx-auto px-4 pb-20">
         <h1 className="text-3xl font-bold text-center py-2 pt-3">Anime Stories</h1>
 
         {/* Stories Grid */}
@@ -227,19 +227,19 @@ export default function Story() {
             <p className="mt-2 text-gray-600">No stories found.</p>
           </div>
         ) : (
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2">
+          <div className="grid grid-cols-3 md:grid-cols-3 lg:grid-cols-4 gap-1">
             {stories.map((story, index) => (
-              <div 
-                key={story.id} 
+              <div
+                key={story.id}
                 className="relative aspect-[9/16] cursor-pointer group"
                 onClick={() => handleVideoClick(index)}
               >
                 {/* Thumbnail container */}
-                <div className="w-full h-full overflow-hidden rounded-lg bg-gray-200 relative">
+                <div className="w-full h-full overflow-hidden bg-gray-200 relative">
                   {thumbnails[story.id] ? (
-                    <img 
-                      src={thumbnails[story.id]} 
-                      alt="Thumbnail" 
+                    <img
+                      src={thumbnails[story.id]}
+                      alt="Thumbnail"
                       className="w-full h-full object-cover"
                       onError={(e) => {
                         e.target.onerror = null;
@@ -251,14 +251,14 @@ export default function Story() {
                       <i className="ri-film-line text-4xl text-gray-500"></i>
                     </div>
                   )}
-                  
+
                   {/* Play button overlay */}
                   <div className="absolute inset-0 flex items-center justify-center bg-black/30 opacity-0 group-hover:opacity-100 transition-opacity">
                     <div className="w-12 h-12 bg-white/80 rounded-full flex items-center justify-center">
                       <i className="ri-play-fill text-2xl text-black"></i>
                     </div>
                   </div>
-                  
+
                   {/* Duration badge */}
                   {story.duration && (
                     <div className="absolute bottom-2 right-2 bg-black/70 text-white text-xs px-1.5 py-0.5 rounded">
@@ -266,7 +266,7 @@ export default function Story() {
                     </div>
                   )}
                 </div>
-                
+
                 {/* Video info overlay */}
                 <div className="absolute bottom-0 left-0 right-0 p-2 bg-gradient-to-t from-black/70 to-transparent text-white text-sm">
                   <p className="font-medium truncate">{story.title}</p>
@@ -279,48 +279,51 @@ export default function Story() {
 
         {/* Reels Modal */}
         {selectedStoryIndex !== null && (
-          <div className="fixed inset-0 bg-black z-50 flex flex-col">
-            {/* Header */}
-            <div className="flex items-center justify-between p-4 text-white">
-              <button 
-                onClick={closeModal}
-                className="text-2xl"
-              >
-                <i className="ri-close-line"></i>
-              </button>
-              <h2 className="text-xl font-bold">Anime Stories</h2>
-              <div className="w-8"></div>
-            </div>
-
+          <div className="fixed inset-0 bg-black z-50">
             {/* Reels Container */}
-            <div 
+            <div
               ref={reelsContainerRef}
-              className="flex-1 overflow-y-auto snap-y snap-mandatory"
+              className="h-full w-full overflow-y-auto snap-y snap-mandatory relative"
               onScroll={handleScroll}
             >
               {stories.map((story, index) => (
-                <div 
-                  key={story.id} 
-                  className="h-full w-full snap-start flex items-center justify-center relative reel-video-container"
+                <div
+                  key={story.id}
+                  className="h-screen w-full snap-start relative reel-video-container flex items-center justify-center"
                   onClick={() => togglePlayPause(index)}
                 >
-                  <div className="relative w-full max-w-md mx-auto h-full flex items-center justify-center">
-                    {/* Video */}
+                  {/* Video Container */}
+                  <div className="relative w-full h-full max-w-md mx-auto flex items-center justify-center">
+                    {/* Video - maintains original aspect ratio */}
                     <video
                       ref={el => videoRefs.current[index] = el}
                       src={story.videoUrl}
-                      className="max-h-full max-w-full object-contain"
+                      className={`max-h-full ${story.aspectRatio === '1:1' ? 'max-w-[80%] aspect-square' : 'max-w-full'} object-contain`}
                       autoPlay={selectedStoryIndex === index}
                       playsInline
                       loop
                       muted={false}
                     />
 
+                    {/* Header Overlay */}
+                    <div className="absolute top-0 left-0 right-0 p-4 bg-gradient-to-b from-black/70 to-transparent text-white z-10">
+                      <div className="flex items-center justify-between">
+                        <button
+                          onClick={closeModal}
+                          className="text-2xl"
+                        >
+                          <i className="ri-close-line"></i>
+                        </button>
+                        <h2 className="text-xl font-bold">Anime Reels</h2>
+                        <div className="w-8"></div>
+                      </div>
+                    </div>
+
                     {/* Pause indicator */}
                     {pausedVideo === index && (
                       <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
                         <div className="w-16 h-16 bg-black/50 rounded-full flex items-center justify-center">
-                          <i className="ri-pause-fill text-white text-3xl"></i>
+                          <i className="ri-play-fill text-white text-3xl"></i>
                         </div>
                       </div>
                     )}
