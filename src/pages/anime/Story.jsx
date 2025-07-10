@@ -6,8 +6,10 @@ import Nav from '../../components/anime/NavigationWrapper.jsx';
 export default function Story() {
   const [stories, setStories] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [selectedStory, setSelectedStory] = useState(null);
+  const [selectedStoryIndex, setSelectedStoryIndex] = useState(null);
+  const [pausedVideo, setPausedVideo] = useState(null);
   const videoRefs = useRef([]);
+  const reelsContainerRef = useRef(null);
 
   // Format tanggal
   const formatDate = (timestamp) => {
@@ -28,7 +30,7 @@ export default function Story() {
         const q = query(collection(db, 'anime-story'), orderBy('uploadDate', 'desc'));
         const querySnapshot = await getDocs(q);
         const storiesData = [];
-        
+
         querySnapshot.forEach((doc) => {
           storiesData.push({ id: doc.id, ...doc.data() });
         });
@@ -45,14 +47,39 @@ export default function Story() {
   }, []);
 
   // Handle video click
-  const handleVideoClick = (story) => {
-    setSelectedStory(story);
+  const handleVideoClick = (story, index) => {
+    setSelectedStoryIndex(index);
     document.body.style.overflow = 'hidden';
   };
 
+  // Scroll to selected video when modal opens
+  useEffect(() => {
+    if (selectedStoryIndex !== null && reelsContainerRef.current) {
+      const container = reelsContainerRef.current;
+      const videoElement = container.children[selectedStoryIndex];
+
+      if (videoElement) {
+        // Wait for the next frame to ensure container is rendered
+        requestAnimationFrame(() => {
+          container.scrollTo({
+            top: videoElement.offsetTop,
+            behavior: 'instant'
+          });
+
+          // Play the video after scrolling
+          const video = videoRefs.current[selectedStoryIndex];
+          if (video) {
+            video.play().catch(e => console.log("Autoplay prevented:", e));
+          }
+        });
+      }
+    }
+  }, [selectedStoryIndex]);
+
   // Close modal
   const closeModal = () => {
-    setSelectedStory(null);
+    setSelectedStoryIndex(null);
+    setPausedVideo(null);
     document.body.style.overflow = 'auto';
     // Pause all videos when closing modal
     videoRefs.current.forEach(video => {
@@ -66,20 +93,20 @@ export default function Story() {
     const container = e.currentTarget;
     const scrollPosition = container.scrollTop;
     const containerHeight = container.clientHeight;
-    
+
     // Find which video is currently in view
     const videos = container.querySelectorAll('.reel-video-container');
     videos.forEach((videoEl, index) => {
       const rect = videoEl.getBoundingClientRect();
       const videoTop = rect.top - container.getBoundingClientRect().top + scrollPosition;
       const videoBottom = videoTop + rect.height;
-      
+
       // If at least 50% of the video is visible
-      if (videoTop <= scrollPosition + containerHeight * 0.5 && 
-          videoBottom >= scrollPosition + containerHeight * 0.5) {
+      if (videoTop <= scrollPosition + containerHeight * 0.5 &&
+        videoBottom >= scrollPosition + containerHeight * 0.5) {
         // Play the video that's in view
         const video = videoRefs.current[index];
-        if (video) {
+        if (video && pausedVideo !== index) {
           video.play().catch(e => console.log("Autoplay prevented:", e));
         }
       } else {
@@ -90,12 +117,26 @@ export default function Story() {
     });
   };
 
+  // Toggle play/pause on video click
+  const togglePlayPause = (index) => {
+    const video = videoRefs.current[index];
+    if (!video) return;
+
+    if (video.paused) {
+      video.play();
+      setPausedVideo(null);
+    } else {
+      video.pause();
+      setPausedVideo(index);
+    }
+  };
+
   return (
     <div className="bg-gray-50 min-h-screen text-gray-800">
       <Nav />
       <div className="container mx-auto px-4 pb-20">
-        <h1 className="text-3xl font-bold text-center py-2 pt-3">Anime Stories</h1>
-
+        <h1 className="text-3xl font-bold text-center py-2 pt-3 pb-4">Anime Reels</h1>
+        
         {/* Stories Grid */}
         {loading ? (
           <div className="text-center py-8">
@@ -110,10 +151,10 @@ export default function Story() {
         ) : (
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2">
             {stories.map((story, index) => (
-              <div 
-                key={story.id} 
+              <div
+                key={story.id}
                 className="relative aspect-[9/16] cursor-pointer"
-                onClick={() => handleVideoClick(story)}
+                onClick={() => handleVideoClick(story, index)}
               >
                 <video
                   src={story.videoUrl}
@@ -132,29 +173,31 @@ export default function Story() {
         )}
 
         {/* Reels Modal */}
-        {selectedStory && (
+        {selectedStoryIndex !== null && (
           <div className="fixed inset-0 bg-black z-50 flex flex-col">
             {/* Header */}
             <div className="flex items-center justify-between p-4 text-white">
-              <button 
+              <button
                 onClick={closeModal}
                 className="text-2xl"
               >
                 <i className="ri-close-line"></i>
               </button>
-              <h2 className="text-xl font-bold">Anime Stories</h2>
+              <h2 className="text-xl font-bold">Anime Reels</h2>
               <div className="w-8"></div> {/* Spacer for balance */}
             </div>
 
             {/* Reels Container */}
-            <div 
+            <div
+              ref={reelsContainerRef}
               className="flex-1 overflow-y-auto snap-y snap-mandatory"
               onScroll={handleScroll}
             >
               {stories.map((story, index) => (
-                <div 
-                  key={story.id} 
+                <div
+                  key={story.id}
                   className="h-full w-full snap-start flex items-center justify-center relative reel-video-container"
+                  onClick={() => togglePlayPause(index)}
                 >
                   <div className="relative w-full max-w-md mx-auto h-full flex items-center justify-center">
                     {/* Video */}
@@ -162,10 +205,20 @@ export default function Story() {
                       ref={el => videoRefs.current[index] = el}
                       src={story.videoUrl}
                       className="max-h-full max-w-full object-contain"
-                      controls
-                      autoPlay={selectedStory.id === story.id}
+                      autoPlay={selectedStoryIndex === index}
                       playsInline
+                      loop
+                      muted={false}
                     />
+
+                    {/* Pause indicator */}
+                    {pausedVideo === index && (
+                      <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+                        <div className="w-16 h-16 bg-black/50 rounded-full flex items-center justify-center">
+                          <i className="ri-pause-fill text-white text-3xl"></i>
+                        </div>
+                      </div>
+                    )}
 
                     {/* Video Info */}
                     <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/70 to-transparent text-white">
@@ -176,7 +229,7 @@ export default function Story() {
                         </span>
                         {story.characters.map(char => (
                           <span key={char} className="bg-white/20 px-2 py-1 rounded-full">
-                            {char}
+                            #{char}
                           </span>
                         ))}
                       </div>
