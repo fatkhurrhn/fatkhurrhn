@@ -5,9 +5,9 @@ const NavigationWrapper = ({ children }) => {
   const location = useLocation();
 
   const navItems = [
-    { path: '/anime', icon: 'ri-home-4-line', activeIcon: 'ri-home-4-fill', label: 'Home' },
+    { path: '/anime', icon: 'ri-home-4-line', activeIcon: 'ri-home-4-fill', label: 'Home', isNew: true },
     { path: '/anime/genre', icon: 'ri-bookmark-line', activeIcon: 'ri-bookmark-fill', label: 'Genre' },
-    { path: '/anime/story', icon: 'ri-play-circle-line', activeIcon: 'ri-play-circle-fill', label: 'Reels' },
+    { path: '/anime/story', icon: 'ri-play-circle-line', activeIcon: 'ri-play-circle-fill', label: 'Reels', isNew: true },
     { path: '/anime/status', icon: 'ri-time-line', activeIcon: 'ri-time-fill', label: 'Status' },
     { path: '/anime/more', icon: 'ri-apps-line', activeIcon: 'ri-apps-fill', label: 'More' },
   ];
@@ -25,15 +25,21 @@ const NavigationWrapper = ({ children }) => {
 
             <div className="hidden md:flex items-center space-x-6">
               {navItems.map((item) => (
-                <Link
-                  key={item.path}
-                  to={item.path}
-                  className={`text-gray-600 hover:text-blue-600 transition-colors font-medium ${
-                    location.pathname === item.path ? 'text-blue-600 font-semibold' : ''
-                  }`}
-                >
-                  {item.label}
-                </Link>
+                <div key={item.path} className="relative">
+                  <Link
+                    to={item.path}
+                    className={`text-gray-600 hover:text-blue-600 transition-colors font-medium ${
+                      location.pathname === item.path ? 'text-blue-600 font-semibold' : ''
+                    }`}
+                  >
+                    {item.label}
+                  </Link>
+                  {item.isNew && (
+                    <span className="absolute -top-2 -right-3 text-[10px] bg-red-500 text-white rounded-full px-1.5 py-0.5 leading-none font-bold">
+                      NEW
+                    </span>
+                  )}
+                </div>
               ))}
             </div>
           </div>
@@ -46,20 +52,26 @@ const NavigationWrapper = ({ children }) => {
           {navItems.map((item) => {
             const isActive = location.pathname === item.path;
             return (
-              <Link
-                key={item.path}
-                to={item.path}
-                className="nav-item flex flex-col items-center justify-center text-[12px] transition-colors"
-              >
-                <i
-                  className={`${isActive ? item.activeIcon : item.icon} text-[18px] ${
-                    isActive ? 'text-blue-600' : 'text-gray-500'
-                  }`}
-                ></i>
-                <span className={isActive ? 'text-blue-600 font-medium' : 'text-gray-600'}>
-                  {item.label}
-                </span>
-              </Link>
+              <div key={item.path} className="relative flex items-center justify-center">
+                <Link
+                  to={item.path}
+                  className="nav-item flex flex-col items-center justify-center text-[12px] transition-colors"
+                >
+                  <i
+                    className={`${isActive ? item.activeIcon : item.icon} text-[18px] ${
+                      isActive ? 'text-blue-600' : 'text-gray-500'
+                    }`}
+                  ></i>
+                  <span className={isActive ? 'text-blue-600 font-medium' : 'text-gray-600'}>
+                    {item.label}
+                  </span>
+                </Link>
+                {item.isNew && (
+                  <span className="absolute top-1.5 right-[18%] text-[9px] bg-red-500 text-white rounded-full px-1 py-0.5 font-bold leading-none">
+                    NEW
+                  </span>
+                )}
+              </div>
             );
           })}
         </div>

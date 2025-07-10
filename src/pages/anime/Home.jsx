@@ -87,8 +87,7 @@ const Home = () => {
               placeholder="Cari judul anime atau genre..."
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-              className="w-full bg-white text-gray-800 pl-10 pr-2 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-              autoFocus
+              className="w-full bg-white text-gray-800 pl-10 pr-2 py-2 border border-gray-300 rounded-lg "
             />
           </div>
 
