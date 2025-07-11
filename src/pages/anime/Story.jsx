@@ -133,26 +133,26 @@ export default function Story() {
 
       const response = await fetch(videoUrl);
       if (!response.ok) throw new Error('Failed to fetch video');
-      
+
       const blob = await response.blob();
       const blobUrl = window.URL.createObjectURL(blob);
-      
+
       const a = document.createElement('a');
       a.href = blobUrl;
       a.download = title ? `${title.replace(/[^a-z0-9]/gi, '_')}.mp4` : 'anime-story.mp4';
       document.body.appendChild(a);
       a.click();
-      
+
       window.URL.revokeObjectURL(blobUrl);
       document.body.removeChild(a);
-      
+
       if (downloadBtn) {
         downloadBtn.innerHTML = '<i class="ri-download-line text-xl"></i>';
       }
     } catch (error) {
       console.error('Download error:', error);
       window.open(videoUrl, '_blank');
-      
+
       const downloadBtn = document.querySelector('.download-btn');
       if (downloadBtn) {
         downloadBtn.innerHTML = '<i class="ri-download-line text-xl"></i>';
@@ -188,8 +188,8 @@ export default function Story() {
                 {/* Thumbnail container - now using actual thumbnail */}
                 <div className="w-full h-full overflow-hidden bg-gray-200 relative">
                   {story.thumbnail ? (
-                    <img 
-                      src={story.thumbnail} 
+                    <img
+                      src={story.thumbnail}
                       alt={story.title}
                       className="w-full h-full object-cover"
                       onError={(e) => {
@@ -223,7 +223,7 @@ export default function Story() {
 
         {/* Reels Modal */}
         {selectedStoryIndex !== null && (
-          <div className="fixed inset-0 bg-black z-50">
+          <div className="fixed inset-0 bg-black z-50 flex items-center justify-center">
             {/* Reels Container */}
             <div
               ref={reelsContainerRef}
@@ -236,21 +236,10 @@ export default function Story() {
                   className="h-screen w-full snap-start relative reel-video-container flex items-center justify-center"
                   onClick={() => togglePlayPause(index)}
                 >
-                  {/* Video Container */}
-                  <div className="relative w-full h-full max-w-md mx-auto flex items-center justify-center">
-                    {/* Video - maintains original aspect ratio */}
-                    <video
-                      ref={el => videoRefs.current[index] = el}
-                      src={story.videoUrl}
-                      className="max-h-full max-w-full object-contain"
-                      autoPlay={selectedStoryIndex === index}
-                      playsInline
-                      loop
-                      muted={false}
-                    />
-
-                    {/* Header Overlay */}
-                    <div className="absolute top-0 left-0 right-0 p-4 bg-gradient-to-b from-black/70 to-transparent text-white z-10">
+                  {/* Video Container - now with dynamic aspect ratio */}
+                  <div className="relative flex items-center justify-center h-full w-full">
+                    {/* Header Overlay - positioned relative to video */}
+                    <div className="absolute top-0 left-0  right-0 p-4 bg-gradient-to-b from-black/70 to-transparent text-white z-10">
                       <div className="flex items-center justify-between">
                         <button
                           onClick={closeModal}
@@ -262,41 +251,61 @@ export default function Story() {
                         <div className="w-8"></div>
                       </div>
                     </div>
+                    {/* Video with original aspect ratio */}
+                    <div className="relative" style={{ width: '100%', maxHeight: '100vh' }}>
+                      <video
+                        ref={el => videoRefs.current[index] = el}
+                        src={story.videoUrl}
+                        className="max-h-[100vh] max-w-full"
+                        autoPlay={selectedStoryIndex === index}
+                        playsInline
+                        loop
+                        muted={false}
+                        onLoadedMetadata={(e) => {
+                          // This will help position overlays correctly based on video aspect ratio
+                          const video = e.target;
+                          const aspectRatio = video.videoWidth / video.videoHeight;
+                          // You might want to store this aspect ratio in state if needed
+                        }}
+                      />
 
-                    {/* Download Button - Floating */}
-                    <button
-                      onClick={(e) => {
-                        e.stopPropagation();
-                        handleDownload(story.videoUrl, story.title);
-                      }}
-                      className="download-btn absolute bottom-center right-4 bg-black/50 hover:bg-black/70 text-white rounded-full w-12 h-12 z-10 transition-all flex items-center justify-center"
-                      title="Download video"
-                    >
-                      <i className="ri-download-line text-xl"></i>
-                    </button>
 
-                    {/* Pause indicator */}
-                    {pausedVideo === index && (
-                      <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-                        <div className="w-16 h-16 bg-black/50 rounded-full flex items-center justify-center">
-                          <i className="ri-play-fill text-white text-3xl"></i>
+
+                      {/* Download Button - Floating */}
+                      <button
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          handleDownload(story.videoUrl, story.title);
+                        }}
+                        className="download-btn absolute bottom-20 right-4 bg-black/50 hover:bg-black/70 text-white rounded-full w-12 h-12 z-10 transition-all flex items-center justify-center"
+                        title="Download video"
+                      >
+                        <i className="ri-download-line text-xl"></i>
+                      </button>
+
+                      {/* Pause indicator */}
+                      {pausedVideo === index && (
+                        <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+                          <div className="w-16 h-16 bg-black/50 rounded-full flex items-center justify-center">
+                            <i className="ri-play-fill text-white text-3xl"></i>
+                          </div>
                         </div>
-                      </div>
-                    )}
+                      )}
 
-                    {/* Video Info */}
-                    <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/70 to-transparent text-white">
-                      <h3 className="font-bold text-lg">{story.title}</h3>
-                      <div className="flex flex-wrap gap-2 mt-2 text-sm">
-                        {story.hastag?.map(tag => (
-                          <span key={tag} className="bg-white/20 px-2 py-1 rounded-full">
-                            #{tag}
-                          </span>
-                        ))}
+                      {/* Video Info - positioned at bottom of video */}
+                      <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/70 to-transparent text-white">
+                        <h3 className="font-bold text-lg">{story.title}</h3>
+                        <div className="flex flex-wrap gap-2 mt-2 text-sm">
+                          {story.hastag?.map(tag => (
+                            <span key={tag} className="bg-white/20 px-2 py-1 rounded-full">
+                              #{tag}
+                            </span>
+                          ))}
+                        </div>
+                        <p className="text-xs mt-2 opacity-80">
+                          {formatDate(story.uploadDate)}
+                        </p>
                       </div>
-                      <p className="text-xs mt-2 opacity-80">
-                        {formatDate(story.uploadDate)}
-                      </p>
                     </div>
                   </div>
                 </div>
