@@ -185,11 +185,23 @@ export default function Story() {
                 className="relative aspect-[9/16] cursor-pointer group"
                 onClick={() => handleVideoClick(index)}
               >
-                {/* Thumbnail container - simplified with default thumbnail */}
+                {/* Thumbnail container - now using actual thumbnail */}
                 <div className="w-full h-full overflow-hidden bg-gray-200 relative">
-                  <div className="w-full h-full bg-gradient-to-br from-gray-300 to-gray-400 flex items-center justify-center">
-                    <i className="ri-film-line text-4xl text-gray-500"></i>
-                  </div>
+                  {story.thumbnail ? (
+                    <img 
+                      src={story.thumbnail} 
+                      alt={story.title}
+                      className="w-full h-full object-cover"
+                      onError={(e) => {
+                        e.target.src = 'https://via.placeholder.com/300x500?text=No+Thumbnail';
+                        e.target.className = 'w-full h-full object-contain bg-gray-300 p-4';
+                      }}
+                    />
+                  ) : (
+                    <div className="w-full h-full bg-gradient-to-br from-gray-300 to-gray-400 flex items-center justify-center">
+                      <i className="ri-film-line text-4xl text-gray-500"></i>
+                    </div>
+                  )}
 
                   {/* Play button overlay */}
                   <div className="absolute inset-0 flex items-center justify-center bg-black/30 opacity-0 group-hover:opacity-100 transition-opacity">
@@ -197,13 +209,6 @@ export default function Story() {
                       <i className="ri-play-fill text-2xl text-black"></i>
                     </div>
                   </div>
-
-                  {/* Duration badge */}
-                  {story.duration && (
-                    <div className="absolute bottom-2 right-2 bg-black/70 text-white text-xs px-1.5 py-0.5 rounded">
-                      {story.duration}
-                    </div>
-                  )}
                 </div>
 
                 {/* Video info overlay */}
@@ -237,7 +242,7 @@ export default function Story() {
                     <video
                       ref={el => videoRefs.current[index] = el}
                       src={story.videoUrl}
-                      className={`max-h-full ${story.aspectRatio === '1:1' ? 'max-w-[80%] aspect-square' : 'max-w-full'} object-contain`}
+                      className="max-h-full max-w-full object-contain"
                       autoPlay={selectedStoryIndex === index}
                       playsInline
                       loop
@@ -283,12 +288,9 @@ export default function Story() {
                     <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/70 to-transparent text-white">
                       <h3 className="font-bold text-lg">{story.title}</h3>
                       <div className="flex flex-wrap gap-2 mt-2 text-sm">
-                        {/* <span className="bg-white/20 px-2 py-1 rounded-full">
-                          {story.category}
-                        </span> */}
-                        {story.characters?.map(char => (
-                          <span key={char} className="bg-white/20 px-2 py-1 rounded-full">
-                            #{char}
+                        {story.hastag?.map(tag => (
+                          <span key={tag} className="bg-white/20 px-2 py-1 rounded-full">
+                            #{tag}
                           </span>
                         ))}
                       </div>

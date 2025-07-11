@@ -15,16 +15,17 @@ export default function DashboardStoryAnime() {
   const [currentVideoUrl, setCurrentVideoUrl] = useState('');
   const [formData, setFormData] = useState({
     title: '',
-    characters: [],
+    hastag: [],
     category: '',
     uploadDate: new Date().toISOString().split('T')[0],
-    videoUrl: ''
+    videoUrl: '',
+    thumbnail: ''
   });
   const [editId, setEditId] = useState(null);
   const [searchTerm, setSearchTerm] = useState('');
 
-  // Daftar karakter dan kategori
-  const allCharacters = [
+  // Daftar hastag
+  const allHastags = [
     { id: 'alya', name: 'Alya' },
     { id: 'yuki', name: 'Yuki' },
     { id: 'mahiru', name: 'Mahiru' },
@@ -33,9 +34,9 @@ export default function DashboardStoryAnime() {
     { id: 'elaina', name: 'Elaina' },
     { id: 'wagiru', name: 'Wagiru' },
     { id: 'kuro', name: 'Kuro' },
-    { id: 'haruto', name: 'Haruto' },
-    { id: 'dennis', name: 'Dennis' },
-    { id: 'artielle', name: 'Artielle' },
+    { id: 'quotes', name: 'Quotes' },
+    { id: 'donghua', name: 'donghua' },
+    { id: 'anime', name: 'Anime' },
     { id: 'other', name: 'Other' },
     { id: 'foryoupage', name: 'foryoupage' }
   ];
@@ -82,13 +83,13 @@ export default function DashboardStoryAnime() {
     });
   };
 
-  // Toggle karakter selected
-  const toggleCharacter = (characterId) => {
+  // Toggle hastag selected
+  const toggleHastag = (hastagId) => {
     setFormData({
       ...formData,
-      characters: formData.characters.includes(characterId)
-        ? formData.characters.filter(id => id !== characterId)
-        : [...formData.characters, characterId]
+      hastag: formData.hastag.includes(hastagId)
+        ? formData.hastag.filter(id => id !== hastagId)
+        : [...formData.hastag, hastagId]
     });
   };
 
@@ -123,10 +124,11 @@ export default function DashboardStoryAnime() {
       setLoading(true);
       const storyData = {
         title: formData.title.trim(),
-        characters: formData.characters,
+        hastag: formData.hastag,
         category: formData.category,
         uploadDate: new Date(formData.uploadDate),
         videoUrl: formData.videoUrl.trim(),
+        thumbnail: formData.thumbnail.trim(),
         createdAt: serverTimestamp(),
         updatedAt: serverTimestamp()
       };
@@ -161,10 +163,11 @@ export default function DashboardStoryAnime() {
   const handleEdit = (story) => {
     setFormData({
       title: story.title,
-      characters: story.characters || [],
+      hastag: story.hastag || [],
       category: story.category,
       uploadDate: story.uploadDate?.toDate().toISOString().split('T')[0],
       videoUrl: story.videoUrl,
+      thumbnail: story.thumbnail || '',
       createdAt: story.createdAt
     });
     setEditId(story.id);
@@ -190,10 +193,11 @@ export default function DashboardStoryAnime() {
   const resetForm = () => {
     setFormData({
       title: '',
-      characters: [],
+      hastag: [],
       category: '',
       uploadDate: new Date().toISOString().split('T')[0],
-      videoUrl: ''
+      videoUrl: '',
+      thumbnail: ''
     });
     setEditId(null);
   };
@@ -209,10 +213,10 @@ export default function DashboardStoryAnime() {
     });
   };
 
-  // Format karakter
-  const formatCharacters = (characterIds) => {
-    return characterIds.map(id =>
-      allCharacters.find(c => c.id === id)?.name || id
+  // Format hastag
+  const formatHastags = (hastagIds) => {
+    return hastagIds.map(id =>
+      allHastags.find(c => c.id === id)?.name || id
     ).join(', ');
   };
 
@@ -221,22 +225,12 @@ export default function DashboardStoryAnime() {
       <div className="container mx-auto px-4 max-w-4xl py-8">
         <Link to="/admin">
           <h1 className="text-3xl font-bold mb-6 flex items-center gap-2">
-          <i class="ri-arrow-left-line"></i> Kembali
-        </h1>
+            <i className="ri-arrow-left-line"></i> Kembali
+          </h1>
         </Link>
 
-        {/* Search and Add Button */}
-        <div className="flex flex-col md:flex-row justify-between gap-4 mb-6">
-          <div className="relative flex-1">
-            <input
-              type="text"
-              placeholder="Search stories..."
-              value={searchTerm}
-              onChange={(e) => setSearchTerm(e.target.value)}
-              className="w-full p-2 pl-8 border rounded focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition bg-white text-gray-800"
-            />
-            <i className="ri-search-line absolute left-2 top-3 text-gray-400"></i>
-          </div>
+        {/* Add Button */}
+        <div className="flex justify-end mb-6">
           <button
             onClick={openModal}
             className="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 flex items-center gap-1"
@@ -277,6 +271,16 @@ export default function DashboardStoryAnime() {
           ) : (
             stories.map((story) => (
               <div key={story.id} className="bg-white rounded-lg shadow overflow-hidden hover:shadow-md transition">
+                {story.thumbnail && (
+                  <div className="h-40 overflow-hidden">
+                    <img
+                      src={story.thumbnail}
+                      alt="Thumbnail"
+                      className="w-full h-full object-cover"
+                      onClick={() => openVideoModal(story.videoUrl)}
+                    />
+                  </div>
+                )}
                 <div className="p-4">
                   <h3 className="font-medium text-lg mb-1 line-clamp-2">{story.title}</h3>
 
@@ -289,7 +293,7 @@ export default function DashboardStoryAnime() {
 
                   <div className="mb-2">
                     <p className="text-sm text-gray-700 line-clamp-2">
-                      <span className="font-medium">Characters:</span> {formatCharacters(story.characters || [])}
+                      <span className="font-medium">Hastag:</span> {formatHastags(story.hastag || [])}
                     </p>
                   </div>
 
@@ -332,7 +336,7 @@ export default function DashboardStoryAnime() {
           className="modal-content bg-white rounded-lg shadow-xl p-6 max-w-2xl w-full mx-auto my-8"
           overlayClassName="modal-overlay fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4"
         >
-          <h2 className="text-xl font-semibold mb-4 flex items-center gap-2">
+          <h2 className="text-xl font-semibold text-gray-800 mb-4 flex items-center gap-2">
             {editId ? (
               <>
                 <i className="ri-edit-line"></i> Edit Story
@@ -392,7 +396,7 @@ export default function DashboardStoryAnime() {
             </div>
 
             {/* Video URL Row */}
-            <div className="mb-6">
+            <div className="mb-4">
               <label className="block text-sm font-medium mb-1 text-gray-800">Video URL (.mp4)*</label>
               <input
                 type="url"
@@ -408,26 +412,55 @@ export default function DashboardStoryAnime() {
               <p className="text-xs text-gray-500 mt-1">Must be a direct link to .mp4 file</p>
             </div>
 
-            {/* Characters */}
+            {/* Thumbnail URL Row */}
+            <div className="mb-4">
+              <label className="block text-sm font-medium mb-1 text-gray-800">Thumbnail URL*</label>
+              <input
+                type="url"
+                name="thumbnail"
+                value={formData.thumbnail}
+                onChange={handleInputChange}
+                className="w-full p-2 border rounded bg-white text-gray-800 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition"
+                required
+                placeholder="https://example.com/image.jpg"
+                pattern="https?://.+\.(jpg|jpeg|png|gif)"
+                title="Please enter a valid image URL (jpg, jpeg, png, gif)"
+              />
+              {formData.thumbnail && (
+                <div className="mt-2">
+                  <p className="text-xs text-gray-500 mb-1">Thumbnail Preview:</p>
+                  <img
+                    src={formData.thumbnail}
+                    alt="Thumbnail preview"
+                    className="max-h-40 rounded border"
+                    onError={(e) => {
+                      e.target.src = 'https://via.placeholder.com/150?text=Invalid+URL';
+                    }}
+                  />
+                </div>
+              )}
+            </div>
+
+            {/* Hastags */}
             <div className="mb-6">
-              <label className="block text-sm font-medium mb-1 text-gray-800">Characters*</label>
+              <label className="block text-sm font-medium mb-1 text-gray-800">Hastag*</label>
               <div className="flex flex-wrap gap-2">
-                {allCharacters.map((char) => (
+                {allHastags.map((hastag) => (
                   <button
-                    key={char.id}
+                    key={hastag.id}
                     type="button"
-                    onClick={() => toggleCharacter(char.id)}
-                    className={`px-3 py-1 text-sm rounded-full border flex items-center transition ${formData.characters.includes(char.id)
+                    onClick={() => toggleHastag(hastag.id)}
+                    className={`px-3 py-1 text-sm rounded-full border flex items-center transition ${formData.hastag.includes(hastag.id)
                       ? 'bg-blue-100 border-blue-500 text-blue-700'
                       : 'bg-white border-gray-300 text-gray-800 hover:bg-gray-50'
                       }`}
                   >
-                    {char.name}
+                    {hastag.name}
                   </button>
                 ))}
               </div>
-              {formData.characters.length === 0 && (
-                <p className="text-xs text-red-500 mt-1">Please select at least one character</p>
+              {formData.hastag.length === 0 && (
+                <p className="text-xs text-red-500 mt-1">Please select at least one hastag</p>
               )}
             </div>
 
@@ -443,7 +476,7 @@ export default function DashboardStoryAnime() {
               <button
                 type="submit"
                 className="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 flex items-center gap-1"
-                disabled={loading || formData.characters.length === 0}
+                disabled={loading || formData.hastag.length === 0}
               >
                 {loading ? (
                   <>
@@ -465,7 +498,6 @@ export default function DashboardStoryAnime() {
               </button>
             </div>
           </form>
-
         </Modal>
 
         {/* Video Modal */}
