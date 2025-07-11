@@ -238,21 +238,11 @@ export default function Story() {
                 >
                   {/* Video Container - now with dynamic aspect ratio */}
                   <div className="relative flex items-center justify-center h-full w-full">
-                    {/* Header Overlay - positioned relative to video */}
-                    <div className="absolute top-0 left-0  right-0 p-4 bg-gradient-to-b from-black/70 to-transparent text-white z-10">
-                      <div className="flex items-center justify-between">
-                        <button
-                          onClick={closeModal}
-                          className="text-2xl"
-                        >
-                          <i className="ri-close-line"></i>
-                        </button>
-                        <h2 className="text-xl font-bold">Anime Reels</h2>
-                        <div className="w-8"></div>
-                      </div>
-                    </div>
                     {/* Video with original aspect ratio */}
-                    <div className="relative" style={{ width: '100%', maxHeight: '100vh' }}>
+
+                    {/* <div className="relative" style={{ width: '100%', maxHeight: '100vh' }}> */}
+                    <div className="relative bg-black flex items-center justify-center">
+                      {/* <div className="relative w-full aspect-[9/16] max-h-[90vh] bg-black flex items-center justify-center"></div> */}
                       <video
                         ref={el => videoRefs.current[index] = el}
                         src={story.videoUrl}
@@ -269,7 +259,17 @@ export default function Story() {
                         }}
                       />
 
-
+                      {/* Header Overlay - positioned relative to video */}
+                      <div className="absolute top-0 left-0 right-0 p-4 bg-gradient-to-b from-black/70 to-transparent text-white z-10">
+                        <div className="flex justify-end">
+                          <button
+                            onClick={closeModal}
+                            className="text-2xl"
+                          >
+                            <i className="ri-close-line"></i>
+                          </button>
+                        </div>
+                      </div>
 
                       {/* Download Button - Floating */}
                       <button
@@ -277,7 +277,7 @@ export default function Story() {
                           e.stopPropagation();
                           handleDownload(story.videoUrl, story.title);
                         }}
-                        className="download-btn absolute bottom-20 right-4 bg-black/50 hover:bg-black/70 text-white rounded-full w-12 h-12 z-10 transition-all flex items-center justify-center"
+                        className="download-btn absolute bottom-[16px] right-4 bg-black/50 hover:bg-black/70 text-white rounded-full w-10 h-10 z-10 transition-all flex items-center justify-center"
                         title="Download video"
                       >
                         <i className="ri-download-line text-xl"></i>
@@ -293,16 +293,16 @@ export default function Story() {
                       )}
 
                       {/* Video Info - positioned at bottom of video */}
-                      <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/70 to-transparent text-white">
-                        <h3 className="font-bold text-lg">{story.title}</h3>
-                        <div className="flex flex-wrap gap-2 mt-2 text-sm">
+                      <div className="absolute bottom-0 left-0 right-0 px-3 py-4 bg-gradient-to-t from-black/70 to-transparent text-white">
+                        <h3 className="font-bold text-[25px]">{story.title}</h3>
+                        <div className="flex flex-wrap gap-2 mt-0 text-sm">
                           {story.hastag?.map(tag => (
-                            <span key={tag} className="bg-white/20 px-2 py-1 rounded-full">
+                            <span key={tag} className="text-[16px]">
                               #{tag}
                             </span>
                           ))}
                         </div>
-                        <p className="text-xs mt-2 opacity-80">
+                        <p className="text-[10px] mt-1 opacity-80">
                           {formatDate(story.uploadDate)}
                         </p>
                       </div>
