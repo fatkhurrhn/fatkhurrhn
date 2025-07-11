@@ -165,7 +165,7 @@ export default function Story() {
       <Nav />
       <div className="container max-w-4xl mx-auto px-4 pb-20">
         <h1 className="text-3xl font-bold text-center py-2 pt-3">Anime Reels</h1>
-
+        <hr className="pt-2 pb-2" />
         {/* Stories Grid */}
         {loading ? (
           <div className="text-center py-8">
