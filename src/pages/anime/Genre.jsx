@@ -120,14 +120,14 @@ const Genre = () => {
 
             {selectedGenre && filteredAnime.length === 0 && !loading && (
               <div className="text-center py-6"> {/* Mengurangi py dari 8 ke 6 */}
-                <i className="ri-bookmark-line text-4xl text-gray-400 mb-2"></i> {/* Mengurangi mb dari 4 ke 2 */}
+                <i className="ri-folders-line text-4xl text-gray-400 mb-2"></i> {/* Mengurangi mb dari 4 ke 2 */}
                 <p className="text-gray-600">Tidak ada anime dengan genre ini</p>
               </div>
             )}
 
             {!selectedGenre && (
               <div className="text-center py-6"> {/* Mengurangi py dari 8 ke 6 */}
-                <i className="ri-bookmark-line text-4xl text-gray-400 mb-2"></i> {/* Mengurangi mb dari 4 ke 2 */}
+                <i className="ri-folders-line text-4xl text-gray-400 mb-2"></i> {/* Mengurangi mb dari 4 ke 2 */}
                 <p className="text-gray-600">Pilih genre untuk melihat anime</p>
               </div>
             )}
