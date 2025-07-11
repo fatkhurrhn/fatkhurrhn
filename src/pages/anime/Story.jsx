@@ -293,16 +293,16 @@ export default function Story() {
                       )}
 
                       {/* Video Info - positioned at bottom of video */}
-                      <div className="absolute bottom-0 left-0 right-0 px-3 py-4 bg-gradient-to-t from-black/70 to-transparent text-white">
-                        <h3 className="font-bold text-[25px]">{story.title}</h3>
-                        <div className="flex flex-wrap gap-2 mt-0 text-sm">
+                      <div className="absolute bottom-0 left-0 right-0 px-3 py-3 bg-gradient-to-t from-black/70 to-transparent text-white">
+                        <h3 className="font-bold text-[24px]">{story.title}</h3>
+                        <div className="flex flex-wrap gap-1 mt-[-2px] text-sm">
                           {story.hastag?.map(tag => (
-                            <span key={tag} className="text-[16px]">
+                            <span key={tag} className="text-[14px]">
                               #{tag}
                             </span>
                           ))}
                         </div>
-                        <p className="text-[10px] mt-1 opacity-80">
+                        <p className="text-[10px] mt-0 opacity-80">
                           {formatDate(story.uploadDate)}
                         </p>
                       </div>
