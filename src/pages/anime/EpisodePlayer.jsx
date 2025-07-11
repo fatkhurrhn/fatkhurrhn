@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
-import Plyr from 'plyr-react';
-import 'plyr-react/plyr.css';
 import { doc, getDoc } from 'firebase/firestore';
 import { db } from '../../firebase';
 import Nav from '../../components/anime/NavigationWrapper.jsx';
@@ -79,9 +77,7 @@ const EpisodePlayer = () => {
     <div className="bg-gray-50 min-h-screen text-gray-800">
       <Nav />
       <div className="container mx-auto px-4 max-w-4xl pb-20 pt-2">
-        {/* Video Player Section */}
         <div className="mb-6">
-          {/* Player Header with Navigation */}
           <div className="flex justify-between items-center mb-2">
             <Link
               to={`/anime/${anime.id}`}
@@ -97,10 +93,10 @@ const EpisodePlayer = () => {
                 disabled={!previousEpisode}
                 title="Previous Episode"
                 className={`px-2 py-0 rounded-lg border transition-all duration-200 text-sm font-medium
-      ${!previousEpisode
+                  ${!previousEpisode
                     ? 'bg-gray-200 text-gray-400 cursor-not-allowed border-gray-200'
                     : 'bg-black/80 text-white hover:bg-black hover:scale-105 border-gray-700'}
-    `}
+                `}
               >
                 <i className="ri-arrow-left-line text-base" />
               </button>
@@ -110,58 +106,37 @@ const EpisodePlayer = () => {
                 disabled={!nextEpisode}
                 title="Next Episode"
                 className={`px-2 py-0 rounded-lg border transition-all duration-200 text-sm font-medium
-      ${!nextEpisode
+                  ${!nextEpisode
                     ? 'bg-gray-200 text-gray-400 cursor-not-allowed border-gray-200'
                     : 'bg-black/80 text-white hover:bg-black hover:scale-105 border-gray-700'}
-    `}
+                `}
               >
                 <i className="ri-arrow-right-line text-base" />
               </button>
             </div>
-
           </div>
 
           {/* Video Player */}
-          <div className="rounded-xl overflow-hidden shadow-md">
-            <Plyr
-              source={{
-                type: 'video',
-                sources: [
-                  {
-                    src: currentEpisode.videoUrl,
-                    type: 'video/mp4',
-                  },
-                ],
-              }}
-              options={{
-                controls: [
-                  'play-large',
-                  'play',
-                  'progress',
-                  'current-time',
-                  'mute',
-                  'volume',
-                  'settings',
-                  'fullscreen',
-                ],
-                ratio: '16:9',
-              }}
-            />
+          <div className="rounded-xl overflow-hidden shadow-md bg-black">
+            <div className="relative w-full" style={{ paddingBottom: '56.25%' }}> {/* 16:9 Aspect Ratio */}
+              <div
+                className="absolute top-0 left-0 w-full h-full"
+                dangerouslySetInnerHTML={{
+                  __html: currentEpisode.embedUrl
+                    .replace('width="640"', 'width="100%"')
+                    .replace('height="360"', 'height="100%"')
+                }}
+              />
+            </div>
           </div>
 
-          {/* Anime Title */}
           <div className="mt-3 px-2">
-            <h1 className="text-lg font-bold text-gray-800">{anime.title}</h1>
-            <p className="text-sm text-gray-600">
-              Episode ke {currentEpisode.number} dari total {anime.episodeList.length} episode
-            </p>
+            <h1 className="text-lg font-bold text-gray-800">{anime.title} Episode ke {currentEpisode.number}</h1>
           </div>
         </div>
 
-        {/* Divider */}
         <hr className="my-4 border-t border-gray-200" />
 
-        {/* Episode List */}
         <div>
           <h3 className="text-lg font-semibold text-gray-800 mb-3">Daftar Episode</h3>
           <div className="grid grid-cols-4 sm:grid-cols-5 md:grid-cols-6 lg:grid-cols-8 gap-2">
@@ -170,8 +145,8 @@ const EpisodePlayer = () => {
                 key={episode.number}
                 onClick={() => goToEpisode(episode.number)}
                 className={`p-2 rounded-md text-center transition-all ${episode.number === currentEpisode.number
-                    ? 'bg-blue-500 text-white shadow-sm'
-                    : 'bg-white text-gray-700 hover:bg-gray-100 border border-gray-200'
+                  ? 'bg-blue-500 text-white shadow-sm'
+                  : 'bg-white text-gray-700 hover:bg-gray-100 border border-gray-200'
                   }`}
               >
                 <div className="text-sm font-medium">

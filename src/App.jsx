@@ -22,6 +22,7 @@ import Status from './pages/anime/Status';
 import More from './pages/anime/More';
 import DashboardAnime from './pages/admin/DashboardAnime';
 import DashboardStoryAnime from './pages/admin/DashboardStoryAnime';
+import Tes from './pages/anime/Tes';
 
 
 function App() {
@@ -53,6 +54,7 @@ function App() {
         <Route path="/genre/:genreName" element={<Genre />} />
         <Route path="/anime/status" element={<Status />} />
         <Route path="/anime/more" element={<More />} />
+        <Route path="/anime/tes" element={<Tes />} />
       </Routes>
     </Router>
   );

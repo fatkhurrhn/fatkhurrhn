@@ -33,7 +33,7 @@ const DashboardAnime = () => {
   const [currentEpisode, setCurrentEpisode] = useState({
     number: '',
     title: '',
-    videoUrl: ''
+    embedUrl: ''
   });
   const [editMode, setEditMode] = useState(false);
   const [currentId, setCurrentId] = useState('');
@@ -57,7 +57,6 @@ const DashboardAnime = () => {
   useEffect(() => {
     const fetchAnimes = async () => {
       try {
-        // Mengurutkan berdasarkan createdAt descending (terbaru di atas)
         const q = query(collection(db, 'animes'), orderBy('createdAt', 'desc'));
         const querySnapshot = await getDocs(q);
         const animesData = querySnapshot.docs.map(doc => ({
@@ -103,7 +102,7 @@ const DashboardAnime = () => {
   };
 
   const addEpisode = () => {
-    if (currentEpisode.number && currentEpisode.title && currentEpisode.videoUrl) {
+    if (currentEpisode.number && currentEpisode.title && currentEpisode.embedUrl) {
       setFormData({
         ...formData,
         episodeList: [
@@ -111,14 +110,14 @@ const DashboardAnime = () => {
           {
             number: parseInt(currentEpisode.number),
             title: currentEpisode.title,
-            videoUrl: currentEpisode.videoUrl
+            embedUrl: currentEpisode.embedUrl
           }
         ].sort((a, b) => a.number - b.number)
       });
       setCurrentEpisode({
         number: '',
         title: '',
-        videoUrl: ''
+        embedUrl: ''
       });
     }
   };
@@ -138,14 +137,12 @@ const DashboardAnime = () => {
 
     try {
       if (editMode) {
-        // Saat edit, hanya update updatedAt
         const animeRef = doc(db, 'animes', currentId);
         await updateDoc(animeRef, {
           ...formData,
           updatedAt: serverTimestamp()
         });
       } else {
-        // Saat create, set createdAt dan updatedAt
         await addDoc(collection(db, 'animes'), {
           ...formData,
           createdAt: serverTimestamp(),
@@ -154,7 +151,6 @@ const DashboardAnime = () => {
       }
 
       resetForm();
-      // Setelah submit, ambil ulang data dengan urutan yang benar
       const q = query(collection(db, 'animes'), orderBy('createdAt', 'desc'));
       const querySnapshot = await getDocs(q);
       const animesData = querySnapshot.docs.map(doc => ({
@@ -222,7 +218,7 @@ const DashboardAnime = () => {
     setCurrentEpisode({
       number: '',
       title: '',
-      videoUrl: ''
+      embedUrl: ''
     });
     setEditMode(false);
     setCurrentId('');
@@ -262,7 +258,6 @@ const DashboardAnime = () => {
           </div>
         </div>
 
-        {/* Anime List - Grid Layout */}
         <div className="bg-white rounded-lg shadow-sm overflow-hidden">
           {loading && !animes.length ? (
             <div className="p-8 text-center">
@@ -276,7 +271,6 @@ const DashboardAnime = () => {
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 p-4">
               {animes.map(anime => (
                 <div key={anime.id} className="border rounded-lg overflow-hidden hover:shadow-md transition-shadow">
-                  {/* Thumbnail */}
                   <div className="relative aspect-[3/4]">
                     <img
                       src={anime.thumbnail}
@@ -296,7 +290,6 @@ const DashboardAnime = () => {
                     </div>
                   </div>
 
-                  {/* Anime Info */}
                   <div className="p-3">
                     <div className="flex flex-wrap gap-1 mb-2">
                       {anime.genres.slice(0, 2).map(genre => (
@@ -357,7 +350,6 @@ const DashboardAnime = () => {
           )}
         </div>
 
-        {/* Add/Edit Modal */}
         {showModal && (
           <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
             <div className="bg-white rounded-lg shadow-lg w-full max-w-3xl max-h-[90vh] overflow-y-auto">
@@ -533,9 +525,9 @@ const DashboardAnime = () => {
                   <div className="mb-6">
                     <h3 className="text-lg font-medium text-gray-700 mb-3">Episodes</h3>
 
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
-                      <div>
-                        <label className="block text-sm font-medium text-gray-700 mb-1">Episode Number</label>
+                    <div className="flex flex-wrap gap-4 mb-4">
+                      <div className="w-[50px]">
+                        <label className="block text-sm font-medium text-gray-700 mb-1">Episode</label>
                         <input
                           type="text"
                           name="number"
@@ -545,7 +537,7 @@ const DashboardAnime = () => {
                         />
                       </div>
 
-                      <div>
+                      <div className="w-[100px]">
                         <label className="block text-sm font-medium text-gray-700 mb-1">Episode Title</label>
                         <input
                           type="text"
@@ -553,26 +545,29 @@ const DashboardAnime = () => {
                           value={currentEpisode.title}
                           onChange={handleEpisodeInputChange}
                           className="w-full px-3 py-2 bg-white text-gray-800 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500"
+                          placeholder='bebas'
                         />
                       </div>
 
-                      <div>
-                        <label className="block text-sm font-medium text-gray-700 mb-1">Video URL</label>
+                      <div className="w-[520px]">
+                        <label className="block text-sm font-medium text-gray-700 mb-1">Embed Code</label>
                         <input
-                          type="url"
-                          name="videoUrl"
-                          value={currentEpisode.videoUrl}
+                          type="text"
+                          name="embedUrl"
+                          value={currentEpisode.embedUrl}
                           onChange={handleEpisodeInputChange}
+                          placeholder="Paste embed iframe code here"
                           className="w-full px-3 py-2 bg-white text-gray-800 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500"
                         />
                       </div>
                     </div>
 
+
                     <button
                       type="button"
                       onClick={addEpisode}
                       className="px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 mb-4 transition-colors disabled:opacity-50"
-                      disabled={!currentEpisode.number || !currentEpisode.title || !currentEpisode.videoUrl}
+                      disabled={!currentEpisode.number || !currentEpisode.title || !currentEpisode.embedUrl}
                     >
                       Add Episode
                     </button>
@@ -582,7 +577,7 @@ const DashboardAnime = () => {
                         {formData.episodeList.map((episode, index) => (
                           <div key={index} className="p-3 flex justify-between items-center">
                             <div className="truncate text-gray-800">
-                              <span className="font-medium">Episode {episode.number}:</span> {episode.title}
+                              <span className="font-medium">Episode {episode.number}:</span> {episode.embedUrl}
                             </div>
                             <button
                               type="button"
@@ -608,14 +603,12 @@ const DashboardAnime = () => {
           </div>
         )}
 
-        {/* Modal Konfirmasi */}
         <LogoutConfirmModal
           isOpen={showLogoutModal}
           onClose={() => setShowLogoutModal(false)}
           onConfirm={handleLogout}
         />
 
-        {/* Delete Confirmation Modal */}
         {showDeleteModal && (
           <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
             <div className="bg-white rounded-lg shadow-lg w-full max-w-md">
@@ -655,7 +648,7 @@ const DashboardAnime = () => {
           </div>
         )}
       </div>
-    </div >
+    </div>
   );
 };
 
