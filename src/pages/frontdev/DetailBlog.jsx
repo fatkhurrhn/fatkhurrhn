@@ -6,6 +6,29 @@ import { Link, useParams } from "react-router-dom";
 import { collection, query, where, getDocs } from "firebase/firestore";
 import { db } from "../../firebase";
 
+// Fungsi untuk mengubah markdown menjadi HTML
+const renderMarkdown = (content) => {
+  if (!content) return '';
+  
+  // Ganti **bold** dengan <strong>
+  let html = content.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+  // Ganti _italic_ dengan <em>
+  html = html.replace(/_(.*?)_/g, '<em>$1</em>');
+  // Ganti ## heading dengan <h2>
+  html = html.replace(/## (.*?)(\n|$)/g, '<h2 class="text-2xl font-bold mt-6 mb-4">$1</h2>');
+  // Ganti ```code blocks``` dengan <pre><code>
+  html = html.replace(/```([\s\S]*?)```/g, '<pre class="bg-gray-100 p-4 rounded-md overflow-x-auto"><code>$1</code></pre>');
+  // Ganti [link](url) dengan <a>
+  html = html.replace(/\[(.*?)\]\((.*?)\)/g, '<a href="$2" class="text-blue-600 hover:underline" target="_blank" rel="noopener noreferrer">$1</a>');
+  // Ganti line breaks dengan <br> dan paragraphs dengan <p>
+  html = html.split('\n\n').map(paragraph => {
+    if (paragraph.trim() === '') return '';
+    return `<p class="mb-4">${paragraph.replace(/\n/g, '<br>')}</p>`;
+  }).join('');
+
+  return html;
+};
+
 export default function Page() {
   const { slug } = useParams();
   const [blog, setBlog] = useState(null);
@@ -86,9 +109,11 @@ export default function Page() {
         {/* breadcrumb */}
         <div className="flex justify-between items-center w-full pt-3">
           <h2 className="text-[15px] text-gray-800 font-sm">
-            <Link to="/">home</Link><i className="ri-arrow-drop-right-line"></i>
-            <Link to="/blogs">blogs</Link><i className="ri-arrow-drop-right-line"></i>
-            {blog.slug}
+            <Link to="/" className="hover:text-blue-600">home</Link>
+            <i className="ri-arrow-drop-right-line mx-1"></i>
+            <Link to="/blogs" className="hover:text-blue-600">blogs</Link>
+            <i className="ri-arrow-drop-right-line mx-1"></i>
+            <span className="text-gray-600">{blog.slug}</span>
           </h2>
         </div>
 
@@ -107,14 +132,15 @@ export default function Page() {
               src={blog.thumbnail} 
               alt={blog.title} 
               className="w-full rounded-lg shadow-lg" 
+              onError={(e) => e.target.style.display = 'none'}
             />
           </div>
         )}
 
         {/* Article Content */}
         <article 
-          className="mt-10 text-[16px] text-justify leading-8 text-gray-800 prose max-w-none"
-          dangerouslySetInnerHTML={{ __html: blog.content }}
+          className="mt-10 text-[16px] leading-relaxed text-gray-800 text-justify prose max-w-none"
+          dangerouslySetInnerHTML={{ __html: renderMarkdown(blog.content) }}
         />
       </section>
       <Footer />

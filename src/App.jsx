@@ -14,11 +14,11 @@ import Writings01 from './pages/DetailWritings/tailwind-ui-is-now-tailwind-plus'
 // sisi Admin
 import Login from './pages/admin/Login';
 import Dashboard from './pages/admin/Dashboard';
-import AdminProject from './pages/admin/FrontDevProject';
-import AdminCertificate from './pages/admin/FrontDevCertificate';
+import AdminProject from './pages/admin/ManageProject';
+import AdminCertificate from './pages/admin/ManageCertificate';
 import ManageBlogs from './pages/admin/ManageBlogs';
-import DashboardAnime from './pages/admin/DashboardAnime';
-import DashboardReelsAnime from './pages/admin/DashboardReelsAnime';
+import DashboardAnime from './pages/admin/ManageAnime';
+import DashboardReelsAnime from './pages/admin/ManageReelsAnime';
 
 // sisi Anime
 import HomeAnime from './pages/anime/Home';
@@ -49,11 +49,11 @@ function App() {
         {/* Route Admin */}
         <Route path="/login" element={<Login />} />
         <Route path="/dashboard" element={<Dashboard />} />
-        <Route path="/dashboard/frontdev/projects" element={<AdminProject />} />
-        <Route path="/dashboard/frontdev/certificates" element={<AdminCertificate />} />
+        <Route path="/dashboard/frontdev/manage-projects" element={<AdminProject />} />
+        <Route path="/dashboard/frontdev/manage-certificates" element={<AdminCertificate />} />
         <Route path="/dashboard/frontdev/manage-blogs" element={<ManageBlogs />} />
-        <Route path="/dashboard/animes" element={<DashboardAnime />} />
-        <Route path="/dashboard/animes/reels" element={<DashboardReelsAnime />} />
+        <Route path="/dashboard/manage-animes" element={<DashboardAnime />} />
+        <Route path="/dashboard/animes/manage-reels" element={<DashboardReelsAnime />} />
 
         {/* Route Anime */}
         <Route path="/anime" element={<HomeAnime />} />

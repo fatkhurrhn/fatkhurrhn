@@ -1,12 +1,14 @@
 // src/pages/admin/ManageBlogs.jsx
 import React, { useState, useEffect } from "react";
-import { collection, getDocs, deleteDoc, doc, addDoc, updateDoc } from "firebase/firestore";
+import { collection, getDocs, deleteDoc, doc, addDoc, updateDoc, Timestamp } from "firebase/firestore";
 import { db } from "../../firebase";
 import NavNavigate from "../../components/NavNavigate";
+import { Link } from "react-router-dom";
 
 export default function ManageBlogs() {
   const [blogs, setBlogs] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
   const [showDeleteModal, setShowDeleteModal] = useState(false);
   const [showBlogModal, setShowBlogModal] = useState(false);
   const [modalMode, setModalMode] = useState('create');
@@ -35,6 +37,7 @@ export default function ManageBlogs() {
         setLoading(false);
       } catch (error) {
         console.error("Error fetching blogs: ", error);
+        setError("Failed to load blogs");
         setLoading(false);
       }
     };
@@ -42,13 +45,12 @@ export default function ManageBlogs() {
     fetchBlogs();
   }, []);
 
-  // Fungsi untuk generate slug dari title
   const generateSlug = (title) => {
     return title
       .toLowerCase()
-      .replace(/[^\w\s-]/g, '') // Hapus karakter non-word
-      .replace(/\s+/g, '-')     // Ganti spasi dengan dash
-      .replace(/--+/g, '-')     // Ganti multiple dash dengan single
+      .replace(/[^\w\s-]/g, '')
+      .replace(/\s+/g, '-')
+      .replace(/--+/g, '-')
       .trim();
   };
 
@@ -58,7 +60,10 @@ export default function ManageBlogs() {
   };
 
   const handleEditClick = (blog) => {
-    setCurrentBlog(blog);
+    setCurrentBlog({
+      ...blog,
+      publishedAt: blog.publishedAt?.toDate() || new Date()
+    });
     setModalMode('edit');
     setShowBlogModal(true);
   };
@@ -70,8 +75,8 @@ export default function ManageBlogs() {
       content: '',
       thumbnail: '',
       readingTime: 2,
-      publishedAt: null,
-      status: 'draft',
+      publishedAt: new Date(),
+      status: 'published',
       excerpt: '',
       tags: []
     });
@@ -86,13 +91,13 @@ export default function ManageBlogs() {
       setShowDeleteModal(false);
     } catch (error) {
       console.error("Error deleting blog: ", error);
+      setError("Failed to delete blog");
     }
   };
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     
-    // Auto-generate slug ketika title diubah
     if (name === 'title' && modalMode === 'create') {
       setCurrentBlog(prev => ({
         ...prev,
@@ -107,13 +112,72 @@ export default function ManageBlogs() {
     }
   };
 
+  // Rich text editor handlers
+  const handleContentChange = (e) => {
+    setCurrentBlog(prev => ({
+      ...prev,
+      content: e.target.value
+    }));
+  };
+
+  const applyFormat = (format) => {
+    const textarea = document.querySelector('textarea[name="content"]');
+    const start = textarea.selectionStart;
+    const end = textarea.selectionEnd;
+    const selectedText = currentBlog.content.substring(start, end);
+    let newText = currentBlog.content;
+    
+    switch(format) {
+      case 'bold':
+        newText = currentBlog.content.substring(0, start) + 
+                 `**${selectedText}**` + 
+                 currentBlog.content.substring(end);
+        break;
+      case 'italic':
+        newText = currentBlog.content.substring(0, start) + 
+                 `_${selectedText}_` + 
+                 currentBlog.content.substring(end);
+        break;
+      case 'heading':
+        newText = currentBlog.content.substring(0, start) + 
+                 `\n## ${selectedText}\n` + 
+                 currentBlog.content.substring(end);
+        break;
+      case 'link':
+        newText = currentBlog.content.substring(0, start) + 
+                 `[${selectedText}](url)` + 
+                 currentBlog.content.substring(end);
+        break;
+      case 'code':
+        newText = currentBlog.content.substring(0, start) + 
+                 "```\n" + selectedText + "\n```\n" + 
+                 currentBlog.content.substring(end);
+        break;
+      default:
+        break;
+    }
+
+    setCurrentBlog(prev => ({
+      ...prev,
+      content: newText
+    }));
+  };
+
+  const handleDateChange = (e) => {
+    setCurrentBlog(prev => ({
+      ...prev,
+      publishedAt: new Date(e.target.value)
+    }));
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setError(null);
     
     try {
       const blogData = {
         ...currentBlog,
-        publishedAt: currentBlog.publishedAt || new Date(),
+        publishedAt: currentBlog.publishedAt ? Timestamp.fromDate(new Date(currentBlog.publishedAt)) : Timestamp.now(),
         readingTime: parseInt(currentBlog.readingTime) || 2,
         tags: currentBlog.tags.length > 0 ? 
           (Array.isArray(currentBlog.tags) ? currentBlog.tags : currentBlog.tags.split(',').map(tag => tag.trim())) 
@@ -122,7 +186,7 @@ export default function ManageBlogs() {
 
       if (modalMode === 'create') {
         const docRef = await addDoc(collection(db, "my-blogs"), blogData);
-        setBlogs([...blogs, { id: docRef.id, ...blogData }]);
+        setBlogs([{ id: docRef.id, ...blogData }, ...blogs]);
       } else {
         await updateDoc(doc(db, "my-blogs", currentBlog.id), blogData);
         setBlogs(blogs.map(blog => 
@@ -133,6 +197,7 @@ export default function ManageBlogs() {
       setShowBlogModal(false);
     } catch (error) {
       console.error("Error saving blog: ", error);
+      setError("Failed to save blog. Please try again.");
     }
   };
 
@@ -146,14 +211,35 @@ export default function ManageBlogs() {
     });
   };
 
+  const formatDateForInput = (date) => {
+    if (!date) return '';
+    const d = new Date(date);
+    const pad = num => num.toString().padStart(2, '0');
+    return `${d.getFullYear()}-${pad(d.getMonth()+1)}-${pad(d.getDate())}T${pad(d.getHours())}:${pad(d.getMinutes())}`;
+  };
+
   return (
     <div className="bg-white min-h-screen text-gray-900">
-      <NavNavigate />
-      <section className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+      <section className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        {error && (
+          <div className="bg-red-50 border-l-4 border-red-500 p-4 mb-6">
+            <div className="flex">
+              <div className="flex-shrink-0">
+                <i className="ri-error-warning-line text-red-500"></i>
+              </div>
+              <div className="ml-3">
+                <p className="text-sm text-red-700">{error}</p>
+              </div>
+            </div>
+          </div>
+        )}
+
         <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-8 gap-4">
           <div>
             <h1 className="text-2xl font-bold flex items-center gap-2">
-              <i className="ri-news-line"></i> Manage Blogs
+              <Link to="/dashboard">
+              <i class="ri-arrow-left-circle-line"></i>
+              </Link> Manage Blogs
             </h1>
             <p className="text-sm text-gray-500 mt-1">Create, edit, and manage your blog posts</p>
           </div>
@@ -170,7 +256,7 @@ export default function ManageBlogs() {
             <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-blue-500"></div>
           </div>
         ) : blogs.length === 0 ? (
-          <div className="text-center py-16 border-2 border-dashed border-gray-200 bg-white text-gray-800 rounded-lg">
+          <div className="text-center py-16 border-2 border-dashed border-gray-200 rounded-lg">
             <i className="ri-article-line text-5xl text-gray-300 mb-4"></i>
             <h3 className="text-lg font-medium text-gray-700">No blogs yet</h3>
             <p className="text-gray-500 mt-1">Get started by creating your first blog post</p>
@@ -215,13 +301,13 @@ export default function ManageBlogs() {
                                 className="h-full w-full object-cover" 
                                 src={blog.thumbnail} 
                                 alt={blog.title} 
+                                onError={(e) => e.target.style.display = 'none'}
                               />
                             </div>
                           )}
                           <div>
-                            <div className="font-medium text-gray-900">{blog.title}</div>
-                            <div className="text-sm text-gray-500 mt-1">{blog.excerpt}</div>
-                            <div className="text-xs text-blue-600 mt-1">/{blog.slug}</div>
+                            <div className="font-medium text-gray-900 line-clamp-1">{blog.title}</div>
+                            <div className="text-xs text-blue-600 mt-1 line-clamp-1">/{blog.slug}</div>
                           </div>
                         </div>
                       </td>
@@ -291,7 +377,7 @@ export default function ManageBlogs() {
               <button
                 type="button"
                 onClick={() => setShowDeleteModal(false)}
-                className="px-4 py-2 border border-gray-300 bg-white text-gray-800 rounded-md text-gray-700 hover:bg-gray-50 transition-colors"
+                className="px-4 py-2 border border-gray-300 rounded-md text-gray-700 hover:bg-gray-50 transition-colors"
               >
                 Cancel
               </button>
@@ -332,25 +418,8 @@ export default function ManageBlogs() {
                     name="title"
                     value={currentBlog.title}
                     onChange={handleInputChange}
-                    className="w-full px-3 py-2 border border-gray-300 bg-white text-gray-800 rounded-md"
-                    required
+                    className="w-full px-3 py-2 border border-gray-300 rounded-md bg-white text-gray-800"
                   />
-                </div>
-
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-1">Slug*</label>
-                  <input
-                    type="text"
-                    name="slug"
-                    value={currentBlog.slug}
-                    onChange={handleInputChange}
-                    className="w-full px-3 py-2 border border-gray-300 bg-white text-gray-800 rounded-md bg-gray-50"
-                    required
-                    readOnly={modalMode === 'edit'}
-                  />
-                  <p className="mt-1 text-xs text-gray-500">
-                    URL: /blogs/{currentBlog.slug || 'your-blog-slug'}
-                  </p>
                 </div>
 
                 <div>
@@ -360,7 +429,7 @@ export default function ManageBlogs() {
                     name="thumbnail"
                     value={currentBlog.thumbnail}
                     onChange={handleInputChange}
-                    className="w-full px-3 py-2 border border-gray-300 bg-white text-gray-800 rounded-md"
+                    className="w-full px-3 py-2 border border-gray-300 rounded-md bg-white text-gray-800"
                     placeholder="https://example.com/image.jpg"
                   />
                   {currentBlog.thumbnail && (
@@ -376,18 +445,18 @@ export default function ManageBlogs() {
                   )}
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                   <div>
                     <label className="block text-sm font-medium text-gray-700 mb-1">Reading Time (minutes)*</label>
                     <div className="relative">
                       <input
-                        type="number"
+                        type="text"
                         name="readingTime"
                         value={currentBlog.readingTime}
                         onChange={handleInputChange}
-                        className="w-full px-3 py-2 border border-gray-300 bg-white text-gray-800 rounded-md"
+                        className="w-full px-3 py-2 border border-gray-300 rounded-md bg-white text-gray-800"
                         min="1"
-                        required
+
                       />
                       <div className="absolute right-3 top-2 text-gray-400">
                         <i className="ri-time-line"></i>
@@ -401,54 +470,79 @@ export default function ManageBlogs() {
                       name="status"
                       value={currentBlog.status}
                       onChange={handleInputChange}
-                      className="w-full px-3 py-2 border border-gray-300 bg-white text-gray-800 rounded-md"
-                      required
+                      className="w-full px-3 py-2 border border-gray-300 rounded-md bg-white text-gray-800"
+
                     >
-                      <option value="draft">Draft</option>
                       <option value="published">Published</option>
+                      <option value="draft">Draft</option>
                     </select>
                   </div>
-                </div>
 
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-1">Excerpt</label>
-                  <textarea
-                    name="excerpt"
-                    value={currentBlog.excerpt}
-                    onChange={handleInputChange}
-                    rows="2"
-                    className="w-full px-3 py-2 border border-gray-300 bg-white text-gray-800 rounded-md"
-                    placeholder="Short description of your blog"
+                  <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-1">Publish Date & Time*</label>
+                  <input
+                    type="datetime-local"
+                    value={formatDateForInput(currentBlog.publishedAt)}
+                    onChange={handleDateChange}
+                    className="w-full px-3 py-2 border border-gray-300 rounded-md bg-white text-gray-800"
                   />
                 </div>
-
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-1">Tags (comma separated)</label>
-                  <div className="relative">
-                    <input
-                      type="text"
-                      name="tags"
-                      value={Array.isArray(currentBlog.tags) ? currentBlog.tags.join(', ') : currentBlog.tags}
-                      onChange={handleInputChange}
-                      className="w-full px-3 py-2 border border-gray-300 bg-white text-gray-800 rounded-md"
-                      placeholder="e.g. technology, web development, design"
-                    />
-                    <div className="absolute right-3 top-2 text-gray-400">
-                      <i className="ri-price-tag-3-line"></i>
-                    </div>
-                  </div>
                 </div>
 
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-1">Content*</label>
+                  <div className="mb-2 flex gap-2 flex-wrap">
+                    <button
+                      type="button"
+                      onClick={() => applyFormat('bold')}
+                      className="px-2 py-1 bg-gray-100 rounded hover:bg-gray-200"
+                      title="Bold"
+                    >
+                      <i className="ri-bold"></i>
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => applyFormat('italic')}
+                      className="px-2 py-1 bg-gray-100 rounded hover:bg-gray-200"
+                      title="Italic"
+                    >
+                      <i className="ri-italic"></i>
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => applyFormat('heading')}
+                      className="px-2 py-1 bg-gray-100 rounded hover:bg-gray-200"
+                      title="Heading"
+                    >
+                      <i className="ri-heading"></i>
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => applyFormat('link')}
+                      className="px-2 py-1 bg-gray-100 rounded hover:bg-gray-200"
+                      title="Link"
+                    >
+                      <i className="ri-link"></i>
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => applyFormat('code')}
+                      className="px-2 py-1 bg-gray-100 rounded hover:bg-gray-200"
+                      title="Code Block"
+                    >
+                      <i className="ri-code-line"></i>
+                    </button>
+                  </div>
                   <textarea
                     name="content"
                     value={currentBlog.content}
-                    onChange={handleInputChange}
-                    rows="8"
-                    className="w-full px-3 py-2 border border-gray-300 bg-white text-gray-800 rounded-md"
-                    required
+                    onChange={handleContentChange}
+                    rows="12"
+                    className="w-full px-3 py-2 border border-gray-300 rounded-md bg-white text-gray-800 font-mono"
                   />
+                  <p className="mt-1 text-xs text-gray-500">
+                    Tips: Use **bold**, _italic_, ## heading, [link](url), and ```code blocks```
+                  </p>
                 </div>
               </div>
 
@@ -456,7 +550,7 @@ export default function ManageBlogs() {
                 <button
                   type="button"
                   onClick={() => setShowBlogModal(false)}
-                  className="px-4 py-2 border border-gray-300 bg-white text-gray-800 rounded-md text-gray-700 hover:bg-gray-50 transition-colors"
+                  className="px-4 py-2 border border-gray-300 rounded-md text-gray-700 hover:bg-gray-50 transition-colors"
                 >
                   Cancel
                 </button>

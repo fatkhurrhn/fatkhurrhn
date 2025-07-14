@@ -43,65 +43,61 @@ export default function Page() {
     });
   };
 
-  return (
-    <div className="bg-white min-h-screen text-gray-900 transition-colors duration-300">
-      <NavNavigate />
-      <section className="max-w-4xl mx-auto px-5 pt-20">
-        {/* Blog Section */}
-        <div>
-          <div className="flex justify-between items-center w-full">
-            <h2 className="text-[20px] text-text-gray-800 font-bold">✍️ Blogs</h2>
-          </div>
-          
-          {loading ? (
-            <div className="flex justify-center items-center h-64">
-              <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-blue-500"></div>
-            </div>
-          ) : blogs.length === 0 ? (
-            <div className="text-center py-10">
-              <i className="ri-article-line text-5xl text-gray-300 mb-4"></i>
-              <p className="text-gray-500">No blogs published yet. Check back later!</p>
-            </div>
-          ) : (
-            <div className="space-y-5 mt-5">
-              {blogs.map((blog) => (
-                <div key={blog.id} className="w-full">
-                  <div className="border border-[#252529] bg-white p-5 rounded-xl hover:shadow-md transition-shadow">
-                    <div className="flex flex-col sm:flex-row justify-between gap-5">
-                      <div className="flex gap-3">
-                        <div className="mt-1">
-                          <Link 
-                            to={`/blogs/${blog.slug}`} 
-                            className="text-lg text-text-gray-800 font-black flex gap-2 hover:text-blue-600"
-                          >
-                            {blog.title}
-                          </Link>
-                          <ul className="text-zinc-400 flex items-center gap-2 text-sm">
-                            <li>{blog.readingTime || 2} min read</li>
-                            <div className="bg-zinc-400 rounded-full h-[3px] w-[3px] aspect-square"></div>
-                            <li>{formatDate(blog.publishedAt)}</li>
-                          </ul>
-                          {blog.excerpt && (
-                            <p className="text-gray-600 mt-2">{blog.excerpt}</p>
-                          )}
-                        </div>
-                      </div>
-                      {blog.thumbnail && (
-                        <div className="sm:w-32 h-24 overflow-hidden rounded-md">
-                          <img 
-                            src={blog.thumbnail} 
-                            alt={blog.title} 
-                            className="w-full h-full object-cover"
-                          />
-                        </div>
-                      )}
-                    </div>
-                  </div>
-                </div>
-              ))}
+  // Versi 1: Card Grid Layout
+  const GridLayout = () => (
+  <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+    {blogs.map((blog) => (
+      <div
+        key={blog.id}
+        className="bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow duration-300 border border-gray-200"
+      >
+        <Link to={`/blogs/${blog.slug}`} className="block h-full">
+          {blog.thumbnail && (
+            <div className="h-32 overflow-hidden">
+              <img
+                src={blog.thumbnail}
+                alt={blog.title}
+                className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
+              />
             </div>
           )}
-        </div>
+          <div className="p-4">
+            <div className="flex items-center gap-2 text-xs text-gray-500 mb-2">
+              <span>{formatDate(blog.publishedAt)}</span>
+              <span className="w-1 h-1 bg-gray-400 rounded-full"></span>
+              <span>{blog.readingTime || 2} min read</span>
+            </div>
+            <h3 className="text-lg font-semibold text-gray-700 mb-1 line-clamp-1">
+              {blog.title}
+            </h3>
+            <p className="text-sm text-gray-600 mb-3 line-clamp-2">
+              {blog.description}
+            </p>
+          </div>
+        </Link>
+      </div>
+    ))}
+  </div>
+);
+
+  return (
+    <div className="bg-white min-h-screen text-gray-900">
+      <NavNavigate />
+      <section className="max-w-4xl mx-auto px-5 pt-20 pb-16">
+        {loading ? (
+          <div className="flex justify-center items-center h-64">
+            <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-blue-500"></div>
+          </div>
+        ) : blogs.length === 0 ? (
+          <div className="text-center py-20">
+            <i className="ri-article-line text-5xl text-gray-300 mb-4"></i>
+            <p className="text-gray-500">No blogs published yet. Check back later!</p>
+          </div>
+        ) : (
+          <>
+            <GridLayout />
+          </>
+        )}
       </section>
       <Footer />
     </div>
