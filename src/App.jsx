@@ -31,6 +31,7 @@ import More from './pages/anime/More';
 import Tes from './pages/anime/Tes';
 import Other from './pages/frontdev/Other';
 import GithubRepo from './pages/frontdev/GithubRepo';
+import Creator from './pages/frontdev/Creator';
 
 function App() {
   return (
@@ -43,6 +44,7 @@ function App() {
         <Route path="/resume" element={<Resume />} />
         <Route path="/others" element={<Other />} />
         <Route path="/github" element={<GithubRepo />} />
+        <Route path="/creator" element={<Creator />} />
 
         <Route path="/blogs" element={<Blogs />} />
         <Route path="//blogs/:slug" element={<DetailBlog />} />
