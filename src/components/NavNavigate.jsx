@@ -38,7 +38,8 @@ const NavNavigate = () => {
             path: '/blogs',
             icon: 'ri-news-line',
             activeIcon: 'ri-news-fill',
-            label: 'Blogs'
+            label: 'Blogs',
+            activePaths: ['/writings/tailwind-ui-is-now-tailwind-plus', '/blogs' ]
         },
         {
             path: '/others',
