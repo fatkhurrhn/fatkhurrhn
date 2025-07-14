@@ -101,50 +101,59 @@ const NavNavigate = () => {
                     className={`fixed top-0 left-0 h-full w-2/4 bg-white text-gray-800 transform ${isSidebarOpen ? "translate-x-0" : "-translate-x-full"
                         } transition-transform duration-300 ease-in-out z-30 px-6`}
                 >
-                    {/* Close Button */}
-                    <button
-                        onClick={() => setIsSidebarOpen(false)}
-                        className="absolute top-4 right-4 text-2xl"
-                    >
-                        <i className="ri-close-line"></i>
-                    </button>
+                    <div className="absolute top-4 left-4 right-4 flex items-center justify-between">
+                        <h3 className="text-lg font-semibold">Fatkhurrhn</h3>
+                        <button
+                            onClick={() => setIsSidebarOpen(false)}
+                            className="text-2xl"
+                        >
+                            <i className="ri-close-line"></i>
+                        </button>
+                    </div>
 
                     {/* Sidebar Menu */}
-                    <ul className="pt-8 ml-2 mt-16 space-y-3">
+                    <ul className="pt-8 ml-[-7px] mt-6 space-y-2">
                         <li>
                             <Link to="/" className="block hover:text-blue-400">Home</Link>
                         </li>
-
                         <li>
-                            <button
-                                onClick={() => toggleDropdown("frontend")}
-                                className="flex items-center hover:text-blue-400 w-full"
-                            >
+                            <button onClick={() => toggleDropdown("frontend")} className="flex items-center hover:text-blue-400 w-full">
                                 <i className={openDropdown === "frontend" ? "ri-arrow-down-s-line mr-2" : "ri-arrow-right-s-line mr-1"}></i>
-                                Frontend
+                                Frontdev
                             </button>
-
                             {openDropdown === "frontend" && (
                                 <ul className="mt-2 ml-4 space-y-2 border-l-2 border-gray-600 pl-4">
-                                    <li><Link to="/project" className="block hover:text-blue-400">Project</Link></li>
-                                    <li><Link to="/certificate" className="block hover:text-blue-400">Certificate</Link></li>
-                                    <li><Link to="/guestbook" className="block hover:text-blue-400">Guestbook</Link></li>
+                                    <li><Link to="/projects" className="block hover:text-blue-400">Projects</Link></li>
+                                    <li><Link to="/certificates" className="block hover:text-blue-400">Certificates</Link></li>
+                                    <li><Link to="/blogs" className="block hover:text-blue-400">Blogs</Link></li>
                                 </ul>
                             )}
                         </li>
-
                         <li>
-                            <Link to="/creator" className="block hover:text-blue-400">Creator</Link>
+                            <Link to="/storythur" className="block hover:text-blue-400">Creator</Link>
                         </li>
-
                         <li>
-                            <Link to="/store" className="block hover:text-blue-400">Store</Link>
-                        </li>
+                            <button
+                                onClick={() => toggleDropdown("islamic")}
+                                className="flex items-center hover:text-blue-400 w-full"
+                            >
+                                <i className={openDropdown === "islamic" ? "ri-arrow-down-s-line mr-2" : "ri-arrow-right-s-line mr-1"}></i>
+                                Islamic
+                            </button>
 
-                        <li>
-                            <Link to="/blogs" className="block hover:text-blue-400">blogs</Link>
+                            {openDropdown === "islamic" && (
+                                <ul className="mt-2 ml-4 space-y-2 border-l-2 border-gray-600 pl-4">
+                                    <li><Link to="/#" className="block hover:text-blue-400">#</Link></li>
+                                    <li><Link to="/#" className="block hover:text-blue-400">#</Link></li>
+                                    <li><Link to="/#" className="block hover:text-blue-400">#</Link></li>
+                                </ul>
+                            )}
                         </li>
                     </ul>
+
+                    <div className="absolute bottom-12 left-6 right-4 flex items-center justify-between">
+                        <h3 className="text-lg font-semibold">Follow for more</h3>
+                    </div>
 
                     {/* Social Media Icons */}
                     <div className="absolute bottom-5 left-0 w-full flex justify-center gap-4 ">
