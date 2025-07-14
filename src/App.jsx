@@ -1,20 +1,24 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import HomePage from './pages/HomePage';
-import Project from './pages/Project';
-import Certificate from './pages/Certificate';
-import Guestbook from './pages/Guestbook';
+import HomePage from './pages/frontdev/HomePage';
+import Project from './pages/frontdev/Project';
+import Certificate from './pages/frontdev/Certificate';
+import Guestbook from './pages/frontdev/Guestbook';
 import Resume from './pages/Resume';
 
 // blogs page
-import Blogs from './pages/Blog';
+import Blogs from './pages/frontdev/Blog';
+import DetailBlog from './pages/frontdev/DetailBlog';
 import Writings01 from './pages/DetailWritings/tailwind-ui-is-now-tailwind-plus';
 
 // sisi Admin
 import Login from './pages/admin/Login';
 import Dashboard from './pages/admin/Dashboard';
-import AdminProject from './pages/admin/Project';
-import AdminCertificate from './pages/admin/Certificate';
+import AdminProject from './pages/admin/FrontDevProject';
+import AdminCertificate from './pages/admin/FrontDevCertificate';
+import ManageBlogs from './pages/admin/ManageBlogs';
+import DashboardAnime from './pages/admin/DashboardAnime';
+import DashboardReelsAnime from './pages/admin/DashboardReelsAnime';
 
 // sisi Anime
 import HomeAnime from './pages/anime/Home';
@@ -24,10 +28,8 @@ import Story from './pages/anime/Story';
 import Genre from './pages/anime/Genre';
 import Status from './pages/anime/Status';
 import More from './pages/anime/More';
-import DashboardAnime from './pages/admin/DashboardAnime';
-import DashboardStoryAnime from './pages/admin/DashboardStoryAnime';
 import Tes from './pages/anime/Tes';
-import Other from './pages/Other';
+import Other from './pages/frontdev/Other';
 
 function App() {
   return (
@@ -41,15 +43,17 @@ function App() {
         <Route path="/others" element={<Other />} />
 
         <Route path="/blogs" element={<Blogs />} />
+        <Route path="//blogs/:slug" element={<DetailBlog />} />
         <Route path="/writings/tailwind-ui-is-now-tailwind-plus" element={<Writings01 />} />
 
         {/* Route Admin */}
         <Route path="/login" element={<Login />} />
-        <Route path="/admin" element={<Dashboard />} />
-        <Route path="/admin/projects" element={<AdminProject />} />
-        <Route path="/admin/certificates" element={<AdminCertificate />} />
-        <Route path="/admin/dashboard-animes" element={<DashboardAnime />} />
-        <Route path="/admin/dashboard-animes-story" element={<DashboardStoryAnime />} />
+        <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/dashboard/frontdev/projects" element={<AdminProject />} />
+        <Route path="/dashboard/frontdev/certificates" element={<AdminCertificate />} />
+        <Route path="/dashboard/frontdev/manage-blogs" element={<ManageBlogs />} />
+        <Route path="/dashboard/animes" element={<DashboardAnime />} />
+        <Route path="/dashboard/animes/reels" element={<DashboardReelsAnime />} />
 
         {/* Route Anime */}
         <Route path="/anime" element={<HomeAnime />} />

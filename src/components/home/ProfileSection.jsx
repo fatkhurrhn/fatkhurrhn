@@ -32,7 +32,7 @@ export default function ProfileSection() {
         </p>
 
         {/* Social Links */}
-        <div className="flex gap-3 mt-4 justify-center md:justify-start">
+        <div className="hidden md:flex gap-3 mt-4 justify-center md:justify-start">
           <a href="https://github.com/fatkhurrhn" target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:text-gray-900 transition-colors">
             <i className="ri-github-fill text-xl"></i>
           </a>

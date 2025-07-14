@@ -1,6 +1,6 @@
 import React from 'react'
-import NavNavigate from '../components/NavNavigate'
-import Footer from '../components/Footer'
+import NavNavigate from '../../components/NavNavigate'
+import Footer from '../../components/Footer'
 
 export default function Others() {
     return (

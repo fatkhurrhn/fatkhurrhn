@@ -1,6 +1,6 @@
 import React from "react";
-import NavNavigate from "../components/NavNavigate";
-import Footer from "../components/Footer";
+import NavNavigate from "../../components/NavNavigate";
+import Footer from "../../components/Footer";
 import Giscus from '@giscus/react';
 
 export default function Page() {
@@ -8,11 +8,11 @@ export default function Page() {
         <div className="bg-white min-h-screen text-gray-300 transition-colors duration-300">
             <NavNavigate />
             <section className="max-w-4xl mx-auto px-6 pt-20">
-                
+
                 <div className="flex justify-between items-center w-full">
                     <h2 className="text-[20px] text-gray-800 font-bold">💬 Discussionn</h2>
                     <a href="/blog" className="text-xs text-gray-800">
-                    Join the conversation below!
+                        Join the conversation below!
                     </a>
                 </div>
                 {/* Komentar Giscus langsung tanpa box */}

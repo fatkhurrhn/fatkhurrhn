@@ -45,7 +45,7 @@ const NavNavigate = () => {
             icon: 'ri-apps-line',
             activeIcon: 'ri-apps-fill',
             label: 'Others',
-            activePaths: ['/others', '/tes', '/paid-promote', '/xixi']
+            activePaths: ['/others', '/resume', '/paid-promote', '/xixi']
         }
     ];
 

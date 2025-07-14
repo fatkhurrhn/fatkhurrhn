@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
-import NavNavigate from "../components/NavNavigate";
-import Footer from "../components/Footer";
+import NavNavigate from "../../components/NavNavigate";
+import Footer from "../../components/Footer";
 import { collection, getDocs, query, orderBy } from "firebase/firestore";
-import { db } from "../firebase";
+import { db } from "../../firebase";
 
 const categories = ["project", "template", "components", "design"];
 
@@ -113,8 +113,8 @@ export default function Projects() {
                   key={category}
                   onClick={() => setActiveCategory(category)}
                   className={`px-4 py-2 rounded-md capitalize text-sm font-medium transition-all duration-200 border ${activeCategory === category
-                      ? "bg-indigo-50 border-indigo-300 text-indigo-700 shadow-xs"
-                      : "bg-white border-gray-200 text-gray-600 hover:bg-gray-50 hover:border-gray-300"
+                    ? "bg-indigo-50 border-indigo-300 text-indigo-700 shadow-xs"
+                    : "bg-white border-gray-200 text-gray-600 hover:bg-gray-50 hover:border-gray-300"
                     }`}
                 >
                   {category}
