@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import Navbar from "../components/Navbar";
+import NavNavigate from "../components/NavNavigate";
 import Footer from "../components/Footer";
 import ProfileSection from "../components/home/ProfileSection";
 import SkillsSection from "../components/home/SkillsSection";
@@ -23,7 +23,7 @@ export default function Page() {
 
   return (
     <div className="bg-gray-50 min-h-screen text-gray-800 transition-colors duration-300">
-      <Navbar />
+      <NavNavigate />
       <section className="max-w-4xl mx-auto px-5 pt-[95px]">
         <ProfileSection />
         

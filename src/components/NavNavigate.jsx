@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link, useLocation } from 'react-router-dom';
 
-const Navbar = () => {
+const NavNavigate = () => {
     const [isSidebarOpen, setIsSidebarOpen] = useState(false);
     const [openDropdown, setOpenDropdown] = useState(null);
     const location = useLocation();
@@ -15,43 +15,43 @@ const Navbar = () => {
     };
 
     const navItems = [
-        { 
-            path: '/', 
-            icon: 'ri-home-3-line', 
-            activeIcon: 'ri-home-3-fill', 
+        {
+            path: '/',
+            icon: 'ri-home-3-line',
+            activeIcon: 'ri-home-3-fill',
             label: 'Home',
             exact: true
         },
-        { 
-            path: '/quotes', 
-            icon: 'ri-chat-quote-line', 
-            activeIcon: 'ri-chat-quote-fill', 
-            label: 'Quotes'
+        {
+            path: '/projects',
+            icon: 'ri-code-s-slash-line',
+            activeIcon: 'ri-code-s-slash-fill',
+            label: 'Project'
         },
-        { 
-            path: '/store', 
-            icon: 'ri-store-line', 
-            activeIcon: 'ri-image-fill', 
-            label: 'Store'
+        {
+            path: '/certificates',
+            icon: 'ri-folders-line',
+            activeIcon: 'ri-folders-fill',
+            label: 'certificates'
         },
-        { 
-            path: '/videos', 
-            icon: 'ri-play-circle-line', 
-            activeIcon: 'ri-play-circle-fill', 
-            label: 'Mentahan'
+        {
+            path: '/blogs',
+            icon: 'ri-news-line',
+            activeIcon: 'ri-news-fill',
+            label: 'Blogs'
         },
-        { 
-            path: '/more', 
-            icon: 'ri-apps-line', 
-            activeIcon: 'ri-apps-fill', 
-            label: 'More',
-            activePaths: ['/more', '/tes', '/paid-promote', '/xixi']
+        {
+            path: '/other',
+            icon: 'ri-apps-line',
+            activeIcon: 'ri-apps-fill',
+            label: 'Other',
+            activePaths: ['/other', '/tes', '/paid-promote', '/xixi']
         }
     ];
 
     return (
         <>
-            {/* Main Navbar */}
+            {/* Main NavNavigate */}
             <nav className="bg-white fixed w-full z-20 top-0 start-0 border-b border-gray-200">
                 <div className="max-w-4xl mx-auto flex items-center justify-between px-3 py-3 mt-0 sm:mt-0">
                     {/* Hamburger Menu Button (Mobile) */}
@@ -79,7 +79,7 @@ const Navbar = () => {
                                     <ul className="absolute left-0 mt-1 w-33 bg-white bg-gray-800 rounded-lg shadow-lg transition-opacity duration-300 ease-in-out">
                                         <li><Link to="/creator" className="block px-4 py-2">Creator</Link></li>
                                         <li><Link to="/store" className="block px-4 py-2">Store</Link></li>
-                                        <li><Link to="/writings" className="block px-4 py-2">Writings</Link></li>
+                                        <li><Link to="/blogs" className="block px-4 py-2">blogs</Link></li>
                                         <li><Link to="/guestbook" className="block px-4 py-2">Guestbook</Link></li>
                                     </ul>
                                 )}
@@ -87,12 +87,12 @@ const Navbar = () => {
                         </nav>
                     </div>
 
-                    {/* Contact Me Button */}
+                    {/* Resume Button */}
                     <button
                         type="button"
                         className="text-gray-800 font-medium rounded-lg text-sm px-4 py-2 bg-white border border-gray-200 hover:bg-gray-100"
                     >
-                        My Project
+                        Resume
                     </button>
                 </div>
 
@@ -142,7 +142,7 @@ const Navbar = () => {
                         </li>
 
                         <li>
-                            <Link to="/writings" className="block hover:text-blue-400">Writings</Link>
+                            <Link to="/blogs" className="block hover:text-blue-400">blogs</Link>
                         </li>
                     </ul>
 
@@ -173,7 +173,7 @@ const Navbar = () => {
             </nav>
 
             {/* Bottom Navigation (Mobile) */}
-            <div className="sm:hidden fixed bottom-0 left-0 right-0 bg-white border-t border-gray-100 z-50">
+            <div className="sm:hidden fixed bottom-0 left-0 right-0 bg-white border-t border-gray-100 z-10">
                 <div className="flex justify-around items-stretch py-1">
                     {navItems.map((item) => {
                         let isActive = false;
@@ -190,9 +190,8 @@ const Navbar = () => {
                             <Link
                                 key={item.path}
                                 to={item.path}
-                                className={`flex-1 flex flex-col items-center justify-center p-1 transition-colors ${
-                                    isActive ? 'text-black' : 'text-gray-500 hover:text-gray-700'
-                                }`}
+                                className={`flex-1 flex flex-col items-center justify-center p-1 transition-colors ${isActive ? 'text-black' : 'text-gray-500 hover:text-gray-700'
+                                    }`}
                             >
                                 <i className={`text-lg ${isActive ? item.activeIcon : item.icon}`}></i>
                                 <span className="text-[10px] leading-tight mt-0.5">{item.label}</span>
@@ -205,4 +204,4 @@ const Navbar = () => {
     );
 };
 
-export default Navbar;
+export default NavNavigate;

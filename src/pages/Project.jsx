@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import Navbar from "../components/Navbar";
+import NavNavigate from "../components/NavNavigate";
 import Footer from "../components/Footer";
 import { collection, getDocs, query, orderBy } from "firebase/firestore";
 import { db } from "../firebase";
@@ -32,13 +32,13 @@ export default function Projects() {
     try {
       const projectsRef = collection(db, "my-project");
       let q = query(projectsRef, orderBy("createdAt", "desc"));
-      
+
       const querySnapshot = await getDocs(q);
       const projectsData = querySnapshot.docs.map(doc => ({
         id: doc.id,
         ...doc.data()
       }));
-      
+
       setProjects(projectsData);
       setLoading(false);
     } catch (error) {
@@ -51,8 +51,8 @@ export default function Projects() {
 
   const filteredProjects = projects.filter(project => {
     const matchesCategory = project.category === activeCategory;
-    const matchesSearch = project.title.toLowerCase().includes(searchTerm.toLowerCase()) || 
-                         (project.description && project.description.toLowerCase().includes(searchTerm.toLowerCase()));
+    const matchesSearch = project.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      (project.description && project.description.toLowerCase().includes(searchTerm.toLowerCase()));
     return matchesCategory && matchesSearch;
   });
 
@@ -64,7 +64,7 @@ export default function Projects() {
 
   return (
     <div className="bg-gray-50 min-h-screen text-gray-800">
-      <Navbar />
+      <NavNavigate />
       <section className="max-w-4xl mx-auto px-5 pt-20 pb-12">
         {/* Search and Category Controls - now in one row */}
         <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-8 gap-4">
@@ -79,7 +79,7 @@ export default function Projects() {
               placeholder="Search projects..."
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-              className="w-full pl-10 pr-4 py-2 bg-white border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500"
+              className="w-full pl-10 pr-4 py-2 bg-white border border-gray-300 rounded-md"
             />
             {searchTerm && (
               <button
@@ -90,14 +90,14 @@ export default function Projects() {
               </button>
             )}
           </div>
-          
+
           {/* Mobile Dropdown */}
           {isMobile ? (
             <div className="w-full sm:w-auto">
               <select
                 value={activeCategory}
                 onChange={(e) => setActiveCategory(e.target.value)}
-                className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                className="w-full bg-white text-[15px] px-4 py-2 border border-gray-300 rounded-md"
               >
                 {categories.map(category => (
                   <option key={category} value={category} className="capitalize">
@@ -108,23 +108,22 @@ export default function Projects() {
             </div>
           ) : (
             <div className="flex flex-wrap gap-2">
-  {categories.map(category => (
-    <button
-      key={category}
-      onClick={() => setActiveCategory(category)}
-      className={`px-4 py-2 rounded-md capitalize text-sm font-medium transition-all duration-200 border ${
-        activeCategory === category
-          ? "bg-indigo-50 border-indigo-300 text-indigo-700 shadow-xs"
-          : "bg-white border-gray-200 text-gray-600 hover:bg-gray-50 hover:border-gray-300"
-      }`}
-    >
-      {category}
-    </button>
-  ))}
-</div>
+              {categories.map(category => (
+                <button
+                  key={category}
+                  onClick={() => setActiveCategory(category)}
+                  className={`px-4 py-2 rounded-md capitalize text-sm font-medium transition-all duration-200 border ${activeCategory === category
+                      ? "bg-indigo-50 border-indigo-300 text-indigo-700 shadow-xs"
+                      : "bg-white border-gray-200 text-gray-600 hover:bg-gray-50 hover:border-gray-300"
+                    }`}
+                >
+                  {category}
+                </button>
+              ))}
+            </div>
           )}
         </div>
-        
+
         {/* Projects Grid */}
         {loading ? (
           <div className="flex justify-center items-center h-64">
@@ -137,15 +136,15 @@ export default function Projects() {
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
             {sortedProjects.map(project => (
-              <div 
-                key={project.id} 
+              <div
+                key={project.id}
                 className="bg-white rounded-lg overflow-hidden shadow-md"
               >
                 <div className="relative">
                   {project.thumbnail && (
-                    <img 
-                      src={project.thumbnail} 
-                      alt={project.title} 
+                    <img
+                      src={project.thumbnail}
+                      alt={project.title}
                       className="w-full h-48 object-cover"
                     />
                   )}
@@ -157,9 +156,9 @@ export default function Projects() {
                   <h3 className="text-xl font-bold mb-4 truncate">{project.title}</h3>
                   <div className="flex gap-3">
                     {project.demoUrl && (
-                      <a 
-                        href={project.demoUrl} 
-                        target="_blank" 
+                      <a
+                        href={project.demoUrl}
+                        target="_blank"
                         rel="noopener noreferrer"
                         className="flex-1 text-center bg-gray-100 hover:bg-gray-200 border border-gray-200 text-gray-800 font-medium py-2 px-4 rounded-md transition-colors text-sm"
                       >
@@ -167,9 +166,9 @@ export default function Projects() {
                       </a>
                     )}
                     {project.codeUrl && (
-                      <a 
-                        href={project.codeUrl} 
-                        target="_blank" 
+                      <a
+                        href={project.codeUrl}
+                        target="_blank"
                         rel="noopener noreferrer"
                         className="flex-1 text-center bg-gray-100 hover:bg-gray-200 border border-gray-200 text-gray-800 font-medium py-2 px-4 rounded-md transition-colors text-sm"
                       >

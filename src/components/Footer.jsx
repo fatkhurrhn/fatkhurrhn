@@ -15,7 +15,7 @@ export default function Footer() {
             rel="noopener noreferrer"
             className="text-xl"
           >
-            <i class="ri-github-fill"></i>
+            <i className="ri-github-fill"></i>
           </a>
           <a
             href="https://tiktok.com/@fatkhurrhnn"
