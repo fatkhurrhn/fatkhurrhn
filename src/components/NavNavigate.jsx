@@ -53,7 +53,7 @@ const NavNavigate = () => {
         <>
             {/* Main NavNavigate */}
             <nav className="bg-white fixed w-full z-20 top-0 start-0 border-b border-gray-200">
-                <div className="max-w-4xl mx-auto flex items-center justify-between px-3 py-3 mt-0 sm:mt-0">
+                <div className="max-w-4xl mx-auto flex items-center justify-between px-2 py-2 sm:mt-0">
                     {/* Hamburger Menu Button (Mobile) */}
                     <button
                         onClick={() => setIsSidebarOpen(!isSidebarOpen)}
