@@ -434,7 +434,7 @@ export default function ManageBlogs() {
                   />
                   {currentBlog.thumbnail && (
                     <div className="mt-2">
-                      <p className="text-xs text-gray-500 mb-1">Thumbnail Preview:</p>
+                      <p className="text-xs text-gray-500 mb-1">Thumbnails Preview:</p>
                       <img 
                         src={currentBlog.thumbnail} 
                         alt="Thumbnail preview" 
