@@ -1,6 +1,7 @@
 import React from "react";
 import NavNavigate from "../components/NavNavigate";
 import Footer from "../components/Footer";
+import { Link } from "react-router-dom";
 
 export default function Page() {
     return (
@@ -12,9 +13,6 @@ export default function Page() {
                     {/* blog */}
                     <div className="flex justify-between items-center w-full">
                         <h2 className="text-[20px] text-text-gray-800 font-bold">✍️ Blogs</h2>
-                        <a href="/blog" className="text-xs text-text-gray-800">
-                            View more
-                        </a>
                     </div>
                     {/* Single Blog Card (Full Width) */}
                     <div className="w-full mt-5">
@@ -23,9 +21,9 @@ export default function Page() {
                                 {/* Left Side (Icon + Info) */}
                                 <div className="flex gap-3">
                                     <div className="mt-1">
-                                        <a href="/writings/tailwind-ui-is-now-tailwind-plus" className="text-lg text-text-gray-800 font-black flex gap-2">
+                                        <Link to="/writings/tailwind-ui-is-now-tailwind-plus" className="text-lg text-text-gray-800 font-black flex gap-2">
                                             Tailwind UI is now Tailwind Plus
-                                        </a>
+                                        </Link>
                                         <ul className="text-zinc-400 flex items-center gap-2 text-sm">
                                             <li>2 min read</li>
                                             <div className="bg-zinc-400 rounded-full h-[3px] w-[3px] aspect-square"></div>

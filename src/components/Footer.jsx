@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 export default function Footer() {
   return (
@@ -9,30 +10,30 @@ export default function Footer() {
         </p>
         {/* Container untuk icon */}
         <div className="flex space-x-3 sm:space-x-4 ml-auto text-gray-800 items-center justify-center sm:justify-start">
-        <a
-            href="https://github.com/fatkhurrhn"
+        <Link
+            to="https://github.com/fatkhurrhn"
             target="_blank"
             rel="noopener noreferrer"
             className="text-xl"
           >
             <i className="ri-github-fill"></i>
-          </a>
-          <a
-            href="https://tiktok.com/@fatkhurrhnn"
+          </Link>
+          <Link
+            to="https://tiktok.com/@fatkhurrhnn"
             target="_blank"
             rel="noopener noreferrer"
             className="text-xl"
           >
             <i className="ri-tiktok-fill"></i>
-          </a>
-          <a
-            href="https://instagram.com/story.thur"
+          </Link>
+          <Link
+            to="https://instagram.com/story.thur"
             target="_blank"
             rel="noopener noreferrer"
             className="text-xl"
           >
             <i className="ri-instagram-line"></i>
-          </a>
+          </Link>
         </div>
       </div>
     </footer>

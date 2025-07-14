@@ -1,6 +1,7 @@
 import React from "react";
 import NavNavigate from "../../components/NavNavigate";
 import Footer from "../../components/Footer";
+import { Link } from "react-router-dom";
 
 export default function Page() {
     return (
@@ -11,8 +12,8 @@ export default function Page() {
                 {/* breadcrumb */}
                 <div className="flex justify-between items-center w-full pt-3">
                     <h2 className="text-[15px] text-gray-800 font-sm">
-                        <a href="/">home</a><i class="ri-arrow-drop-right-line"></i>
-                        <a href="/blogs">blogs</a><i class="ri-arrow-drop-right-line"></i>
+                        <Link to="/">home</Link><i class="ri-arrow-drop-right-line"></i>
+                        <Link to="/blogs">blogs</Link><i class="ri-arrow-drop-right-line"></i>
                         tailwind ui is now tailwind plus</h2>
                 </div>
 

@@ -4,8 +4,12 @@ import HomePage from './pages/HomePage';
 import Project from './pages/Project';
 import Certificate from './pages/Certificate';
 import Guestbook from './pages/Guestbook';
+import Resume from './pages/Resume';
+
+// blogs page
 import Blogs from './pages/Blog';
 import Writings01 from './pages/DetailWritings/tailwind-ui-is-now-tailwind-plus';
+
 // sisi Admin
 import Login from './pages/admin/Login';
 import Dashboard from './pages/admin/Dashboard';
@@ -23,7 +27,7 @@ import More from './pages/anime/More';
 import DashboardAnime from './pages/admin/DashboardAnime';
 import DashboardStoryAnime from './pages/admin/DashboardStoryAnime';
 import Tes from './pages/anime/Tes';
-
+import Other from './pages/Other';
 
 function App() {
   return (
@@ -33,8 +37,10 @@ function App() {
         <Route path="/projects" element={<Project />} />
         <Route path="/certificates" element={<Certificate />} />
         <Route path="/guestbook" element={<Guestbook />} />
-        <Route path="/blogs" element={<Blogs />} />
+        <Route path="/resume" element={<Resume />} />
+        <Route path="/others" element={<Other />} />
 
+        <Route path="/blogs" element={<Blogs />} />
         <Route path="/writings/tailwind-ui-is-now-tailwind-plus" element={<Writings01 />} />
 
         {/* Route Admin */}

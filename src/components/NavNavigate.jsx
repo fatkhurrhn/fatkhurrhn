@@ -26,7 +26,7 @@ const NavNavigate = () => {
             path: '/projects',
             icon: 'ri-code-s-slash-line',
             activeIcon: 'ri-code-s-slash-fill',
-            label: 'Project'
+            label: 'Projects'
         },
         {
             path: '/certificates',
@@ -41,11 +41,11 @@ const NavNavigate = () => {
             label: 'Blogs'
         },
         {
-            path: '/other',
+            path: '/others',
             icon: 'ri-apps-line',
             activeIcon: 'ri-apps-fill',
-            label: 'Other',
-            activePaths: ['/other', '/tes', '/paid-promote', '/xixi']
+            label: 'Others',
+            activePaths: ['/others', '/tes', '/paid-promote', '/xixi']
         }
     ];
 
@@ -87,13 +87,13 @@ const NavNavigate = () => {
                         </nav>
                     </div>
 
-                    {/* Resume Button */}
-                    <button
-                        type="button"
+                    {/* page to resume */}
+                    <Link
+                        to="/resume"
                         className="text-gray-800 font-medium rounded-lg text-sm px-4 py-2 bg-white border border-gray-200 hover:bg-gray-100"
                     >
-                        Resume
-                    </button>
+                        Resumes
+                    </Link>
                 </div>
 
                 {/* Sidebar */}
