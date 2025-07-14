@@ -73,7 +73,7 @@ export default function Certificate() {
                 placeholder="Search certificates..."
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
-                className="w-full pl-10 pr-4 py-2 border text-gray-700 bg-white border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                className="w-full pl-10 pr-4 py-2 border text-gray-700 bg-white border-gray-300 rounded-md"
               />
               {searchTerm && (
                 <button
@@ -118,7 +118,7 @@ export default function Certificate() {
                 <select
                   value={activeCategory}
                   onChange={(e) => setActiveCategory(e.target.value)}
-                  className="w-full px-4 py-2 text-gray-800 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500 text-sm appearance-none"
+                  className="w-full bg-white px-4 py-2 text-gray-800 border border-gray-300 rounded-md text-sm appearance-none"
                 >
                   <option value="certificate">Certificates</option>
                   <option value="badge">Badges</option>

@@ -12,7 +12,7 @@ export default function Page() {
                 <div className="flex justify-between items-center w-full pt-3">
                     <h2 className="text-[15px] text-gray-800 font-sm">
                         <a href="/">home</a><i class="ri-arrow-drop-right-line"></i>
-                        <a href="/writings">writings</a><i class="ri-arrow-drop-right-line"></i>
+                        <a href="/blogs">blogs</a><i class="ri-arrow-drop-right-line"></i>
                         tailwind ui is now tailwind plus</h2>
                 </div>
 
@@ -28,7 +28,7 @@ export default function Page() {
                 </div>
 
                 {/* Article Content */}
-                <article className="mt-10 text-[16px] leading-8 text-gray-800">
+                <article className="mt-10 text-[16px] text-justify leading-8 text-gray-800">
                     <p>
                         Tailwind UI has officially rebranded as <strong>Tailwind Plus</strong>. This change marks a new era for developers
                         and designers who rely on Tailwind for building modern, sleek user interfaces effortlessly.

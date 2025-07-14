@@ -4,7 +4,7 @@ import HomePage from './pages/HomePage';
 import Project from './pages/Project';
 import Certificate from './pages/Certificate';
 import Guestbook from './pages/Guestbook';
-import Writings from './pages/Writing';
+import Blogs from './pages/Blog';
 import Writings01 from './pages/DetailWritings/tailwind-ui-is-now-tailwind-plus';
 // sisi Admin
 import Login from './pages/admin/Login';
@@ -33,7 +33,7 @@ function App() {
         <Route path="/projects" element={<Project />} />
         <Route path="/certificates" element={<Certificate />} />
         <Route path="/guestbook" element={<Guestbook />} />
-        <Route path="/writings" element={<Writings />} />
+        <Route path="/blogs" element={<Blogs />} />
 
         <Route path="/writings/tailwind-ui-is-now-tailwind-plus" element={<Writings01 />} />
 
