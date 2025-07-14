@@ -66,9 +66,12 @@ const NavNavigate = () => {
                     <div className="relative">
                         <nav className="hidden md:flex space-x-8 font-medium text-gray-800">
                             <Link to="/">Home</Link>
-                            <Link to="/projects">Project</Link>
-                            <Link to="/certificates">Certificate</Link>
-                            <div className="relative dropdown">
+                            <Link to="/projects">Projects</Link>
+                            <Link to="/certificates">Certificates</Link>
+                            <Link to="/blogs">Blogs</Link>
+                            <Link to="/guestbook">Guestbook</Link>
+                            <Link to="/others">Others</Link>
+                            {/* <div className="relative dropdown">
                                 <button
                                     className="flex items-center space-x-1 focus:outline-none"
                                     onClick={() => handleDropdownClick("Pages")}
@@ -84,7 +87,7 @@ const NavNavigate = () => {
                                         <li><Link to="/guestbook" className="block px-4 py-2">Guestbook</Link></li>
                                     </ul>
                                 )}
-                            </div>
+                            </div> */}
                         </nav>
                     </div>
 

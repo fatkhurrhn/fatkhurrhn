@@ -11,7 +11,7 @@ export default function Page() {
 
                 <div className="flex justify-between items-center w-full">
                     <h2 className="text-[20px] text-gray-800 font-bold">💬 Discussionn</h2>
-                    <a href="/blog" className="text-xs text-gray-800">
+                    <a href="/guestbook" className="text-xs text-gray-800">
                         Join the conversation below!
                     </a>
                 </div>
