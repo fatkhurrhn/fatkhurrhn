@@ -101,7 +101,7 @@ export default function StoreNetflix() {
 
         <div className="text-center">
           <h1 className="text-2xl sm:text-3xl font-bold text-gray-800">Netflix Pricelist</h1>
-          <p className='pb-2 text-gray-800'>murah kok, di gasskeeeunnlah kuyy</p>
+          <p className='pb-2 text-gray-800'>murah kok, di gasskeeeunnlah skuyy</p>
           <hr className="border-gray-200" />
         </div>
 
