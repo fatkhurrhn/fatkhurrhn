@@ -85,7 +85,7 @@ export default function StoreNetflix() {
       `Nama: ${formData.name}\n` +
       `No WhatsApp: ${formData.whatsapp}\n` +
       `Device: ${formData.device}\n\n` +
-      `Saya sudah memilih paket di atas dan ingin memesan. Berikut bukti pembayarannya`;
+      `Saya sudah memilih paket di atas dan ingin memesan. *Berikut dibawah bukti pembayarannya*`;
 
     window.location.href = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
   };
