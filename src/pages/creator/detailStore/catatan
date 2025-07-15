@@ -2,22 +2,8 @@ import React, { useState } from "react";
 import NavCreator from "../../../components/creator/NavCreator";
 
 // const pricelist
-const pricelist = [
-    {
-        category: "Sharing",
-        options: [
-            { duration: "1 tahun", price: "7.000" }
-        ]
-    },
-    {
-        category: "Private",
-        options: [
-            { duration: "1 tahun", price: "13.000" }
-        ]
-    }
-];
 
-export default function StoreAM() {
+export default function StoreNetflix() {
   const [selected, setSelected] = useState(null);
   const [showModal, setShowModal] = useState(false);
   const [showQRIS, setShowQRIS] = useState(false);
@@ -52,7 +38,7 @@ export default function StoreAM() {
     }
 
     const phone = "6282285512813";
-    const message = `*Detail Pesanan Alight Motion*\n\n` +
+    const message = `*Detail Pesanan Netflix*\n\n` +
       `Paket: ${selected.category} - ${selected.duration}\n` +
       `Harga: Rp ${selected.price}\n\n` +
       `*Data Pemesan*\n` +
@@ -73,7 +59,7 @@ export default function StoreAM() {
       <main className="max-w-4xl mx-auto px-4 py-2 pb-[110px]">
 
         <div className="text-center">
-          <h1 className="text-2xl sm:text-3xl font-bold text-gray-800">Alight Motion Pricelist</h1>
+          <h1 className="text-2xl sm:text-3xl font-bold text-gray-800">Netflix Pricelist</h1>
           <p className='pb-2 text-gray-800'>murah kok, di gasskeeeunnlah skuyy</p>
           <hr className="border-gray-200" />
         </div>
@@ -110,7 +96,7 @@ export default function StoreAM() {
             <div className="bg-white rounded-lg p-5 w-full max-w-md">
               <div className="mb-4 p-3 bg-gray-100 rounded text-gray-800">
                 <p className="font-semibold">Detail Pesanan:</p>
-                <p>Alight Motion {selected.category} {selected.duration}</p>
+                <p>Netflix {selected.category} {selected.duration}</p>
               </div>
 
               <form onSubmit={handleSubmit}>

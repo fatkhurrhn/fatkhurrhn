@@ -46,6 +46,11 @@ import Other from './pages/creator/Other';
 import Store from './pages/creator/Store';
 import StoreMl from './pages/creator/detailStore/DetailDiamondML';
 import StoreNetflix from './pages/creator/detailStore/DetailNetflix';
+import StoreCapcut from './pages/creator/detailStore/DetailCapcut';
+import StoreCanva from './pages/creator/detailStore/DetailCanva';
+import StoreViu from './pages/creator/detailStore/DetailViu';
+import StoreAM from './pages/creator/detailStore/DetailAlightMotion';
+import StoreYT from './pages/creator/detailStore/DetailYoutube';
 
 function App() {
   return (
@@ -76,6 +81,11 @@ function App() {
         <Route path="/creator/store" element={<Store />} />
         <Route path="/creator/store/diamond-ml" element={<StoreMl />} />
         <Route path="/creator/store/netflix" element={<StoreNetflix />} />
+        <Route path="/creator/store/capcut" element={<StoreCapcut />} />
+        <Route path="/creator/store/canva" element={<StoreCanva />} />
+        <Route path="/creator/store/viu" element={<StoreViu />} />
+        <Route path="/creator/store/alight-motion" element={<StoreAM />} />
+        <Route path="/creator/store/youtube" element={<StoreYT />} />
 
         {/* Route Islamic */}
         <Route path="/islamic" element={<Islamic />} />
