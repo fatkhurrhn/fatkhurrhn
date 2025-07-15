@@ -37,7 +37,7 @@ export default function Creator() {
                         </div>
                         <div className="text-center lg:text-left pt-3">
                             <a
-                                href="/creators/storythur"
+                                href="/creator/storythur"
                                 className="inline-flex items-center bg-black hover:bg-gray-800 text-white text-sm font-medium py-2 px-4 rounded transition duration-300"
                             >
                                 Let's go to storythur

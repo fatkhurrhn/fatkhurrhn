@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
 
-const NavWrapper = ({ children }) => {
+const NavCreator = ({ children }) => {
   const location = useLocation();
 
   const navItems = [
@@ -83,4 +83,4 @@ const NavWrapper = ({ children }) => {
   );
 };
 
-export default NavWrapper;
+export default NavCreator;

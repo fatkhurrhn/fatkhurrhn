@@ -14,7 +14,7 @@ import Creator from './pages/creator/Creator';
 import Blogs from './pages/frontdev/Blog';
 import DetailBlog from './pages/frontdev/DetailBlog';
 import Writings01 from './pages/frontdev/DetailWritings/tailwind-ui-is-now-tailwind-plus';
-import Other from './pages/frontdev/Other';
+import Otherdev from './pages/frontdev/Other';
 
 // storythur
 import Storythur from './pages/creator/Storythur';
@@ -41,6 +41,11 @@ import Tes from './pages/anime/Tes';
 import Islamic from './pages/Islamic/Islamic';
 import Quotes from './pages/creator/Quotes';
 import ManageQuotes from './pages/admin/ManageQuotes';
+import Mentahan from './pages/creator/Mentahan';
+import Other from './pages/creator/Other';
+import Store from './pages/creator/Store';
+import StoreMl from './pages/creator/detailStore/DetailDiamondML';
+import StoreNetflix from './pages/creator/detailStore/DetailNetflix';
 
 function App() {
   return (
@@ -56,7 +61,7 @@ function App() {
         <Route path="/frontdev/certificates" element={<Certificate />} />
         <Route path="/frontdev/guestbook" element={<Guestbook />} />
         <Route path="/frontdev/github" element={<GithubRepo />} />
-        <Route path="/frontdev/others" element={<Other />} />
+        <Route path="/frontdev/others" element={<Otherdev />} />
         <Route path="/frontdev/blogs" element={<Blogs />} />
         <Route path="/frontdev/blogs/:slug" element={<DetailBlog />} />
         <Route path="/frontdev/writings/tailwind-ui-is-now-tailwind-plus" element={<Writings01 />} />
@@ -65,6 +70,12 @@ function App() {
         <Route path="/creator" element={<Creator />} />
         <Route path="/creator/storythur" element={<Storythur />} />
         <Route path="/creator/quotes" element={<Quotes />} />
+        <Route path="/creator/mentahan" element={<Mentahan />} />
+        <Route path="/creator/other" element={<Other />} />
+
+        <Route path="/creator/store" element={<Store />} />
+        <Route path="/creator/store/diamond-ml" element={<StoreMl />} />
+        <Route path="/creator/store/netflix" element={<StoreNetflix />} />
 
         {/* Route Islamic */}
         <Route path="/islamic" element={<Islamic />} />

@@ -1,5 +1,5 @@
 import React from 'react'
-import NavWrapper from '../../components/creator/NavWrapper'
+import NavWrapper from '../../components/creator/NavCreator'
 import Footer from '../../components/creator/Footer'
 
 export default function Storythur() {
