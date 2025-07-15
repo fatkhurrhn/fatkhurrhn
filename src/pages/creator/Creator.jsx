@@ -35,10 +35,19 @@ export default function Creator() {
                                 <i className="ri-linkedin-box-line"></i>
                             </a>
                         </div>
+                        <div className="text-center lg:text-left pt-3">
+                            <a
+                                href="/creators/storythur"
+                                className="inline-flex items-center bg-black hover:bg-gray-800 text-white text-sm font-medium py-2 px-4 rounded transition duration-300"
+                            >
+                                Let's go to storythur
+                                {/* <i className="ri-whatsapp-line ml-2"></i> */}
+                            </a>
+                        </div>
                     </div>
 
                     {/* Social Media Stats - Minimal */}
-                    <div className="flex justify-center gap-8 py-6 border-y border-gray-200">
+                    <div className="flex justify-center gap-8 py-4 border-y border-gray-200">
                         <div className="text-center">
                             <div className="text-2xl font-bold text-pink-600">90K+</div>
                             <div className="text-sm text-gray-500">Instagram</div>

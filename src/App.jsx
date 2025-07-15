@@ -10,14 +10,14 @@ import Project from './pages/frontdev/Project';
 import Certificate from './pages/frontdev/Certificate';
 import Guestbook from './pages/frontdev/Guestbook';
 import GithubRepo from './pages/frontdev/GithubRepo';
-import Creator from './pages/frontdev/Creator';
+import Creator from './pages/creator/Creator';
 import Blogs from './pages/frontdev/Blog';
 import DetailBlog from './pages/frontdev/DetailBlog';
 import Writings01 from './pages/frontdev/DetailWritings/tailwind-ui-is-now-tailwind-plus';
 import Other from './pages/frontdev/Other';
 
 // storythur
-import Storythur from './pages/Storythur';
+import Storythur from './pages/creator/Storythur';
 
 // sisi Admin
 import Login from './pages/admin/Login';
@@ -47,10 +47,7 @@ function App() {
 
         {/* Route Main */}
         <Route path="/" element={<HomePage />} />
-        <Route path="/animes" element={<HomeAnime />} />
-        <Route path="/creators" element={<Creator />} />
         <Route path="/resume" element={<Resume />} />
-        <Route path="/islamic" element={<Islamic />} />
 
         {/* Route Frontdev */}
         <Route path="/frontdev/projects" element={<Project />} />
@@ -63,12 +60,15 @@ function App() {
         <Route path="/frontdev/writings/tailwind-ui-is-now-tailwind-plus" element={<Writings01 />} />
 
         {/* Route Creator */}
-        <Route path="/creator/storythur" element={<Storythur />} />
+        <Route path="/creators" element={<Creator />} />
+        <Route path="/creators/storythur" element={<Storythur />} />
 
         {/* Route Islamic */}
-        <Route path="/islamic/jadwal-sholat" element={<Storythur />} />
+        <Route path="/islamic" element={<Islamic />} />
+        {/* <Route path="/islamic/jadwal-sholat" element={<JadwalSholat />} /> */}
 
         {/* Route Anime */}
+        <Route path="/animes" element={<HomeAnime />} />
         <Route path="/animes/:id" element={<AnimeDetail />} />
         <Route path="/animes/:id/episode/:episodeNumber" element={<EpisodePlayer />} />
         <Route path="/animes/story" element={<Story />} />
