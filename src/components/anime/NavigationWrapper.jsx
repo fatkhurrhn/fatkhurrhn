@@ -18,7 +18,7 @@ const NavigationWrapper = ({ children }) => {
       <nav className="fixed top-0 left-0 right-0 z-50 bg-white shadow-sm border-b border-gray-100">
         <div className="container mx-auto max-w-[960px] px-4 py-3">
           <div className="flex items-center justify-between">
-            <Link to="/anime" className="flex items-center space-x-2">
+            <Link to="/animes" className="flex items-center space-x-2">
               <i className="ri-play-circle-line text-2xl text-blue-600"></i>
               <span className="text-xl font-bold text-gray-800">KoleksiAnimeKu</span>
             </Link>
