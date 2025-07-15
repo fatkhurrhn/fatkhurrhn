@@ -5,11 +5,11 @@ const NavWrapper = ({ children }) => {
   const location = useLocation();
 
   const navItems = [
-    { path: '/creators/storythur', icon: 'ri-home-4-line', activeIcon: 'ri-home-4-fill', label: 'Home' },
-    { path: '/creators/quotes', icon: 'ri-chat-quote-line', activeIcon: 'ri-chat-quote-fill', label: 'Quotes' },
-    { path: '/creators/store', icon: 'ri-store-line', activeIcon: 'ri-store-fill', label: 'Store' },
-    { path: '/creators/mentahan', icon: 'ri-folders-line', activeIcon: 'ri-folders-fill', label: 'Mentahan' },
-    { path: '/creators/more', icon: 'ri-apps-line', activeIcon: 'ri-apps-fill', label: 'More' },
+    { path: '/creator/storythur', icon: 'ri-home-4-line', activeIcon: 'ri-home-4-fill', label: 'Home' },
+    { path: '/creator/quotes', icon: 'ri-chat-quote-line', activeIcon: 'ri-chat-quote-fill', label: 'Quotes' },
+    { path: '/creator/store', icon: 'ri-store-line', activeIcon: 'ri-store-fill', label: 'Store' },
+    { path: '/creator/mentahan', icon: 'ri-folders-line', activeIcon: 'ri-folders-fill', label: 'Mentahan' },
+    { path: '/creator/more', icon: 'ri-apps-line', activeIcon: 'ri-apps-fill', label: 'More' },
   ];
 
   return (

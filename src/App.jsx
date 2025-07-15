@@ -38,7 +38,9 @@ import Status from './pages/anime/Status';
 import More from './pages/anime/More';
 import Tes from './pages/anime/Tes';
 
-import Islamic from './pages/Islamic';
+import Islamic from './pages/Islamic/Islamic';
+import Quotes from './pages/creator/Quotes';
+import ManageQuotes from './pages/admin/ManageQuotes';
 
 function App() {
   return (
@@ -62,6 +64,7 @@ function App() {
         {/* Route Creator */}
         <Route path="/creator" element={<Creator />} />
         <Route path="/creator/storythur" element={<Storythur />} />
+        <Route path="/creator/quotes" element={<Quotes />} />
 
         {/* Route Islamic */}
         <Route path="/islamic" element={<Islamic />} />
@@ -86,6 +89,7 @@ function App() {
         <Route path="/dashboard/frontdev/manage-blogs" element={<ManageBlogs />} />
         <Route path="/dashboard/manage-animes" element={<DashboardAnime />} />
         <Route path="/dashboard/animes/manage-reels" element={<DashboardReelsAnime />} />
+        <Route path="/dashboard/creator/manage-quotes" element={<ManageQuotes />} />
       </Routes>
     </Router>
   );
