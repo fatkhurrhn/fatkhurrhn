@@ -23,10 +23,10 @@ const NavNavigate = () => {
             exact: true
         },
         {
-            path: '/creators',
+            path: '/creator',
             icon: 'ri-news-line',
             activeIcon: 'ri-news-fill',
-            label: 'Creators'
+            label: 'Creator'
         },
         {
             path: '/frontdev/projects',
@@ -65,7 +65,7 @@ const NavNavigate = () => {
                     <div className="relative">
                         <nav className="hidden md:flex space-x-8 font-medium text-gray-800">
                             <Link to="/">Home</Link>
-                            <Link to="/creators">Creators</Link>
+                            <Link to="/creator">Creator</Link>
                             <Link to="/frontdev/projects">Projects</Link>
                             <Link to="/frontdev/certificates">Certificates</Link>
                             <Link to="/frontdev/blogs">Blogs</Link>

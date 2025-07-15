@@ -60,8 +60,8 @@ function App() {
         <Route path="/frontdev/writings/tailwind-ui-is-now-tailwind-plus" element={<Writings01 />} />
 
         {/* Route Creator */}
-        <Route path="/creators" element={<Creator />} />
-        <Route path="/creators/storythur" element={<Storythur />} />
+        <Route path="/creator" element={<Creator />} />
+        <Route path="/creator/storythur" element={<Storythur />} />
 
         {/* Route Islamic */}
         <Route path="/islamic" element={<Islamic />} />
