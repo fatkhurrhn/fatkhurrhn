@@ -169,7 +169,7 @@ const ManageQuotes = () => {
             >
               <option value="all">Semua Kategori</option>
               <option value="motivation">Motivasi</option>
-              <option value="life">Kehidupan</option>
+              <option value="life">Sindiran</option>
               <option value="love">Cinta</option>
               <option value="wisdom">Kebijaksanaan</option>
               <option value="funny">Lucu</option>
@@ -223,7 +223,7 @@ const ManageQuotes = () => {
                       onChange={(e) => setEditingQuote({...editingQuote, category: e.target.value})}
                     >
                       <option value="motivation">Motivasi</option>
-                      <option value="life">Kehidupan</option>
+                      <option value="life">Sindiran</option>
                       <option value="love">Cinta</option>
                       <option value="wisdom">Kebijaksanaan</option>
                       <option value="funny">Lucu</option>
@@ -271,7 +271,7 @@ const ManageQuotes = () => {
                   {quote.author}
                 </div>
                 <div className="col-span-2 hidden md:block">
-                  <span className={`text-xs px-2 py-1 rounded-full ${
+                  <span className={`text-xs px-2 py-1 rounded-[4px] ${
                     quote.category === 'motivation' ? 'bg-blue-100 text-blue-800' :
                     quote.category === 'life' ? 'bg-green-100 text-green-800' :
                     quote.category === 'love' ? 'bg-pink-100 text-pink-800' :
@@ -280,7 +280,7 @@ const ManageQuotes = () => {
                     'bg-gray-100 text-gray-800'
                   }`}>
                     {quote.category === 'motivation' && 'Motivasi'}
-                    {quote.category === 'life' && 'Kehidupan'}
+                    {quote.category === 'life' && 'Sindiran'}
                     {quote.category === 'love' && 'Cinta'}
                     {quote.category === 'wisdom' && 'Kebijaksanaan'}
                     {quote.category === 'funny' && 'Lucu'}

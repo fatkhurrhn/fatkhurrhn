@@ -72,7 +72,7 @@ const AddQuoteModal = ({ onClose, onQuoteAdded }) => {
 
                         <div className="space-y-0">
                             <input
-                                placeholder="Nama Anda"
+                                placeholder="Username instagram tanpa '@'"
                                 type="text"
                                 id="author"
                                 className="w-full px-4 py-3 rounded-lg border border-gray-300 bg-white text-gray-800"
@@ -90,9 +90,8 @@ const AddQuoteModal = ({ onClose, onQuoteAdded }) => {
                                 onChange={(e) => setCategory(e.target.value)}
                             >
                                 <option value="motivation">Motivasi</option>
-                                <option value="life">Kehidupan</option>
+                                <option value="life">Sindiran</option>
                                 <option value="love">Cinta</option>
-                                <option value="wisdom">Kebijaksanaan</option>
                                 <option value="funny">Lucu</option>
                                 <option value="other">Lainnya</option>
                             </select>
@@ -148,9 +147,9 @@ const QuoteCard = ({ quote, author, category, searchTerm }) => {
             <div className="flex justify-between items-start mb-0">
                 <span className={`text-[10px] px-1 py-0 rounded-[3px] ${getCategoryColor(category)}`}>
                     {category === 'motivation' && 'Motivasi'}
-                    {category === 'life' && 'Kehidupan'}
+                    {category === 'life' && 'Sindiran'}
                     {category === 'love' && 'Cinta'}
-                    {category === 'wisdom' && 'Kebijaksanaan'}
+                    {category === 'wisdom' && 'Sindiran'}
                     {category === 'funny' && 'Lucu'}
                     {category === 'other' && 'Lainnya'}
                 </span>
@@ -296,9 +295,8 @@ const Quotes = () => {
                         >
                             <option value="all">Semua Kategori</option>
                             <option value="motivation">Motivasi</option>
-                            <option value="life">Kehidupan</option>
+                            <option value="wisdom">Sindiran</option>
                             <option value="love">Cinta</option>
-                            <option value="wisdom">Kebijaksanaan</option>
                             <option value="funny">Lucu</option>
                             <option value="other">Lainnya</option>
                         </select>
