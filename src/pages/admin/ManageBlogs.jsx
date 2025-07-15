@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from "react";
 import { collection, getDocs, deleteDoc, doc, addDoc, updateDoc, Timestamp } from "firebase/firestore";
 import { db } from "../../firebase";
-import NavNavigate from "../../components/NavNavigate";
+import NavNavigate from "../../components/frontdev/NavNavigate";
 import { Link } from "react-router-dom";
 
 export default function ManageBlogs() {
@@ -97,7 +97,7 @@ export default function ManageBlogs() {
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
-    
+
     if (name === 'title' && modalMode === 'create') {
       setCurrentBlog(prev => ({
         ...prev,
@@ -126,32 +126,32 @@ export default function ManageBlogs() {
     const end = textarea.selectionEnd;
     const selectedText = currentBlog.content.substring(start, end);
     let newText = currentBlog.content;
-    
-    switch(format) {
+
+    switch (format) {
       case 'bold':
-        newText = currentBlog.content.substring(0, start) + 
-                 `**${selectedText}**` + 
-                 currentBlog.content.substring(end);
+        newText = currentBlog.content.substring(0, start) +
+          `**${selectedText}**` +
+          currentBlog.content.substring(end);
         break;
       case 'italic':
-        newText = currentBlog.content.substring(0, start) + 
-                 `_${selectedText}_` + 
-                 currentBlog.content.substring(end);
+        newText = currentBlog.content.substring(0, start) +
+          `_${selectedText}_` +
+          currentBlog.content.substring(end);
         break;
       case 'heading':
-        newText = currentBlog.content.substring(0, start) + 
-                 `\n## ${selectedText}\n` + 
-                 currentBlog.content.substring(end);
+        newText = currentBlog.content.substring(0, start) +
+          `\n## ${selectedText}\n` +
+          currentBlog.content.substring(end);
         break;
       case 'link':
-        newText = currentBlog.content.substring(0, start) + 
-                 `[${selectedText}](url)` + 
-                 currentBlog.content.substring(end);
+        newText = currentBlog.content.substring(0, start) +
+          `[${selectedText}](url)` +
+          currentBlog.content.substring(end);
         break;
       case 'code':
-        newText = currentBlog.content.substring(0, start) + 
-                 "```\n" + selectedText + "\n```\n" + 
-                 currentBlog.content.substring(end);
+        newText = currentBlog.content.substring(0, start) +
+          "```\n" + selectedText + "\n```\n" +
+          currentBlog.content.substring(end);
         break;
       default:
         break;
@@ -173,14 +173,14 @@ export default function ManageBlogs() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError(null);
-    
+
     try {
       const blogData = {
         ...currentBlog,
         publishedAt: currentBlog.publishedAt ? Timestamp.fromDate(new Date(currentBlog.publishedAt)) : Timestamp.now(),
         readingTime: parseInt(currentBlog.readingTime) || 2,
-        tags: currentBlog.tags.length > 0 ? 
-          (Array.isArray(currentBlog.tags) ? currentBlog.tags : currentBlog.tags.split(',').map(tag => tag.trim())) 
+        tags: currentBlog.tags.length > 0 ?
+          (Array.isArray(currentBlog.tags) ? currentBlog.tags : currentBlog.tags.split(',').map(tag => tag.trim()))
           : []
       };
 
@@ -189,7 +189,7 @@ export default function ManageBlogs() {
         setBlogs([{ id: docRef.id, ...blogData }, ...blogs]);
       } else {
         await updateDoc(doc(db, "my-blogs", currentBlog.id), blogData);
-        setBlogs(blogs.map(blog => 
+        setBlogs(blogs.map(blog =>
           blog.id === currentBlog.id ? { ...blog, ...blogData } : blog
         ));
       }
@@ -215,7 +215,7 @@ export default function ManageBlogs() {
     if (!date) return '';
     const d = new Date(date);
     const pad = num => num.toString().padStart(2, '0');
-    return `${d.getFullYear()}-${pad(d.getMonth()+1)}-${pad(d.getDate())}T${pad(d.getHours())}:${pad(d.getMinutes())}`;
+    return `${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())}T${pad(d.getHours())}:${pad(d.getMinutes())}`;
   };
 
   return (
@@ -238,12 +238,12 @@ export default function ManageBlogs() {
           <div>
             <h1 className="text-2xl font-bold flex items-center gap-2">
               <Link to="/dashboard">
-              <i class="ri-arrow-left-circle-line"></i>
+                <i class="ri-arrow-left-circle-line"></i>
               </Link> Manage Blogs
             </h1>
             <p className="text-sm text-gray-500 mt-1">Create, edit, and manage your blog posts</p>
           </div>
-          <button 
+          <button
             onClick={handleCreateClick}
             className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg flex items-center gap-2 transition-colors"
           >
@@ -297,10 +297,10 @@ export default function ManageBlogs() {
                         <div className="flex items-center gap-4">
                           {blog.thumbnail && (
                             <div className="flex-shrink-0 h-12 w-12 rounded-md overflow-hidden">
-                              <img 
-                                className="h-full w-full object-cover" 
-                                src={blog.thumbnail} 
-                                alt={blog.title} 
+                              <img
+                                className="h-full w-full object-cover"
+                                src={blog.thumbnail}
+                                alt={blog.title}
                                 onError={(e) => e.target.style.display = 'none'}
                               />
                             </div>
@@ -313,8 +313,8 @@ export default function ManageBlogs() {
                       </td>
                       <td className="px-6 py-4">
                         <span className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium 
-                          ${blog.status === 'published' 
-                            ? 'bg-green-100 text-green-800' 
+                          ${blog.status === 'published'
+                            ? 'bg-green-100 text-green-800'
                             : 'bg-yellow-100 text-yellow-800'}`}>
                           {blog.status}
                         </span>
@@ -363,7 +363,7 @@ export default function ManageBlogs() {
               <h3 className="text-lg font-medium text-gray-900">
                 Confirm Deletion
               </h3>
-              <button 
+              <button
                 onClick={() => setShowDeleteModal(false)}
                 className="text-gray-400 hover:text-gray-500"
               >
@@ -401,7 +401,7 @@ export default function ManageBlogs() {
               <h3 className="text-lg font-medium text-gray-900">
                 {modalMode === 'create' ? 'Create New Blog' : 'Edit Blog'}
               </h3>
-              <button 
+              <button
                 onClick={() => setShowBlogModal(false)}
                 className="text-gray-400 hover:text-gray-500"
               >
@@ -435,9 +435,9 @@ export default function ManageBlogs() {
                   {currentBlog.thumbnail && (
                     <div className="mt-2">
                       <p className="text-xs text-gray-500 mb-1">Thumbnails Preview:</p>
-                      <img 
-                        src={currentBlog.thumbnail} 
-                        alt="Thumbnail preview" 
+                      <img
+                        src={currentBlog.thumbnail}
+                        alt="Thumbnail preview"
                         className="h-32 object-contain rounded border border-gray-200"
                         onError={(e) => e.target.style.display = 'none'}
                       />
@@ -479,14 +479,14 @@ export default function ManageBlogs() {
                   </div>
 
                   <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-1">Publish Date & Time*</label>
-                  <input
-                    type="datetime-local"
-                    value={formatDateForInput(currentBlog.publishedAt)}
-                    onChange={handleDateChange}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-md bg-white text-gray-800"
-                  />
-                </div>
+                    <label className="block text-sm font-medium text-gray-700 mb-1">Publish Date & Time*</label>
+                    <input
+                      type="datetime-local"
+                      value={formatDateForInput(currentBlog.publishedAt)}
+                      onChange={handleDateChange}
+                      className="w-full px-3 py-2 border border-gray-300 rounded-md bg-white text-gray-800"
+                    />
+                  </div>
                 </div>
 
                 <div>

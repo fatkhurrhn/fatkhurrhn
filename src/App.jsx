@@ -1,15 +1,23 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+
+// main
+import Resume from './pages/Resume';
+
+// frontdev 
 import HomePage from './pages/frontdev/HomePage';
 import Project from './pages/frontdev/Project';
 import Certificate from './pages/frontdev/Certificate';
 import Guestbook from './pages/frontdev/Guestbook';
-import Resume from './pages/Resume';
-
-// blogs page
+import GithubRepo from './pages/frontdev/GithubRepo';
+import Creator from './pages/frontdev/Creator';
 import Blogs from './pages/frontdev/Blog';
 import DetailBlog from './pages/frontdev/DetailBlog';
 import Writings01 from './pages/DetailWritings/tailwind-ui-is-now-tailwind-plus';
+import Other from './pages/frontdev/Other';
+
+// storythur
+import Storythur from './pages/Storythur';
 
 // sisi Admin
 import Login from './pages/admin/Login';
@@ -29,26 +37,46 @@ import Genre from './pages/anime/Genre';
 import Status from './pages/anime/Status';
 import More from './pages/anime/More';
 import Tes from './pages/anime/Tes';
-import Other from './pages/frontdev/Other';
-import GithubRepo from './pages/frontdev/GithubRepo';
-import Creator from './pages/frontdev/Creator';
+
+import Islamic from './pages/Islamic';
 
 function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/projects" element={<Project />} />
-        <Route path="/certificates" element={<Certificate />} />
-        <Route path="/guestbook" element={<Guestbook />} />
-        <Route path="/resume" element={<Resume />} />
-        <Route path="/others" element={<Other />} />
-        <Route path="/github" element={<GithubRepo />} />
-        <Route path="/creator" element={<Creator />} />
 
-        <Route path="/blogs" element={<Blogs />} />
-        <Route path="//blogs/:slug" element={<DetailBlog />} />
-        <Route path="/writings/tailwind-ui-is-now-tailwind-plus" element={<Writings01 />} />
+        {/* Route Main */}
+        <Route path="/" element={<HomePage />} />
+        <Route path="/anime" element={<HomeAnime />} />
+        <Route path="/creator" element={<Creator />} />
+        <Route path="/resume" element={<Resume />} />
+        <Route path="/islamic" element={<Islamic />} />
+
+        {/* Route Frontdev */}
+        <Route path="/frontdev/projects" element={<Project />} />
+        <Route path="/frontdev/certificates" element={<Certificate />} />
+        <Route path="/frontdev/guestbook" element={<Guestbook />} />
+        <Route path="/frontdev/github" element={<GithubRepo />} />
+        <Route path="/frontdev/others" element={<Other />} />
+        <Route path="/frontdev/blogs" element={<Blogs />} />
+        <Route path="/frontdev/blogs/:slug" element={<DetailBlog />} />
+        <Route path="/frontdev/writings/tailwind-ui-is-now-tailwind-plus" element={<Writings01 />} />
+
+        {/* Route Creator */}
+        <Route path="/creator/storythur" element={<Storythur />} />
+
+        {/* Route Islamic */}
+        <Route path="/islamic/jadwal-sholat" element={<Storythur />} />
+
+        {/* Route Anime */}
+        <Route path="/anime/:id" element={<AnimeDetail />} />
+        <Route path="/anime/:id/episode/:episodeNumber" element={<EpisodePlayer />} />
+        <Route path="/anime/story" element={<Story />} />
+        <Route path="/anime/genre" element={<Genre />} />
+        <Route path="/genre/:genreName" element={<Genre />} />
+        <Route path="/anime/status" element={<Status />} />
+        <Route path="/anime/more" element={<More />} />
+        <Route path="/anime/tes" element={<Tes />} />
 
         {/* Route Admin */}
         <Route path="/login" element={<Login />} />
@@ -58,17 +86,6 @@ function App() {
         <Route path="/dashboard/frontdev/manage-blogs" element={<ManageBlogs />} />
         <Route path="/dashboard/manage-animes" element={<DashboardAnime />} />
         <Route path="/dashboard/animes/manage-reels" element={<DashboardReelsAnime />} />
-
-        {/* Route Anime */}
-        <Route path="/anime" element={<HomeAnime />} />
-        <Route path="/anime/:id" element={<AnimeDetail />} />
-        <Route path="/anime/:id/episode/:episodeNumber" element={<EpisodePlayer />} />
-        <Route path="/anime/story" element={<Story />} />
-        <Route path="/anime/genre" element={<Genre />} />
-        <Route path="/genre/:genreName" element={<Genre />} />
-        <Route path="/anime/status" element={<Status />} />
-        <Route path="/anime/more" element={<More />} />
-        <Route path="/anime/tes" element={<Tes />} />
       </Routes>
     </Router>
   );

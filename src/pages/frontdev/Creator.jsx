@@ -1,5 +1,5 @@
-import NavNavigate from '../../components/NavNavigate';
-import Footer from '../../components/Footer';
+import NavNavigate from '../../components/frontdev/NavNavigate';
+import Footer from '../../components/frontdev/Footer';
 import { Link } from 'react-router-dom';
 
 export default function Creator() {
@@ -17,21 +17,21 @@ export default function Creator() {
                                 className="w-full h-full object-cover"
                             />
                         </div> */}
-                        
+
                         <h1 className="text-4xl font-bold text-gray-900">M. FATKHURROHMAN</h1>
                         <p className="text-lg mt-2 text-gray-600">Content Creator & Digital Strategist</p>
-                        
+
                         <div className="flex gap-4 mt-6">
-                            <a href="https://instagram.com/story.thur" target="_blank" rel="noopener noreferrer" 
-                               className="text-pink-600 hover:text-pink-700 text-2xl transition">
+                            <a href="https://instagram.com/story.thur" target="_blank" rel="noopener noreferrer"
+                                className="text-pink-600 hover:text-pink-700 text-2xl transition">
                                 <i className="ri-instagram-line"></i>
                             </a>
-                            <a href="https://tiktok.com/@storythurr" target="_blank" rel="noopener noreferrer" 
-                               className="text-gray-800 hover:text-black text-2xl transition">
+                            <a href="https://tiktok.com/@storythurr" target="_blank" rel="noopener noreferrer"
+                                className="text-gray-800 hover:text-black text-2xl transition">
                                 <i className="ri-tiktok-line"></i>
                             </a>
-                            <a href="https://linkedin.com/in/fatkhurrhnn" target="_blank" rel="noopener noreferrer" 
-                               className="text-blue-600 hover:text-blue-700 text-2xl transition">
+                            <a href="https://linkedin.com/in/fatkhurrhnn" target="_blank" rel="noopener noreferrer"
+                                className="text-blue-600 hover:text-blue-700 text-2xl transition">
                                 <i className="ri-linkedin-box-line"></i>
                             </a>
                         </div>
@@ -109,7 +109,7 @@ export default function Creator() {
                                         <li>Meningkatkan engagement dan interaksi di media sosial</li>
                                     </ul>
                                 </div>
-                                
+
                                 <div>
                                     <h3 className="font-semibold text-lg text-gray-800">Instagram Influencer & Content Creator</h3>
                                     <p className="text-sm text-gray-500">Akun Pribadi, 90K+ Followers</p>
@@ -118,7 +118,7 @@ export default function Creator() {
                                         <li>Berpengalaman dalam pembuatan konten dan interaksi dengan audiens</li>
                                     </ul>
                                 </div>
-                                
+
                                 <div>
                                     <h3 className="font-semibold text-lg text-gray-800">Staff Administrasi Santri Baru 2022</h3>
                                     <ul className="mt-2 ml-6 list-disc text-gray-700 space-y-1">

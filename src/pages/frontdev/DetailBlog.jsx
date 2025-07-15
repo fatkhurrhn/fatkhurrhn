@@ -1,7 +1,7 @@
 // src/pages/frontdev/DetailBlog.jsx
 import React, { useState, useEffect } from "react";
-import NavNavigate from "../../components/NavNavigate";
-import Footer from "../../components/Footer";
+import NavNavigate from "../../components/frontdev/NavNavigate";
+import Footer from "../../components/frontdev/Footer";
 import { Link, useParams } from "react-router-dom";
 import { collection, query, where, getDocs } from "firebase/firestore";
 import { db } from "../../firebase";
@@ -9,7 +9,7 @@ import { db } from "../../firebase";
 // Fungsi untuk mengubah markdown menjadi HTML
 const renderMarkdown = (content) => {
   if (!content) return '';
-  
+
   // Ganti **bold** dengan <strong>
   let html = content.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
   // Ganti _italic_ dengan <em>
@@ -39,7 +39,7 @@ export default function Page() {
       try {
         const q = query(collection(db, "my-blogs"), where("slug", "==", slug));
         const querySnapshot = await getDocs(q);
-        
+
         if (!querySnapshot.empty) {
           querySnapshot.forEach((doc) => {
             setBlog({
@@ -90,8 +90,8 @@ export default function Page() {
           <i className="ri-article-line text-5xl text-gray-300 mb-4"></i>
           <h1 className="text-2xl font-bold mb-2">Blog Not Found</h1>
           <p className="text-gray-500 mb-4">The blog you're looking for doesn't exist or may have been removed.</p>
-          <Link 
-            to="/blogs" 
+          <Link
+            to="/blogs"
             className="text-blue-600 hover:text-blue-800 font-medium"
           >
             ← Back to Blogs
@@ -128,17 +128,17 @@ export default function Page() {
         {/* Thumbnail */}
         {blog.thumbnail && (
           <div className="mt-5">
-            <img 
-              src={blog.thumbnail} 
-              alt={blog.title} 
-              className="w-full rounded-lg shadow-lg" 
+            <img
+              src={blog.thumbnail}
+              alt={blog.title}
+              className="w-full rounded-lg shadow-lg"
               onError={(e) => e.target.style.display = 'none'}
             />
           </div>
         )}
 
         {/* Article Content */}
-        <article 
+        <article
           className="mt-10 text-[16px] leading-relaxed text-gray-800 text-justify prose max-w-none"
           dangerouslySetInnerHTML={{ __html: renderMarkdown(blog.content) }}
         />

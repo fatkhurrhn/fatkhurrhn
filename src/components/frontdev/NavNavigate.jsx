@@ -6,9 +6,9 @@ const NavNavigate = () => {
     const [openDropdown, setOpenDropdown] = useState(null);
     const location = useLocation();
 
-    const handleDropdownClick = (menu) => {
-        setOpenDropdown((prev) => (prev === menu ? null : menu));
-    };
+    // const handleDropdownClick = (menu) => {
+    //     setOpenDropdown((prev) => (prev === menu ? null : menu));
+    // };
 
     const toggleDropdown = (menu) => {
         setOpenDropdown(openDropdown === menu ? null : menu);

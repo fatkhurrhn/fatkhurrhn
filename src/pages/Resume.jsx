@@ -1,13 +1,13 @@
 import React from 'react';
-import NavNavigate from '../components/NavNavigate';
-import Footer from '../components/Footer';
+import NavNavigate from '../components/frontdev/NavNavigate';
+import Footer from '../components/frontdev/Footer';
 import { Link } from 'react-router-dom';
 
 export default function Resume() {
     return (
         <div className="bg-gray-50 min-h-screen text-gray-800">
             <NavNavigate />
-            
+
             <main className="max-w-4xl mx-auto px-4 sm:px-6 pt-[95px] pb-12">
 
                 {/* CV Cards - Simple Grid */}
@@ -29,8 +29,8 @@ export default function Resume() {
                             React, Tailwind CSS, Git/Github, and modern web development.
                         </p>
                         <Link
-                            to="/cv/frontdev.pdf" 
-                            target="_blank" 
+                            to="/cv/frontdev.pdf"
+                            target="_blank"
                             rel="noopener noreferrer"
                             className="text-sm font-medium text-blue-600 hover:text-blue-800 inline-flex items-center"
                         >
@@ -54,9 +54,9 @@ export default function Resume() {
                         <p className="text-gray-600 text-sm mb-5">
                             Video, writing, and digital content creation.
                         </p>
-                        <Link 
-                            to="/cv/creator.pdf" 
-                            target="_blank" 
+                        <Link
+                            to="/cv/creator.pdf"
+                            target="_blank"
                             rel="noopener noreferrer"
                             className="text-sm font-medium text-purple-600 hover:text-purple-800 inline-flex items-center"
                         >

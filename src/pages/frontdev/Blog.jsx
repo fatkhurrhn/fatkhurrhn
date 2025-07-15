@@ -1,7 +1,7 @@
 // src/pages/frontdev/Blog.jsx
 import React, { useState, useEffect } from "react";
-import NavNavigate from "../../components/NavNavigate";
-import Footer from "../../components/Footer";
+import NavNavigate from "../../components/frontdev/NavNavigate";
+import Footer from "../../components/frontdev/Footer";
 import { Link } from "react-router-dom";
 import { collection, getDocs, query, orderBy } from "firebase/firestore";
 import { db } from "../../firebase";
@@ -21,7 +21,7 @@ export default function Page() {
             ...doc.data()
           }))
           .filter(blog => blog.status === 'published');
-        
+
         setBlogs(blogsData);
         setLoading(false);
       } catch (error) {
@@ -45,40 +45,40 @@ export default function Page() {
 
   // Versi 1: Card Grid Layout
   const GridLayout = () => (
-  <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-    {blogs.map((blog) => (
-      <div
-        key={blog.id}
-        className="bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow duration-300 border border-gray-200"
-      >
-        <Link to={`/blogs/${blog.slug}`} className="block h-full">
-          {blog.thumbnail && (
-            <div className="h-32 overflow-hidden">
-              <img
-                src={blog.thumbnail}
-                alt={blog.title}
-                className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
-              />
+    <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+      {blogs.map((blog) => (
+        <div
+          key={blog.id}
+          className="bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow duration-300 border border-gray-200"
+        >
+          <Link to={`/blogs/${blog.slug}`} className="block h-full">
+            {blog.thumbnail && (
+              <div className="h-32 overflow-hidden">
+                <img
+                  src={blog.thumbnail}
+                  alt={blog.title}
+                  className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
+                />
+              </div>
+            )}
+            <div className="p-4">
+              <div className="flex items-center gap-2 text-xs text-gray-500 mb-2">
+                <span>{formatDate(blog.publishedAt)}</span>
+                <span className="w-1 h-1 bg-gray-400 rounded-full"></span>
+                <span>{blog.readingTime || 2} min read</span>
+              </div>
+              <h3 className="text-lg font-semibold text-gray-700 mb-1 line-clamp-1">
+                {blog.title}
+              </h3>
+              <p className="text-sm text-gray-600 mb-3 line-clamp-2">
+                {blog.description || blog.content}
+              </p>
             </div>
-          )}
-          <div className="p-4">
-            <div className="flex items-center gap-2 text-xs text-gray-500 mb-2">
-              <span>{formatDate(blog.publishedAt)}</span>
-              <span className="w-1 h-1 bg-gray-400 rounded-full"></span>
-              <span>{blog.readingTime || 2} min read</span>
-            </div>
-            <h3 className="text-lg font-semibold text-gray-700 mb-1 line-clamp-1">
-              {blog.title}
-            </h3>
-            <p className="text-sm text-gray-600 mb-3 line-clamp-2">
-              {blog.description || blog.content}
-            </p>
-          </div>
-        </Link>
-      </div>
-    ))}
-  </div>
-);
+          </Link>
+        </div>
+      ))}
+    </div>
+  );
 
   return (
     <div className="bg-white min-h-screen text-gray-900">

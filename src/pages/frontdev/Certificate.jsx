@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-import NavNavigate from "../../components/NavNavigate";
-import Footer from "../../components/Footer";
+import NavNavigate from "../../components/frontdev/NavNavigate";
+import Footer from "../../components/frontdev/Footer";
 import { collection, getDocs } from "firebase/firestore";
 import { db } from "../../firebase";
 import { Link } from "react-router-dom";

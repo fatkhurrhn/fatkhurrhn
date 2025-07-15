@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from "react";
-import NavNavigate from "../../components/NavNavigate";
-import Footer from "../../components/Footer";
-import ProfileSection from "../../components/home/ProfileSection";
-import SkillsSection from "../../components/home/SkillsSection";
-import ProjectsSection from "../../components/home/ProjectsSection";
-import CertificatesSection from "../../components/home/CertificatesSection";
-import ExperienceSection from "../../components/home/ExperienceSection";
-import BlogSection from "../../components/home/BlogSection";
-import GithubActivity from "../../components/home/GithubActivity";
-import Divider from "../../components/home/Divider";
+import NavNavigate from "../../components/frontdev/NavNavigate";
+import Footer from "../../components/frontdev/Footer";
+import ProfileSection from "../../components/frontdev/ProfileSection";
+import SkillsSection from "../../components/frontdev/SkillsSection";
+import ProjectsSection from "../../components/frontdev/ProjectsSection";
+import CertificatesSection from "../../components/frontdev/CertificatesSection";
+import ExperienceSection from "../../components/frontdev/ExperienceSection";
+import BlogSection from "../../components/frontdev/BlogSection";
+import GithubActivity from "../../components/frontdev/GithubActivity";
+import Divider from "../../components/frontdev/Divider";
 
 export default function Page() {
   const [mounted, setMounted] = useState(false);

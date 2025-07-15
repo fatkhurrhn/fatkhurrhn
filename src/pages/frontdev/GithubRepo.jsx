@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import NavNavigate from '../../components/NavNavigate';
-import Footer from '../../components/Footer';
+import NavNavigate from '../../components/frontdev/NavNavigate';
+import Footer from '../../components/frontdev/Footer';
 import { Link } from 'react-router-dom';
 
 export default function GithubRepo() {
@@ -56,7 +56,7 @@ export default function GithubRepo() {
             <NavNavigate />
             <section className="max-w-4xl mx-auto pt-[95px] p-4">
                 <div className="">
-                    
+
                     <div className="bg-white rounded-2xl bordir bordir-gray-500 space-y-4">
                         <img
                             src={`https://github-readme-activity-graph.vercel.app/graph?username=${username}&theme=github-compact&hide_border=true`}
