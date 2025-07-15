@@ -79,14 +79,14 @@ export default function StoreNetflix() {
 
     const phone = "6282285512813";
     const message = `*Detail Pesanan Netflix*\n\n` +
-                   `Paket: ${selected.category} - ${selected.duration}\n` +
-                   `Harga: Rp ${selected.price}\n\n` +
-                   `*Data Pemesan*\n` +
-                   `Nama: ${formData.name}\n` +
-                   `No WhatsApp: ${formData.whatsapp}\n` +
-                   `Device: ${formData.device}\n\n` +
-                   `Saya sudah memilih paket di atas dan ingin memesan. Berikut bukti pembayarannya`;
-    
+      `Paket: ${selected.category} - ${selected.duration}\n` +
+      `Harga: Rp ${selected.price}\n\n` +
+      `*Data Pemesan*\n` +
+      `Nama: ${formData.name}\n` +
+      `No WhatsApp: ${formData.whatsapp}\n` +
+      `Device: ${formData.device}\n\n` +
+      `Saya sudah memilih paket di atas dan ingin memesan. Berikut bukti pembayarannya`;
+
     window.location.href = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
   };
 
@@ -96,7 +96,7 @@ export default function StoreNetflix() {
 
   return (
     <div className="font-sans bg-white min-h-screen">
-      <NavCreator/>
+      <NavCreator />
       <main className="max-w-4xl mx-auto px-4 py-2 pb-[110px]">
 
         <div className="text-center">
@@ -113,7 +113,7 @@ export default function StoreNetflix() {
                 <button
                   key={idx}
                   onClick={() => handleSelect(item.category, option.duration, option.price)}
-                  className={`p-3 rounded-md border bg-white text-gray-800 border-blue-300 text-black transition ${selected?.category === item.category && selected?.duration === option.duration ? 'bg-blue-900 text-white' : ''}`}
+                  className={`p-3 rounded-md border bg-green text-gray-800 border-blue-300 text-black transition ${selected?.category === item.category && selected?.duration === option.duration ? 'bg-blue-900 text-white' : ''}`}
                 >
                   {option.duration} → Rp {option.price}
                 </button>
@@ -134,7 +134,7 @@ export default function StoreNetflix() {
         {/* Modal Form */}
         {showModal && (
           <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
-            <div className="bg-white rounded-lg p-5 w-full max-w-md">              
+            <div className="bg-white rounded-lg p-5 w-full max-w-md">
               <div className="mb-4 p-3 bg-gray-100 rounded text-gray-800">
                 <p className="font-semibold">Detail Pesanan:</p>
                 <p>Netflix {selected.category} {selected.duration}</p>
@@ -185,11 +185,11 @@ export default function StoreNetflix() {
                   >
                     {showQRIS ? 'Sembunyikan QRIS' : 'Tampilkan QRIS'}
                   </button>
-                  
+
                   {showQRIS && (
                     <div className="text-center">
                       <p className="mb-2 text-sm text-gray-600">
-                        Harap melakukan pembayaran via QRIS sebesar: 
+                        Harap melakukan pembayaran via QRIS sebesar:
                         <span className="font-bold"> Rp {selected.price} </span>
                       </p>
                       <div className="bg-gray-200 p-4 rounded mb-2">
