@@ -5,11 +5,11 @@ const NavigationWrapper = ({ children }) => {
   const location = useLocation();
 
   const navItems = [
-    { path: '/anime', icon: 'ri-home-4-line', activeIcon: 'ri-home-4-fill', label: 'Home', isNew: true },
-    { path: '/anime/genre', icon: 'ri-folders-line', activeIcon: 'ri-folders-fill', label: 'Genre' },
-    { path: '/anime/story', icon: 'ri-play-circle-line', activeIcon: 'ri-play-circle-fill', label: 'Reels', isNew: true },
-    { path: '/anime/status', icon: 'ri-hourglass-line', activeIcon: 'ri-hourglass-fill', label: 'Status' },
-    { path: '/anime/more', icon: 'ri-apps-line', activeIcon: 'ri-apps-fill', label: 'More' },
+    { path: '/animes', icon: 'ri-home-4-line', activeIcon: 'ri-home-4-fill', label: 'Home', isNew: true },
+    { path: '/animes/genre', icon: 'ri-folders-line', activeIcon: 'ri-folders-fill', label: 'Genre' },
+    { path: '/animes/story', icon: 'ri-play-circle-line', activeIcon: 'ri-play-circle-fill', label: 'Reels', isNew: true },
+    { path: '/animes/status', icon: 'ri-hourglass-line', activeIcon: 'ri-hourglass-fill', label: 'Status' },
+    { path: '/animes/more', icon: 'ri-apps-line', activeIcon: 'ri-apps-fill', label: 'More' },
   ];
 
   return (

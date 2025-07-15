@@ -23,29 +23,29 @@ const NavNavigate = () => {
             exact: true
         },
         {
-            path: '/creator',
+            path: '/creators',
             icon: 'ri-news-line',
             activeIcon: 'ri-news-fill',
             label: 'Creator'
         },
         {
-            path: '/projects',
+            path: '/frontdev/projects',
             icon: 'ri-code-s-slash-line',
             activeIcon: 'ri-code-s-slash-fill',
             label: 'Projects'
         },
         {
-            path: '/certificates',
+            path: '/frontdev/certificates',
             icon: 'ri-folders-line',
             activeIcon: 'ri-folders-fill',
             label: 'certificates'
         },
         {
-            path: '/others',
+            path: '/frontdev/others',
             icon: 'ri-apps-line',
             activeIcon: 'ri-apps-fill',
             label: 'Others',
-            activePaths: ['/others', '/resume', '/paid-promote', '/xixi']
+            activePaths: ['/frontdev/others', '/frontdev/resume', '/paid-promote', '/xixi']
         }
     ];
 
@@ -65,11 +65,11 @@ const NavNavigate = () => {
                     <div className="relative">
                         <nav className="hidden md:flex space-x-8 font-medium text-gray-800">
                             <Link to="/">Home</Link>
-                            <Link to="/creator">Creator</Link>
-                            <Link to="/projects">Projects</Link>
-                            <Link to="/certificates">Certificates</Link>
-                            <Link to="/blogs">Blogs</Link>
-                            <Link to="/others">Others</Link>
+                            <Link to="/frontdev/creator">Creator</Link>
+                            <Link to="/frontdev/projects">Projects</Link>
+                            <Link to="/frontdev/certificates">Certificates</Link>
+                            <Link to="/frontdev/blogs">Blogs</Link>
+                            <Link to="/frontdev/others">Others</Link>
                             {/* <div className="relative dropdown">
                                 <button
                                     className="flex items-center space-x-1 focus:outline-none"

@@ -5,7 +5,7 @@ export default function BlogSection() {
         <h2 className="text-[18px] font-bold text-gray-800 flex items-center gap-2">
           <i className="ri-article-fill"></i> Latest Articles
         </h2>
-        <a href="/blogs" className="text-xs text-gray-500 hover:text-gray-700 transition-colors">
+        <a href="/frontdev/blogs" className="text-xs text-gray-500 hover:text-gray-700 transition-colors">
           View more
         </a>
       </div>
@@ -17,7 +17,7 @@ export default function BlogSection() {
             {/* Left Side (Icon + Info) */}
             <div className="flex gap-3">
               <div className="mt-1">
-                <a href="/writings/tailwind-ui-is-now-tailwind-plus" className="text-lg text-gray-800 font-black flex gap-2">
+                <a href="/frontdev/writings/tailwind-ui-is-now-tailwind-plus" className="text-lg text-gray-800 font-black flex gap-2">
                   Tailwind UI is now Tailwind Plus
                 </a>
                 <ul className="text-zinc-400 flex items-center gap-2 text-sm">

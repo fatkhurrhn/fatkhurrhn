@@ -13,7 +13,7 @@ import GithubRepo from './pages/frontdev/GithubRepo';
 import Creator from './pages/frontdev/Creator';
 import Blogs from './pages/frontdev/Blog';
 import DetailBlog from './pages/frontdev/DetailBlog';
-import Writings01 from './pages/DetailWritings/tailwind-ui-is-now-tailwind-plus';
+import Writings01 from './pages/frontdev/DetailWritings/tailwind-ui-is-now-tailwind-plus';
 import Other from './pages/frontdev/Other';
 
 // storythur
@@ -47,8 +47,8 @@ function App() {
 
         {/* Route Main */}
         <Route path="/" element={<HomePage />} />
-        <Route path="/anime" element={<HomeAnime />} />
-        <Route path="/creator" element={<Creator />} />
+        <Route path="/animes" element={<HomeAnime />} />
+        <Route path="/creators" element={<Creator />} />
         <Route path="/resume" element={<Resume />} />
         <Route path="/islamic" element={<Islamic />} />
 
@@ -69,14 +69,14 @@ function App() {
         <Route path="/islamic/jadwal-sholat" element={<Storythur />} />
 
         {/* Route Anime */}
-        <Route path="/anime/:id" element={<AnimeDetail />} />
-        <Route path="/anime/:id/episode/:episodeNumber" element={<EpisodePlayer />} />
-        <Route path="/anime/story" element={<Story />} />
-        <Route path="/anime/genre" element={<Genre />} />
-        <Route path="/genre/:genreName" element={<Genre />} />
-        <Route path="/anime/status" element={<Status />} />
-        <Route path="/anime/more" element={<More />} />
-        <Route path="/anime/tes" element={<Tes />} />
+        <Route path="/animes/:id" element={<AnimeDetail />} />
+        <Route path="/animes/:id/episode/:episodeNumber" element={<EpisodePlayer />} />
+        <Route path="/animes/story" element={<Story />} />
+        <Route path="/animes/genre" element={<Genre />} />
+        <Route path="/genres/:genreName" element={<Genre />} />
+        <Route path="/animes/status" element={<Status />} />
+        <Route path="/animes/more" element={<More />} />
+        <Route path="/animes/tes" element={<Tes />} />
 
         {/* Route Admin */}
         <Route path="/login" element={<Login />} />

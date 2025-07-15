@@ -51,7 +51,7 @@ export default function Page() {
           key={blog.id}
           className="bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow duration-300 border border-gray-200"
         >
-          <Link to={`/blogs/${blog.slug}`} className="block h-full">
+          <Link to={`/frontdev/blogs/${blog.slug}`} className="block h-full">
             {blog.thumbnail && (
               <div className="h-32 overflow-hidden">
                 <img

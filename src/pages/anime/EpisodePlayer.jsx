@@ -39,7 +39,7 @@ const EpisodePlayer = () => {
   }, [id, episodeNumber]);
 
   const goToEpisode = (episodeNum) => {
-    navigate(`/anime/${anime.id}/episode/${episodeNum}`);
+    navigate(`/animes/${anime.id}/episode/${episodeNum}`);
   };
 
   if (loading) {
@@ -61,7 +61,7 @@ const EpisodePlayer = () => {
         <h2 className="text-xl font-bold text-gray-800 mb-2">Episode tidak ditemukan</h2>
         <p className="text-gray-600 mb-4">Episode yang Anda cari tidak tersedia</p>
         <Link
-          to={`/anime/${id}`}
+          to={`/animes/${id}`}
           className="px-6 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-colors"
         >
           Kembali ke Detail Anime
@@ -80,7 +80,7 @@ const EpisodePlayer = () => {
         <div className="mb-6">
           <div className="flex justify-between items-center mb-2">
             <Link
-              to={`/anime/${anime.id}`}
+              to={`/animes/${anime.id}`}
               className="flex items-center text-gray-800"
             >
               <i className="ri-arrow-left-line mr-1"></i>
