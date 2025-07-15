@@ -134,9 +134,7 @@ export default function StoreNetflix() {
         {/* Modal Form */}
         {showModal && (
           <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
-            <div className="bg-white rounded-lg p-5 w-full max-w-md">
-              <h2 className="text-xl font-bold mb-4 text-gray-800">Form Pemesanan</h2>
-              
+            <div className="bg-white rounded-lg p-5 w-full max-w-md">              
               <div className="mb-4 p-3 bg-gray-100 rounded text-gray-800">
                 <p className="font-semibold">Detail Pesanan:</p>
                 <p>Netflix {selected.category} {selected.duration}</p>
@@ -183,7 +181,7 @@ export default function StoreNetflix() {
                   <button
                     type="button"
                     onClick={toggleQRIS}
-                    className="w-full bg-blue-500 text-white py-2 rounded mb-2"
+                    className="w-full bg-blue-600 text-white py-2 rounded mb-2"
                   >
                     {showQRIS ? 'Sembunyikan QRIS' : 'Tampilkan QRIS'}
                   </button>
@@ -191,8 +189,8 @@ export default function StoreNetflix() {
                   {showQRIS && (
                     <div className="text-center">
                       <p className="mb-2 text-sm text-gray-600">
-                        Harap melakukan pembayaran terlebih dahulu sebesar: 
-                        <span className="font-bold"> Rp {selected.price}</span>
+                        Harap melakukan pembayaran via QRIS sebesar: 
+                        <span className="font-bold"> Rp {selected.price} </span>
                       </p>
                       <div className="bg-gray-200 p-4 rounded mb-2">
                         {/* Placeholder for QRIS image - replace with your actual QRIS image */}
@@ -218,7 +216,7 @@ export default function StoreNetflix() {
                   </button>
                   <button
                     type="submit"
-                    className="flex-1 bg-green-500 text-white py-2 rounded"
+                    className="flex-1 bg-green-600 text-white py-2 rounded"
                   >
                     Order
                   </button>
