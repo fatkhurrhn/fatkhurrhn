@@ -103,7 +103,7 @@ export default function ChatRoom() {
 
             {/* Chat window */}
             {isOpen && (
-                <div className="absolute bottom-16 right-0 w-80 h-[28rem] bg-white/60 backdrop-blur-sm rounded-lg shadow-xl flex flex-col border border-gray-200 transition-all duration-300">
+                <div className="absolute bottom-16 right-0 w-[350px] h-[28rem] bg-white/60 backdrop-blur-sm rounded-lg shadow-xl flex flex-col border border-gray-200 transition-all duration-300">
 
                     {/* Header */}
                     <div className="bg-white/80 backdrop-blur-md text-black p-2 rounded-t-lg flex justify-between items-center border-b border-gray-200">
@@ -161,7 +161,7 @@ export default function ChatRoom() {
                     </div>
 
                     {/* Messages area */}
-                    <div className="flex-1 p-3 overflow-y-auto scrollbar-hide">
+                    <div className="flex-1 p-4 overflow-y-auto scrollbar-hide">
                         {messages.map((message) => (
                             <div
                                 key={message.id}
