@@ -88,16 +88,16 @@ export default function ChatRoom() {
     }, []);
 
     return (
-        <div className="fixed bottom-6 right-6 z-50">
+        <div className="fixed bottom-[70px] md:bottom-6 right-6 z-50">
             {/* Chat bubble toggle */}
             <button
                 onClick={() => setIsOpen(!isOpen)}
-                className="bg-gray-600 text-white p-4 rounded-full shadow-lg hover:bg-gray-600 transition-all flex items-center justify-center"
+                className="w-10 h-10 bg-gray-600 text-white rounded-full shadow-lg hover:bg-gray-700 transition-all flex items-center justify-center"
             >
                 {isOpen ? (
-                    <i className="ri-close-line text-xl"></i>
+                    <i className="ri-close-line text-md"></i>
                 ) : (
-                    <i className="ri-message-2-line text-xl"></i>
+                    <i className="ri-message-2-line text-md"></i>
                 )}
             </button>
 
@@ -191,7 +191,7 @@ export default function ChatRoom() {
                                     </div>
 
                                     <div
-                                        className={`text-[10px] text-gray-600 mt-1 ${message.uid === user?.uid ? 'text-right' : 'text-left'
+                                        className={`text-[9px] text-gray-600 mt-1 ${message.uid === user?.uid ? 'text-right' : 'text-left'
                                             }`}
                                     >
                                         {message.createdAt?.toDate()?.toLocaleString()}
@@ -215,7 +215,7 @@ export default function ChatRoom() {
                                 />
                                 <button
                                     type="submit"
-                                    className="bg-gray-600 text-white px-3 py-1 rounded-lg hover:bg-blue-600 transition flex items-center justify-center"
+                                    className="bg-gray-600 text-white px-3 py-1 rounded-lg hover:bg-gray-700 transition flex items-center justify-center"
                                 >
                                     <i class="ri-send-plane-fill"></i>
                                 </button>
