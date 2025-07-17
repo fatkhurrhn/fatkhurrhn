@@ -11,10 +11,10 @@ export default function ChatRoomComponents() {
     const [user, setUser] = useState(null);
     const [showMenu, setShowMenu] = useState(false);
     const [replyingTo, setReplyingTo] = useState(null);
-    const [unreadCount, setUnreadCount] = useState(0);
     const [lastSeenIndex, setLastSeenIndex] = useState(0);
     const messagesEndRef = useRef(null);
     const messagesContainerRef = useRef(null);
+    const [dateHeaders, setDateHeaders] = useState({});
 
     const provider = new GoogleAuthProvider();
     const OWNER_UID = "r28jzkoDUaUoguZoQI7frNe4w5N2";
@@ -24,8 +24,6 @@ export default function ChatRoomComponents() {
         try {
             const result = await signInWithPopup(auth, provider);
             setUser(result.user);
-            // Reset unread count when user opens chat
-            setUnreadCount(0);
             setLastSeenIndex(messages.length);
         } catch (error) {
             console.error('Error saat login:', error);
@@ -80,27 +78,26 @@ export default function ChatRoomComponents() {
         messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
     };
 
-    // Format tanggal sesuai permintaan (7/18/2025, 2:21:35 AM)
-    const formatDate = (date) => {
+    // Format jam menjadi HH:MM
+    const formatTime = (date) => {
         if (!date) return '';
-        
-        const options = {
-            month: 'numeric',
-            day: 'numeric',
-            year: 'numeric',
+        return date.toLocaleTimeString('en-US', {
             hour: '2-digit',
             minute: '2-digit',
-            second: '2-digit',
-            hour12: true
-        };
-        
-        return date.toLocaleString('en-US', options);
+            hour12: false
+        });
+    };
+
+    // Format tanggal menjadi "18 Juli 2025"
+    const formatFullDate = (date) => {
+        if (!date) return '';
+        const options = { day: 'numeric', month: 'long', year: 'numeric' };
+        return date.toLocaleDateString('id-ID', options);
     };
 
     // Handle buka chat
     const handleOpenChat = () => {
         setIsOpen(true);
-        setUnreadCount(0);
         setLastSeenIndex(messages.length);
     };
 
@@ -110,13 +107,32 @@ export default function ChatRoomComponents() {
         setLastSeenIndex(messages.length);
     };
 
+    // Cek apakah tanggal berbeda untuk menambahkan header tanggal
+    const checkDateHeaders = (messages) => {
+        const headers = {};
+        let currentDate = '';
+        
+        messages.forEach((msg, index) => {
+            const msgDate = msg.createdAt ? formatFullDate(msg.createdAt) : '';
+            if (msgDate !== currentDate) {
+                headers[index] = msgDate;
+                currentDate = msgDate;
+            }
+        });
+        
+        setDateHeaders(headers);
+    };
+
     useEffect(() => {
         if (isOpen) {
-            scrollToBottom();
-        } else {
-            // Hitung unread messages saat chat tertutup
-            if (messages.length > lastSeenIndex) {
-                setUnreadCount(messages.length - lastSeenIndex);
+            // Scroll ke posisi terakhir yang dilihat user
+            if (messagesContainerRef.current && lastSeenIndex > 0) {
+                const lastSeenElement = document.getElementById(`msg-${lastSeenIndex-1}`);
+                if (lastSeenElement) {
+                    lastSeenElement.scrollIntoView({ behavior: 'smooth' });
+                }
+            } else {
+                scrollToBottom();
             }
         }
     }, [messages, isOpen]);
@@ -127,14 +143,15 @@ export default function ChatRoomComponents() {
         const unsubscribe = onSnapshot(q, (querySnapshot) => {
             const messagesData = [];
             querySnapshot.forEach((doc) => {
-                messagesData.push({ 
-                    id: doc.id, 
+                messagesData.push({
+                    id: doc.id,
                     ...doc.data(),
                     // Convert Firestore timestamp to Date object
-                    createdAt: doc.data().createdAt?.toDate() 
+                    createdAt: doc.data().createdAt?.toDate()
                 });
             });
             setMessages(messagesData);
+            checkDateHeaders(messagesData);
         });
 
         return () => unsubscribe();
@@ -146,7 +163,6 @@ export default function ChatRoomComponents() {
             setUser(user);
             if (user) {
                 setLastSeenIndex(messages.length);
-                setUnreadCount(0);
             }
         });
 
@@ -164,7 +180,7 @@ export default function ChatRoomComponents() {
 
     return (
         <div className="fixed bottom-[70px] md:bottom-6 right-6 z-50">
-            {/* Chat bubble toggle dengan notifikasi */}
+            {/* Chat bubble toggle */}
             <div className="relative">
                 <button
                     onClick={isOpen ? handleCloseChat : handleOpenChat}
@@ -175,11 +191,6 @@ export default function ChatRoomComponents() {
                     ) : (
                         <i className="ri-message-2-line text-md"></i>
                     )}
-                    {unreadCount > 0 && !isOpen && (
-                        <span className="absolute -top-1 -right-1 bg-red-500 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">
-                            {unreadCount}
-                        </span>
-                    )}
                 </button>
             </div>
 
@@ -188,38 +199,26 @@ export default function ChatRoomComponents() {
                 <div className="absolute bottom-16 right-0 w-[350px] h-[28rem] bg-white/60 backdrop-blur-sm rounded-lg shadow-xl flex flex-col border border-gray-200 transition-all duration-300">
                     {/* Header */}
                     <div className="bg-white/80 backdrop-blur-md text-black p-2 rounded-t-lg flex justify-between items-center border-b border-gray-200">
-                        <div className="flex items-center gap-1.5">
-                            <Link to="/chat">
-                            <svg
-                                stroke="currentColor"
-                                fill="none"
-                                strokeWidth="2"
-                                viewBox="0 0 24 24"
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                                className="cursor-pointer rounded-lg p-1.5"
-                                height="27"
-                                width="27"
-                                xmlns="http://www.w3.org/2000/svg"
-                            >
-                                <polyline points="4 14 10 14 10 20"></polyline>
-                                <polyline points="20 10 14 10 14 4"></polyline>
-                                <line x1="14" y1="10" x2="21" y2="3"></line>
-                                <line x1="3" y1="21" x2="10" y2="14"></line>
-                            </svg>
-                            </Link>
-                            <h3 className="font-semibold text-sm">Chat Room</h3>
+                        <div className="flex items-center gap-1">
+                            {user ? (
+                                <>
+                                    <img
+                                        src={user.photoURL}
+                                        alt={user.displayName}
+                                        className="w-6 h-6 rounded-full object-cover"
+                                    />
+                                    <h3 className="font-semibold text-sm">{user.displayName}</h3>
+                                </>
+                            ) : (
+                                <>
+                                    <i className="ri-chat-smile-2-line"></i>
+                                    <h3 className="font-semibold text-sm">Chat Room</h3>
+                                </>
+                            )}
                         </div>
 
                         {user && (
-                            <div className="relative flex items-center space-x-2">
-                                {/* Foto profil */}
-                                <img
-                                    src={user.photoURL}
-                                    alt={user.displayName}
-                                    className="w-6 h-6 rounded-full object-cover"
-                                />
-
+                            <div className="relative flex items-center">
                                 {/* Icon titik tiga */}
                                 <button
                                     onClick={() => setShowMenu((prev) => !prev)}
@@ -244,7 +243,7 @@ export default function ChatRoomComponents() {
                     </div>
 
                     {/* Messages area */}
-                    <div 
+                    <div
                         ref={messagesContainerRef}
                         className="flex-1 p-4 overflow-y-auto scrollbar-hide"
                         onScroll={() => {
@@ -257,70 +256,78 @@ export default function ChatRoomComponents() {
                             }
                         }}
                     >
-                        {messages.map((message) => (
-                            <div
-                                key={message.id}
-                                className={`mb-3 flex ${message.uid === user?.uid ? 'justify-end' : 'justify-start'}`}
-                            >
-                                <div className={`max-w-xs ${message.uid === user?.uid ? 'ml-8' : 'mr-8'}`}>
-                                    {message.uid !== user?.uid && (
-                                        <div className="flex items-center mb-1">
-                                            <img
-                                                src={message.photoURL}
-                                                alt={message.displayName}
-                                                className="w-5 h-5 rounded-full mr-2 object-cover"
-                                            />
-                                            <span className="text-xs font-semibold text-gray-700">
-                                                {message.displayName}
-                                                {message.isOwner && (
-                                                    <span className="ml-1 bg-gray-500 text-white text-[9px] px-1 py-0.5 rounded">
-                                                        Author
-                                                    </span>
-                                                )}
-                                            </span>
-                                        </div>
-                                    )}
-
-                                    {/* Reply preview */}
-                                    {message.replyTo && (
-                                        <div className={`bg-gray-100/70 text-gray-600 text-xs p-2 mb-1 rounded border-l-2 ${message.uid === user?.uid ? 'border-gray-500' : 'border-gray-400'}`}>
-                                            <div className="font-semibold">
-                                                {message.replyTo.displayName}
-                                            </div>
-                                            <div className="truncate">
-                                                {message.replyTo.text}
-                                            </div>
-                                        </div>
-                                    )}
-
-                                    <div
-                                        className={`p-2 rounded-lg text-sm ${message.uid === user?.uid
-                                            ? 'bg-gray-600 text-white rounded-br-none'
-                                            : 'bg-gray-100 text-gray-800 rounded-bl-none'
-                                            }`}
-                                    >
-                                        {message.text}
+                        {messages.map((message, index) => (
+                            <React.Fragment key={message.id}>
+                                {/* Tanggal header */}
+                                {dateHeaders[index] && (
+                                    <div className="text-center my-3">
+                                        <span className="bg-gray-100 text-gray-600 text-xs px-2 py-1 rounded">
+                                            {dateHeaders[index]}
+                                        </span>
                                     </div>
+                                )}
+                                
+                                <div 
+                                    id={`msg-${index}`}
+                                    className={`mb-3 flex ${message.uid === user?.uid ? 'justify-end' : 'justify-start'}`}
+                                >
+                                    <div className={`max-w-xs ${message.uid === user?.uid ? 'ml-8' : 'mr-8'}`}>
+                                        {message.uid !== user?.uid && (
+                                            <div className="flex items-center mb-1">
+                                                <img
+                                                    src={message.photoURL}
+                                                    alt={message.displayName}
+                                                    className="w-5 h-5 rounded-full mr-2 object-cover"
+                                                />
+                                                <span className="text-xs font-semibold text-gray-700">
+                                                    {message.displayName}
+                                                    {message.isOwner && (
+                                                        <span className="ml-1 bg-gray-500 text-white text-[9px] px-1 py-0.5 rounded">
+                                                            Author
+                                                        </span>
+                                                    )}
+                                                </span>
+                                            </div>
+                                        )}
 
-                                    <div className="flex items-center justify-between mt-1">
+                                        {/* Reply preview */}
+                                        {message.replyTo && (
+                                            <div className={`bg-gray-100/70 text-gray-600 text-xs p-2 mb-1 rounded border-l-2 ${message.uid === user?.uid ? 'border-gray-500' : 'border-gray-400'}`}>
+                                                <div className="font-semibold">
+                                                    {message.replyTo.displayName}
+                                                </div>
+                                                <div className="truncate">
+                                                    {message.replyTo.text}
+                                                </div>
+                                            </div>
+                                        )}
+
                                         <div
-                                            className={`text-[9px] text-gray-600 ${message.uid === user?.uid ? 'text-right' : 'text-left'
+                                            className={`inline-block p-2 rounded-lg text-sm ${message.uid === user?.uid
+                                                    ? 'bg-gray-600 text-white rounded-br-none'
+                                                    : 'bg-gray-100 text-gray-800 rounded-bl-none'
                                                 }`}
                                         >
-                                            {formatDate(message.createdAt)}
+                                            {message.text}
                                         </div>
-                                        {message.uid !== user?.uid && (
-                                            <button
-                                                onClick={() => handleReply(message)}
-                                                className="text-gray-400 hover:text-gray-600 text-xs ml-2"
-                                                title="Reply"
-                                            >
-                                                <i className="ri-reply-all-fill"></i>
-                                            </button>
-                                        )}
+
+                                        <div className={`flex items-center mt-1 ${message.uid === user?.uid ? 'justify-end' : 'justify-start'}`}>
+                                            <div className="text-[10px] text-gray-500">
+                                                {formatTime(message.createdAt)}
+                                            </div>
+                                            {message.uid !== user?.uid && (
+                                                <button
+                                                    onClick={() => handleReply(message)}
+                                                    className="text-gray-400 hover:text-gray-600 text-xs ml-2"
+                                                    title="Reply"
+                                                >
+                                                    <i className="ri-reply-all-fill"></i>
+                                                </button>
+                                            )}
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
+                            </React.Fragment>
                         ))}
                         <div ref={messagesEndRef} />
                     </div>
@@ -364,7 +371,7 @@ export default function ChatRoomComponents() {
                                 className="w-full flex items-center justify-center space-x-2 bg-white border border-gray-300 rounded-lg px-4 py-2 hover:bg-gray-50 transition"
                             >
                                 <i className="ri-google-fill text-blue-600 text-lg"></i>
-                                <span className="text-sm">Login dengan Google untuk chat</span>
+                                <span className="text-sm">Login to start chatting</span>
                             </button>
                         )}
                     </div>
