@@ -10,6 +10,9 @@ export default function ChatRoom() {
     const [user, setUser] = useState(null);
     const messagesEndRef = useRef(null);
 
+    const [showMenu, setShowMenu] = useState(false);
+
+
     const provider = new GoogleAuthProvider();
 
     // Handle login dengan Google
@@ -89,7 +92,7 @@ export default function ChatRoom() {
             {/* Chat bubble toggle */}
             <button
                 onClick={() => setIsOpen(!isOpen)}
-                className="bg-blue-500 text-white p-4 rounded-full shadow-lg hover:bg-blue-600 transition-all flex items-center justify-center"
+                className="bg-gray-600 text-white p-4 rounded-full shadow-lg hover:bg-gray-600 transition-all flex items-center justify-center"
             >
                 {isOpen ? (
                     <i className="ri-close-line text-xl"></i>
@@ -100,28 +103,61 @@ export default function ChatRoom() {
 
             {/* Chat window */}
             {isOpen && (
-                <div className="absolute bottom-16 right-0 w-80 h-[28rem] bg-white rounded-lg shadow-xl flex flex-col border border-gray-200">
+                <div className="absolute bottom-16 right-0 w-80 h-[28rem] bg-white/60 backdrop-blur-sm rounded-lg shadow-xl flex flex-col border border-gray-200 transition-all duration-300">
+
                     {/* Header */}
-                    <div className="bg-blue-500 text-white p-2 rounded-t-lg flex justify-between items-center">
-                        <div className="flex items-center gap-0">
-                            <svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="cursor-pointer rounded-lg p-1.5" height="27" width="27" xmlns="http://www.w3.org/2000/svg"><polyline points="4 14 10 14 10 20"></polyline><polyline points="20 10 14 10 14 4"></polyline><line x1="14" y1="10" x2="21" y2="3"></line><line x1="3" y1="21" x2="10" y2="14"></line></svg>
-                            <h3 className="font-semibold">Chat Room</h3>
+                    <div className="bg-white/80 backdrop-blur-md text-black p-2 rounded-t-lg flex justify-between items-center border-b border-gray-200">
+                        <div className="flex items-center gap-1.5">
+                            <svg
+                                stroke="currentColor"
+                                fill="none"
+                                strokeWidth="2"
+                                viewBox="0 0 24 24"
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                className="cursor-pointer rounded-lg p-1.5"
+                                height="27"
+                                width="27"
+                                xmlns="http://www.w3.org/2000/svg"
+                            >
+                                <polyline points="4 14 10 14 10 20"></polyline>
+                                <polyline points="20 10 14 10 14 4"></polyline>
+                                <line x1="14" y1="10" x2="21" y2="3"></line>
+                                <line x1="3" y1="21" x2="10" y2="14"></line>
+                            </svg>
+                            <h3 className="font-semibold text-sm">Chat Room</h3>
                         </div>
-                        {user ? (
-                            <div className="flex items-center space-x-2">
+
+                        {user && (
+                            <div className="relative flex items-center space-x-2">
+                                {/* Foto profil */}
                                 <img
                                     src={user.photoURL}
                                     alt={user.displayName}
                                     className="w-6 h-6 rounded-full object-cover"
                                 />
+
+                                {/* Icon titik tiga */}
                                 <button
-                                    onClick={handleLogout}
-                                    className="text-xs bg-white text-blue-500 px-2 py-1 rounded hover:bg-blue-50 transition"
+                                    onClick={() => setShowMenu((prev) => !prev)}
+                                    className="text-gray-600 hover:text-black text-lg"
                                 >
-                                    Logout
+                                    <i className="ri-more-2-fill"></i>
                                 </button>
+
+                                {/* Dropdown menu */}
+                                {showMenu && (
+                                    <div className="absolute right-0 top-8 bg-white shadow-md rounded-md z-10">
+                                        <button
+                                            onClick={handleLogout}
+                                            className="text-sm text-red-600 hover:bg-red-50 px-4 py-2 w-full text-left"
+                                        >
+                                            Logout
+                                        </button>
+                                    </div>
+                                )}
                             </div>
-                        ) : null}
+                        )}
                     </div>
 
                     {/* Messages area */}
@@ -146,14 +182,18 @@ export default function ChatRoom() {
                                     )}
 
                                     <div
-                                        className={`p-2 rounded-lg ${message.uid === user?.uid
-                                            ? 'bg-blue-500 text-white rounded-br-none'
-                                            : 'bg-gray-100 text-gray-800 rounded-bl-none'}`}
+                                        className={`p-2 rounded-lg text-sm ${message.uid === user?.uid
+                                            ? 'bg-gray-600 text-white rounded-br-none'
+                                            : 'bg-gray-100 text-gray-800 rounded-bl-none'
+                                            }`}
                                     >
                                         {message.text}
                                     </div>
 
-                                    <div className={`text-[10px] text-gray-500 mt-1 ${message.uid === user?.uid ? 'text-right' : 'text-left'}`}>
+                                    <div
+                                        className={`text-[10px] text-gray-600 mt-1 ${message.uid === user?.uid ? 'text-right' : 'text-left'
+                                            }`}
+                                    >
                                         {message.createdAt?.toDate()?.toLocaleString()}
                                     </div>
                                 </div>
@@ -163,21 +203,21 @@ export default function ChatRoom() {
                     </div>
 
                     {/* Input area */}
-                    <div className="p-3 border-t border-gray-200 bg-gray-50 rounded-b-lg">
+                    <div className="p-3 border-t border-gray-200 bg-white/80 backdrop-blur-md rounded-b-lg">
                         {user ? (
                             <form onSubmit={handleSendMessage} className="flex space-x-2">
                                 <input
                                     type="text"
                                     value={newMessage}
-                                    onChange={(e) => setNewMessage(e.value)}
+                                    onChange={(e) => setNewMessage(e.target.value)}
                                     placeholder="Ketik pesan..."
-                                    className="flex-1 border border-gray-300 bg-white text-gray-800 rounded-lg px-3 py-2 focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500 transition"
+                                    className="flex-1 border border-gray-300 bg-white text-gray-800 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-1 focus:ring-gray-200 focus:border-gray-200 transition"
                                 />
                                 <button
                                     type="submit"
-                                    className="bg-blue-500 text-white p-2 rounded-lg hover:bg-blue-600 transition flex items-center justify-center"
+                                    className="bg-gray-600 text-white px-3 py-1 rounded-lg hover:bg-blue-600 transition flex items-center justify-center"
                                 >
-                                    <i className="ri-send-plane-fill text-lg"></i>
+                                    <i class="ri-send-plane-fill"></i>
                                 </button>
                             </form>
                         ) : (
@@ -185,13 +225,14 @@ export default function ChatRoom() {
                                 onClick={handleLogin}
                                 className="w-full flex items-center justify-center space-x-2 bg-white border border-gray-300 rounded-lg px-4 py-2 hover:bg-gray-50 transition"
                             >
-                                <i className="ri-google-fill text-blue-500 text-lg"></i>
+                                <i className="ri-google-fill text-blue-600 text-lg"></i>
                                 <span className="text-sm">Login dengan Google untuk chat</span>
                             </button>
                         )}
                     </div>
                 </div>
             )}
+
 
             {/* CSS untuk hide scrollbar */}
             <style jsx>{`
