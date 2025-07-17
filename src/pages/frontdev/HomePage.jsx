@@ -10,6 +10,8 @@ import BlogSection from "../../components/frontdev/BlogSection";
 import GithubActivity from "../../components/frontdev/GithubActivity";
 import Divider from "../../components/frontdev/Divider";
 
+import ChatRoom from "../../components/ChatRoom";
+
 export default function Page() {
   const [mounted, setMounted] = useState(false);
 
@@ -24,6 +26,7 @@ export default function Page() {
   return (
     <div className="bg-gray-50 min-h-screen text-gray-800 transition-colors duration-300">
       <NavNavigate />
+      <ChatRoom/>
       <section className="max-w-4xl mx-auto px-5 pt-[95px]">
         <ProfileSection />
 
