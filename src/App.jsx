@@ -51,6 +51,7 @@ import StoreCanva from './pages/creator/detailStore/DetailCanva';
 import StoreViu from './pages/creator/detailStore/DetailViu';
 import StoreAM from './pages/creator/detailStore/DetailAlightMotion';
 import StoreYT from './pages/creator/detailStore/DetailYoutube';
+import ChatRoom from './pages/ChatRoom';
 
 function App() {
   return (
@@ -60,6 +61,7 @@ function App() {
         {/* Route Main */}
         <Route path="/" element={<HomePage />} />
         <Route path="/resume" element={<Resume />} />
+        <Route path="/chat" element={<ChatRoom />} />
 
         {/* Route Frontdev */}
         <Route path="/frontdev/projects" element={<Project />} />
