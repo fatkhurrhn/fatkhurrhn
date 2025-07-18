@@ -12,6 +12,7 @@ export default function ChatRoomComponents() {
     const [showMenu, setShowMenu] = useState(false);
     const [replyingTo, setReplyingTo] = useState(null);
     const [lastSeenIndex, setLastSeenIndex] = useState(0);
+    const [hoveredMessage, setHoveredMessage] = useState(null);
     const messagesEndRef = useRef(null);
     const messagesContainerRef = useRef(null);
     const [dateHeaders, setDateHeaders] = useState({});
@@ -270,8 +271,10 @@ export default function ChatRoomComponents() {
                                 <div 
                                     id={`msg-${index}`}
                                     className={`mb-3 flex ${message.uid === user?.uid ? 'justify-end' : 'justify-start'}`}
+                                    onMouseEnter={() => setHoveredMessage(message.id)}
+                                    onMouseLeave={() => setHoveredMessage(null)}
                                 >
-                                    <div className={`max-w-xs ${message.uid === user?.uid ? 'ml-8' : 'mr-8'}`}>
+                                    <div className={`relative max-w-xs ${message.uid === user?.uid ? 'ml-8' : 'mr-8'}`}>
                                         {message.uid !== user?.uid && (
                                             <div className="flex items-center mb-1">
                                                 <img
@@ -303,27 +306,29 @@ export default function ChatRoomComponents() {
                                         )}
 
                                         <div
-                                            className={`inline-block p-2 rounded-lg text-sm ${message.uid === user?.uid
+                                            className={`inline-block p-2 rounded-lg text-sm relative ${message.uid === user?.uid
                                                     ? 'bg-gray-600 text-white rounded-br-none'
                                                     : 'bg-gray-100 text-gray-800 rounded-bl-none'
                                                 }`}
                                         >
                                             {message.text}
+                                            
+                                            {/* Tombol reply yang muncul saat hover */}
+                                            {hoveredMessage === message.id && message.uid !== user?.uid && (
+                                                <button
+                                                    onClick={() => handleReply(message)}
+                                                    className={`absolute -right-6 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-gray-600 text-sm`}
+                                                    title="Reply"
+                                                >
+                                                    <i className="ri-reply-line"></i>
+                                                </button>
+                                            )}
                                         </div>
 
                                         <div className={`flex items-center mt-1 ${message.uid === user?.uid ? 'justify-end' : 'justify-start'}`}>
                                             <div className="text-[10px] text-gray-500">
                                                 {formatTime(message.createdAt)}
                                             </div>
-                                            {message.uid !== user?.uid && (
-                                                <button
-                                                    onClick={() => handleReply(message)}
-                                                    className="text-gray-400 hover:text-gray-600 text-xs ml-2"
-                                                    title="Reply"
-                                                >
-                                                    <i className="ri-reply-all-fill"></i>
-                                                </button>
-                                            )}
                                         </div>
                                     </div>
                                 </div>

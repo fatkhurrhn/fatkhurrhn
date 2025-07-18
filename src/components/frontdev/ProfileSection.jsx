@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 export default function ProfileSection() {
   return (
     <div className="flex flex-col md:flex-row md:items-start space-y-4 md:space-y-0 md:space-x-6">
@@ -28,7 +30,12 @@ export default function ProfileSection() {
         <p className="mt-2 text-gray-700 text-justify">
           I'm an Information Systems student passionate about Front-End Development. I enjoy turning ideas into interactive, user-friendly websites using React, with a focus on clean design and efficient code.
           <br />
-          Outside of coding, I'm also a content creator with 90K+ followers on Instagram, where I share motivational quotes and personal storytelling to inspire and connect with others. This has shaped my ability to communicate clearly, understand audiences, and bring empathy into every project I build. 🚀✨
+          Outside of coding, I'm also a content creator with 90K+ followers on Instagram, where I share motivational quotes and personal storytelling to inspire and connect with others. This has shaped my ability to communicate clearly, understand audiences, and bring empathy into every project I build.
+          <Link to="/creator">
+          <span className="font-bold ml-1">
+            Let's go to page creator
+          </span>
+          </Link>
         </p>
 
         {/* Social Links */}

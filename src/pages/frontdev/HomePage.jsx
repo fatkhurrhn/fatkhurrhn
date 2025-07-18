@@ -9,6 +9,7 @@ import ExperienceSection from "../../components/frontdev/ExperienceSection";
 import BlogSection from "../../components/frontdev/BlogSection";
 import GithubActivity from "../../components/frontdev/GithubActivity";
 import Divider from "../../components/frontdev/Divider";
+import EducationSection from "../../components/frontdev/EducationSection";
 
 import ChatRoom from "../../components/ChatRoom";
 
@@ -41,6 +42,9 @@ export default function Page() {
 
         <Divider />
         <CertificatesSection />
+
+        <Divider/>
+        <EducationSection/>
 
         <Divider />
         <ExperienceSection />

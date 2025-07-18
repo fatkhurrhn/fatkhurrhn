@@ -18,7 +18,11 @@ export default function CertificatesSection() {
             { img: "/assets/google.png", title: "Google Certification", date: "Issued Nov 2024 - Expires Nov 2027" },
             { img: "/assets/aws.png", title: "AWS Certified", date: "Issued Nov 2024 - Expires Nov 2027" }
           ].map((cert, index) => (
-            <div key={index} className="w-full bg-white rounded-lg shadow-sm overflow-hidden border border-gray-200 hover:shadow-md transition-shadow">
+            <div
+              key={index}
+              className={`w-full bg-white rounded-lg shadow-sm overflow-hidden border border-gray-200 hover:shadow-md transition-shadow
+      ${index > 0 ? 'hidden sm:block' : ''}`}
+            >
               <div className="sertif-image overflow-hidden">
                 <img
                   src={cert.img}

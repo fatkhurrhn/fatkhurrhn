@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 export default function ExperienceSection() {
   return (
     <div>
@@ -5,19 +7,42 @@ export default function ExperienceSection() {
         <h2 className="text-[18px] font-bold text-gray-800 flex items-center gap-2">
           <i className="ri-briefcase-4-fill"></i> Experience
         </h2>
-        <a href="https://www.linkedin.com/in/fatkhurrhn/" className="text-xs text-gray-500 hover:text-gray-700 transition-colors">
+        <Link to="https://www.linkedin.com/in/fatkhurrhn/" className="text-xs text-gray-500 hover:text-gray-700 transition-colors">
           View more
-        </a>
+        </Link>
       </div> <br />
       <div className="mt-1 sm:mt-2 grid grid-cols-1 gap-4 md:grid-cols-2">
         <div className="grid gap-4">
+          <div className="rounded-xl border border-gray-200 hover:bg-shadow-md bg-white p-3 sm:p-4" >
+            <div className="mb-3 sm:mb-4 flex items-center gap-3">
+              <img className="h-[40px] w-[40px] rounded-full" src="https://cdn.brandfetch.io/idgzBMD4aG/w/301/h/301/theme/dark/icon.jpeg?c=1bxid64Mup7aczewSAYMX&t=1746745045982" />
+              <div>
+                <h3 className="text-base sm:text-lg font-semibold text-gray-800 text-left">
+                  Fullstack Web Developer 2025
+                </h3>
+                <p className="text-xs sm:text-sm text-gray-800 text-left">
+                  NF Academy Batch 2
+                </p>
+              </div>
+            </div>
+            <div className="flex flex-col gap-4">
+              <p className="text-sm sm:text-base text-gray-800 text-justify">
+                Learning consists of Frontend and Backend. Which Frontend and backend are the two main components in software development
+              </p>
+              <div className="flex gap-2 mt-2 flex-wrap">
+                <span className="text-xs bg-purple-50 text-purple-700 px-2 py-1 rounded">Fullstack</span>
+                <span className="text-xs bg-purple-50 text-purple-700 px-2 py-1 rounded">React JS</span>
+                <span className="text-xs bg-purple-50 text-purple-700 px-2 py-1 rounded">Laravel</span>
+              </div>
+            </div>
+          </div>
           <div className="rounded-xl border border-gray-200 hover:bg-shadow-md bg-white p-3 sm:p-4" >
             <div className="mb-3 sm:mb-4 flex items-center gap-3" >
               <img className="h-[40px] w-[40px] rounded-full" src="/assets/lintasarta.png"
                 alt=" Company Lintasarta" />
               <div>
                 <h3 className="text-base sm:text-lg font-semibold text-gray-800 text-left">
-                  Company Lintasarta
+                  Company Lintasarta 2024
                 </h3>
                 <p className="text-xs sm:text-sm text-gray-800 text-left">
                   Capstone Project at Bangkit Academy
@@ -65,7 +90,9 @@ export default function ExperienceSection() {
               </div>
             </div>
           </div>
+          
         </div>
+
         <div className="grid gap-4" >
           <div className="rounded-xl border border-gray-200 hover:bg-shadow-md bg-white p-3 sm:p-4" >
             <div className="mb-3 sm:mb-4 flex items-center gap-3">
