@@ -23,12 +23,6 @@ const NavNavigate = () => {
             exact: true
         },
         {
-            path: '/creator',
-            icon: 'ri-news-line',
-            activeIcon: 'ri-news-fill',
-            label: 'Creator'
-        },
-        {
             path: '/frontdev/projects',
             icon: 'ri-code-s-slash-line',
             activeIcon: 'ri-code-s-slash-fill',
@@ -39,6 +33,12 @@ const NavNavigate = () => {
             icon: 'ri-folders-line',
             activeIcon: 'ri-folders-fill',
             label: 'certificates'
+        },
+        {
+            path: '/frontdev/blogs',
+            icon: 'ri-news-line',
+            activeIcon: 'ri-news-fill',
+            label: 'Blogs'
         },
         {
             path: '/frontdev/others',
@@ -65,7 +65,6 @@ const NavNavigate = () => {
                     <div className="relative">
                         <nav className="hidden md:flex space-x-8 font-medium text-gray-800">
                             <Link to="/">Home</Link>
-                            <Link to="/creator">Creator</Link>
                             <Link to="/frontdev/projects">Projects</Link>
                             <Link to="/frontdev/certificates">Certificates</Link>
                             <Link to="/frontdev/blogs">Blogs</Link>

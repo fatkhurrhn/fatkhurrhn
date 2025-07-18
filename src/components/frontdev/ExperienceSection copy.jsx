@@ -101,7 +101,7 @@ export default function ExperienceSection() {
         </div>
 
         {/* PQ Leader + Translator (Combined) */}
-        <div className="md:col-span-2 grid grid-cols-1 md:grid-cols-2 gap-2">
+        <div className="md:col-span-2 grid grid-cols-1 md:grid-cols-2 gap-4">
           {/* PQ Leader */}
           <div className="rounded-xl border border-gray-200 bg-white p-4">
             <div className="flex items-center gap-3 mb-3">

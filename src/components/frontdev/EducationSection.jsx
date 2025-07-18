@@ -14,7 +14,7 @@ export default function EducationSection() {
 
       <div className="border border-gray-200 bg-white rounded-xl p-4 flex flex-col sm:flex-row gap-4 items-start sm:items-center">
         {/* Logo */}
-        <div className="flex-shrink-0 w-full sm:w-auto flex justify-center sm:justify-start">
+        <div className="flex-shrink-0 hidden sm:block w-full sm:w-auto flex justify-center sm:justify-start">
           <img
             src="https://res.cloudinary.com/dbssvz2pe/image/upload/v1752797379/assets-gallery/c4pj6i26cqzrs9rsdvyys7tdj.png"
             alt="STT Nurul Fikri Logo"
