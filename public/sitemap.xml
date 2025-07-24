@@ -2,7 +2,42 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://fatkhurrhn.vercel.app/</loc>
-    <lastmod>2025-07-19</lastmod>
+    <lastmod>2025-07-24</lastmod>
     <priority>1.00</priority>
+  </url>
+  <url>
+    <loc>https://fatkhurrhn.vercel.app/creator</loc>
+    <lastmod>2025-07-24</lastmod>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://fatkhurrhn.vercel.app/resume</loc>
+    <lastmod>2025-07-24</lastmod>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://fatkhurrhn.vercel.app/frontdev/projects</loc>
+    <lastmod>2025-07-24</lastmod>
+    <priority>0.75</priority>
+  </url>
+  <url>
+    <loc>https://fatkhurrhn.vercel.app/frontdev/certificates</loc>
+    <lastmod>2025-07-24</lastmod>
+    <priority>0.75</priority>
+  </url>
+  <url>
+    <loc>https://fatkhurrhn.vercel.app/frontdev/blogs</loc>
+    <lastmod>2025-07-24</lastmod>
+    <priority>0.75</priority>
+  </url>
+  <url>
+    <loc>https://fatkhurrhn.vercel.app/animes</loc>
+    <lastmod>2025-07-24</lastmod>
+    <priority>0.70</priority>
+  </url>
+  <url>
+    <loc>https://fatkhurrhn.vercel.app/islamic</loc>
+    <lastmod>2025-07-24</lastmod>
+    <priority>0.70</priority>
   </url>
 </urlset>
