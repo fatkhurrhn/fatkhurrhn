@@ -10,16 +10,16 @@ export default function ProfileSection() {
           alt="profile pic"
           className="rounded-full duration-150 w-20 h-20 sm:w-32 sm:h-32 md:w-40 md:h-40 border-2 border-white shadow-md"
         />
-        {/* Nama & Role di sebelah foto (Mobile) */}
+        {/* Nama & Role (Mobile) */}
         <div className="md:hidden">
           <h1 className="text-xl sm:text-[18px] font-bold text-gray-800">M. Fatkhurrohman</h1>
           <p className="text-xs sm:text-sm font-mono text-gray-600">
-            Frontend Dev & Content Creator
+            Frontdev & Creator
           </p>
         </div>
       </div>
 
-      {/* Nama & Paragraf (Desktop), Paragraf (Mobile) */}
+      {/* Deskripsi Profil */}
       <div className="text-center md:text-left md:flex-1">
         <div className="hidden md:block">
           <h1 className="text-[18px] font-bold text-gray-800">M. Fatkhurrohman</h1>
@@ -28,26 +28,32 @@ export default function ProfileSection() {
           </p>
         </div>
         <p className="mt-2 text-gray-700 text-justify">
-          I'm an Information Systems student passionate about Front-End Development. I enjoy turning ideas into interactive, user-friendly websites using React, with a focus on clean design and efficient code.
+          I'm an Information Systems student with a strong passion for Front-End Development. I specialize in crafting responsive, user-friendly websites using React, Tailwind CSS, and modern tech stacks—combining functionality with clean design.
           <br />
-          Outside of coding, I'm also a content creator with 90K+ followers on Instagram, where I share motivational quotes and personal storytelling to inspire and connect with others. This has shaped my ability to communicate clearly, understand audiences, and bring empathy into every project I build.
+          Beyond tech, I’m also a content creator with 90K+ followers across Instagram and TikTok. I share motivational quotes and personal stories to inspire and engage audiences—shaping how I communicate, empathize, and build user-focused digital experiences.
           <Link to="/creator">
-          <span className="font-bold ml-1">
-            Let's go to page creator
-          </span>
+            <span className="font-bold ml-1 text-blue-600 hover:underline">
+              → Check out my creator side
+            </span>
           </Link>
         </p>
 
         {/* Social Links */}
-        <div className="hidden md:flex gap-3 mt-4 justify-center md:justify-start">
-          <a href="https://github.com/fatkhurrhn" target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:text-gray-900 transition-colors">
-            <i className="ri-github-fill text-xl"></i>
+        <div className="hidden md:flex gap-4 mt-4 justify-center md:justify-start text-xl text-gray-600">
+          <a href="https://github.com/fatkhurrhn" target="_blank" rel="noopener noreferrer" className="hover:text-black transition-colors">
+            <i className="ri-github-fill"></i>
           </a>
-          <a href="https://linkedin.com/in/fatkhurrhn" target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:text-gray-900 transition-colors">
-            <i className="ri-linkedin-fill text-xl"></i>
+          <a href="https://linkedin.com/in/fatkhurrhn" target="_blank" rel="noopener noreferrer" className="hover:text-[#0077B5] transition-colors">
+            <i className="ri-linkedin-fill"></i>
           </a>
-          <a href="mailto:nuhammadthursina123@gmail.com" className="text-gray-600 hover:text-gray-900 transition-colors">
-            <i className="ri-mail-fill text-xl"></i>
+          <a href="mailto:nuhammadthursina123@gmail.com" className="hover:text-red-500 transition-colors">
+            <i className="ri-mail-fill"></i>
+          </a>
+          <a href="https://instagram.com/storythur" target="_blank" rel="noopener noreferrer" className="hover:text-pink-500 transition-colors">
+            <i className="ri-instagram-line"></i>
+          </a>
+          <a href="https://www.tiktok.com/@storythurr" target="_blank" rel="noopener noreferrer" className="hover:text-black transition-colors">
+            <i className="ri-tiktok-fill"></i>
           </a>
         </div>
       </div>
