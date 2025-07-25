@@ -84,13 +84,13 @@ export default function Mentahan() {
 
   if (loading) {
     return (
-      <div className="bg-white min-h-screen text-black">
+      <div className="bg-white min-h-screen text-gray-800">
         <NavWrapper />
-        <section className="max-w-4xl mx-auto px-5 pt-[15px] pb-10 text-center py-20">
-          <div className="animate-bounce">
-            <i className="ri-music-2-line text-4xl"></i>
+        <section className="max-w-4xl mx-auto px-4 pt-[15px] pb-10 text-center py-20">
+          <div className="flex flex-col items-center justify-center">
+            <div className="w-12 h-12 border-4 border-gray-500 border-t-transparent rounded-full animate-spin"></div>
+            <p className="mt-4 text-gray-600">Loading audio library...</p>
           </div>
-          <p className="mt-3 font-mono">Loading audio library...</p>
         </section>
         <Footer />
       </div>
@@ -98,136 +98,122 @@ export default function Mentahan() {
   }
 
   return (
-    <div className="bg-white min-h-screen text-black">
+    <div className="bg-white min-h-screen text-gray-800">
       <NavWrapper />
-      <section className="max-w-4xl mx-auto px-5 pt-[15px] pb-10">
-        <h1 className="text-3xl font-bold mb-6 text-center font-serif">Audio Library</h1>
-        
-        {/* Category Filter */}
-        <div className="flex flex-wrap gap-2 mb-8 justify-center">
-          {['all', 'quote_random', 'islamic', 'india', 'arabic'].map((category) => (
+      <section className="max-w-4xl mx-auto px-4 pt-6 pb-10">
+        <div className="text-center mb-8">
+          <h1 className="text-3xl font-bold mb-2 text-gray-900">Audio Library</h1>
+          <p className="text-gray-600">Browse and download your favorite audio clips</p>
+        </div>
+
+        {/* Category Filter - Horizontal Scroll for Mobile */}
+        <div className="mb-8 overflow-x-auto pb-0">
+          <div className="flex space-x-2 w-max mx-auto px-2">
             <button
-              key={category}
-              onClick={() => setSelectedCategory(category)}
-              className={`px-4 py-2 rounded-full text-sm border border-black transition-all ${
-                selectedCategory === category 
-                  ? 'bg-black text-white shadow-md' 
-                  : 'hover:bg-gray-100'
-              }`}
+              onClick={() => setSelectedCategory('all')}
+              className={`px-4 py-2 rounded-full text-sm font-medium whitespace-nowrap ${selectedCategory === 'all' ? 'bg-gray-600 text-white shadow-md' : 'bg-gray-100 text-gray-700 hover:bg-gray-200'}`}
             >
-              {category === 'all' ? 'All' : getCategoryName(category)}
+              All
             </button>
-          ))}
+            <button
+              onClick={() => setSelectedCategory('quote_random')}
+              className={`px-4 py-2 rounded-full text-sm font-medium whitespace-nowrap ${selectedCategory === 'quote_random' ? 'bg-gray-600 text-white shadow-md' : 'bg-gray-100 text-gray-700 hover:bg-gray-200'}`}
+            >
+              Quote Random
+            </button>
+            <button
+              onClick={() => setSelectedCategory('arabic')}
+              className={`px-4 py-2 rounded-full text-sm font-medium whitespace-nowrap ${selectedCategory === 'arabic' ? 'bg-gray-600 text-white shadow-md' : 'bg-gray-100 text-gray-700 hover:bg-gray-200'}`}
+            >
+              Arabic
+            </button>
+            <button
+              onClick={() => setSelectedCategory('islamic')}
+              className={`px-4 py-2 rounded-full text-sm font-medium whitespace-nowrap ${selectedCategory === 'islamic' ? 'bg-gray-600 text-white shadow-md' : 'bg-gray-100 text-gray-700 hover:bg-gray-200'}`}
+            >
+              Islamic
+            </button>
+            <button
+              onClick={() => setSelectedCategory('india')}
+              className={`px-4 py-2 rounded-full text-sm font-medium whitespace-nowrap ${selectedCategory === 'india' ? 'bg-gray-600 text-white shadow-md' : 'bg-gray-100 text-gray-700 hover:bg-gray-200'}`}
+            >
+              India
+            </button>
+          </div>
         </div>
 
         {/* Audio List */}
-        <div className="grid gap-6">
+        <div className="space-y-2">
           {filteredAudios.length > 0 ? (
             filteredAudios.map((audio) => (
-              <div 
-                key={audio.id} 
-                className={`bg-white p-5 rounded-xl border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] transition-all ${
-                  currentlyPlaying === audio.id ? 'ring-2 ring-black' : ''
-                }`}
+              <div
+                key={audio.id}
+                className="bg-white border border-gray-200 rounded-2xl p-4 shadow-sm hover:shadow-md transition-shadow"
               >
-                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
-                  <div className="flex-1 min-w-0">
-                    <div className="flex items-center gap-3">
-                      <div className="w-10 h-10 rounded-full bg-black text-white flex items-center justify-center">
-                        <i className="ri-music-2-line"></i>
-                      </div>
-                      <div>
-                        <h3 className="font-bold text-lg truncate font-mono">{audio.title}</h3>
-                        <div className="flex items-center gap-2 mt-1">
-                          <span className="inline-block px-2 py-1 text-xs rounded-full bg-black text-white">
-                            {getCategoryName(audio.category)}
-                          </span>
-                          {audio.createdAt && (
-                            <span className="text-xs text-gray-500">
-                              {new Date(audio.createdAt.seconds * 1000).toLocaleDateString()}
-                            </span>
-                          )}
-                        </div>
-                      </div>
+                <div className="flex items-center justify-between flex-wrap gap-2 sm:gap-4">
+
+                  {/* Kiri: Title + Category + Date */}
+                  <div className="flex items-center gap-1 min-w-0 overflow-hidden">
+                    <h3 className="font-semibold text-base sm:text-lg text-gray-900 truncate">
+                      {audio.title} /
+                    </h3>
+
+                    {/* Category */}
+                    <div className="flex items-center text-xs text-gray-500 flex-shrink-0">
+                      <span className="px-2 py-1 rounded-[5px] bg-gray-100 text-gray-800 font-medium text-xs">
+                        {getCategoryName(audio.category)}
+                      </span>
                     </div>
                   </div>
-                  <div className="flex gap-2 justify-end">
+
+                  {/* Kanan: Tombol */}
+                  <div className="flex items-center gap-2 flex-shrink-0">
                     <button
                       onClick={() => handlePlay(audio.id)}
-                      className={`p-3 rounded-full border border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] transition-all ${
-                        currentlyPlaying === audio.id ? 'bg-black text-white' : 'bg-white hover:bg-gray-100'
-                      }`}
+                      className="w-10 h-10 rounded-full bg-gray-600 text-white hover:bg-gray-700 transition-colors flex items-center justify-center"
                       aria-label={currentlyPlaying === audio.id ? 'Pause' : 'Play'}
                     >
                       {currentlyPlaying === audio.id ? (
-                        <i className="ri-pause-fill"></i>
+                        <i className="ri-pause-fill text-xl"></i>
                       ) : (
-                        <i className="ri-play-fill"></i>
+                        <i className="ri-play-fill text-xl"></i>
                       )}
                     </button>
                     <button
                       onClick={() => handleDownload(audio.audioUrl, audio.title)}
-                      className="p-3 rounded-full border border-black bg-white hover:bg-gray-100 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] transition-all"
+                      className="w-10 h-10 rounded-full bg-gray-100 text-gray-700 hover:bg-gray-200 transition-colors flex items-center justify-center"
                       aria-label="Download"
                     >
-                      <i className="ri-download-2-fill"></i>
+                      <i className="ri-download-2-line text-xl"></i>
                     </button>
                   </div>
                 </div>
-                
-                {/* Custom Audio Player */}
+
+                {/* Audio Player */}
                 {currentlyPlaying === audio.id && (
-                  <div className="mt-4">
-                    <div className="relative pt-1">
-                      <div className="flex items-center gap-2">
-                        <div className="flex-1 bg-gray-200 rounded-full h-2">
-                          <div 
-                            className="bg-black h-2 rounded-full" 
-                            style={{ width: '0%' }} // You can add progress tracking here
-                          ></div>
-                        </div>
-                        <span className="text-xs font-mono">0:00</span>
-                      </div>
-                    </div>
+                  <div className="mt-3">
                     <audio
                       controls
                       autoPlay
                       onEnded={() => setCurrentlyPlaying(null)}
-                      className="w-full mt-3 hidden" // Hide default controls
+                      className="w-full h-10 rounded-[5px]"
                     >
                       <source src={audio.audioUrl} type="audio/mpeg" />
                       Your browser does not support the audio element.
                     </audio>
-                    <div className="flex items-center justify-between mt-2">
-                      <button className="text-sm font-mono hover:underline">
-                        <i className="ri-skip-back-line mr-1"></i> 15s
-                      </button>
-                      <div className="flex items-center gap-3">
-                        <button className="p-2 rounded-full hover:bg-gray-100">
-                          <i className="ri-volume-up-line"></i>
-                        </button>
-                        <button className="p-2 rounded-full hover:bg-gray-100">
-                          <i className="ri-speed-line"></i>
-                        </button>
-                      </div>
-                      <button className="text-sm font-mono hover:underline">
-                        15s <i className="ri-skip-forward-line ml-1"></i>
-                      </button>
-                    </div>
                   </div>
                 )}
               </div>
+
             ))
           ) : (
-            <div className="text-center py-16 border-2 border-black rounded-xl shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
-              <div className="w-16 h-16 rounded-full bg-black text-white flex items-center justify-center mx-auto mb-4">
-                <i className="ri-music-2-line text-2xl"></i>
-              </div>
-              <p className="font-mono">No audios found in this category</p>
+            <div className="text-center py-12 bg-gray-50 rounded-xl">
+              <i className="ri-music-2-line text-5xl text-gray-400 mb-4"></i>
+              <p className="text-gray-600 mb-4">No audios found in this category</p>
               {selectedCategory !== 'all' && (
                 <button
                   onClick={() => setSelectedCategory('all')}
-                  className="mt-4 px-4 py-2 bg-black text-white rounded-lg border border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] transition-all"
+                  className="px-5 py-2 bg-gray-600 text-white rounded-lg hover:bg-gray-700 transition-colors shadow-sm"
                 >
                   Show all audios
                 </button>
