@@ -84,6 +84,13 @@ export default function Dashboard() {
             <h2 className="text-xl font-semibold mb-2">Manage Quotes</h2>
             <p className="text-gray-600">Add, edit, or delete Quotes</p>
           </Link>
+          <Link 
+            to="/dashboard/creator/manage-audio" 
+            className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow"
+          >
+            <h2 className="text-xl font-semibold mb-2">Manage Audio</h2>
+            <p className="text-gray-600">Add, edit, or delete Audio</p>
+          </Link>
         </div>
       </div>
     </div>

@@ -10,7 +10,7 @@ import Project from './pages/frontdev/Project';
 import Certificate from './pages/frontdev/Certificate';
 import Guestbook from './pages/frontdev/Guestbook';
 import GithubRepo from './pages/frontdev/GithubRepo';
-import Creator from './pages/creator/Creator';
+import Creator from './pages/creator/HomePage';
 import Blogs from './pages/frontdev/Blog';
 import DetailBlog from './pages/frontdev/DetailBlog';
 import Writings01 from './pages/frontdev/DetailWritings/tailwind-ui-is-now-tailwind-plus';
@@ -52,6 +52,7 @@ import StoreViu from './pages/creator/detailStore/DetailViu';
 import StoreAM from './pages/creator/detailStore/DetailAlightMotion';
 import StoreYT from './pages/creator/detailStore/DetailYoutube';
 import ChatRoom from './pages/ChatRoom';
+import ManageAudio from './pages/admin/ManageAudio';
 
 function App() {
   return (
@@ -113,6 +114,7 @@ function App() {
         <Route path="/dashboard/manage-animes" element={<DashboardAnime />} />
         <Route path="/dashboard/animes/manage-reels" element={<DashboardReelsAnime />} />
         <Route path="/dashboard/creator/manage-quotes" element={<ManageQuotes />} />
+        <Route path="/dashboard/creator/manage-audio" element={<ManageAudio />} />
       </Routes>
     </Router>
   );
