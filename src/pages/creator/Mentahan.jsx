@@ -110,7 +110,7 @@ export default function Mentahan() {
   return (
     <div className="bg-white min-h-screen text-gray-800">
       <NavWrapper />
-      <section className="max-w-4xl mx-auto px-4 pt-6 pb-10">
+      <section className="max-w-4xl mx-auto px-4 pt-4 pb-10">
         <div className="text-center mb-8">
           <h1 className="text-3xl font-bold mb-2 text-gray-900">Audio Library</h1>
           <p className="text-gray-600">Browse and download your favorite audio clips</p>

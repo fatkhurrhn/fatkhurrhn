@@ -30,17 +30,17 @@ const products = [
     oldPrice: "Rp 5.000",
     category: "Top Up",
     link: "/creator/store/diamond-ml",
-    
+
   },
-//   {
-//     id: 4,
-//     name: "Pulsa",
-//     image: "https://satmesin.com/wp-content/uploads/2023/04/pulsa.jpg",
-//     price: "Rp 4.000",
-//     oldPrice: "Rp 7.000",
-//     category: "Top Up",
-//     link: "/creator/store/pulsa"
-//   },
+  //   {
+  //     id: 4,
+  //     name: "Pulsa",
+  //     image: "https://satmesin.com/wp-content/uploads/2023/04/pulsa.jpg",
+  //     price: "Rp 4.000",
+  //     oldPrice: "Rp 7.000",
+  //     category: "Top Up",
+  //     link: "/creator/store/pulsa"
+  //   },
   {
     id: 5,
     name: "Alight Motion",
@@ -68,15 +68,15 @@ const products = [
     category: "Streaming",
     link: "/creator/store/youtube"
   },
-//   {
-//     id: 8,
-//     name: "Bstation",
-//     image: "https://play-lh.googleusercontent.com/G9s84Cm1TDnKDX2P8nipS_s60cuCnYtjBRRLespF8nivjXmbV9tF1fY37clZhXMLaA=w240-h480-rw",
-//     price: "Rp 8.000",
-//     oldPrice: "Rp 13.000",
-//     category: "Streaming",
-//     link: "/creator/store/bstation"
-//   },
+  //   {
+  //     id: 8,
+  //     name: "Bstation",
+  //     image: "https://play-lh.googleusercontent.com/G9s84Cm1TDnKDX2P8nipS_s60cuCnYtjBRRLespF8nivjXmbV9tF1fY37clZhXMLaA=w240-h480-rw",
+  //     price: "Rp 8.000",
+  //     oldPrice: "Rp 13.000",
+  //     category: "Streaming",
+  //     link: "/creator/store/bstation"
+  //   },
   {
     id: 9,
     name: "Viu",
@@ -100,11 +100,14 @@ export default function Store() {
 
   return (
     <div className="font-sans bg-gray-50 min-h-screen">
-        <NavCreator/>
-      <section className="max-w-4xl mx-auto px-5 pb-20">
-        <h2 className="text-2xl font-semibold text-center mb-5 text-gray-800">storethur ID</h2>
+      <NavCreator />
+      <section className="max-w-4xl mx-auto px-4 pt-4 pb-10">
+        <div className="text-center mb-8">
+          <h1 className="text-3xl font-bold mb-2 text-gray-900">StoreThur ID</h1>
+          <p className="text-gray-600">selling various premium apks at the cheapest price</p>
+        </div>
 
-        <div className="flex overflow-x-auto space-x-3 pt-2 pb-2 scrollbar-hide">
+        <div className="flex overflow-x-auto space-x-3 pt-0 pb-2 scrollbar-hide">
           {categories.map((category) => (
             <button
               key={category}

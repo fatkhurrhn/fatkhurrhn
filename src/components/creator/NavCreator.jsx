@@ -16,20 +16,26 @@ const NavCreator = ({ children }) => {
     <>
       {/* Top Navbar */}
       <nav className="fixed top-0 left-0 right-0 z-50 bg-white shadow-sm border-b border-gray-100">
-        <div className="container mx-auto max-w-[960px] px-4 py-3">
+        <div className="container mx-auto max-w-4xl px-3 py-2">
           <div className="flex items-center justify-between">
-            <Link to="/animes" className="flex items-center space-x-2">
-              <i class="ri-instagram-line text-2xl text-blue-600"></i>
+            {/* Desktop Logo - Hidden di Mobile */}
+            <Link to="/animes" className="hidden md:flex items-center space-x-2">
               <span className="text-xl font-bold text-gray-800">storythur</span>
             </Link>
 
+            {/* Mobile Menu Icon - Kiri */}
+            <button className="md:hidden text-gray-800 p-2 rounded-lg hover:bg-gray-100">
+              <i className="ri-menu-2-line text-xl"></i>
+            </button>
+
+            {/* Desktop Navigation */}
             <div className="hidden md:flex items-center space-x-6">
               {navItems.map((item) => (
                 <div key={item.path} className="relative">
                   <Link
                     to={item.path}
-                    className={`text-gray-600 hover:text-blue-600 transition-colors font-medium ${
-                      location.pathname === item.path ? 'text-blue-600 font-semibold' : ''
+                    className={`text-black hover:text-gray-600 transition-colors font-medium ${
+                      location.pathname === item.path ? 'text-gray-600 font-semibold' : ''
                     }`}
                   >
                     {item.label}
@@ -42,6 +48,14 @@ const NavCreator = ({ children }) => {
                 </div>
               ))}
             </div>
+
+            {/* Resumes Button - Kanan (Mobile & Desktop) */}
+            <Link
+              to="/resume"
+              className="text-gray-800 font-medium rounded-lg text-sm px-4 py-2 bg-white border border-gray-200 hover:bg-gray-100"
+            >
+              Resumes
+            </Link>
           </div>
         </div>
       </nav>
@@ -59,10 +73,10 @@ const NavCreator = ({ children }) => {
                 >
                   <i
                     className={`${isActive ? item.activeIcon : item.icon} text-[22px] ${
-                      isActive ? 'text-blue-600' : 'text-gray-500'
+                      isActive ? 'text-gray-600' : 'text-gray-500'
                     }`}
                   ></i>
-                  <span className={isActive ? 'text-blue-600 font-medium' : 'text-gray-600'}>
+                  <span className={isActive ? 'text-gray-600 font-medium' : 'text-gray-600'}>
                     {item.label}
                   </span>
                 </Link>
