@@ -10,6 +10,7 @@ export default function Mentahan() {
   const [selectedCategory, setSelectedCategory] = useState('all');
   const [currentlyPlaying, setCurrentlyPlaying] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [categoryCounts, setCategoryCounts] = useState({});
 
   // Function to shuffle array (only used once when loading data)
   const shuffleArray = (array) => {
@@ -30,7 +31,14 @@ export default function Mentahan() {
           id: doc.id,
           ...doc.data()
         }));
-        
+
+        // Calculate category counts
+        const counts = {};
+        audioList.forEach(audio => {
+          counts[audio.category] = (counts[audio.category] || 0) + 1;
+        });
+        setCategoryCounts(counts);
+
         // Shuffle only once when first loading
         const shuffledAudios = shuffleArray(audioList);
         setAudios(shuffledAudios);
@@ -130,43 +138,43 @@ export default function Mentahan() {
               onClick={() => setSelectedCategory('all')}
               className={`px-4 py-2 rounded-full text-sm font-medium whitespace-nowrap ${selectedCategory === 'all' ? 'bg-gray-600 text-white shadow-md' : 'bg-gray-100 text-gray-700 hover:bg-gray-200'}`}
             >
-              All
+              All ({audios.length})
             </button>
             <button
               onClick={() => setSelectedCategory('sound_efect')}
               className={`px-4 py-2 rounded-full text-sm font-medium whitespace-nowrap ${selectedCategory === 'sound_efect' ? 'bg-gray-600 text-white shadow-md' : 'bg-gray-100 text-gray-700 hover:bg-gray-200'}`}
             >
-              Sound Effect
+              Sound Effect ({categoryCounts['sound_efect'] || 0})
             </button>
             <button
               onClick={() => setSelectedCategory('quote_random')}
               className={`px-4 py-2 rounded-full text-sm font-medium whitespace-nowrap ${selectedCategory === 'quote_random' ? 'bg-gray-600 text-white shadow-md' : 'bg-gray-100 text-gray-700 hover:bg-gray-200'}`}
             >
-              Quote Random
+              Quote Random ({categoryCounts['quote_random'] || 0})
             </button>
             <button
               onClick={() => setSelectedCategory('arabic')}
               className={`px-4 py-2 rounded-full text-sm font-medium whitespace-nowrap ${selectedCategory === 'arabic' ? 'bg-gray-600 text-white shadow-md' : 'bg-gray-100 text-gray-700 hover:bg-gray-200'}`}
             >
-              Arabic
+              Arabic ({categoryCounts['arabic'] || 0})
             </button>
             <button
               onClick={() => setSelectedCategory('islamic')}
               className={`px-4 py-2 rounded-full text-sm font-medium whitespace-nowrap ${selectedCategory === 'islamic' ? 'bg-gray-600 text-white shadow-md' : 'bg-gray-100 text-gray-700 hover:bg-gray-200'}`}
             >
-              Islamic
+              Islamic ({categoryCounts['islamic'] || 0})
             </button>
             <button
               onClick={() => setSelectedCategory('jawa')}
               className={`px-4 py-2 rounded-full text-sm font-medium whitespace-nowrap ${selectedCategory === 'jawa' ? 'bg-gray-600 text-white shadow-md' : 'bg-gray-100 text-gray-700 hover:bg-gray-200'}`}
             >
-              Song Jawa
+              Song Jawa ({categoryCounts['jawa'] || 0})
             </button>
             <button
               onClick={() => setSelectedCategory('india')}
               className={`px-4 py-2 rounded-full text-sm font-medium whitespace-nowrap ${selectedCategory === 'india' ? 'bg-gray-600 text-white shadow-md' : 'bg-gray-100 text-gray-700 hover:bg-gray-200'}`}
             >
-              India
+              India ({categoryCounts['india'] || 0})
             </button>
           </div>
         </div>

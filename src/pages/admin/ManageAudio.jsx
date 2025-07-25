@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 
 export default function ManageAudio() {
     const [audios, setAudios] = useState([]);
+    const [filteredAudios, setFilteredAudios] = useState([]);
     const [newAudio, setNewAudio] = useState({
         title: '',
         audioUrl: '',
@@ -12,6 +13,8 @@ export default function ManageAudio() {
     });
     const [editingId, setEditingId] = useState(null);
     const [isSubmitting, setIsSubmitting] = useState(false);
+    const [categoryCounts, setCategoryCounts] = useState({});
+    const [activeFilter, setActiveFilter] = useState('all');
 
     useEffect(() => {
         const fetchAudios = async () => {
@@ -23,6 +26,14 @@ export default function ManageAudio() {
                     ...doc.data()
                 }));
                 setAudios(audioList);
+                setFilteredAudios(audioList);
+                
+                // Calculate category counts
+                const counts = { all: audioList.length };
+                audioList.forEach(audio => {
+                    counts[audio.category] = (counts[audio.category] || 0) + 1;
+                });
+                setCategoryCounts(counts);
             } catch (error) {
                 console.error('Error fetching audios:', error);
             }
@@ -73,6 +84,14 @@ export default function ManageAudio() {
                 ...doc.data()
             }));
             setAudios(audioList);
+            applyFilter(activeFilter, audioList);
+            
+            // Update category counts
+            const counts = { all: audioList.length };
+            audioList.forEach(audio => {
+                counts[audio.category] = (counts[audio.category] || 0) + 1;
+            });
+            setCategoryCounts(counts);
 
             // Reset form
             setNewAudio({
@@ -110,7 +129,16 @@ export default function ManageAudio() {
         if (window.confirm('Are you sure you want to delete this audio?')) {
             try {
                 await deleteDoc(doc(db, 'my-audios', id));
-                setAudios(audios.filter(audio => audio.id !== id));
+                const updatedAudios = audios.filter(audio => audio.id !== id);
+                setAudios(updatedAudios);
+                applyFilter(activeFilter, updatedAudios);
+                
+                // Update category counts
+                const counts = { all: updatedAudios.length };
+                updatedAudios.forEach(audio => {
+                    counts[audio.category] = (counts[audio.category] || 0) + 1;
+                });
+                setCategoryCounts(counts);
             } catch (error) {
                 console.error('Error deleting audio:', error);
             }
@@ -121,6 +149,47 @@ export default function ManageAudio() {
         return category.split('_').map(word =>
             word.charAt(0).toUpperCase() + word.slice(1)
         ).join(' ');
+    };
+
+    const applyFilter = (category, audioList = audios) => {
+        setActiveFilter(category);
+        if (category === 'all') {
+            setFilteredAudios(audioList);
+        } else {
+            setFilteredAudios(audioList.filter(audio => audio.category === category));
+        }
+    };
+
+    const renderCategoryCounts = () => {
+        return (
+            <div className="flex flex-wrap gap-2">
+                <button
+                    onClick={() => applyFilter('all')}
+                    className={`px-3 py-1 text-sm font-medium rounded-full transition-colors ${
+                        activeFilter === 'all' 
+                            ? 'bg-gray-800 text-white' 
+                            : 'bg-gray-100 text-gray-800 hover:bg-gray-200'
+                    }`}
+                >
+                    All: {categoryCounts.all || 0}
+                </button>
+                {Object.entries(categoryCounts)
+                    .filter(([key]) => key !== 'all')
+                    .map(([category, count]) => (
+                        <button
+                            key={category}
+                            onClick={() => applyFilter(category)}
+                            className={`px-3 py-1 text-sm font-medium rounded-full transition-colors ${
+                                activeFilter === category 
+                                    ? 'bg-gray-800 text-white' 
+                                    : 'bg-gray-100 text-gray-800 hover:bg-gray-200'
+                            }`}
+                        >
+                            {formatCategory(category)}: {count}
+                        </button>
+                    ))}
+            </div>
+        );
     };
 
     return (
@@ -246,12 +315,10 @@ export default function ManageAudio() {
                 <div className="bg-white rounded-xl shadow-sm p-6 border border-gray-100">
                     <div className="flex justify-between items-center mb-6">
                         <h2 className="text-xl font-semibold text-gray-800">Audio Library</h2>
-                        <span className="px-3 py-1 bg-gray-100 text-gray-800 text-sm font-medium rounded-full">
-                            {audios.length} items
-                        </span>
+                        {renderCategoryCounts()}
                     </div>
 
-                    {audios.length > 0 ? (
+                    {filteredAudios.length > 0 ? (
                         <div className="overflow-x-auto">
                             <table className="min-w-full divide-y divide-gray-200">
                                 <thead className="bg-gray-50">
@@ -271,7 +338,7 @@ export default function ManageAudio() {
                                     </tr>
                                 </thead>
                                 <tbody className="bg-white divide-y divide-gray-200">
-                                    {audios.map(audio => (
+                                    {filteredAudios.map(audio => (
                                         <tr key={audio.id} className="hover:bg-gray-50">
                                             <td className="px-6 py-4 whitespace-nowrap">
                                                 <div className="text-sm font-medium text-gray-900 truncate max-w-xs">
@@ -323,7 +390,11 @@ export default function ManageAudio() {
                             <div className="mx-auto h-16 w-16 text-gray-400 mb-4">
                                 <i className="ri-music-2-line text-4xl"></i>
                             </div>
-                            <h3 className="text-lg font-medium text-gray-900 mb-1">No audios found</h3>
+                            <h3 className="text-lg font-medium text-gray-900 mb-1">
+                                {activeFilter === 'all' 
+                                    ? 'No audios found' 
+                                    : `No audios in ${formatCategory(activeFilter)} category`}
+                            </h3>
                             <p className="text-gray-500">Add your first audio using the form above</p>
                         </div>
                     )}
