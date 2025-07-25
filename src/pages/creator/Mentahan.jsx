@@ -107,21 +107,6 @@ export default function Mentahan() {
     }
   };
 
-  if (loading) {
-    return (
-      <div className="bg-white min-h-screen text-gray-800">
-        <NavWrapper />
-        <section className="max-w-4xl mx-auto px-4 pt-[15px] pb-10 text-center py-20">
-          <div className="flex flex-col items-center justify-center">
-            <div className="w-12 h-12 border-4 border-gray-500 border-t-transparent rounded-full animate-spin"></div>
-            <p className="mt-4 text-gray-600">Loading audio library...</p>
-          </div>
-        </section>
-        <Footer />
-      </div>
-    );
-  }
-
   return (
     <div className="bg-white min-h-screen text-gray-800">
       <NavWrapper />
@@ -181,7 +166,14 @@ export default function Mentahan() {
 
         {/* Audio List */}
         <div className="space-y-2">
-          {filteredAudios.length > 0 ? (
+          {loading ? (
+            <div className="text-center py-12">
+              <div className="flex flex-col items-center justify-center">
+                <div className="w-12 h-12 border-4 border-gray-500 border-t-transparent rounded-full animate-spin"></div>
+                <p className="mt-4 text-gray-600">Loading audio list...</p>
+              </div>
+            </div>
+          ) : filteredAudios.length > 0 ? (
             filteredAudios.map((audio) => (
               <div
                 key={audio.id}
