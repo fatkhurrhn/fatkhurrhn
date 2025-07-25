@@ -12,7 +12,7 @@ export default function Storythur() {
                     <section className="mb-12" id="about">
                         <div className="flex flex-col lg:flex-row items-center gap-8">
                             <img
-                                src="https://res.cloudinary.com/dbssvz2pe/image/upload/v1751663102/assets-gallery/ajdtk56lv99fjeg8ofy94pkvo.jpg"
+                                src="https://fatkhurrhn.vercel.app/preview.jpg"
                                 alt="StoryThur"
                                 className="w-100 h-auto lg:w-40 rounded-lg mx-auto lg:mx-0 "
                                 style={{ maxHeight: '460px' }} // Sesuaikan nilai ini sesuai kebutuhan
