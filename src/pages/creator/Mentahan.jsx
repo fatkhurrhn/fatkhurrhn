@@ -11,6 +11,16 @@ export default function Mentahan() {
   const [currentlyPlaying, setCurrentlyPlaying] = useState(null);
   const [loading, setLoading] = useState(true);
 
+  // Function to shuffle array (only used once when loading data)
+  const shuffleArray = (array) => {
+    const newArray = [...array];
+    for (let i = newArray.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [newArray[i], newArray[j]] = [newArray[j], newArray[i]];
+    }
+    return newArray;
+  };
+
   useEffect(() => {
     const fetchAudios = async () => {
       try {
@@ -20,8 +30,11 @@ export default function Mentahan() {
           id: doc.id,
           ...doc.data()
         }));
-        setAudios(audioList);
-        setFilteredAudios(audioList);
+        
+        // Shuffle only once when first loading
+        const shuffledAudios = shuffleArray(audioList);
+        setAudios(shuffledAudios);
+        setFilteredAudios(shuffledAudios);
         setLoading(false);
       } catch (error) {
         console.error('Error fetching audios:', error);
@@ -34,10 +47,10 @@ export default function Mentahan() {
 
   useEffect(() => {
     if (selectedCategory === 'all') {
-      setFilteredAudios(audios);
+      setFilteredAudios([...audios]); // Show all without reshuffling
     } else {
       const filtered = audios.filter(audio => audio.category === selectedCategory);
-      setFilteredAudios(filtered);
+      setFilteredAudios(filtered); // Show filtered without reshuffling
     }
   }, [selectedCategory, audios]);
 
@@ -77,6 +90,10 @@ export default function Mentahan() {
         return 'India';
       case 'arabic':
         return 'Arabic';
+      case 'jawa':
+        return 'Song Jawa';
+      case 'sound_efect':
+        return 'Sound Effect';
       default:
         return category;
     }
@@ -116,6 +133,12 @@ export default function Mentahan() {
               All
             </button>
             <button
+              onClick={() => setSelectedCategory('sound_efect')}
+              className={`px-4 py-2 rounded-full text-sm font-medium whitespace-nowrap ${selectedCategory === 'sound_efect' ? 'bg-gray-600 text-white shadow-md' : 'bg-gray-100 text-gray-700 hover:bg-gray-200'}`}
+            >
+              Sound Effect
+            </button>
+            <button
               onClick={() => setSelectedCategory('quote_random')}
               className={`px-4 py-2 rounded-full text-sm font-medium whitespace-nowrap ${selectedCategory === 'quote_random' ? 'bg-gray-600 text-white shadow-md' : 'bg-gray-100 text-gray-700 hover:bg-gray-200'}`}
             >
@@ -132,6 +155,12 @@ export default function Mentahan() {
               className={`px-4 py-2 rounded-full text-sm font-medium whitespace-nowrap ${selectedCategory === 'islamic' ? 'bg-gray-600 text-white shadow-md' : 'bg-gray-100 text-gray-700 hover:bg-gray-200'}`}
             >
               Islamic
+            </button>
+            <button
+              onClick={() => setSelectedCategory('jawa')}
+              className={`px-4 py-2 rounded-full text-sm font-medium whitespace-nowrap ${selectedCategory === 'jawa' ? 'bg-gray-600 text-white shadow-md' : 'bg-gray-100 text-gray-700 hover:bg-gray-200'}`}
+            >
+              Song Jawa
             </button>
             <button
               onClick={() => setSelectedCategory('india')}
@@ -151,11 +180,10 @@ export default function Mentahan() {
                 className="bg-white border border-gray-200 rounded-2xl p-4 shadow-sm hover:shadow-md transition-shadow"
               >
                 <div className="flex items-center justify-between flex-wrap gap-2 sm:gap-4">
-
-                  {/* Kiri: Title + Category + Date */}
+                  {/* Left: Title + Category + Date */}
                   <div className="flex items-center gap-1 min-w-0 overflow-hidden">
                     <h3 className="font-semibold text-base sm:text-lg text-gray-900 truncate">
-                      {audio.title} /
+                      {audio.title.split(' ').slice(0, 2).join(' ')}{audio.title.split(' ').length > 2 ? '...' : ''} /
                     </h3>
 
                     {/* Category */}
@@ -166,7 +194,7 @@ export default function Mentahan() {
                     </div>
                   </div>
 
-                  {/* Kanan: Tombol */}
+                  {/* Right: Buttons */}
                   <div className="flex items-center gap-2 flex-shrink-0">
                     <button
                       onClick={() => handlePlay(audio.id)}
@@ -204,7 +232,6 @@ export default function Mentahan() {
                   </div>
                 )}
               </div>
-
             ))
           ) : (
             <div className="text-center py-12 bg-gray-50 rounded-xl">

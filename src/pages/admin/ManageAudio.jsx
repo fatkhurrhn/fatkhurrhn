@@ -172,10 +172,12 @@ export default function ManageAudio() {
                                         className="w-full appearance-none px-3 py-2 pr-8 border border-gray-300 rounded-lg bg-white text-gray-800"
                                         required
                                     >
+                                        <option value="sound_efect">Sound Efect</option>
                                         <option value="quote_random">Quote Random</option>
-                                        <option value="islamic">Islamic</option>
-                                        <option value="india">India</option>
                                         <option value="arabic">Arabic</option>
+                                        <option value="islamic">Islamic</option>
+                                        <option value="jawa">Song Jawa</option>
+                                        <option value="india">India</option>
                                     </select>
                                     <div className="pointer-events-none absolute inset-y-0 right-2 flex items-center text-gray-500">
                                         <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
