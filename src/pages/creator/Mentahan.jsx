@@ -3,7 +3,6 @@ import { collection, getDocs, query } from 'firebase/firestore';
 import { db } from '../../firebase';
 import NavWrapper from '../../components/creator/NavCreator';
 import Footer from '../../components/creator/Footer';
-import ReactPlayer from 'react-player'; // For better audio player
 
 export default function Mentahan() {
   const [audios, setAudios] = useState([]);
@@ -106,36 +105,19 @@ export default function Mentahan() {
         
         {/* Category Filter */}
         <div className="flex flex-wrap gap-2 mb-8 justify-center">
-          <button
-            onClick={() => setSelectedCategory('all')}
-            className={`px-4 py-2 rounded-full text-sm border border-black ${selectedCategory === 'all' ? 'bg-black text-white' : 'hover:bg-gray-100'}`}
-          >
-            All
-          </button>
-          <button
-            onClick={() => setSelectedCategory('quote_random')}
-            className={`px-4 py-2 rounded-full text-sm border border-black ${selectedCategory === 'quote_random' ? 'bg-black text-white' : 'hover:bg-gray-100'}`}
-          >
-            Quote Random
-          </button>
-          <button
-            onClick={() => setSelectedCategory('islamic')}
-            className={`px-4 py-2 rounded-full text-sm border border-black ${selectedCategory === 'islamic' ? 'bg-black text-white' : 'hover:bg-gray-100'}`}
-          >
-            Islamic
-          </button>
-          <button
-            onClick={() => setSelectedCategory('india')}
-            className={`px-4 py-2 rounded-full text-sm border border-black ${selectedCategory === 'india' ? 'bg-black text-white' : 'hover:bg-gray-100'}`}
-          >
-            India
-          </button>
-          <button
-            onClick={() => setSelectedCategory('arabic')}
-            className={`px-4 py-2 rounded-full text-sm border border-black ${selectedCategory === 'arabic' ? 'bg-black text-white' : 'hover:bg-gray-100'}`}
-          >
-            Arabic
-          </button>
+          {['all', 'quote_random', 'islamic', 'india', 'arabic'].map((category) => (
+            <button
+              key={category}
+              onClick={() => setSelectedCategory(category)}
+              className={`px-4 py-2 rounded-full text-sm border border-black transition-all ${
+                selectedCategory === category 
+                  ? 'bg-black text-white shadow-md' 
+                  : 'hover:bg-gray-100'
+              }`}
+            >
+              {category === 'all' ? 'All' : getCategoryName(category)}
+            </button>
+          ))}
         </div>
 
         {/* Audio List */}
@@ -144,26 +126,37 @@ export default function Mentahan() {
             filteredAudios.map((audio) => (
               <div 
                 key={audio.id} 
-                className="bg-white p-5 rounded-xl border border-gray-200 hover:border-black transition-all"
+                className={`bg-white p-5 rounded-xl border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] transition-all ${
+                  currentlyPlaying === audio.id ? 'ring-2 ring-black' : ''
+                }`}
               >
-                <div className="flex items-center justify-between">
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
                   <div className="flex-1 min-w-0">
-                    <h3 className="font-semibold text-lg font-mono">{audio.title}</h3>
-                    <div className="flex items-center gap-2 mt-2">
-                      <span className="inline-block px-2 py-1 text-xs rounded-full border border-black">
-                        {getCategoryName(audio.category)}
-                      </span>
-                      {audio.createdAt && (
-                        <span className="text-xs text-gray-500">
-                          {new Date(audio.createdAt.seconds * 1000).toLocaleDateString()}
-                        </span>
-                      )}
+                    <div className="flex items-center gap-3">
+                      <div className="w-10 h-10 rounded-full bg-black text-white flex items-center justify-center">
+                        <i className="ri-music-2-line"></i>
+                      </div>
+                      <div>
+                        <h3 className="font-bold text-lg truncate font-mono">{audio.title}</h3>
+                        <div className="flex items-center gap-2 mt-1">
+                          <span className="inline-block px-2 py-1 text-xs rounded-full bg-black text-white">
+                            {getCategoryName(audio.category)}
+                          </span>
+                          {audio.createdAt && (
+                            <span className="text-xs text-gray-500">
+                              {new Date(audio.createdAt.seconds * 1000).toLocaleDateString()}
+                            </span>
+                          )}
+                        </div>
+                      </div>
                     </div>
                   </div>
-                  <div className="flex gap-2 ml-3">
+                  <div className="flex gap-2 justify-end">
                     <button
                       onClick={() => handlePlay(audio.id)}
-                      className="p-2 rounded-full border border-black hover:bg-black hover:text-white transition-colors"
+                      className={`p-3 rounded-full border border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] transition-all ${
+                        currentlyPlaying === audio.id ? 'bg-black text-white' : 'bg-white hover:bg-gray-100'
+                      }`}
                       aria-label={currentlyPlaying === audio.id ? 'Pause' : 'Play'}
                     >
                       {currentlyPlaying === audio.id ? (
@@ -174,7 +167,7 @@ export default function Mentahan() {
                     </button>
                     <button
                       onClick={() => handleDownload(audio.audioUrl, audio.title)}
-                      className="p-2 rounded-full border border-black hover:bg-black hover:text-white transition-colors"
+                      className="p-3 rounded-full border border-black bg-white hover:bg-gray-100 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] transition-all"
                       aria-label="Download"
                     >
                       <i className="ri-download-2-fill"></i>
@@ -185,35 +178,56 @@ export default function Mentahan() {
                 {/* Custom Audio Player */}
                 {currentlyPlaying === audio.id && (
                   <div className="mt-4">
-                    <ReactPlayer
-                      url={audio.audioUrl}
-                      playing={true}
-                      controls={true}
-                      width="100%"
-                      height="40px"
+                    <div className="relative pt-1">
+                      <div className="flex items-center gap-2">
+                        <div className="flex-1 bg-gray-200 rounded-full h-2">
+                          <div 
+                            className="bg-black h-2 rounded-full" 
+                            style={{ width: '0%' }} // You can add progress tracking here
+                          ></div>
+                        </div>
+                        <span className="text-xs font-mono">0:00</span>
+                      </div>
+                    </div>
+                    <audio
+                      controls
+                      autoPlay
                       onEnded={() => setCurrentlyPlaying(null)}
-                      config={{
-                        file: {
-                          attributes: {
-                            controlsList: 'nodownload' // Hide download button
-                          }
-                        }
-                      }}
-                    />
+                      className="w-full mt-3 hidden" // Hide default controls
+                    >
+                      <source src={audio.audioUrl} type="audio/mpeg" />
+                      Your browser does not support the audio element.
+                    </audio>
+                    <div className="flex items-center justify-between mt-2">
+                      <button className="text-sm font-mono hover:underline">
+                        <i className="ri-skip-back-line mr-1"></i> 15s
+                      </button>
+                      <div className="flex items-center gap-3">
+                        <button className="p-2 rounded-full hover:bg-gray-100">
+                          <i className="ri-volume-up-line"></i>
+                        </button>
+                        <button className="p-2 rounded-full hover:bg-gray-100">
+                          <i className="ri-speed-line"></i>
+                        </button>
+                      </div>
+                      <button className="text-sm font-mono hover:underline">
+                        15s <i className="ri-skip-forward-line ml-1"></i>
+                      </button>
+                    </div>
                   </div>
                 )}
               </div>
             ))
           ) : (
-            <div className="text-center py-16">
-              <div className="animate-pulse">
-                <i className="ri-music-2-line text-5xl mb-3"></i>
+            <div className="text-center py-16 border-2 border-black rounded-xl shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
+              <div className="w-16 h-16 rounded-full bg-black text-white flex items-center justify-center mx-auto mb-4">
+                <i className="ri-music-2-line text-2xl"></i>
               </div>
               <p className="font-mono">No audios found in this category</p>
               {selectedCategory !== 'all' && (
                 <button
                   onClick={() => setSelectedCategory('all')}
-                  className="mt-4 px-4 py-2 bg-black text-white rounded hover:bg-gray-800 font-mono"
+                  className="mt-4 px-4 py-2 bg-black text-white rounded-lg border border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] transition-all"
                 >
                   Show all audios
                 </button>
