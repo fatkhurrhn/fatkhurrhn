@@ -41,7 +41,7 @@ import Tes from './pages/anime/Tes';
 import Islamic from './pages/Islamic/Islamic';
 import Quotes from './pages/creator/Quotes';
 import ManageQuotes from './pages/admin/ManageQuotes';
-import Mentahan from './pages/creator/Mentahan';
+import MentahanAudio from './pages/creator/MentahanAudio';
 import Other from './pages/creator/Other';
 import Store from './pages/creator/Store';
 import StoreMl from './pages/creator/detailStore/DetailDiamondML';
@@ -53,6 +53,8 @@ import StoreAM from './pages/creator/detailStore/DetailAlightMotion';
 import StoreYT from './pages/creator/detailStore/DetailYoutube';
 import ChatRoom from './pages/ChatRoom';
 import ManageAudio from './pages/admin/ManageAudio';
+import MentahanVideo from './pages/creator/MentahanVideo';
+import Mentahan from './pages/creator/Mentahan';
 
 function App() {
   return (
@@ -79,6 +81,8 @@ function App() {
         <Route path="/creator/storythur" element={<Storythur />} />
         <Route path="/creator/quotes" element={<Quotes />} />
         <Route path="/creator/mentahan" element={<Mentahan />} />
+        <Route path="/creator/mentahan-audio" element={<MentahanAudio />} />
+        <Route path="/creator/mentahan-video" element={<MentahanVideo />} />
         <Route path="/creator/other" element={<Other />} />
 
         <Route path="/creator/store" element={<Store />} />
