@@ -61,6 +61,7 @@ import ShortlinkPage from './pages/tools/shortlinks/ShortLinks';
 import PasswordGenerator from './pages/tools/PasswordGenerator';
 import TextCaseConverter from './pages/tools/TextCaseConverter';
 import WhatsAppTextConverter from './pages/tools/WhatsAppTextConverter';
+import HomePageTools from './pages/tools/HomePage';
 
 function App() {
   return (
@@ -73,6 +74,7 @@ function App() {
         <Route path="/chat" element={<ChatRoom />} />
 
         {/* Route Toole Page */}
+        <Route path="/tools" element={<HomePageTools />} />
         <Route path="/tools/shortlink" element={<ShortlinkPage />} />
         <Route path="/:slug" element={<ShortlinkPage />} />
         <Route path="/tools/password-generator" element={<PasswordGenerator />} />
