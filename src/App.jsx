@@ -36,7 +36,6 @@ import Story from './pages/anime/Story';
 import Genre from './pages/anime/Genre';
 import Status from './pages/anime/Status';
 import More from './pages/anime/More';
-import Tes from './pages/anime/Tes';
 
 import Islamic from './pages/Islamic/Islamic';
 import Quotes from './pages/creator/Quotes';
@@ -55,6 +54,7 @@ import ChatRoom from './pages/ChatRoom';
 import ManageAudio from './pages/admin/ManageAudio';
 import MentahanVideo from './pages/creator/MentahanVideo';
 import Mentahan from './pages/creator/Mentahan';
+import Tes from './pages/Tes';
 
 function App() {
   return (
@@ -65,6 +65,8 @@ function App() {
         <Route path="/" element={<HomePage />} />
         <Route path="/resume" element={<Resume />} />
         <Route path="/chat" element={<ChatRoom />} />
+        <Route path="/shortlink" element={<Tes />} />
+        <Route path="/:slug" element={<Tes />} />
 
         {/* Route Frontdev */}
         <Route path="/frontdev/projects" element={<Project />} />
@@ -107,7 +109,6 @@ function App() {
         <Route path="/genres/:genreName" element={<Genre />} />
         <Route path="/animes/status" element={<Status />} />
         <Route path="/animes/more" element={<More />} />
-        <Route path="/animes/tes" element={<Tes />} />
 
         {/* Route Admin */}
         <Route path="/login" element={<Login />} />

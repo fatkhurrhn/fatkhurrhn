@@ -13,3 +13,5 @@ export default function Template() {
         </div>
     )
 }
+
+// untuk icon gunain cdn yg udh aku taro di inxex.html (<link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet" /> )dan penggunaannya kaya gini <i class="ri-music-2-line"></i> dst...
