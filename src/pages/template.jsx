@@ -2,7 +2,7 @@ import React from 'react'
 import NavNavigate from '../components/frontdev/NavNavigate'
 import Footer from '../components/frontdev/Footer'
 
-export default function Others() {
+export default function Template() {
     return (
         <div className="bg-gray-50 min-h-screen text-gray-800 transition-colors duration-300">
             <NavNavigate />
