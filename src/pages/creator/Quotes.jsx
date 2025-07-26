@@ -90,7 +90,7 @@ const AddQuoteModal = ({ onClose, onQuoteAdded }) => {
                                 onChange={(e) => setCategory(e.target.value)}
                             >
                                 <option value="motivation">Motivasi</option>
-                                <option value="life">Sindiran</option>
+                                <option value="life">Reminder</option>
                                 <option value="love">Cinta</option>
                                 <option value="funny">Lucu</option>
                                 <option value="other">Lainnya</option>
@@ -167,9 +167,9 @@ const QuoteCard = ({ quote, author, category, searchTerm, likes, onLike }) => {
             <div className="flex justify-between items-start mb-0">
                 <span className={`text-[10px] px-1 py-0 rounded-[3px] ${getCategoryColor(category)}`}>
                     {category === 'motivation' && 'Motivasi'}
-                    {category === 'life' && 'Sindiran'}
+                    {category === 'life' && 'Reminder'}
                     {category === 'love' && 'Cinta'}
-                    {category === 'wisdom' && 'Sindiran'}
+                    {category === 'wisdom' && 'Reminder'}
                     {category === 'funny' && 'Lucu'}
                     {category === 'other' && 'Lainnya'}
                 </span>
@@ -346,7 +346,7 @@ const Quotes = () => {
                         >
                             <option value="all">Semua Kategori</option>
                             <option value="motivation">Motivasi</option>
-                            <option value="wisdom">Sindiran</option>
+                            <option value="life">Reminder</option>
                             <option value="love">Cinta</option>
                             <option value="funny">Lucu</option>
                             <option value="other">Lainnya</option>
