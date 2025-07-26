@@ -159,7 +159,7 @@ export default function StorythurPremium() {
                 className="flex flex-col items-center justify-center group w-20 shrink-0"
               >
                 <div className="bg-gray-100 text-gray-800 w-12 h-12 rounded-full flex items-center justify-center mb-2 group-hover:bg-gray-200 transition shadow-sm">
-                  <i className="ri-lightbulb-flash-line text-2xl"></i>
+                  <i className="ri-chat-quote-line text-2xl"></i>
                 </div>
                 <span className="text-xs font-medium text-center">Quotes</span>
               </Link>
@@ -171,7 +171,7 @@ export default function StorythurPremium() {
                 className="flex flex-col items-center justify-center group w-20 shrink-0"
               >
                 <div className="bg-gray-100 text-gray-800 w-12 h-12 rounded-full flex items-center justify-center mb-2 group-hover:bg-gray-200 transition shadow-sm">
-                  <i className="ri-lightbulb-flash-line text-2xl"></i>
+                  <i className="ri-store-line text-2xl"></i>
                 </div>
                 <span className="text-xs font-medium text-center">Store</span>
               </Link>
@@ -183,7 +183,7 @@ export default function StorythurPremium() {
                 className="flex flex-col items-center justify-center group w-20 shrink-0"
               >
                 <div className="bg-gray-100 text-gray-800 w-12 h-12 rounded-full flex items-center justify-center mb-2 group-hover:bg-gray-200 transition shadow-sm">
-                  <i className="ri-lightbulb-flash-line text-2xl"></i>
+                  <i className="ri-folders-line text-2xl"></i>
                 </div>
                 <span className="text-xs font-medium text-center">Mentahan</span>
               </Link>
@@ -195,7 +195,7 @@ export default function StorythurPremium() {
                 className="flex flex-col items-center justify-center group w-20 shrink-0"
               >
                 <div className="bg-gray-100 text-gray-800 w-12 h-12 rounded-full flex items-center justify-center mb-2 group-hover:bg-gray-200 transition shadow-sm">
-                  <i className="ri-lightbulb-flash-line text-2xl"></i>
+                  <i className="ri-apps-line text-2xl"></i>
                 </div>
                 <span className="text-xs font-medium text-center">More</span>
               </Link>
