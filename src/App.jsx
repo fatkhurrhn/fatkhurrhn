@@ -50,11 +50,15 @@ import StoreCanva from './pages/creator/detailStore/DetailCanva';
 import StoreViu from './pages/creator/detailStore/DetailViu';
 import StoreAM from './pages/creator/detailStore/DetailAlightMotion';
 import StoreYT from './pages/creator/detailStore/DetailYoutube';
-import ChatRoom from './pages/ChatRoom';
-import ManageAudio from './pages/admin/ManageAudio';
 import MentahanVideo from './pages/creator/MentahanVideo';
 import Mentahan from './pages/creator/Mentahan';
-import Tes from './pages/Tes';
+
+import ChatRoom from './pages/ChatRoom';
+import ManageAudio from './pages/admin/ManageAudio';
+
+
+import ShortlinkPage from './pages/tools/shortlinks/ShortLinks';
+import PasswordGenerator from './pages/tools/PasswordGenerator';
 
 function App() {
   return (
@@ -65,8 +69,11 @@ function App() {
         <Route path="/" element={<HomePage />} />
         <Route path="/resume" element={<Resume />} />
         <Route path="/chat" element={<ChatRoom />} />
-        <Route path="/shortlink" element={<Tes />} />
-        <Route path="/:slug" element={<Tes />} />
+
+        {/* Route Toole Page */}
+        <Route path="/tools/shortlink" element={<ShortlinkPage />} />
+        <Route path="/:slug" element={<ShortlinkPage />} />
+        <Route path="/tools/password-generator" element={<PasswordGenerator />} />
 
         {/* Route Frontdev */}
         <Route path="/frontdev/projects" element={<Project />} />
