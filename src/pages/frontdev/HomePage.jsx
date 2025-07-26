@@ -28,7 +28,7 @@ export default function Page() {
     <div className="bg-gray-50 min-h-screen text-gray-800 transition-colors duration-300">
       <NavNavigate />
       <ChatRoom/>
-      <section className="max-w-4xl mx-auto px-5 pt-[95px]">
+      <section className="max-w-4xl mx-auto px-5 pt-4">
         <ProfileSection />
 
         <Divider />

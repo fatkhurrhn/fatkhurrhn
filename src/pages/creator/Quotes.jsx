@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { myQuotesCollection } from '../../firebase';
 import { getDocs, query, orderBy, addDoc, serverTimestamp, doc, updateDoc, increment } from 'firebase/firestore';
-import NavWrapper from '../../components/creator/NavCreator';
+import NavWrapper from '../../components/creator/NavNavigate';
 import Footer from '../../components/creator/Footer';
 
 // Helper function to highlight search terms
@@ -136,11 +136,11 @@ const QuoteCard = ({ quote, author, category, searchTerm, likes, onLike }) => {
 
     const handleLike = async () => {
         if (isLiking) return;
-        
+
         setIsLiking(true);
         setIsLiked(true);
         setLocalLikes(localLikes + 1);
-        
+
         try {
             await onLike();
         } catch {
@@ -290,8 +290,8 @@ const Quotes = () => {
             });
 
             // Update state lokal
-            setQuotes(quotes.map(quote => 
-                quote.id === quoteId ? {...quote, likes: (quote.likes || 0) + 1} : quote
+            setQuotes(quotes.map(quote =>
+                quote.id === quoteId ? { ...quote, likes: (quote.likes || 0) + 1 } : quote
             ));
         } catch (error) {
             console.error("Error updating like: ", error);

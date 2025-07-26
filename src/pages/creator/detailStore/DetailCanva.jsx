@@ -1,14 +1,14 @@
 import React, { useState } from "react";
-import NavCreator from "../../../components/creator/NavCreator";
+import NavCreator from "../../../components/creator/NavNavigate";
 
 // const pricelist
 const pricelist = [
-    {
-        category: "Canva",
-        options: [
-            { duration: "1 bulan", price: "12k" },
-        ]
-    }
+  {
+    category: "Canva",
+    options: [
+      { duration: "1 bulan", price: "12k" },
+    ]
+  }
 ];
 
 export default function StoreCanva() {

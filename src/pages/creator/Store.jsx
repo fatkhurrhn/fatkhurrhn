@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import NavCreator from "../../components/creator/NavCreator";
+import NavCreator from "../../components/creator/NavNavigate";
 
 const products = [
   {

@@ -1,24 +1,24 @@
 import React, { useState } from "react";
-import NavCreator from "../../../components/creator/NavCreator";
+import NavCreator from "../../../components/creator/NavNavigate";
 
 // const pricelist
 const pricelist = [
-    {
-        category: "Fam",
-        options: [
-            { duration: "1 bulan", price: "7.000" },
-            { duration: "2 bulan", price: "10.000" }
-        ]
-    },
-    {
-        category: "Indlpn",
-        options: [
-            { duration: "1 bulan", price: "10.000" },
-            { duration: "2 bulan", price: "13.000" }
-        ]
-    }
+  {
+    category: "Fam",
+    options: [
+      { duration: "1 bulan", price: "7.000" },
+      { duration: "2 bulan", price: "10.000" }
+    ]
+  },
+  {
+    category: "Indlpn",
+    options: [
+      { duration: "1 bulan", price: "10.000" },
+      { duration: "2 bulan", price: "13.000" }
+    ]
+  }
 ]
-;
+  ;
 
 export default function StoreYT() {
   const [selected, setSelected] = useState(null);

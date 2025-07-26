@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import NavCreator from '../../components/creator/NavCreator';
+import NavCreator from '../../components/creator/NavNavigate';
 import Footer from '../../components/creator/Footer';
 import { Link } from 'react-router-dom';
 import ChatRoomComponents from '../../components/ChatRoom';
@@ -47,7 +47,7 @@ export default function StorythurPremium() {
     <div className="bg-gray-50 min-h-screen text-gray-900">
       {/* Navigation */}
       <NavCreator />
-      <ChatRoomComponents/>
+      <ChatRoomComponents />
 
       {/* Main Content */}
       <main className="pb-20 lg:pb-10">

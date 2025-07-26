@@ -17,7 +17,7 @@ const ProjectsContent = React.memo(({
   categories
 }) => {
   return (
-    <section className="max-w-4xl mx-auto px-5 pt-20 pb-12">
+    <section className="max-w-4xl mx-auto px-5 pt-4 pb-12">
       {/* Search and Category Controls */}
       <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-8 gap-4">
         <div className="relative w-full sm:w-64">

@@ -9,7 +9,7 @@ export default function Page() {
         <div className="bg-white min-h-screen text-gray-300 transition-colors duration-300">
             <NavNavigate />
             <ChatRoomComponents/>
-            <section className="max-w-4xl mx-auto px-6 pt-20">
+            <section className="max-w-4xl mx-auto px-6 pt-4">
 
                 <div className="flex justify-between items-center w-full">
                     <h2 className="text-[20px] text-gray-800 font-bold">💬 Discussionn</h2>

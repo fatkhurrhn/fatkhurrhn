@@ -85,7 +85,7 @@ export default function Page() {
     <div className="bg-white min-h-screen text-gray-900">
       <NavNavigate />
       <ChatRoomComponents/>
-      <section className="max-w-4xl mx-auto px-5 pt-20 pb-16">
+      <section className="max-w-4xl mx-auto px-5 pt-4 pb-16">
         {loading ? (
           <div className="flex justify-center items-center h-64">
             <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-blue-500"></div>

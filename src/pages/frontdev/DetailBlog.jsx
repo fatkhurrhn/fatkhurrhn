@@ -110,7 +110,7 @@ export default function Page() {
     <div className="bg-white min-h-screen text-gray-900 dark:text-white transition-colors duration-300">
       <NavNavigate />
       <ChatRoomComponents/>
-      <section className="max-w-4xl mx-auto px-5 pt-20 text-gray-800">
+      <section className="max-w-4xl mx-auto px-5 pt-4 text-gray-800">
         {/* breadcrumb */}
         <div className="flex justify-between items-center w-full pt-3">
           <h2 className="text-[15px] text-gray-800 font-sm">

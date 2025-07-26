@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { collection, getDocs, query } from 'firebase/firestore';
 import { db } from '../../firebase';
-import NavWrapper from '../../components/creator/NavCreator';
+import NavWrapper from '../../components/creator/NavNavigate';
 import Footer from '../../components/creator/Footer';
 
 export default function MentahanAudio() {

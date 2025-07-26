@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import NavCreator from '../../components/creator/NavCreator';
+import NavCreator from '../../components/creator/NavNavigate';
 import Footer from '../../components/creator/Footer';
 
 export default function StorythurFinal() {
@@ -91,7 +91,7 @@ export default function StorythurFinal() {
     <div className="bg-gray-50 min-h-screen text-gray-900">
       {/* Navigation */}
       <NavCreator />
-      
+
       {/* Main Content */}
       <main className="pb-20 lg:pb-10">
         {/* Profile Header */}
@@ -99,8 +99,8 @@ export default function StorythurFinal() {
           <div className="max-w-4xl mx-auto">
             <div className="flex flex-col md:flex-row items-center">
               <div className="w-28 h-28 rounded-full border-4 border-white overflow-hidden mb-4 md:mb-0 md:mr-8 shadow-lg">
-                <img 
-                  src="https://fatkhurrhn.vercel.app/pp4.jpg" 
+                <img
+                  src="https://fatkhurrhn.vercel.app/pp4.jpg"
                   alt="M Fatkhurrohman"
                   className="w-full h-full object-cover"
                 />
@@ -139,8 +139,8 @@ export default function StorythurFinal() {
         {/* Quick Actions */}
         <section className="max-w-4xl mx-auto px-5 mt-6">
           <div className="bg-white rounded-xl shadow-md p-4 grid grid-cols-3 gap-3">
-            <a 
-              href="https://instagram.com/storythur" 
+            <a
+              href="https://instagram.com/storythur"
               target="_blank"
               rel="noopener noreferrer"
               className="flex flex-col items-center justify-center group"
@@ -150,8 +150,8 @@ export default function StorythurFinal() {
               </div>
               <span className="text-xs font-medium">@storythur</span>
             </a>
-            <a 
-              href="https://instagram.com/fatkhurrhn" 
+            <a
+              href="https://instagram.com/fatkhurrhn"
               target="_blank"
               rel="noopener noreferrer"
               className="flex flex-col items-center justify-center group"
@@ -161,8 +161,8 @@ export default function StorythurFinal() {
               </div>
               <span className="text-xs font-medium">@fatkhurrhn</span>
             </a>
-            <a 
-              href="https://ig.me/j/AbYAsEmFeC7N27Jp/" 
+            <a
+              href="https://ig.me/j/AbYAsEmFeC7N27Jp/"
               target="_blank"
               rel="noopener noreferrer"
               className="flex flex-col items-center justify-center group"
@@ -182,20 +182,20 @@ export default function StorythurFinal() {
               <i className="ri-user-3-line mr-2 text-gray-600"></i> Tentang Saya
             </h2>
             <p className="text-gray-700 mb-4 text-justify">
-              Seorang kreator konten digital dengan passion di bidang pengembangan diri dan spiritualitas. 
-              Membangun beberapa channel konten untuk membantu generasi muda menemukan kedamaian pikiran 
-              dan kejelasan hidup melalui konten yang relatable. Fokus utama saya adalah membuat konten 
-              yang menginspirasi dan memberikan nilai positif bagi followers, baik melalui postingan reguler 
+              Seorang kreator konten digital dengan passion di bidang pengembangan diri dan spiritualitas.
+              Membangun beberapa channel konten untuk membantu generasi muda menemukan kedamaian pikiran
+              dan kejelasan hidup melalui konten yang relatable. Fokus utama saya adalah membuat konten
+              yang menginspirasi dan memberikan nilai positif bagi followers, baik melalui postingan reguler
               maupun daily reminder yang konsisten.
             </p>
-            
+
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
               <div className="bg-gray-50 rounded-lg p-4 border border-gray-200">
                 <h3 className="font-medium text-gray-800 mb-2 flex items-center">
                   <i className="ri-flashlight-line mr-2 text-gray-600"></i> Misi Konten
                 </h3>
                 <p className="text-gray-600 text-sm text-justify">
-                  Menyebarkan energi positif dan membantu mengurangi overthinking melalui konten harian 
+                  Menyebarkan energi positif dan membantu mengurangi overthinking melalui konten harian
                   yang mengajak refleksi dan pengembangan diri.
                 </p>
               </div>
@@ -204,7 +204,7 @@ export default function StorythurFinal() {
                   <i className="ri-star-line mr-2 text-gray-600"></i> Nilai Utama
                 </h3>
                 <p className="text-gray-600 text-sm text-justify">
-                  Authenticity - Relatability - Consistency. Setiap konten dibuat dengan ketulusan dan 
+                  Authenticity - Relatability - Consistency. Setiap konten dibuat dengan ketulusan dan
                   keinginan tulus untuk membantu perkembangan personal followers.
                 </p>
               </div>
@@ -217,7 +217,7 @@ export default function StorythurFinal() {
           <h2 className="font-bold text-lg mb-6 flex items-center text-gray-800">
             <i className="ri-tv-2-line mr-2 text-gray-600"></i> Portofolio Konten
           </h2>
-          
+
           <div className="space-y-6">
             {contentChannels.map(channel => (
               <div key={channel.id} className="bg-white rounded-xl shadow-md overflow-hidden">
@@ -235,7 +235,7 @@ export default function StorythurFinal() {
                     </span>
                   </div>
                 </div>
-                
+
                 <div className="p-5">
                   {channel.posts.map(post => (
                     <a
@@ -263,7 +263,7 @@ export default function StorythurFinal() {
                     </a>
                   ))}
                 </div>
-                
+
                 <a
                   href={channel.link || `https://instagram.com/${channel.username.replace('@', '')}`}
                   target="_blank"
@@ -284,7 +284,7 @@ export default function StorythurFinal() {
             <p className="text-gray-300 mb-6 max-w-2xl mx-auto">
               Pilih platform favoritmu untuk mendapatkan konten inspiratif setiap hari.
             </p>
-            
+
             <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
               <a
                 href="https://instagram.com/storythur"
@@ -318,21 +318,21 @@ export default function StorythurFinal() {
       {/* Bottom Navigation (Mobile Only) */}
       <div className="lg:hidden fixed bottom-0 left-0 right-0 bg-white shadow-lg border-t border-gray-200 z-20">
         <div className="flex justify-around py-3">
-          <button 
+          <button
             onClick={() => setActiveTab('home')}
             className={`flex flex-col items-center ${activeTab === 'home' ? 'text-gray-900' : 'text-gray-500'}`}
           >
             <i className={`ri-home-4-${activeTab === 'home' ? 'fill' : 'line'} text-xl`}></i>
             <span className="text-xs mt-1">Home</span>
           </button>
-          <button 
+          <button
             onClick={() => setActiveTab('content')}
             className={`flex flex-col items-center ${activeTab === 'content' ? 'text-gray-900' : 'text-gray-500'}`}
           >
             <i className={`ri-play-large-${activeTab === 'content' ? 'fill' : 'line'} text-xl`}></i>
             <span className="text-xs mt-1">Content</span>
           </button>
-          <button 
+          <button
             onClick={() => setActiveTab('about')}
             className={`flex flex-col items-center ${activeTab === 'about' ? 'text-gray-900' : 'text-gray-500'}`}
           >
@@ -348,14 +348,14 @@ export default function StorythurFinal() {
           <div className="bg-white rounded-xl w-full max-w-md">
             <div className="flex justify-between items-center border-b border-gray-200 p-5">
               <h3 className="font-bold text-lg">Hubungi Saya</h3>
-              <button 
-                onClick={() => setShowContactModal(false)} 
+              <button
+                onClick={() => setShowContactModal(false)}
                 className="text-gray-500 hover:text-gray-700"
               >
                 <i className="ri-close-line text-xl"></i>
               </button>
             </div>
-            
+
             <div className="p-5 space-y-3">
               <a
                 href="https://wa.me/6281234567890?text=Hai%20Fathur,%20aku%20penggemar%20kontenmu!"
@@ -372,7 +372,7 @@ export default function StorythurFinal() {
                 </div>
                 <i className="ri-arrow-right-s-line ml-auto text-gray-400 text-xl"></i>
               </a>
-              
+
               <a
                 href="https://instagram.com/storythur"
                 target="_blank"
@@ -388,7 +388,7 @@ export default function StorythurFinal() {
                 </div>
                 <i className="ri-arrow-right-s-line ml-auto text-gray-400 text-xl"></i>
               </a>
-              
+
               <a
                 href="mailto:fathur@storythur.com"
                 className="flex items-center p-4 border border-gray-200 rounded-lg hover:bg-gray-50 transition"

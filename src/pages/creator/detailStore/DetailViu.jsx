@@ -1,42 +1,42 @@
 import React, { useState } from "react";
-import NavCreator from "../../../components/creator/NavCreator";
+import NavCreator from "../../../components/creator/NavNavigate";
 
 // const pricelist
 const pricelist = [
-    {
-        category: "Prem Biasa",
-        options: [
-            { duration: "1 bulan", price: "6.000" },
-            { duration: "2 bulan", price: "6.500" },
-            { duration: "3 bulan", price: "8.000" },
-            { duration: "6 bulan", price: "10.000" },
-            { duration: "1 tahun", price: "12.000" }
-        ]
-    },
-    {
-        category: "Prem Antilimit",
-        options: [
-            { duration: "1 bulan", price: "7.000" },
-            { duration: "2 bulan", price: "8.500" },
-            { duration: "3 bulan", price: "10.000" },
-            { duration: "4 bulan", price: "12.000" },
-            { duration: "1 tahun", price: "19.000" }
-        ]
-    },
-    {
-        category: "Prem+ Sharing",
-        options: [
-            { duration: "1 bulan", price: "13.000" }
-        ]
-    },
-    {
-        category: "Prem+ Private",
-        options: [
-            { duration: "1 bulan", price: "50.000" }
-        ]
-    }
+  {
+    category: "Prem Biasa",
+    options: [
+      { duration: "1 bulan", price: "6.000" },
+      { duration: "2 bulan", price: "6.500" },
+      { duration: "3 bulan", price: "8.000" },
+      { duration: "6 bulan", price: "10.000" },
+      { duration: "1 tahun", price: "12.000" }
+    ]
+  },
+  {
+    category: "Prem Antilimit",
+    options: [
+      { duration: "1 bulan", price: "7.000" },
+      { duration: "2 bulan", price: "8.500" },
+      { duration: "3 bulan", price: "10.000" },
+      { duration: "4 bulan", price: "12.000" },
+      { duration: "1 tahun", price: "19.000" }
+    ]
+  },
+  {
+    category: "Prem+ Sharing",
+    options: [
+      { duration: "1 bulan", price: "13.000" }
+    ]
+  },
+  {
+    category: "Prem+ Private",
+    options: [
+      { duration: "1 bulan", price: "50.000" }
+    ]
+  }
 ]
-    ;
+  ;
 
 export default function StoreViu() {
   const [selected, setSelected] = useState(null);

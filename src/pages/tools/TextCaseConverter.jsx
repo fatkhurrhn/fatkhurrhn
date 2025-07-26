@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import NavWrapper from '../../components/creator/NavCreator';
-import Footer from '../../components/creator/Footer';
+import NavNavigate from '../../components/frontdev/NavNavigate';
+import Footer from '../../components/frontdev/Footer';
 
 export default function TextCaseConverter() {
   const [inputText, setInputText] = useState('');
@@ -90,7 +90,7 @@ export default function TextCaseConverter() {
 
   return (
     <div className="bg-gray-50 min-h-screen text-gray-800 transition-colors duration-300">
-      <NavWrapper />
+      <NavNavigate />
       <section className="max-w-4xl mx-auto px-5 pt-[15px] pb-10">
         <h1 className="text-2xl font-bold mb-6">Text Case Converter</h1>
         <p className="text-gray-600 mb-6">Ubah teks jadi camelCase, snake_case, PascalCase, atau UPPERCASE.</p>

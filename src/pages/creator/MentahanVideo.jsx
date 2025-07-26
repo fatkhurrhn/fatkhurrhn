@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import NavWrapper from '../../components/creator/NavCreator';
+import NavWrapper from '../../components/creator/NavNavigate';
 import Footer from '../../components/creator/Footer';
 
 export default function MentahanVideo() {
@@ -86,7 +86,7 @@ export default function MentahanVideo() {
   const handleAnswer = (answerIndex) => {
     const newAnswers = [...answers, answerIndex];
     setAnswers(newAnswers);
-    
+
     if (newAnswers.length < questions.length) {
       setCurrentStep(currentStep + 1);
     } else {
@@ -108,14 +108,14 @@ export default function MentahanVideo() {
   return (
     <div className="bg-gradient-to-b from-purple-50 to-blue-50 min-h-screen text-gray-800 transition-colors duration-300">
       <NavWrapper />
-      
+
       <section className="max-w-4xl mx-auto px-5 pt-[15px] pb-20">
         {!showResult ? (
           <div className="text-center">
             <h1 className="text-4xl font-bold mb-6 text-purple-700">
               {currentStep === 0 ? "Tes Kepribadian Interaktif" : `Pertanyaan ${currentStep + 1}/${questions.length}`}
             </h1>
-            
+
             {currentStep === 0 ? (
               <div className="bg-white rounded-xl shadow-lg p-8 mb-8">
                 <div className="flex justify-center mb-6">
@@ -147,8 +147,8 @@ export default function MentahanVideo() {
                     </div>
                   </div>
                 </div>
-                <button 
-                  onClick={() => setCurrentStep(1)} 
+                <button
+                  onClick={() => setCurrentStep(1)}
                   className="bg-purple-600 hover:bg-purple-700 text-white font-bold py-3 px-8 rounded-full text-lg transition-all duration-300 transform hover:scale-105"
                 >
                   Mulai Tes Kepribadian <i className="ri-arrow-right-line ml-2"></i>
@@ -158,15 +158,15 @@ export default function MentahanVideo() {
               <div className="bg-white rounded-xl shadow-lg p-8">
                 <div className="mb-6">
                   <div className="w-full bg-gray-200 rounded-full h-2.5">
-                    <div 
-                      className="bg-purple-600 h-2.5 rounded-full" 
-                      style={{width: `${(currentStep / questions.length) * 100}%`}}
+                    <div
+                      className="bg-purple-600 h-2.5 rounded-full"
+                      style={{ width: `${(currentStep / questions.length) * 100}%` }}
                     ></div>
                   </div>
                 </div>
-                
+
                 <h2 className="text-2xl font-semibold mb-8">{questions[currentStep - 1].question}</h2>
-                
+
                 <div className="space-y-4">
                   {questions[currentStep - 1].options.map((option, index) => (
                     <button
@@ -188,12 +188,12 @@ export default function MentahanVideo() {
               <h1 className="text-3xl font-bold text-purple-700 mb-2">Hasil Tes Kepribadian Anda</h1>
               <h2 className="text-4xl font-bold mb-6 text-purple-600">{personalityType}</h2>
             </div>
-            
+
             <div className="mb-8 p-6 bg-purple-50 rounded-lg">
               <h3 className="text-xl font-semibold mb-4 text-purple-700">Deskripsi</h3>
               <p className="text-gray-700">{personalityTypes[personalityType].description}</p>
             </div>
-            
+
             <div className="grid md:grid-cols-2 gap-6 mb-8">
               <div className="p-6 bg-green-50 rounded-lg">
                 <h3 className="text-xl font-semibold mb-4 text-green-700">Kekuatan</h3>
@@ -206,7 +206,7 @@ export default function MentahanVideo() {
                   ))}
                 </ul>
               </div>
-              
+
               <div className="p-6 bg-yellow-50 rounded-lg">
                 <h3 className="text-xl font-semibold mb-4 text-yellow-700">Tantangan</h3>
                 <ul className="space-y-2">
@@ -219,7 +219,7 @@ export default function MentahanVideo() {
                 </ul>
               </div>
             </div>
-            
+
             <div className="p-6 bg-blue-50 rounded-lg mb-8">
               <h3 className="text-xl font-semibold mb-4 text-blue-700">Tipe Kepribadian yang Cocok</h3>
               <div className="flex flex-wrap gap-3">
@@ -230,13 +230,13 @@ export default function MentahanVideo() {
                 ))}
               </div>
             </div>
-            
+
             <div className="text-center">
               <p className="mb-6 text-gray-600">Ingin mengetahui lebih dalam tentang kepribadian Anda dan cara berinteraksi dengan orang lain?</p>
               <button className="bg-purple-600 hover:bg-purple-700 text-white font-bold py-3 px-6 rounded-lg mr-4">
                 Daftar Premium <i className="ri-vip-crown-line ml-2"></i>
               </button>
-              <button 
+              <button
                 onClick={restartQuiz}
                 className="bg-white hover:bg-gray-100 text-purple-600 font-bold py-3 px-6 border border-purple-600 rounded-lg"
               >
@@ -246,7 +246,7 @@ export default function MentahanVideo() {
           </div>
         )}
       </section>
-      
+
       <Footer />
     </div>
   );

@@ -56,7 +56,7 @@ export default function GithubRepo() {
         <div className="bg-gray-50 min-h-screen text-gray-800 transition-colors duration-300">
             <NavNavigate />
             <ChatRoomComponents/>
-            <section className="max-w-4xl mx-auto pt-[95px] p-4">
+            <section className="max-w-4xl mx-auto pt-4 p-4">
                 <div className="">
 
                     <div className="bg-white rounded-2xl bordir bordir-gray-500 space-y-4">

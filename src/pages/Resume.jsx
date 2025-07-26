@@ -9,7 +9,7 @@ export default function Resume() {
         <div className="bg-gray-50 min-h-screen text-gray-800">
             <NavNavigate />
             <ChatRoomComponents />
-            <main className="max-w-4xl mx-auto px-4 sm:px-6 pt-[95px] pb-12">
+            <main className="max-w-4xl mx-auto px-4 sm:px-6 pt-4 pb-12">
                 {/* CV Cards - Simple Grid */}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                     {/* Frontend Developer CV */}

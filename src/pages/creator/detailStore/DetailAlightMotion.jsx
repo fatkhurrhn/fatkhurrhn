@@ -1,20 +1,20 @@
 import React, { useState } from "react";
-import NavCreator from "../../../components/creator/NavCreator";
+import NavCreator from "../../../components/creator/NavNavigate";
 
 // const pricelist
 const pricelist = [
-    {
-        category: "Sharing",
-        options: [
-            { duration: "1 tahun", price: "7.000" }
-        ]
-    },
-    {
-        category: "Private",
-        options: [
-            { duration: "1 tahun", price: "13.000" }
-        ]
-    }
+  {
+    category: "Sharing",
+    options: [
+      { duration: "1 tahun", price: "7.000" }
+    ]
+  },
+  {
+    category: "Private",
+    options: [
+      { duration: "1 tahun", price: "13.000" }
+    ]
+  }
 ];
 
 export default function StoreAM() {

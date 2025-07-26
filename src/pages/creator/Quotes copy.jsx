@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { myQuotesCollection } from '../../firebase';
 import { getDocs, query, orderBy, addDoc, serverTimestamp } from 'firebase/firestore';
-import NavWrapper from '../../components/creator/NavCreator';
+import NavWrapper from '../../components/creator/NavNavigate';
 import Footer from '../../components/creator/Footer';
 
 // Helper function to highlight search terms
