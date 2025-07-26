@@ -41,7 +41,7 @@ const NavCreator = ({ children }) => {
                     {item.label}
                   </Link>
                   {item.isNew && (
-                    <span className="absolute -top-2 -right-3 text-[10px] bg-red-500 text-white rounded-full px-1.5 py-0.5 leading-none font-bold">
+                    <span className="md:hidden absolute -top-2 -right-3 text-[10px] bg-red-500 text-white rounded-full px-1.5 py-0.5 leading-none font-bold">
                       NEW
                     </span>
                   )}
