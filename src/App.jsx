@@ -59,6 +59,7 @@ import ManageAudio from './pages/admin/ManageAudio';
 
 import ShortlinkPage from './pages/tools/shortlinks/ShortLinks';
 import PasswordGenerator from './pages/tools/PasswordGenerator';
+import TextCaseConverter from './pages/tools/TextCaseConverter';
 
 function App() {
   return (
@@ -74,6 +75,7 @@ function App() {
         <Route path="/tools/shortlink" element={<ShortlinkPage />} />
         <Route path="/:slug" element={<ShortlinkPage />} />
         <Route path="/tools/password-generator" element={<PasswordGenerator />} />
+        <Route path="/tools/text-case-converter" element={<TextCaseConverter />} />
 
         {/* Route Frontdev */}
         <Route path="/frontdev/projects" element={<Project />} />
