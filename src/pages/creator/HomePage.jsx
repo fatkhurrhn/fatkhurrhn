@@ -5,7 +5,6 @@ import { Link } from 'react-router-dom';
 import ChatRoomComponents from '../../components/ChatRoom';
 
 export default function StorythurPremium() {
-  const [activeTab, setActiveTab] = useState('home');
   const [showContactModal, setShowContactModal] = useState(false);
 
   // Data konten
@@ -281,40 +280,6 @@ export default function StorythurPremium() {
           </div>
         </section>
       </main>
-
-      {/* Bottom Navigation (Mobile Only) */}
-      <div className="lg:hidden fixed bottom-0 left-0 right-0 bg-white shadow-lg border-t border-gray-200 z-20">
-        <div className="flex justify-around py-3">
-          <button
-            onClick={() => setActiveTab('home')}
-            className={`flex flex-col items-center ${activeTab === 'home' ? 'text-gray-900' : 'text-gray-500'}`}
-          >
-            <i className={`ri-home-4-${activeTab === 'home' ? 'fill' : 'line'} text-xl`}></i>
-            <span className="text-xs mt-1">Home</span>
-          </button>
-          <button
-            onClick={() => setActiveTab('content')}
-            className={`flex flex-col items-center ${activeTab === 'content' ? 'text-gray-900' : 'text-gray-500'}`}
-          >
-            <i className={`ri-play-large-${activeTab === 'content' ? 'fill' : 'line'} text-xl`}></i>
-            <span className="text-xs mt-1">Content</span>
-          </button>
-          <button
-            onClick={() => setActiveTab('channels')}
-            className={`flex flex-col items-center ${activeTab === 'channels' ? 'text-gray-900' : 'text-gray-500'}`}
-          >
-            <i className={`ri-tv-${activeTab === 'channels' ? 'fill' : 'line'} text-xl`}></i>
-            <span className="text-xs mt-1">Channels</span>
-          </button>
-          <button
-            onClick={() => setShowContactModal(true)}
-            className={`flex flex-col items-center ${activeTab === 'contact' ? 'text-gray-900' : 'text-gray-500'}`}
-          >
-            <i className={`ri-chat-3-${activeTab === 'contact' ? 'fill' : 'line'} text-xl`}></i>
-            <span className="text-xs mt-1">Contact</span>
-          </button>
-        </div>
-      </div>
 
       {/* Contact Modal */}
       {showContactModal && (

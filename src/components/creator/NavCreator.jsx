@@ -62,14 +62,14 @@ const NavCreator = ({ children }) => {
 
       {/* Bottom Navigation (Mobile Only) */}
       <div className="fixed bottom-0 left-0 right-0 md:hidden z-50 bg-white shadow-lg border-t border-gray-100">
-        <div className="grid grid-cols-5 h-16">
+        <div className="grid grid-cols-5 h-16" style={{ height: '55px' }}>
           {navItems.map((item) => {
             const isActive = location.pathname === item.path;
             return (
               <div key={item.path} className="relative flex items-center justify-center">
                 <Link
                   to={item.path}
-                  className="nav-item flex flex-col items-center justify-center text-[12px] transition-colors"
+                  className="nav-item flex flex-col items-center justify-center text-[11px] transition-colors"
                 >
                   <i
                     className={`${isActive ? item.activeIcon : item.icon} text-[22px] ${
