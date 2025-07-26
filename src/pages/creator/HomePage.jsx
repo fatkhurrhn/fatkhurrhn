@@ -1,303 +1,403 @@
-import React from 'react';
-import NavWrapper from '../../components/creator/NavCreator';
+import React, { useState } from 'react';
+import NavCreator from '../../components/creator/NavCreator';
 import Footer from '../../components/creator/Footer';
-import { Link } from 'react-router-dom';
 
-export default function CreatorProfile() {
-  const socialStats = [
-    { platform: 'Instagram', followers: '90K+', icon: 'ri-instagram-line', color: 'text-pink-600' },
-    { platform: 'TikTok', followers: '3K+', icon: 'ri-tiktok-line', color: 'text-gray-800' },
-    { platform: 'LinkedIn', followers: '1K+', icon: 'ri-linkedin-box-line', color: 'text-blue-600' },
-  ];
+export default function StorythurMinimalist() {
+  const [activeTab, setActiveTab] = useState('home');
+  const [showContactModal, setShowContactModal] = useState(false);
 
-  const services = [
+  // Data konten
+  const contentHighlights = [
     {
-      icon: 'ri-money-dollar-circle-line',
-      title: 'Paid Promote',
-      link: '/creator/paid-promote'
+      id: 1,
+      platform: 'Instagram',
+      username: '@storythur',
+      followers: '90.3K',
+      posts: [
+        {
+          id: 1,
+          title: "Berhenti Membandingkan Perjalananmu",
+          excerpt: "Setiap orang punya timeline berbeda...",
+          date: "15 Jul 2023",
+          likes: "1.2k"
+        },
+        {
+          id: 2,
+          title: "Seni Menerima Ketidakpastian",
+          excerpt: "Hidup ini terlalu singkat untuk...",
+          date: "10 Jul 2023",
+          likes: "2.4k"
+        }
+      ]
     },
     {
-      icon: 'ri-image-line',
-      title: 'Content Creation',
-      link: '/creator/mentahan'
-    },
-    {
-      icon: 'ri-lightbulb-flash-line',
-      title: 'Strategy',
-      link: '/creator/quotes'
-    },
-    {
-      icon: 'ri-megaphone-line',
-      title: 'Social Media',
-      link: '/creator/more'
+      id: 2,
+      platform: 'TikTok',
+      username: '@storythurr',
+      followers: '3K+',
+      posts: [
+        {
+          id: 1,
+          title: "Self-Talk yang Membangun",
+          excerpt: "Cara kamu berbicara pada diri sendiri...",
+          date: "12 Jul 2023",
+          likes: "542"
+        }
+      ]
     }
   ];
 
-  const skills = [
-    { name: 'Content Strategy', level: 90 },
-    { name: 'Social Media Growth', level: 85 },
-    { name: 'Graphic Design', level: 80 },
-    { name: 'Brand Collaboration', level: 75 }
+  const testimonials = [
+    {
+      id: 1,
+      quote: "Konten @storythur selalu bikin hari-hariku lebih bermakna. Ga cuma scroll doang, tapi dapet insight berharga.",
+      author: "Rina, 22",
+      platform: "Instagram"
+    },
+    {
+      id: 2,
+      quote: "Video-videomu di TikTok singkat tapi padat banget isinya!",
+      author: "Dito, 27",
+      platform: "TikTok"
+    }
   ];
 
   return (
-    <div className="bg-gray-50 min-h-screen text-gray-800">
-      <NavWrapper />
+    <div className="bg-gray-50 min-h-screen text-gray-900">
+      {/* Navigation */}
+      <NavCreator />
       
-      {/* Hero Section */}
-      <section className="pt-24 pb-12 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-indigo-50 to-white">
-        <div className="max-w-4xl mx-auto text-center">
-          <div className="w-32 h-32 sm:w-40 sm:h-40 rounded-full overflow-hidden mx-auto mb-6 border-4 border-white shadow-lg relative">
-            <img 
-              src="https://fatkhurrhn.vercel.app/preview.jpg" 
-              alt="M. Fatkhurrohman"
-              className="w-full h-full object-cover"
-            />
-            <div className="absolute inset-0 rounded-full border-2 border-white opacity-0 hover:opacity-100 transition-opacity duration-300"></div>
-          </div>
-          
-          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-3">M. FATKHURROHMAN</h1>
-          <p className="text-lg sm:text-xl text-gray-600 mb-6">Digital Creator & Social Media Strategist</p>
-          
-          <div className="flex justify-center gap-4 mb-8">
-            {socialStats.map((stat, index) => (
-              <Link 
-                key={index}
-                to={`https://${stat.platform.toLowerCase()}.com/story.thur`} 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className={`${stat.color} hover:scale-110 text-2xl transition-transform`}
-              >
-                <i className={stat.icon}></i>
-              </Link>
-            ))}
-          </div>
-          
-          <div className="flex flex-wrap justify-center gap-3 max-w-md mx-auto">
-            <span className="px-4 py-2 bg-white rounded-full text-sm font-medium shadow-sm">Content Creator</span>
-            <span className="px-4 py-2 bg-white rounded-full text-sm font-medium shadow-sm">Social Media Expert</span>
-            <span className="px-4 py-2 bg-white rounded-full text-sm font-medium shadow-sm">Digital Strategist</span>
-          </div>
-        </div>
-      </section>
-
-      {/* Social Proof */}
-      <section className="py-10 bg-white">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-3 gap-4 sm:gap-6">
-            {socialStats.map((stat, index) => (
-              <div key={index} className="bg-gray-50 p-4 sm:p-6 rounded-xl hover:shadow-md transition-all text-center">
-                <i className={`${stat.icon} ${stat.color} text-2xl sm:text-3xl mb-3`}></i>
-                <h3 className="text-xl sm:text-2xl font-bold text-gray-900">{stat.followers}</h3>
-                <p className="text-sm sm:text-base text-gray-600">{stat.platform}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* About Section */}
-      <section className="py-16 bg-gradient-to-b from-white to-gray-50">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col lg:flex-row items-center gap-8 lg:gap-12">
-            <div className="lg:w-1/2 w-full">
-              <div className="relative rounded-xl overflow-hidden shadow-lg aspect-square">
-                <img
-                  src="https://fatkhurrhn.vercel.app/preview.jpg"
-                  alt="StoryThur"
+      {/* Main Content */}
+      <main className="pb-20 lg:pb-10">
+        {/* Profile Header */}
+        <section className="bg-gray-900 text-white py-12">
+          <div className="max-w-4xl mx-auto px-5">
+            <div className="flex flex-col md:flex-row items-center">
+              <div className="w-24 h-24 rounded-full border-4 border-white overflow-hidden mb-4 md:mb-0 md:mr-6">
+                <img 
+                  src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" 
+                  alt="Fathur Profile"
                   className="w-full h-full object-cover"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent flex items-end p-6">
-                  <h2 className="text-white text-2xl sm:text-3xl font-bold">@story.thur</h2>
+              </div>
+              <div className="text-center md:text-left">
+                <h1 className="text-2xl font-bold">Fathur Rahman</h1>
+                <p className="text-gray-300 mt-1">Content Creator</p>
+                <div className="flex justify-center md:justify-start space-x-4 mt-3">
+                  <span className="text-sm bg-gray-800 px-3 py-1 rounded-full">
+                    <i className="ri-user-follow-line mr-1"></i> 90.3K IG
+                  </span>
+                  <span className="text-sm bg-gray-800 px-3 py-1 rounded-full">
+                    <i className="ri-user-smile-line mr-1"></i> 3K+ TikTok
+                  </span>
                 </div>
               </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Quick Actions */}
+        <section className="max-w-4xl mx-auto px-5 -mt-8">
+          <div className="bg-white rounded-lg shadow-sm p-4 grid grid-cols-4 gap-2">
+            <a 
+              href="https://instagram.com/storythur" 
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex flex-col items-center justify-center group"
+            >
+              <div className="bg-gray-100 text-gray-800 w-12 h-12 rounded-full flex items-center justify-center mb-2 group-hover:bg-gray-200 transition">
+                <i className="ri-instagram-line text-2xl"></i>
+              </div>
+              <span className="text-xs font-medium">Instagram</span>
+            </a>
+            <a 
+              href="https://tiktok.com/@storythurr" 
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex flex-col items-center justify-center group"
+            >
+              <div className="bg-gray-100 text-gray-800 w-12 h-12 rounded-full flex items-center justify-center mb-2 group-hover:bg-gray-200 transition">
+                <i className="ri-tiktok-line text-2xl"></i>
+              </div>
+              <span className="text-xs font-medium">TikTok</span>
+            </a>
+            <button 
+              onClick={() => setShowContactModal(true)}
+              className="flex flex-col items-center justify-center group"
+            >
+              <div className="bg-gray-100 text-gray-800 w-12 h-12 rounded-full flex items-center justify-center mb-2 group-hover:bg-gray-200 transition">
+                <i className="ri-mail-line text-2xl"></i>
+              </div>
+              <span className="text-xs font-medium">Contact</span>
+            </button>
+            <a 
+              href="https://instagram.com/fatkhurrhn" 
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex flex-col items-center justify-center group"
+            >
+              <div className="bg-gray-100 text-gray-800 w-12 h-12 rounded-full flex items-center justify-center mb-2 group-hover:bg-gray-200 transition">
+                <i className="ri-lightbulb-flash-line text-2xl"></i>
+              </div>
+              <span className="text-xs font-medium">Quotes</span>
+            </a>
+          </div>
+        </section>
+
+        {/* Bio Section */}
+        <section className="max-w-4xl mx-auto px-5 mt-8">
+          <div className="bg-white rounded-lg shadow-sm p-6">
+            <h2 className="font-bold text-lg mb-3 flex items-center">
+              <i className="ri-user-3-line mr-2"></i> Tentang Saya
+            </h2>
+            <p className="text-gray-700 mb-4">
+              Kreator konten digital yang fokus pada refleksi harian, motivasi, dan pengembangan diri. 
+              Membantu generasi muda menemukan kedamaian pikiran dan kejelasan spiritual melalui konten 
+              yang relatable dan mudah dicerna.
+            </p>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
+              <div className="bg-gray-50 rounded-lg p-3 border border-gray-200">
+                <p className="text-xs text-gray-500 uppercase tracking-wider mb-1">Fokus Konten</p>
+                <p className="font-medium">Self-growth & Spiritual clarity</p>
+              </div>
+              <div className="bg-gray-50 rounded-lg p-3 border border-gray-200">
+                <p className="text-xs text-gray-500 uppercase tracking-wider mb-1">Tujuan</p>
+                <p className="font-medium">Biar kamu nggak overthinking terus</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Content Highlights */}
+        {contentHighlights.map(platform => (
+          <section key={platform.id} className="max-w-4xl mx-auto px-5 mt-8">
+            <div className="flex items-center justify-between mb-4">
+              <h2 className="font-bold text-lg flex items-center">
+                {platform.platform === 'Instagram' ? (
+                  <i className="ri-instagram-line mr-2"></i>
+                ) : (
+                  <i className="ri-tiktok-line mr-2"></i>
+                )}
+                {platform.platform} • {platform.username}
+              </h2>
+              <span className="text-sm bg-gray-100 px-3 py-1 rounded-full">
+                {platform.followers} followers
+              </span>
             </div>
             
-            <div className="lg:w-1/2 w-full">
-              <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-6">My Digital Journey</h2>
-              <p className="text-gray-700 mb-6 leading-relaxed">
-                I transform simple ideas into meaningful digital experiences. Through daily quotes and reflective content, 
-                I've built a community of <span className="font-semibold">90K+ followers</span> who engage with thoughtful 
-                content that makes them pause and reflect.
-              </p>
-              
-              <div className="grid grid-cols-3 gap-3 mb-6">
-                <div className="bg-white p-3 rounded-lg text-center shadow-sm hover:shadow-md transition">
-                  <span className="block text-lg sm:text-xl font-bold text-gray-900">90K+</span>
-                  <span className="text-xs sm:text-sm text-gray-600">Followers</span>
-                </div>
-                <div className="bg-white p-3 rounded-lg text-center shadow-sm hover:shadow-md transition">
-                  <span className="block text-lg sm:text-xl font-bold text-gray-900">100+</span>
-                  <span className="text-xs sm:text-sm text-gray-600">Collabs</span>
-                </div>
-                <div className="bg-white p-3 rounded-lg text-center shadow-sm hover:shadow-md transition">
-                  <span className="block text-lg sm:text-xl font-bold text-gray-900">25K+</span>
-                  <span className="text-xs sm:text-sm text-gray-600">Engagement</span>
-                </div>
-              </div>
-              
-              <Link 
-                to="https://instagram.com/story.thur" 
+            <div className="bg-white rounded-lg shadow-sm overflow-hidden">
+              {platform.posts.map(post => (
+                <a
+                  key={post.id}
+                  href={`https://${platform.platform.toLowerCase()}.com/${platform.username.replace('@', '')}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center p-4 border-b border-gray-100 hover:bg-gray-50 transition"
+                >
+                  <div className="bg-gray-100 text-gray-800 w-10 h-10 rounded-full flex items-center justify-center mr-3">
+                    {platform.platform === 'Instagram' ? (
+                      <i className="ri-image-line"></i>
+                    ) : (
+                      <i className="ri-video-line"></i>
+                    )}
+                  </div>
+                  <div className="flex-1">
+                    <h4 className="font-medium">{post.title}</h4>
+                    <p className="text-sm text-gray-500">{post.excerpt}</p>
+                  </div>
+                  <div className="text-right">
+                    <p className="text-xs text-gray-500">{post.date}</p>
+                    <p className="text-xs text-gray-500 flex items-center justify-end">
+                      <i className="ri-heart-line mr-1"></i> {post.likes}
+                    </p>
+                  </div>
+                </a>
+              ))}
+              <a
+                href={`https://${platform.platform.toLowerCase()}.com/${platform.username.replace('@', '')}`}
                 target="_blank"
-                className="inline-flex items-center px-5 py-3 bg-black text-white rounded-lg hover:bg-gray-800 transition"
+                rel="noopener noreferrer"
+                className="block text-center py-3 text-sm font-medium text-gray-700 hover:bg-gray-50 transition"
               >
-                <i className="ri-instagram-line mr-2"></i>
-                Visit My Instagram
-              </Link>
+                Lihat semua di {platform.platform} <i className="ri-arrow-right-line ml-1"></i>
+              </a>
             </div>
-          </div>
-        </div>
-      </section>
+          </section>
+        ))}
 
-      {/* Skills Section */}
-      <section className="py-16 bg-white">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-2xl sm:text-3xl font-bold text-center text-gray-900 mb-12">My Digital Skills</h2>
-          
-          <div className="space-y-6">
-            {skills.map((skill, index) => (
-              <div key={index} className="space-y-2">
-                <div className="flex justify-between">
-                  <span className="font-medium">{skill.name}</span>
-                  <span>{skill.level}%</span>
-                </div>
-                <div className="w-full bg-gray-200 rounded-full h-2.5">
-                  <div 
-                    className="bg-gradient-to-r from-indigo-500 to-purple-600 h-2.5 rounded-full" 
-                    style={{ width: `${skill.level}%` }}
-                  ></div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Services Section */}
-      <section className="py-16 bg-gray-50">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-2xl sm:text-3xl font-bold text-center text-gray-900 mb-12">What I Offer</h2>
-          
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-            {services.map((service, index) => (
-              <Link
-                key={index}
-                to={service.link}
-                className="group bg-white rounded-xl p-6 hover:shadow-lg transition-all duration-300 border border-gray-100 hover:border-transparent"
-              >
-                <div className="flex items-start mb-4">
-                  <div className="bg-indigo-100 group-hover:bg-indigo-600 transition-colors w-12 h-12 rounded-lg flex items-center justify-center mr-4">
-                    <i className={`${service.icon} text-xl text-indigo-600 group-hover:text-white transition-colors`}></i>
+        {/* Testimonials */}
+        <section className="max-w-4xl mx-auto px-5 mt-8">
+          <h2 className="font-bold text-lg mb-4 flex items-center">
+            <i className="ri-chat-quote-line mr-2"></i> Apa Kata Mereka?
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            {testimonials.map(testimonial => (
+              <div key={testimonial.id} className="bg-white rounded-lg shadow-sm p-4 border border-gray-100">
+                <div className="flex items-center mb-3">
+                  <div className="w-8 h-8 rounded-full bg-gray-100 text-gray-800 flex items-center justify-center mr-2">
+                    <i className="ri-user-line"></i>
                   </div>
                   <div>
-                    <h3 className="text-xl font-bold text-gray-900 group-hover:text-indigo-600 transition">{service.title}</h3>
-                    <p className="text-gray-600 text-sm mt-1">Learn more about my {service.title.toLowerCase()} services</p>
+                    <p className="font-medium">{testimonial.author}</p>
+                    <p className="text-xs text-gray-500 flex items-center">
+                      <i className={
+                        testimonial.platform === 'Instagram' 
+                          ? "ri-instagram-line mr-1" 
+                          : "ri-tiktok-line mr-1"
+                      }></i>
+                      {testimonial.platform}
+                    </p>
                   </div>
                 </div>
-                <div className="flex justify-end">
-                  <i className="ri-arrow-right-line text-gray-400 group-hover:text-indigo-600 transition"></i>
-                </div>
-              </Link>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Portfolio Highlights */}
-      <section className="py-16 bg-white">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-2xl sm:text-3xl font-bold text-center text-gray-900 mb-12">Content Highlights</h2>
-          
-          <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
-            {[1, 2, 3, 4, 5, 6].map((item) => (
-              <div key={item} className="aspect-square bg-gray-100 rounded-lg overflow-hidden hover:shadow-lg transition">
-                <img 
-                  src={`https://source.unsplash.com/random/600x600/?quote,${item}`} 
-                  alt={`Content ${item}`}
-                  className="w-full h-full object-cover hover:scale-105 transition-transform"
-                />
+                <p className="text-gray-700 text-sm">"{testimonial.quote}"</p>
               </div>
             ))}
           </div>
-          
-          <div className="text-center mt-8">
-            <Link 
-              to="https://instagram.com/story.thur" 
-              target="_blank"
-              className="inline-flex items-center px-5 py-3 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition"
-            >
-              <i className="ri-gallery-line mr-2"></i>
-              View More on Instagram
-            </Link>
-          </div>
-        </div>
-      </section>
+        </section>
 
-      {/* Testimonials */}
-      <section className="py-16 bg-gray-50">
-        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-2xl sm:text-3xl font-bold text-center text-gray-900 mb-12">What Brands Say</h2>
-          
-          <div className="space-y-6">
-            <div className="bg-white p-6 rounded-xl shadow-sm">
-              <div className="flex items-center mb-4">
-                <div className="w-12 h-12 rounded-full bg-gray-200 mr-4 overflow-hidden">
-                  <img src="https://randomuser.me/api/portraits/women/32.jpg" alt="Client" className="w-full h-full object-cover" />
-                </div>
-                <div>
-                  <h4 className="font-bold">Sarah Johnson</h4>
-                  <p className="text-sm text-gray-600">Marketing Director, XYZ Brand</p>
-                </div>
-              </div>
-              <p className="text-gray-700">
-                "Working with Fatkhur was a game-changer for our social media strategy. His content ideas increased our engagement by 40% in just two months."
-              </p>
+        {/* CTA Section */}
+        <section className="max-w-4xl mx-auto px-5 mt-8">
+          <div className="bg-gray-900 rounded-lg p-6 text-white">
+            <h3 className="font-bold text-lg mb-2 flex items-center">
+              <i className="ri-sparkling-line mr-2"></i> Mulai Perjalanan Self-Growth-mu
+            </h3>
+            <p className="text-gray-300 mb-4">Ikuti aku di platform favoritmu untuk konten harian</p>
+            <div className="flex flex-wrap gap-3">
+              <a
+                href="https://instagram.com/storythur"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex-1 bg-white text-gray-900 px-4 py-2 rounded-lg font-medium hover:bg-gray-100 transition flex items-center justify-center"
+              >
+                <i className="ri-instagram-line mr-2"></i> Instagram
+              </a>
+              <a
+                href="https://tiktok.com/@storythurr"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex-1 bg-gray-800 text-white px-4 py-2 rounded-lg font-medium hover:bg-gray-700 transition flex items-center justify-center"
+              >
+                <i className="ri-tiktok-line mr-2"></i> TikTok
+              </a>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      {/* Bottom Navigation (Mobile Only) */}
+      <div className="lg:hidden fixed bottom-0 left-0 right-0 bg-white shadow-lg border-t border-gray-200 z-20">
+        <div className="flex justify-around py-3">
+          <button 
+            onClick={() => setActiveTab('home')}
+            className={`flex flex-col items-center ${activeTab === 'home' ? 'text-gray-900' : 'text-gray-500'}`}
+          >
+            <i className={`ri-home-4-${activeTab === 'home' ? 'fill' : 'line'} text-xl`}></i>
+            <span className="text-xs mt-1">Home</span>
+          </button>
+          <button 
+            onClick={() => setActiveTab('content')}
+            className={`flex flex-col items-center ${activeTab === 'content' ? 'text-gray-900' : 'text-gray-500'}`}
+          >
+            <i className={`ri-play-large-${activeTab === 'content' ? 'fill' : 'line'} text-xl`}></i>
+            <span className="text-xs mt-1">Content</span>
+          </button>
+          <button 
+            onClick={() => setActiveTab('about')}
+            className={`flex flex-col items-center ${activeTab === 'about' ? 'text-gray-900' : 'text-gray-500'}`}
+          >
+            <i className={`ri-information-${activeTab === 'about' ? 'fill' : 'line'} text-xl`}></i>
+            <span className="text-xs mt-1">About</span>
+          </button>
+          <button 
+            onClick={() => setShowContactModal(true)}
+            className={`flex flex-col items-center ${activeTab === 'contact' ? 'text-gray-900' : 'text-gray-500'}`}
+          >
+            <i className={`ri-customer-service-${activeTab === 'contact' ? 'fill' : 'line'} text-xl`}></i>
+            <span className="text-xs mt-1">Contact</span>
+          </button>
+        </div>
+      </div>
+
+      {/* Contact Modal */}
+      {showContactModal && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-30 p-4">
+          <div className="bg-white rounded-lg w-full max-w-md">
+            <div className="flex justify-between items-center border-b border-gray-200 p-4">
+              <h3 className="font-bold text-lg">Hubungi Saya</h3>
+              <button 
+                onClick={() => setShowContactModal(false)} 
+                className="text-gray-500 hover:text-gray-700"
+              >
+                <i className="ri-close-line text-xl"></i>
+              </button>
             </div>
             
-            <div className="bg-white p-6 rounded-xl shadow-sm">
-              <div className="flex items-center mb-4">
-                <div className="w-12 h-12 rounded-full bg-gray-200 mr-4 overflow-hidden">
-                  <img src="https://randomuser.me/api/portraits/men/45.jpg" alt="Client" className="w-full h-full object-cover" />
+            <div className="p-4 space-y-3">
+              <a
+                href="https://wa.me/6281234567890?text=Hai%20Fathur,%20aku%20penggemar%20kontenmu!"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center p-3 border border-gray-200 rounded-lg hover:bg-gray-50 transition"
+              >
+                <div className="w-10 h-10 rounded-full bg-gray-100 text-gray-800 flex items-center justify-center mr-3">
+                  <i className="ri-whatsapp-line text-xl"></i>
                 </div>
                 <div>
-                  <h4 className="font-bold">Michael Tan</h4>
-                  <p className="text-sm text-gray-600">CEO, ABC Startup</p>
+                  <h4 className="font-medium">WhatsApp</h4>
+                  <p className="text-xs text-gray-500">Chat langsung dengan saya</p>
                 </div>
-              </div>
-              <p className="text-gray-700">
-                "The paid promotion through Fatkhur's account delivered exceptional ROI. We gained quality followers who actually engage with our brand."
-              </p>
+                <i className="ri-arrow-right-s-line ml-auto text-gray-400"></i>
+              </a>
+              
+              <a
+                href="https://instagram.com/storythur"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center p-3 border border-gray-200 rounded-lg hover:bg-gray-50 transition"
+              >
+                <div className="w-10 h-10 rounded-full bg-gray-100 text-gray-800 flex items-center justify-center mr-3">
+                  <i className="ri-instagram-line text-xl"></i>
+                </div>
+                <div>
+                  <h4 className="font-medium">Instagram DM</h4>
+                  <p className="text-xs text-gray-500">Kirim pesan ke @storythur</p>
+                </div>
+                <i className="ri-arrow-right-s-line ml-auto text-gray-400"></i>
+              </a>
+              
+              <a
+                href="https://tiktok.com/@storythurr"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center p-3 border border-gray-200 rounded-lg hover:bg-gray-50 transition"
+              >
+                <div className="w-10 h-10 rounded-full bg-gray-100 text-gray-800 flex items-center justify-center mr-3">
+                  <i className="ri-tiktok-line text-xl"></i>
+                </div>
+                <div>
+                  <h4 className="font-medium">TikTok</h4>
+                  <p className="text-xs text-gray-500">Komentar di @storythurr</p>
+                </div>
+                <i className="ri-arrow-right-s-line ml-auto text-gray-400"></i>
+              </a>
+              
+              <a
+                href="mailto:fathur@storythur.com"
+                className="flex items-center p-3 border border-gray-200 rounded-lg hover:bg-gray-50 transition"
+              >
+                <div className="w-10 h-10 rounded-full bg-gray-100 text-gray-800 flex items-center justify-center mr-3">
+                  <i className="ri-mail-line text-xl"></i>
+                </div>
+                <div>
+                  <h4 className="font-medium">Email</h4>
+                  <p className="text-xs text-gray-500">fathur@storythur.com</p>
+                </div>
+                <i className="ri-arrow-right-s-line ml-auto text-gray-400"></i>
+              </a>
             </div>
           </div>
         </div>
-      </section>
-
-      {/* CTA Section */}
-      <section className="py-16 bg-gradient-to-r from-indigo-600 to-purple-600 text-white">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-2xl sm:text-3xl font-bold mb-6">Ready to Elevate Your Brand?</h2>
-          <p className="text-lg sm:text-xl mb-8 max-w-2xl mx-auto">
-            Let's create something amazing together. Whether it's content creation, social strategy, or brand collaboration - I'm here to help.
-          </p>
-          <div className="flex flex-col sm:flex-row justify-center gap-4">
-            <Link
-              to="https://wa.me/6282285512813"
-              target="_blank"
-              className="inline-flex items-center justify-center bg-white text-indigo-600 hover:bg-gray-100 font-medium py-3 px-6 rounded-lg transition"
-            >
-              <i className="ri-whatsapp-line mr-2"></i>
-              WhatsApp Me
-            </Link>
-            <Link
-              to="mailto:fatkhurrohman@example.com"
-              className="inline-flex items-center justify-center bg-transparent border border-white hover:bg-white/10 font-medium py-3 px-6 rounded-lg transition"
-            >
-              <i className="ri-mail-line mr-2"></i>
-              Email Me
-            </Link>
-          </div>
-        </div>
-      </section>
+      )}
 
       <Footer />
     </div>

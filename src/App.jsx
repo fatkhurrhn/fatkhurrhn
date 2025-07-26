@@ -14,7 +14,7 @@ import Creator from './pages/creator/HomePage';
 import Blogs from './pages/frontdev/Blog';
 import DetailBlog from './pages/frontdev/DetailBlog';
 import Writings01 from './pages/frontdev/DetailWritings/tailwind-ui-is-now-tailwind-plus';
-import Otherdev from './pages/frontdev/Other';
+import OtherFrontDev from './pages/frontdev/OtherFrontDev';
 
 // storythur
 import Storythur from './pages/creator/Storythur';
@@ -71,7 +71,7 @@ function App() {
         <Route path="/frontdev/certificates" element={<Certificate />} />
         <Route path="/frontdev/guestbook" element={<Guestbook />} />
         <Route path="/frontdev/github" element={<GithubRepo />} />
-        <Route path="/frontdev/others" element={<Otherdev />} />
+        <Route path="/frontdev/others" element={<OtherFrontDev />} />
         <Route path="/frontdev/blogs" element={<Blogs />} />
         <Route path="/frontdev/blogs/:slug" element={<DetailBlog />} />
         <Route path="/frontdev/writings/tailwind-ui-is-now-tailwind-plus" element={<Writings01 />} />

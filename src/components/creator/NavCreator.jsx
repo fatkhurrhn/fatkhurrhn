@@ -5,7 +5,7 @@ const NavCreator = ({ children }) => {
   const location = useLocation();
 
   const navItems = [
-    { path: '/creator/storythur', icon: 'ri-home-4-line', activeIcon: 'ri-home-4-fill', label: 'Home' },
+    { path: '/creator', icon: 'ri-home-4-line', activeIcon: 'ri-home-4-fill', label: 'Home' },
     { path: '/creator/quotes', icon: 'ri-chat-quote-line', activeIcon: 'ri-chat-quote-fill', label: 'Quotes' },
     { path: '/creator/store', icon: 'ri-store-line', activeIcon: 'ri-store-fill', label: 'Store' },
     { path: '/creator/mentahan', icon: 'ri-folders-line', activeIcon: 'ri-folders-fill', label: 'Mentahan' },
