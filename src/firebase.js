@@ -4,13 +4,13 @@ import { getFirestore, serverTimestamp, collection } from "firebase/firestore";
 import { getAuth, GoogleAuthProvider } from "firebase/auth";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyC_m0DjaSLa5tyrQChI7WNHRLQYd8Ydtjw",
-  authDomain: "my-porto-d422c.firebaseapp.com",
-  projectId: "my-porto-d422c",
-  storageBucket: "my-porto-d422c.appspot.com",
-  messagingSenderId: "1075491849941",
-  appId: "1:1075491849941:web:b527df694af5f499c0c45c",
-  measurementId: "G-KLZ7H8KJYH"
+  apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
+  authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN,
+  projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID,
+  storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID,
+  appId: import.meta.env.VITE_FIREBASE_APP_ID,
+  measurementId: import.meta.env.VITE_FIREBASE_MEASUREMENT_ID
 };
 
 const app = initializeApp(firebaseConfig);
@@ -19,5 +19,4 @@ const auth = getAuth(app);
 const googleProvider = new GoogleAuthProvider();
 
 export const myQuotesCollection = collection(db, 'my-quotes');
-
 export { db, auth, serverTimestamp, googleProvider };

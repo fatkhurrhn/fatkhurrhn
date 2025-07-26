@@ -60,6 +60,7 @@ import ManageAudio from './pages/admin/ManageAudio';
 import ShortlinkPage from './pages/tools/shortlinks/ShortLinks';
 import PasswordGenerator from './pages/tools/PasswordGenerator';
 import TextCaseConverter from './pages/tools/TextCaseConverter';
+import WhatsAppTextConverter from './pages/tools/WhatsAppTextConverter';
 
 function App() {
   return (
@@ -76,6 +77,7 @@ function App() {
         <Route path="/:slug" element={<ShortlinkPage />} />
         <Route path="/tools/password-generator" element={<PasswordGenerator />} />
         <Route path="/tools/text-case-converter" element={<TextCaseConverter />} />
+        <Route path="/tools/whatsapp-text-converter" element={<WhatsAppTextConverter />} />
 
         {/* Route Frontdev */}
         <Route path="/frontdev/projects" element={<Project />} />
