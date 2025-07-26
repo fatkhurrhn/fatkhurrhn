@@ -6,9 +6,9 @@ const NavCreator = ({ children }) => {
 
   const navItems = [
     { path: '/creator', icon: 'ri-home-4-line', activeIcon: 'ri-home-4-fill', label: 'Home' },
-    { path: '/creator/quotes', icon: 'ri-chat-quote-line', activeIcon: 'ri-chat-quote-fill', label: 'Quotes' },
+    { path: '/creator/quotes', icon: 'ri-chat-quote-line', activeIcon: 'ri-chat-quote-fill', label: 'Quotes', isNew: true },
     { path: '/creator/store', icon: 'ri-store-line', activeIcon: 'ri-store-fill', label: 'Store' },
-    { path: '/creator/mentahan', icon: 'ri-folders-line', activeIcon: 'ri-folders-fill', label: 'Mentahan' },
+    { path: '/creator/mentahan', icon: 'ri-folders-line', activeIcon: 'ri-folders-fill', label: 'Mentahan', isNew: true },
     { path: '/creator/more', icon: 'ri-apps-line', activeIcon: 'ri-apps-fill', label: 'More' },
   ];
 
@@ -81,7 +81,7 @@ const NavCreator = ({ children }) => {
                   </span>
                 </Link>
                 {item.isNew && (
-                  <span className="absolute top-1.5 right-[18%] text-[9px] bg-red-500 text-white rounded-full px-1 py-0.5 font-bold leading-none">
+                  <span className="absolute top-1 right-[18%] text-[8px] bg-red-500 text-white rounded-full px-0.5 py-0.5 font-bold leading-none">
                     NEW
                   </span>
                 )}
