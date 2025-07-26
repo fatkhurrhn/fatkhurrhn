@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import NavNavigate from '../../components/frontdev/NavNavigate';
 import Footer from '../../components/frontdev/Footer';
 import { Link } from 'react-router-dom';
+import ChatRoomComponents from '../../components/ChatRoom';
 
 export default function GithubRepo() {
     const [repos, setRepos] = useState([]);
@@ -54,6 +55,7 @@ export default function GithubRepo() {
     return (
         <div className="bg-gray-50 min-h-screen text-gray-800 transition-colors duration-300">
             <NavNavigate />
+            <ChatRoomComponents/>
             <section className="max-w-4xl mx-auto pt-[95px] p-4">
                 <div className="">
 

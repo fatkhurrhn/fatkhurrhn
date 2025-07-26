@@ -5,6 +5,7 @@ import Footer from "../../components/frontdev/Footer";
 import { Link } from "react-router-dom";
 import { collection, getDocs, query, orderBy } from "firebase/firestore";
 import { db } from "../../firebase";
+import ChatRoomComponents from "../../components/ChatRoom";
 
 export default function Page() {
   const [blogs, setBlogs] = useState([]);
@@ -83,6 +84,7 @@ export default function Page() {
   return (
     <div className="bg-white min-h-screen text-gray-900">
       <NavNavigate />
+      <ChatRoomComponents/>
       <section className="max-w-4xl mx-auto px-5 pt-20 pb-16">
         {loading ? (
           <div className="flex justify-center items-center h-64">

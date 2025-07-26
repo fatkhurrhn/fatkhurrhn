@@ -6,6 +6,8 @@ import { Link, useParams } from "react-router-dom";
 import { collection, query, where, getDocs } from "firebase/firestore";
 import { db } from "../../firebase";
 
+import ChatRoomComponents from "../../components/ChatRoom";
+
 // Fungsi untuk mengubah markdown menjadi HTML
 const renderMarkdown = (content) => {
   if (!content) return '';
@@ -74,6 +76,7 @@ export default function Page() {
     return (
       <div className="bg-white min-h-screen text-gray-900">
         <NavNavigate />
+        
         <div className="flex justify-center items-center h-64">
           <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-blue-500"></div>
         </div>
@@ -86,6 +89,7 @@ export default function Page() {
     return (
       <div className="bg-white min-h-screen text-gray-900">
         <NavNavigate />
+        
         <section className="max-w-4xl mx-auto px-5 pt-20 text-center">
           <i className="ri-article-line text-5xl text-gray-300 mb-4"></i>
           <h1 className="text-2xl font-bold mb-2">Blog Not Found</h1>
@@ -105,6 +109,7 @@ export default function Page() {
   return (
     <div className="bg-white min-h-screen text-gray-900 dark:text-white transition-colors duration-300">
       <NavNavigate />
+      <ChatRoomComponents/>
       <section className="max-w-4xl mx-auto px-5 pt-20 text-gray-800">
         {/* breadcrumb */}
         <div className="flex justify-between items-center w-full pt-3">

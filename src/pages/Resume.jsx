@@ -2,14 +2,14 @@ import React from 'react';
 import NavNavigate from '../components/frontdev/NavNavigate';
 import Footer from '../components/frontdev/Footer';
 import { Link } from 'react-router-dom';
+import ChatRoomComponents from '../components/ChatRoom';
 
 export default function Resume() {
     return (
         <div className="bg-gray-50 min-h-screen text-gray-800">
             <NavNavigate />
-
+            <ChatRoomComponents />
             <main className="max-w-4xl mx-auto px-4 sm:px-6 pt-[95px] pb-12">
-
                 {/* CV Cards - Simple Grid */}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                     {/* Frontend Developer CV */}

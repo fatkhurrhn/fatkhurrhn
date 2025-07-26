@@ -6,6 +6,7 @@ export default function Others() {
     return (
         <div className="bg-gray-50 min-h-screen text-gray-800 transition-colors duration-300">
             <NavNavigate />
+            
             <section className="max-w-4xl mx-auto px-5 pt-[95px]">
                 <section className="mb-0 pt-0" id="services">
                     {/* <h2 className="text-xl font-bold text-center text-gray-800 mb-8">Kamu Mau Apa?</h2> */}

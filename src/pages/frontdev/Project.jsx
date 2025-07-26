@@ -3,6 +3,7 @@ import NavNavigate from "../../components/frontdev/NavNavigate";
 import Footer from "../../components/frontdev/Footer";
 import { collection, getDocs, query, orderBy } from "firebase/firestore";
 import { db } from "../../firebase";
+import ChatRoomComponents from "../../components/ChatRoom";
 
 // Memoized Projects Content Component
 const ProjectsContent = React.memo(({ 
@@ -200,6 +201,7 @@ export default function Projects() {
   return (
     <div className="bg-gray-50 min-h-screen text-gray-800">
       <NavNavigate />
+      <ChatRoomComponents/>
       <ProjectsContent 
         loading={loading}
         sortedProjects={sortedProjects}
