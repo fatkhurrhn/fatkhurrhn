@@ -81,7 +81,7 @@ export default function StorythurPremium() {
         {/* Quick Actions */}
         <section className="max-w-4xl mx-auto px-5 -mt-7">
           <div className="bg-white rounded-xl shadow-md p-4 overflow-x-auto">
-            <div className="flex space-x-1 min-w-max">
+            <div className="flex space-x-0.5 min-w-max">
               <Link
                 to="#"
                 rel="noopener noreferrer"
@@ -151,6 +151,54 @@ export default function StorythurPremium() {
                 </div>
                 <span className="text-xs font-medium text-center">Contact</span>
               </button>
+
+              <Link
+                to="/creator/quotes"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex flex-col items-center justify-center group w-20 shrink-0"
+              >
+                <div className="bg-gray-100 text-gray-800 w-12 h-12 rounded-full flex items-center justify-center mb-2 group-hover:bg-gray-200 transition shadow-sm">
+                  <i className="ri-lightbulb-flash-line text-2xl"></i>
+                </div>
+                <span className="text-xs font-medium text-center">Quotes</span>
+              </Link>
+
+              <Link
+                to="/creator/store"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex flex-col items-center justify-center group w-20 shrink-0"
+              >
+                <div className="bg-gray-100 text-gray-800 w-12 h-12 rounded-full flex items-center justify-center mb-2 group-hover:bg-gray-200 transition shadow-sm">
+                  <i className="ri-lightbulb-flash-line text-2xl"></i>
+                </div>
+                <span className="text-xs font-medium text-center">Store</span>
+              </Link>
+
+              <Link
+                to="/creator/mentahan"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex flex-col items-center justify-center group w-20 shrink-0"
+              >
+                <div className="bg-gray-100 text-gray-800 w-12 h-12 rounded-full flex items-center justify-center mb-2 group-hover:bg-gray-200 transition shadow-sm">
+                  <i className="ri-lightbulb-flash-line text-2xl"></i>
+                </div>
+                <span className="text-xs font-medium text-center">Mentahan</span>
+              </Link>
+
+              <Link
+                to="/creator/more"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex flex-col items-center justify-center group w-20 shrink-0"
+              >
+                <div className="bg-gray-100 text-gray-800 w-12 h-12 rounded-full flex items-center justify-center mb-2 group-hover:bg-gray-200 transition shadow-sm">
+                  <i className="ri-lightbulb-flash-line text-2xl"></i>
+                </div>
+                <span className="text-xs font-medium text-center">More</span>
+              </Link>
             </div>
           </div>
         </section>
