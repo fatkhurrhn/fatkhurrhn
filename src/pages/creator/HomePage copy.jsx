@@ -1,10 +1,8 @@
 import React, { useState } from 'react';
 import NavCreator from '../../components/creator/NavCreator';
 import Footer from '../../components/creator/Footer';
-import { Link } from 'react-router-dom';
-import ChatRoomComponents from '../../components/ChatRoom';
 
-export default function StorythurPremium() {
+export default function StorythurFinal() {
   const [activeTab, setActiveTab] = useState('home');
   const [showContactModal, setShowContactModal] = useState(false);
 
@@ -31,7 +29,7 @@ export default function StorythurPremium() {
       platform: 'Instagram',
       username: '@fatkhurrhn',
       followers: '6K+',
-      description: 'Random Quotes',
+      description: 'Random Quotes & Thoughts',
       posts: [
         {
           id: 1,
@@ -41,6 +39,51 @@ export default function StorythurPremium() {
           likes: "845"
         }
       ]
+    },
+    {
+      id: 3,
+      platform: 'Instagram',
+      type: 'channel',
+      username: 'Daily Reminder',
+      link: 'https://ig.me/j/AbYAsEmFeC7N27Jp/',
+      followers: '23K+',
+      description: 'Satu hari tanpa quotes/reminder',
+      posts: [
+        {
+          id: 1,
+          title: "Reminder Pagi Hari",
+          excerpt: "Bangun dengan senyuman, hari ini adalah kesempatan baru...",
+          date: "20 Jul 2023",
+          likes: "1.5k"
+        }
+      ]
+    }
+  ];
+
+  const engagementStats = [
+    {
+      id: 1,
+      icon: 'ri-user-heart-line',
+      value: '119.3K+',
+      label: 'Total Followers'
+    },
+    {
+      id: 2,
+      icon: 'ri-heart-3-line',
+      value: '10K+',
+      label: 'Avg. Likes'
+    },
+    {
+      id: 3,
+      icon: 'ri-chat-3-line',
+      value: '2K+',
+      label: 'Monthly Comments'
+    },
+    {
+      id: 4,
+      icon: 'ri-lightbulb-flash-line',
+      value: '1.2K+',
+      label: 'Content Created'
     }
   ];
 
@@ -48,8 +91,7 @@ export default function StorythurPremium() {
     <div className="bg-gray-50 min-h-screen text-gray-900">
       {/* Navigation */}
       <NavCreator />
-      <ChatRoomComponents/>
-
+      
       {/* Main Content */}
       <main className="pb-20 lg:pb-10">
         {/* Profile Header */}
@@ -57,8 +99,8 @@ export default function StorythurPremium() {
           <div className="max-w-4xl mx-auto">
             <div className="flex flex-col md:flex-row items-center">
               <div className="w-28 h-28 rounded-full border-4 border-white overflow-hidden mb-4 md:mb-0 md:mr-8 shadow-lg">
-                <img
-                  src="https://fatkhurrhn.vercel.app/pp4.jpg"
+                <img 
+                  src="https://fatkhurrhn.vercel.app/pp4.jpg" 
                   alt="M Fatkhurrohman"
                   className="w-full h-full object-cover"
                 />
@@ -79,110 +121,91 @@ export default function StorythurPremium() {
           </div>
         </section>
 
+        {/* Engagement Stats */}
+        <section className="max-w-4xl mx-auto px-5 -mt-6">
+          <div className="bg-white rounded-xl shadow-md p-4 grid grid-cols-2 md:grid-cols-4 gap-4">
+            {engagementStats.map(stat => (
+              <div key={stat.id} className="text-center">
+                <div className="bg-gray-100 text-gray-800 w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-2">
+                  <i className={`${stat.icon} text-2xl`}></i>
+                </div>
+                <p className="font-bold text-lg">{stat.value}</p>
+                <p className="text-xs text-gray-500">{stat.label}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+
         {/* Quick Actions */}
-        <section className="max-w-4xl mx-auto px-5 -mt-7">
-          <div className="bg-white rounded-xl shadow-md p-4 overflow-x-auto">
-            <div className="flex space-x-1 min-w-max">
-              <Link
-                to="#"
-                rel="noopener noreferrer"
-                className="flex flex-col items-center justify-center group w-20 shrink-0"
-              >
-                <div className="bg-gray-100 text-gray-800 w-12 h-12 rounded-full flex items-center justify-center mb-2 group-hover:bg-gray-200 transition shadow-sm">
-                  <i className="ri-user-heart-line text-2xl"></i>
-                </div>
-                <span className="text-xs font-medium text-center">100K+</span>
-              </Link>
-              <Link
-                to="#"
-                rel="noopener noreferrer"
-                className="flex flex-col items-center justify-center group w-20 shrink-0"
-              >
-                <div className="bg-gray-100 text-gray-800 w-12 h-12 rounded-full flex items-center justify-center mb-2 group-hover:bg-gray-200 transition shadow-sm">
-                  <i className="ri-heart-3-line text-2xl"></i>
-                </div>
-                <span className="text-xs font-medium text-center">725K+</span>
-              </Link>
-              {/* Item 1 */}
-              <Link
-                to="https://instagram.com/storythur"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex flex-col items-center justify-center group w-20 shrink-0"
-              >
-                <div className="bg-gray-100 text-gray-800 w-12 h-12 rounded-full flex items-center justify-center mb-2 group-hover:bg-gray-200 transition shadow-sm">
-                  <i className="ri-instagram-line text-2xl"></i>
-                </div>
-                <span className="text-xs font-medium text-center">Main IG</span>
-              </Link>
-
-              {/* Item 2 */}
-              <Link
-                to="ig.me/j/AbYAsEmFeC7N27Jp/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex flex-col items-center justify-center group w-20 shrink-0"
-              >
-                <div className="bg-gray-100 text-gray-800 w-12 h-12 rounded-full flex items-center justify-center mb-2 group-hover:bg-gray-200 transition shadow-sm">
-                  <i className="ri-notification-3-line text-2xl"></i>
-                </div>
-                <span className="text-xs font-medium text-center">Reminder</span>
-              </Link>
-
-              {/* Item 3 */}
-              <Link
-                to="/creator/quotes"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex flex-col items-center justify-center group w-20 shrink-0"
-              >
-                <div className="bg-gray-100 text-gray-800 w-12 h-12 rounded-full flex items-center justify-center mb-2 group-hover:bg-gray-200 transition shadow-sm">
-                  <i className="ri-lightbulb-flash-line text-2xl"></i>
-                </div>
-                <span className="text-xs font-medium text-center">Quotes</span>
-              </Link>
-
-              {/* Item 4 */}
-              <button
-                onClick={() => setShowContactModal(true)}
-                className="flex flex-col items-center justify-center group w-20 shrink-0"
-              >
-                <div className="bg-gray-100 text-gray-800 w-12 h-12 rounded-full flex items-center justify-center mb-2 group-hover:bg-gray-200 transition shadow-sm">
-                  <i className="ri-chat-3-line text-2xl"></i>
-                </div>
-                <span className="text-xs font-medium text-center">Contact</span>
-              </button>
-            </div>
+        <section className="max-w-4xl mx-auto px-5 mt-6">
+          <div className="bg-white rounded-xl shadow-md p-4 grid grid-cols-3 gap-3">
+            <a 
+              href="https://instagram.com/storythur" 
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex flex-col items-center justify-center group"
+            >
+              <div className="bg-gray-100 text-gray-800 w-12 h-12 rounded-full flex items-center justify-center mb-2 group-hover:bg-gray-200 transition shadow-sm">
+                <i className="ri-instagram-line text-2xl"></i>
+              </div>
+              <span className="text-xs font-medium">@storythur</span>
+            </a>
+            <a 
+              href="https://instagram.com/fatkhurrhn" 
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex flex-col items-center justify-center group"
+            >
+              <div className="bg-gray-100 text-gray-800 w-12 h-12 rounded-full flex items-center justify-center mb-2 group-hover:bg-gray-200 transition shadow-sm">
+                <i className="ri-lightbulb-flash-line text-2xl"></i>
+              </div>
+              <span className="text-xs font-medium">@fatkhurrhn</span>
+            </a>
+            <a 
+              href="https://ig.me/j/AbYAsEmFeC7N27Jp/" 
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex flex-col items-center justify-center group"
+            >
+              <div className="bg-gray-100 text-gray-800 w-12 h-12 rounded-full flex items-center justify-center mb-2 group-hover:bg-gray-200 transition shadow-sm">
+                <i className="ri-notification-3-line text-2xl"></i>
+              </div>
+              <span className="text-xs font-medium">Daily Reminder</span>
+            </a>
           </div>
         </section>
 
         {/* Bio Section */}
-        <section className="max-w-4xl mx-auto px-5 mt-8 text-justify">
+        <section className="max-w-4xl mx-auto px-5 mt-8">
           <div className="bg-white rounded-xl shadow-md p-6">
             <h2 className="font-bold text-lg mb-4 flex items-center text-gray-800">
               <i className="ri-user-3-line mr-2 text-gray-600"></i> Tentang Saya
             </h2>
-            <p className="text-gray-700 mb-4">
-              Seorang kreator konten digital dengan passion di bidang pengembangan diri dan spiritualitas.
-              Membangun beberapa channel konten untuk membantu generasi muda menemukan kedamaian pikiran
-              dan kejelasan hidup melalui konten yang relatable.
+            <p className="text-gray-700 mb-4 text-justify">
+              Seorang kreator konten digital dengan passion di bidang pengembangan diri dan spiritualitas. 
+              Membangun beberapa channel konten untuk membantu generasi muda menemukan kedamaian pikiran 
+              dan kejelasan hidup melalui konten yang relatable. Fokus utama saya adalah membuat konten 
+              yang menginspirasi dan memberikan nilai positif bagi followers, baik melalui postingan reguler 
+              maupun daily reminder yang konsisten.
             </p>
-
+            
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
               <div className="bg-gray-50 rounded-lg p-4 border border-gray-200">
                 <h3 className="font-medium text-gray-800 mb-2 flex items-center">
-                  <i className="ri-flashlight-line mr-2 text-gray-600"></i> Misi
+                  <i className="ri-flashlight-line mr-2 text-gray-600"></i> Misi Konten
                 </h3>
-                <p className="text-gray-600 text-sm">
-                  Membantu mengurangi overthinking dan meningkatkan kesadaran diri melalui konten harian.
+                <p className="text-gray-600 text-sm text-justify">
+                  Menyebarkan energi positif dan membantu mengurangi overthinking melalui konten harian 
+                  yang mengajak refleksi dan pengembangan diri.
                 </p>
               </div>
               <div className="bg-gray-50 rounded-lg p-4 border border-gray-200">
                 <h3 className="font-medium text-gray-800 mb-2 flex items-center">
-                  <i className="ri-star-line mr-2 text-gray-600"></i> Nilai
+                  <i className="ri-star-line mr-2 text-gray-600"></i> Nilai Utama
                 </h3>
-                <p className="text-gray-600 text-sm">
-                  Authentic, Relatable, dan Mindful dalam setiap konten yang dibuat.
+                <p className="text-gray-600 text-sm text-justify">
+                  Authenticity - Relatability - Consistency. Setiap konten dibuat dengan ketulusan dan 
+                  keinginan tulus untuk membantu perkembangan personal followers.
                 </p>
               </div>
             </div>
@@ -192,47 +215,39 @@ export default function StorythurPremium() {
         {/* Content Channels */}
         <section className="max-w-4xl mx-auto px-5 mt-8">
           <h2 className="font-bold text-lg mb-6 flex items-center text-gray-800">
-            <i className="ri-tv-2-line mr-2 text-gray-600"></i> Channel Konten Saya
+            <i className="ri-tv-2-line mr-2 text-gray-600"></i> Portofolio Konten
           </h2>
-
+          
           <div className="space-y-6">
             {contentChannels.map(channel => (
               <div key={channel.id} className="bg-white rounded-xl shadow-md overflow-hidden">
                 <div className="p-5 border-b border-gray-200">
                   <div className="flex items-center justify-between">
                     <div className="flex items-center">
-                      {channel.platform === 'Instagram' ? (
-                        <i className="ri-instagram-line text-2xl mr-3 text-pink-600"></i>
-                      ) : (
-                        <i className="ri-tiktok-line text-2xl mr-3 text-gray-900"></i>
-                      )}
+                      <i className="ri-instagram-line text-2xl mr-3 text-pink-600"></i>
                       <div>
                         <h3 className="font-bold">{channel.username}</h3>
                         <p className="text-sm text-gray-500">{channel.description}</p>
                       </div>
                     </div>
                     <span className="bg-gray-100 text-gray-800 px-3 py-1 rounded-full text-sm">
-                      {channel.followers} followers
+                      {channel.followers} {channel.type === 'channel' ? 'subscribers' : 'followers'}
                     </span>
                   </div>
                 </div>
-
+                
                 <div className="p-5">
                   {channel.posts.map(post => (
-                    <Link
+                    <a
                       key={post.id}
-                      to={`https://${channel.platform.toLowerCase()}.com/${channel.username.replace('@', '')}`}
+                      href={channel.link || `https://instagram.com/${channel.username.replace('@', '')}`}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="block p-4 hover:bg-gray-50 rounded-lg transition"
                     >
                       <div className="flex items-start">
                         <div className="bg-gray-100 text-gray-800 w-10 h-10 rounded-full flex items-center justify-center mr-3 mt-1">
-                          {channel.platform === 'Instagram' ? (
-                            <i className="ri-image-line"></i>
-                          ) : (
-                            <i className="ri-video-line"></i>
-                          )}
+                          <i className="ri-image-line"></i>
                         </div>
                         <div className="flex-1">
                           <h4 className="font-medium text-gray-800">{post.title}</h4>
@@ -245,18 +260,18 @@ export default function StorythurPremium() {
                           </div>
                         </div>
                       </div>
-                    </Link>
+                    </a>
                   ))}
                 </div>
-
-                <Link
-                  to={`https://${channel.platform.toLowerCase()}.com/${channel.username.replace('@', '')}`}
+                
+                <a
+                  href={channel.link || `https://instagram.com/${channel.username.replace('@', '')}`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="block text-center py-3 bg-gray-50 text-gray-700 font-medium hover:bg-gray-100 transition"
                 >
-                  Kunjungi {channel.platform} <i className="ri-arrow-right-line ml-1"></i>
-                </Link>
+                  Kunjungi {channel.type === 'channel' ? 'Channel' : 'Profile'} <i className="ri-arrow-right-line ml-1"></i>
+                </a>
               </div>
             ))}
           </div>
@@ -265,18 +280,36 @@ export default function StorythurPremium() {
         {/* CTA Section */}
         <section className="max-w-4xl mx-auto px-5 mt-8">
           <div className="bg-gray-900 rounded-xl shadow-md p-8 text-white text-center">
-            <h3 className="font-bold text-xl mb-3">Ingin Promosi di Sini?</h3>
+            <h3 className="font-bold text-xl mb-3">Mari Berinteraksi!</h3>
             <p className="text-gray-300 mb-6 max-w-2xl mx-auto">
-              Kami terbuka untuk kerja sama promosi berbayar yang relevan dan inspiratif.
+              Pilih platform favoritmu untuk mendapatkan konten inspiratif setiap hari.
             </p>
-
-            <div className="flex justify-center">
-              <Link
-                to="/creator/paid-promote"
-                className="bg-white text-gray-900 px-4 py-2 rounded-lg font-medium hover:bg-gray-100 transition inline-flex items-center justify-center"
+            
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
+              <a
+                href="https://instagram.com/storythur"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-white text-gray-900 px-4 py-3 rounded-lg font-medium hover:bg-gray-100 transition flex items-center justify-center"
               >
-                Lihat Info Promosi
-              </Link>
+                <i className="ri-instagram-line mr-2"></i> @storythur
+              </a>
+              <a
+                href="https://instagram.com/fatkhurrhn"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-white text-gray-900 px-4 py-3 rounded-lg font-medium hover:bg-gray-100 transition flex items-center justify-center"
+              >
+                <i className="ri-lightbulb-flash-line mr-2"></i> @fatkhurrhn
+              </a>
+              <a
+                href="https://ig.me/j/AbYAsEmFeC7N27Jp/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-white text-gray-900 px-4 py-3 rounded-lg font-medium hover:bg-gray-100 transition flex items-center justify-center"
+              >
+                <i className="ri-notification-3-line mr-2"></i> Daily Reminder
+              </a>
             </div>
           </div>
         </section>
@@ -285,33 +318,26 @@ export default function StorythurPremium() {
       {/* Bottom Navigation (Mobile Only) */}
       <div className="lg:hidden fixed bottom-0 left-0 right-0 bg-white shadow-lg border-t border-gray-200 z-20">
         <div className="flex justify-around py-3">
-          <button
+          <button 
             onClick={() => setActiveTab('home')}
             className={`flex flex-col items-center ${activeTab === 'home' ? 'text-gray-900' : 'text-gray-500'}`}
           >
             <i className={`ri-home-4-${activeTab === 'home' ? 'fill' : 'line'} text-xl`}></i>
             <span className="text-xs mt-1">Home</span>
           </button>
-          <button
+          <button 
             onClick={() => setActiveTab('content')}
             className={`flex flex-col items-center ${activeTab === 'content' ? 'text-gray-900' : 'text-gray-500'}`}
           >
             <i className={`ri-play-large-${activeTab === 'content' ? 'fill' : 'line'} text-xl`}></i>
             <span className="text-xs mt-1">Content</span>
           </button>
-          <button
-            onClick={() => setActiveTab('channels')}
-            className={`flex flex-col items-center ${activeTab === 'channels' ? 'text-gray-900' : 'text-gray-500'}`}
+          <button 
+            onClick={() => setActiveTab('about')}
+            className={`flex flex-col items-center ${activeTab === 'about' ? 'text-gray-900' : 'text-gray-500'}`}
           >
-            <i className={`ri-tv-${activeTab === 'channels' ? 'fill' : 'line'} text-xl`}></i>
-            <span className="text-xs mt-1">Channels</span>
-          </button>
-          <button
-            onClick={() => setShowContactModal(true)}
-            className={`flex flex-col items-center ${activeTab === 'contact' ? 'text-gray-900' : 'text-gray-500'}`}
-          >
-            <i className={`ri-chat-3-${activeTab === 'contact' ? 'fill' : 'line'} text-xl`}></i>
-            <span className="text-xs mt-1">Contact</span>
+            <i className={`ri-information-${activeTab === 'about' ? 'fill' : 'line'} text-xl`}></i>
+            <span className="text-xs mt-1">About</span>
           </button>
         </div>
       </div>
@@ -322,17 +348,17 @@ export default function StorythurPremium() {
           <div className="bg-white rounded-xl w-full max-w-md">
             <div className="flex justify-between items-center border-b border-gray-200 p-5">
               <h3 className="font-bold text-lg">Hubungi Saya</h3>
-              <button
-                onClick={() => setShowContactModal(false)}
+              <button 
+                onClick={() => setShowContactModal(false)} 
                 className="text-gray-500 hover:text-gray-700"
               >
                 <i className="ri-close-line text-xl"></i>
               </button>
             </div>
-
+            
             <div className="p-5 space-y-3">
-              <Link
-                to="https://wa.me/6282285512813?text=Hai%20Fathur,%20aku%20penggemar%20kontenmu!"
+              <a
+                href="https://wa.me/6281234567890?text=Hai%20Fathur,%20aku%20penggemar%20kontenmu!"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center p-4 border border-gray-200 rounded-lg hover:bg-gray-50 transition"
@@ -345,10 +371,10 @@ export default function StorythurPremium() {
                   <p className="text-sm text-gray-500">Chat langsung dengan saya</p>
                 </div>
                 <i className="ri-arrow-right-s-line ml-auto text-gray-400 text-xl"></i>
-              </Link>
-
-              <Link
-                to="https://instagram.com/storythur"
+              </a>
+              
+              <a
+                href="https://instagram.com/storythur"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center p-4 border border-gray-200 rounded-lg hover:bg-gray-50 transition"
@@ -361,10 +387,10 @@ export default function StorythurPremium() {
                   <p className="text-sm text-gray-500">Kirim pesan ke @storythur</p>
                 </div>
                 <i className="ri-arrow-right-s-line ml-auto text-gray-400 text-xl"></i>
-              </Link>
-
-              <Link
-                to="mailto:ig.storythur@gmail.com"
+              </a>
+              
+              <a
+                href="mailto:fathur@storythur.com"
                 className="flex items-center p-4 border border-gray-200 rounded-lg hover:bg-gray-50 transition"
               >
                 <div className="w-12 h-12 rounded-full bg-gray-100 text-gray-800 flex items-center justify-center mr-4">
@@ -372,10 +398,10 @@ export default function StorythurPremium() {
                 </div>
                 <div>
                   <h4 className="font-medium">Email</h4>
-                  <p className="text-sm text-gray-500">ig.storythur@gmail.com</p>
+                  <p className="text-sm text-gray-500">fathur@storythur.com</p>
                 </div>
                 <i className="ri-arrow-right-s-line ml-auto text-gray-400 text-xl"></i>
-              </Link>
+              </a>
             </div>
           </div>
         </div>
