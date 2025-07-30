@@ -229,38 +229,20 @@ const DashboardAnime = () => {
   return (
     <Layout>
       <div className="min-h-screen bg-gray-50">
-        <div className="container mx-auto max-w-full px-4 py-8">
-          <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-6">
-            <h1 className="text-2xl font-bold text-gray-800 mb-4 md:mb-0">Anime Management</h1>
-            <div className="flex space-x-2">
-              <button
-                onClick={() => navigate('/admin')}
-                className="px-4 py-2 bg-gray-200 text-gray-700 rounded-md hover:bg-gray-300 transition-colors"
-              >
-                Back to Admin
-              </button>
-              <button
-                onClick={() => {
-                  resetForm();
-                  setShowModal(true);
-                }}
-                className="px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 transition-colors"
-              >
-                Add New Anime
-              </button>
-              <button
-                onClick={() => setShowLogoutModal(true)}
-                className="flex items-center gap-2 px-4 py-2 bg-red-50 text-red-600 rounded-md hover:bg-red-100 transition-colors"
-              >
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                  <path fillRule="evenodd" d="M3 3a1 1 0 00-1 1v12a1 1 0 102 0V4a1 1 0 00-1-1zm10.293 9.293a1 1 0 001.414 1.414l3-3a1 1 0 000-1.414l-3-3a1 1 0 10-1.414 1.414L14.586 9H7a1 1 0 100 2h7.586l-1.293 1.293z" clipRule="evenodd" />
-                </svg>
-                Logout
-              </button>
-            </div>
+        <div className="container mx-auto max-w-full px-2 py-0">
+          <div className="flex flex-col md:flex-row justify-between items-start md:items-center">
+            <button
+              onClick={() => {
+                resetForm();
+                setShowModal(true);
+              }}
+              className="px-4 py-2 mb-3 bg-blue-500 text-white rounded-md hover:bg-blue-600 transition-colors"
+            >
+              Add New Anime
+            </button>
           </div>
 
-          <div className="bg-white rounded-lg shadow-sm overflow-hidden">
+          <div className="rounded-lg overflow-hidden">
             {loading && !animes.length ? (
               <div className="p-8 text-center">
                 <p className="text-gray-500">Loading...</p>
@@ -270,7 +252,7 @@ const DashboardAnime = () => {
                 <p className="text-gray-500">No animes found</p>
               </div>
             ) : (
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 p-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 gap-2">
                 {animes.map(anime => (
                   <div key={anime.id} className="border rounded-lg overflow-hidden hover:shadow-md transition-shadow">
                     <div className="relative aspect-[3/4]">
@@ -294,15 +276,36 @@ const DashboardAnime = () => {
 
                     <div className="p-3">
                       <div className="flex flex-wrap gap-1 mb-2">
-                        {anime.genres.slice(0, 2).map(genre => (
-                          <span key={genre} className="text-xs bg-gray-100 px-2 py-1 rounded text-gray-600">
-                            {genre}
-                          </span>
-                        ))}
+                        {anime.genres.length === 2 &&
+                          anime.genres.map(genre => (
+                            <span key={genre} className="text-xs bg-gray-100 px-2 py-1 rounded text-gray-600">
+                              {genre}
+                            </span>
+                          ))
+                        }
+
+                        {anime.genres.length === 3 && (
+                          <>
+                            <span className="text-xs bg-gray-100 px-2 py-1 rounded text-gray-600">
+                              {anime.genres[0]}
+                            </span>
+                            <span className="text-xs bg-gray-100 px-2 py-1 rounded text-gray-600">
+                              +2 more
+                            </span>
+                          </>
+                        )}
+
                         {anime.genres.length > 3 && (
-                          <span className="text-xs bg-gray-100 px-2 py-1 rounded text-gray-600">
-                            +{anime.genres.length - 3} more
-                          </span>
+                          <>
+                            {anime.genres.slice(0, 2).map(genre => (
+                              <span key={genre} className="text-xs bg-gray-100 px-2 py-1 rounded text-gray-600">
+                                {genre}
+                              </span>
+                            ))}
+                            <span className="text-xs bg-gray-100 px-2 py-1 rounded text-gray-600">
+                              +{anime.genres.length - 2} more
+                            </span>
+                          </>
                         )}
                       </div>
 
