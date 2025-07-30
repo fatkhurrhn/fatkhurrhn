@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { collection, addDoc, getDocs, deleteDoc, doc, query, orderBy, updateDoc } from 'firebase/firestore';
 import { db } from '../../firebase';
 import { Link } from 'react-router-dom';
+import Layout from '../../components/Layout';
 
 export default function ManageAudio() {
     const [audios, setAudios] = useState([]);
@@ -193,8 +194,9 @@ export default function ManageAudio() {
     };
 
     return (
-        <div className="bg-gray-50 min-h-screen p-4 md:p-8">
-            <div className="max-w-6xl mx-auto">
+        <Layout>
+            <div className="bg-gray-50 min-h-screen p-4 md:p-8">
+            <div className="max-w-full mx-auto">
                 <div className="flex justify-between items-center mb-8">
                     <h1 className="text-2xl font-bold text-gray-800">Kelola Audios</h1>
                     <Link
@@ -401,5 +403,6 @@ export default function ManageAudio() {
                 </div>
             </div>
         </div>
+        </Layout>
     );
 }

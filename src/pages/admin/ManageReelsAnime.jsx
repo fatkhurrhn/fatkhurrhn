@@ -3,6 +3,7 @@ import { collection, query, orderBy, where, addDoc, updateDoc, doc, deleteDoc, g
 import { db } from '../../firebase';
 import Modal from 'react-modal';
 import { Link } from 'react-router-dom';
+import Layout from '../../components/Layout';
 
 // Set app element for accessibility
 Modal.setAppElement('#root');
@@ -221,8 +222,9 @@ export default function DashboardStoryAnime() {
   };
 
   return (
-    <div className="bg-gray-50 min-h-screen text-gray-800">
-      <div className="container mx-auto px-4 max-w-4xl py-8">
+    <Layout>
+      <div className="bg-gray-50 min-h-screen text-gray-800">
+      <div className="container mx-auto px-4 max-w-full py-8">
         <Link to="/admin">
           <h1 className="text-3xl font-bold mb-6 flex items-center gap-2">
             <i className="ri-arrow-left-line"></i> Kembali
@@ -525,5 +527,6 @@ export default function DashboardStoryAnime() {
         </Modal>
       </div>
     </div>
+    </Layout>
   );
 }
