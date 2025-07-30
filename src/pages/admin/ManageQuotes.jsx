@@ -41,7 +41,7 @@ const ManageQuotes = () => {
         setQuotes(quotesData);
       } catch (error) {
         console.error("Error fetching quotes: ", error);
-      } 
+      }
     };
 
     fetchQuotes();
@@ -113,58 +113,47 @@ const ManageQuotes = () => {
 
   return (
     <Layout>
-      <div className="min-h-screen bg-gray-100 p-4 md:p-8">
+      <div className="min-h-screen">
         <div className="max-w-full mx-auto">
-          <div className="flex justify-between items-center mb-8">
-            <h1 className="text-2xl font-bold text-gray-800">Kelola Quotes</h1>
-            <Link
-              to="/dashboard"
-              className="px-4 py-2 bg-gray-800 text-white rounded-lg hover:bg-gray-700 transition-colors"
-            >
-              Dashboard
-            </Link>
-          </div>
 
-          <div className="bg-white rounded-lg shadow-sm p-6 mb-6">
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
-              <div className="relative">
-                <input
-                  type="text"
-                  placeholder="Cari quote atau author..."
-                  className="w-full p-3 pl-10 rounded-lg border border-gray-300 bg-white text-gray-800"
-                  value={searchTerm}
-                  onChange={(e) => setSearchTerm(e.target.value)}
-                />
-                <div className="absolute left-3 top-3.5 text-gray-400">
-                  <i className="ri-search-line"></i>
-                </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
+            <div className="relative">
+              <input
+                type="text"
+                placeholder="Cari quote atau author..."
+                className="w-full p-3 pl-10 rounded-lg border border-gray-300 bg-white text-gray-800"
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
+              />
+              <div className="absolute left-3 top-3.5 text-gray-400">
+                <i className="ri-search-line"></i>
               </div>
-
-              <select
-                className="w-full p-3 rounded-lg border border-gray-300 bg-white text-gray-800"
-                value={statusFilter}
-                onChange={(e) => setStatusFilter(e.target.value)}
-              >
-                <option value="all">Semua Status</option>
-                <option value="pending">Pending</option>
-                <option value="approved">Approved</option>
-                <option value="rejected">Rejected</option>
-              </select>
-
-              <select
-                className="w-full p-3 rounded-lg border border-gray-300 bg-white text-gray-800"
-                value={categoryFilter}
-                onChange={(e) => setCategoryFilter(e.target.value)}
-              >
-                <option value="all">Semua Kategori</option>
-                <option value="motivation">Motivasi</option>
-                <option value="life">Sindiran</option>
-                <option value="love">Cinta</option>
-                <option value="wisdom">Kebijaksanaan</option>
-                <option value="funny">Lucu</option>
-                <option value="other">Lainnya</option>
-              </select>
             </div>
+
+            <select
+              className="w-full p-3 rounded-lg border border-gray-300 bg-white text-gray-800"
+              value={statusFilter}
+              onChange={(e) => setStatusFilter(e.target.value)}
+            >
+              <option value="all">Semua Status</option>
+              <option value="pending">Pending</option>
+              <option value="approved">Approved</option>
+              <option value="rejected">Rejected</option>
+            </select>
+
+            <select
+              className="w-full p-3 rounded-lg border border-gray-300 bg-white text-gray-800"
+              value={categoryFilter}
+              onChange={(e) => setCategoryFilter(e.target.value)}
+            >
+              <option value="all">Semua Kategori</option>
+              <option value="motivation">Motivasi</option>
+              <option value="life">Sindiran</option>
+              <option value="love">Cinta</option>
+              <option value="wisdom">Kebijaksanaan</option>
+              <option value="funny">Lucu</option>
+              <option value="other">Lainnya</option>
+            </select>
           </div>
 
           {editingQuote && (

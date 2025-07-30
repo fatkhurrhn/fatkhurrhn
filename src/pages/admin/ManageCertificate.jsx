@@ -152,30 +152,17 @@ export default function AdminCertificates() {
   return (
     <Layout>
       <div className="min-h-screen bg-gray-50">
-        <div className="max-w-full mx-auto px-4 py-8">
+        <div className="max-w-full mx-auto">
           <div className="flex justify-between items-center mb-8">
-            <h1 className="text-3xl font-bold text-gray-800">Manage Certificates</h1>
-            <div className="flex gap-4">
-              <button
-                onClick={openModal}
-                className="px-4 py-2 bg-indigo-600 text-white rounded-md hover:bg-indigo-700"
-              >
-                Add New Certificate
-              </button>
-              <Link
-                to="/admin"
-                className="px-4 py-2 text-indigo-600 hover:text-indigo-800 border border-indigo-600 rounded-md"
-              >
-                Back to Dashboard
-              </Link>
-            </div>
+            <button
+              onClick={openModal}
+              className="px-4 py-2 bg-gray-600 text-white rounded-md hover:bg-gray-700"
+            >
+              Add New Certificate
+            </button>
           </div>
 
           {/* Certificates List */}
-          <div className="bg-white rounded-lg shadow-md overflow-hidden">
-            <div className="px-6 py-4 border-b border-gray-200">
-              <h2 className="text-xl font-semibold">All Certificates</h2>
-            </div>
             {loading ? (
               <div className="p-6 text-center">
                 <p>Loading certificates...</p>
@@ -229,7 +216,7 @@ export default function AdminCertificates() {
                         <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
                           <button
                             onClick={() => handleEdit(certificate)}
-                            className="text-indigo-600 hover:text-indigo-900 mr-4"
+                            className="text-gray-600 hover:text-gray-900 mr-4"
                           >
                             Edit
                           </button>
@@ -246,7 +233,6 @@ export default function AdminCertificates() {
                 </table>
               </div>
             )}
-          </div>
         </div>
 
         {/* Add/Edit Modal */}
@@ -284,7 +270,7 @@ export default function AdminCertificates() {
                     value={formData.title}
                     onChange={handleInputChange}
                     required
-                    className="w-full px-4 py-2 bg-white text-gray-800 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                    className="w-full px-4 py-2 bg-white text-gray-800 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-gray-500"
                     placeholder="Earned..."
                   />
                 </div>
@@ -299,7 +285,7 @@ export default function AdminCertificates() {
                     value={formData.imageUrl}
                     onChange={handleInputChange}
                     required
-                    className="w-full px-4 py-2 bg-white text-gray-800 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                    className="w-full px-4 py-2 bg-white text-gray-800 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-gray-500"
                     placeholder="https://example.com/certificate.jpg"
                   />
                 </div>
@@ -313,7 +299,7 @@ export default function AdminCertificates() {
                     name="courseUrl"
                     value={formData.courseUrl}
                     onChange={handleInputChange}
-                    className="w-full px-4 py-2 bg-white text-gray-800 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                    className="w-full px-4 py-2 bg-white text-gray-800 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-gray-500"
                     placeholder="https://example.com/course"
                   />
                 </div>
@@ -327,7 +313,7 @@ export default function AdminCertificates() {
                     value={formData.category}
                     onChange={handleInputChange}
                     required
-                    className="w-full px-4 py-2 bg-white text-gray-800 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                    className="w-full px-4 py-2 bg-white text-gray-800 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-gray-500"
                   >
                     <option value="certificate">Certificate</option>
                     <option value="badge">Badge</option>
@@ -346,7 +332,7 @@ export default function AdminCertificates() {
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 disabled:opacity-50"
+                  className="px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-gray-600 hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500 disabled:opacity-50"
                 >
                   {isSubmitting ? "Saving..." : editId ? "Update Certificate" : "Add Certificate"}
                 </button>

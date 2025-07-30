@@ -46,7 +46,7 @@ export default function Page() {
 
   // Versi 1: Card Grid Layout
   const GridLayout = () => (
-    <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+    <div className="grid grid-cols-1 md:grid-cols-3 gap-1">
       {blogs.map((blog) => (
         <div
           key={blog.id}

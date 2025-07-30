@@ -236,7 +236,7 @@ const DashboardAnime = () => {
                 resetForm();
                 setShowModal(true);
               }}
-              className="px-4 py-2 mb-3 bg-blue-500 text-white rounded-md hover:bg-blue-600 transition-colors"
+              className="px-4 py-2 mb-3 bg-gray-500 text-white rounded-md hover:bg-gray-600 transition-colors"
             >
               Add New Anime
             </button>
@@ -252,7 +252,7 @@ const DashboardAnime = () => {
                 <p className="text-gray-500">No animes found</p>
               </div>
             ) : (
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 gap-2">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 gap-1">
                 {animes.map(anime => (
                   <div key={anime.id} className="border rounded-lg overflow-hidden hover:shadow-md transition-shadow">
                     <div className="relative aspect-[3/4]">
@@ -276,35 +276,22 @@ const DashboardAnime = () => {
 
                     <div className="p-3">
                       <div className="flex flex-wrap gap-1 mb-2">
-                        {anime.genres.length === 2 &&
-                          anime.genres.map(genre => (
+                        {anime.genres.length === 2 ? (
+                          anime.genres.map((genre) => (
                             <span key={genre} className="text-xs bg-gray-100 px-2 py-1 rounded text-gray-600">
                               {genre}
                             </span>
                           ))
-                        }
-
-                        {anime.genres.length === 3 && (
+                        ) : (
                           <>
                             <span className="text-xs bg-gray-100 px-2 py-1 rounded text-gray-600">
                               {anime.genres[0]}
                             </span>
-                            <span className="text-xs bg-gray-100 px-2 py-1 rounded text-gray-600">
-                              +2 more
-                            </span>
-                          </>
-                        )}
-
-                        {anime.genres.length > 3 && (
-                          <>
-                            {anime.genres.slice(0, 2).map(genre => (
-                              <span key={genre} className="text-xs bg-gray-100 px-2 py-1 rounded text-gray-600">
-                                {genre}
+                            {anime.genres.length > 2 && (
+                              <span className="text-xs bg-gray-100 px-2 py-1 rounded text-gray-600">
+                                +{anime.genres.length - 1} more
                               </span>
-                            ))}
-                            <span className="text-xs bg-gray-100 px-2 py-1 rounded text-gray-600">
-                              +{anime.genres.length - 2} more
-                            </span>
+                            )}
                           </>
                         )}
                       </div>
@@ -317,20 +304,20 @@ const DashboardAnime = () => {
                         <span className={`text-xs px-2 py-1 rounded ${anime.status === 'completed'
                           ? 'bg-green-100 text-green-800'
                           : anime.status === 'watching'
-                            ? 'bg-blue-100 text-blue-800'
+                            ? 'bg-gray-100 text-gray-800'
                             : 'bg-purple-100 text-purple-800'
                           }`}>
-                          {anime.status === 'completed' ? 'Completed all eps' :
-                            anime.status === 'watching' ? 'Watching' : 'Planned for Tomorrow'}
+                          {anime.status === 'completed' ? 'Completed' :
+                            anime.status === 'watching' ? 'Watch' : 'Planned'}
                           {anime.status === 'watching' && anime.lastWatchedEpisode && (
-                            ` - Episode ${anime.lastWatchedEpisode}`
+                            ` - Eps ${anime.lastWatchedEpisode}`
                           )}
                         </span>
 
                         <div className="flex items-center space-x-1">
                           <button
                             onClick={() => editAnime(anime)}
-                            className="text-blue-500 hover:text-blue-700 p-1"
+                            className="text-gray-500 hover:text-gray-700 p-1"
                             title="Edit"
                           >
                             <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -372,7 +359,7 @@ const DashboardAnime = () => {
                       <button
                         type="submit"
                         disabled={loading}
-                        className="px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 transition-colors disabled:opacity-50"
+                        className="px-4 py-2 bg-gray-500 text-white rounded-md hover:bg-gray-600 transition-colors disabled:opacity-50"
                       >
                         {loading ? (
                           <span className="flex items-center">
@@ -395,7 +382,7 @@ const DashboardAnime = () => {
                           name="title"
                           value={formData.title}
                           onChange={handleInputChange}
-                          className="w-full px-3 py-2 bg-white text-gray-800 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500"
+                          className="w-full px-3 py-2 bg-white text-gray-800 border border-gray-300 rounded-md focus:ring-gray-500 focus:border-gray-500"
                         />
                       </div>
 
@@ -406,7 +393,7 @@ const DashboardAnime = () => {
                           name="studio"
                           value={formData.studio}
                           onChange={handleInputChange}
-                          className="w-full px-3 py-2 bg-white text-gray-800 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500"
+                          className="w-full px-3 py-2 bg-white text-gray-800 border border-gray-300 rounded-md focus:ring-gray-500 focus:border-gray-500"
                         />
                       </div>
 
@@ -420,7 +407,7 @@ const DashboardAnime = () => {
                           name="rating"
                           value={formData.rating}
                           onChange={handleInputChange}
-                          className="w-full px-3 py-2 bg-white text-gray-800 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500"
+                          className="w-full px-3 py-2 bg-white text-gray-800 border border-gray-300 rounded-md focus:ring-gray-500 focus:border-gray-500"
                         />
                       </div>
                     </div>
@@ -433,7 +420,7 @@ const DashboardAnime = () => {
                           name="year"
                           value={formData.year}
                           onChange={handleInputChange}
-                          className="w-full px-3 py-2 bg-white text-gray-800 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500"
+                          className="w-full px-3 py-2 bg-white text-gray-800 border border-gray-300 rounded-md focus:ring-gray-500 focus:border-gray-500"
                         />
                       </div>
 
@@ -444,7 +431,7 @@ const DashboardAnime = () => {
                           name="episodes"
                           value={formData.episodes}
                           onChange={handleInputChange}
-                          className="w-full px-3 py-2 bg-white text-gray-800 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500"
+                          className="w-full px-3 py-2 bg-white text-gray-800 border border-gray-300 rounded-md focus:ring-gray-500 focus:border-gray-500"
                         />
                       </div>
 
@@ -454,7 +441,7 @@ const DashboardAnime = () => {
                           name="status"
                           value={formData.status}
                           onChange={handleInputChange}
-                          className="w-full px-3 py-2 bg-white text-gray-800 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500"
+                          className="w-full px-3 py-2 bg-white text-gray-800 border border-gray-300 rounded-md focus:ring-gray-500 focus:border-gray-500"
                         >
                           <option value="completed">Completed</option>
                           <option value="watching">Watching</option>
@@ -469,7 +456,7 @@ const DashboardAnime = () => {
                           name="thumbnail"
                           value={formData.thumbnail}
                           onChange={handleInputChange}
-                          className="w-full px-3 py-2 bg-white text-gray-800 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500"
+                          className="w-full px-3 py-2 bg-white text-gray-800 border border-gray-300 rounded-md focus:ring-gray-500 focus:border-gray-500"
                         />
                       </div>
                     </div>
@@ -492,7 +479,7 @@ const DashboardAnime = () => {
                           name="lastWatchedEpisode"
                           value={formData.lastWatchedEpisode}
                           onChange={handleInputChange}
-                          className="w-full px-3 py-2 bg-white text-gray-800 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500"
+                          className="w-full px-3 py-2 bg-white text-gray-800 border border-gray-300 rounded-md focus:ring-gray-500 focus:border-gray-500"
                         />
                       </div>
                     )}
@@ -504,7 +491,7 @@ const DashboardAnime = () => {
                         value={formData.description}
                         onChange={handleInputChange}
                         rows="4"
-                        className="w-full px-3 py-2 bg-white text-gray-800 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500"
+                        className="w-full px-3 py-2 bg-white text-gray-800 border border-gray-300 rounded-md focus:ring-gray-500 focus:border-gray-500"
                       ></textarea>
                     </div>
 
@@ -517,7 +504,7 @@ const DashboardAnime = () => {
                             type="button"
                             onClick={() => handleGenreChange(genre)}
                             className={`px-3 py-1 rounded-full text-sm transition-colors ${formData.genres.includes(genre)
-                              ? 'bg-blue-500 text-white'
+                              ? 'bg-gray-500 text-white'
                               : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
                               }`}
                           >
@@ -538,7 +525,7 @@ const DashboardAnime = () => {
                             name="number"
                             value={currentEpisode.number}
                             onChange={handleEpisodeInputChange}
-                            className="w-full px-3 py-2 bg-white text-gray-800 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500"
+                            className="w-full px-3 py-2 bg-white text-gray-800 border border-gray-300 rounded-md focus:ring-gray-500 focus:border-gray-500"
                           />
                         </div>
 
@@ -549,7 +536,7 @@ const DashboardAnime = () => {
                             name="title"
                             value={currentEpisode.title}
                             onChange={handleEpisodeInputChange}
-                            className="w-full px-3 py-2 bg-white text-gray-800 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500"
+                            className="w-full px-3 py-2 bg-white text-gray-800 border border-gray-300 rounded-md focus:ring-gray-500 focus:border-gray-500"
                             placeholder='bebas'
                           />
                         </div>
@@ -562,7 +549,7 @@ const DashboardAnime = () => {
                             value={currentEpisode.embedUrl}
                             onChange={handleEpisodeInputChange}
                             placeholder="Paste embed iframe code here"
-                            className="w-full px-3 py-2 bg-white text-gray-800 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500"
+                            className="w-full px-3 py-2 bg-white text-gray-800 border border-gray-300 rounded-md focus:ring-gray-500 focus:border-gray-500"
                           />
                         </div>
                       </div>
@@ -571,7 +558,7 @@ const DashboardAnime = () => {
                       <button
                         type="button"
                         onClick={addEpisode}
-                        className="px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 mb-4 transition-colors disabled:opacity-50"
+                        className="px-4 py-2 bg-gray-500 text-white rounded-md hover:bg-gray-600 mb-4 transition-colors disabled:opacity-50"
                         disabled={!currentEpisode.number || !currentEpisode.title || !currentEpisode.embedUrl}
                       >
                         Add Episode

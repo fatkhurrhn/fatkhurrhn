@@ -8,7 +8,6 @@ import Layout from "../../components/Layout";
 export default function ManageBlogs() {
   const [blogs, setBlogs] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
   const [showDeleteModal, setShowDeleteModal] = useState(false);
   const [showBlogModal, setShowBlogModal] = useState(false);
   const [modalMode, setModalMode] = useState('create');
@@ -37,7 +36,6 @@ export default function ManageBlogs() {
         setLoading(false);
       } catch (error) {
         console.error("Error fetching blogs: ", error);
-        setError("Failed to load blogs");
         setLoading(false);
       }
     };
@@ -91,7 +89,6 @@ export default function ManageBlogs() {
       setShowDeleteModal(false);
     } catch (error) {
       console.error("Error deleting blog: ", error);
-      setError("Failed to delete blog");
     }
   };
 
@@ -172,7 +169,6 @@ export default function ManageBlogs() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setError(null);
 
     try {
       const blogData = {
@@ -197,7 +193,6 @@ export default function ManageBlogs() {
       setShowBlogModal(false);
     } catch (error) {
       console.error("Error saving blog: ", error);
-      setError("Failed to save blog. Please try again.");
     }
   };
 
@@ -221,40 +216,23 @@ export default function ManageBlogs() {
   return (
     <Layout>
       <div className="bg-white min-h-screen text-gray-900">
-        <section className="max-w-full mx-auto px-4 sm:px-6 lg:px-8 py-8">
-          {error && (
-            <div className="bg-red-50 border-l-4 border-red-500 p-4 mb-6">
-              <div className="flex">
-                <div className="flex-shrink-0">
-                  <i className="ri-error-warning-line text-red-500"></i>
-                </div>
-                <div className="ml-3">
-                  <p className="text-sm text-red-700">{error}</p>
-                </div>
-              </div>
-            </div>
-          )}
+        <section className="max-w-full mx-auto">
 
           <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-8 gap-4">
             <div>
-              <h1 className="text-2xl font-bold flex items-center gap-2">
-                <Link to="/dashboard">
-                  <i class="ri-arrow-left-circle-line"></i>
-                </Link> Manage Blogs
-              </h1>
-              <p className="text-sm text-gray-500 mt-1">Create, edit, and manage your blog posts</p>
+              <button
+                onClick={handleCreateClick}
+                className="bg-gray-600 hover:bg-gray-700 text-white px-4 py-2 rounded-lg flex items-center gap-2 transition-colors"
+              >
+                <i className="ri-add-line"></i> Create New
+              </button>
             </div>
-            <button
-              onClick={handleCreateClick}
-              className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg flex items-center gap-2 transition-colors"
-            >
-              <i className="ri-add-line"></i> Create New
-            </button>
+
           </div>
 
           {loading ? (
             <div className="flex justify-center items-center h-64">
-              <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-blue-500"></div>
+              <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-gray-500"></div>
             </div>
           ) : blogs.length === 0 ? (
             <div className="text-center py-16 border-2 border-dashed border-gray-200 rounded-lg">
@@ -263,95 +241,93 @@ export default function ManageBlogs() {
               <p className="text-gray-500 mt-1">Get started by creating your first blog post</p>
               <button
                 onClick={handleCreateClick}
-                className="mt-4 bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg inline-flex items-center gap-2 transition-colors"
+                className="mt-4 bg-gray-600 hover:bg-gray-700 text-white px-4 py-2 rounded-lg inline-flex items-center gap-2 transition-colors"
               >
                 <i className="ri-add-line"></i> Create Blog
               </button>
             </div>
           ) : (
-            <div className="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden">
-              <div className="overflow-x-auto">
-                <table className="min-w-full divide-y divide-gray-200">
-                  <thead className="bg-gray-50">
-                    <tr>
-                      <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                        Blog Post
-                      </th>
-                      <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                        Status
-                      </th>
-                      <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                        Published
-                      </th>
-                      <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                        Read Time
-                      </th>
-                      <th scope="col" className="px-6 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">
-                        Actions
-                      </th>
-                    </tr>
-                  </thead>
-                  <tbody className="bg-white divide-y divide-gray-200">
-                    {blogs.map((blog) => (
-                      <tr key={blog.id} className="hover:bg-gray-50 transition-colors">
-                        <td className="px-6 py-4">
-                          <div className="flex items-center gap-4">
-                            {blog.thumbnail && (
-                              <div className="flex-shrink-0 h-12 w-12 rounded-md overflow-hidden">
-                                <img
-                                  className="h-full w-full object-cover"
-                                  src={blog.thumbnail}
-                                  alt={blog.title}
-                                  onError={(e) => e.target.style.display = 'none'}
-                                />
-                              </div>
-                            )}
-                            <div>
-                              <div className="font-medium text-gray-900 line-clamp-1">{blog.title}</div>
-                              <div className="text-xs text-blue-600 mt-1 line-clamp-1">/{blog.slug}</div>
+            <div className="overflow-x-auto">
+              <table className="min-w-full divide-y divide-gray-200">
+                <thead className="bg-gray-50">
+                  <tr>
+                    <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                      Blog Post
+                    </th>
+                    <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                      Status
+                    </th>
+                    <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                      Published
+                    </th>
+                    <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                      Read Time
+                    </th>
+                    <th scope="col" className="px-6 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">
+                      Actions
+                    </th>
+                  </tr>
+                </thead>
+                <tbody className="bg-white divide-y divide-gray-200">
+                  {blogs.map((blog) => (
+                    <tr key={blog.id} className="hover:bg-gray-50 transition-colors">
+                      <td className="px-6 py-4">
+                        <div className="flex items-center gap-4">
+                          {blog.thumbnail && (
+                            <div className="flex-shrink-0 h-12 w-12 rounded-md overflow-hidden">
+                              <img
+                                className="h-full w-full object-cover"
+                                src={blog.thumbnail}
+                                alt={blog.title}
+                                onError={(e) => e.target.style.display = 'none'}
+                              />
                             </div>
+                          )}
+                          <div>
+                            <div className="font-medium text-gray-900 line-clamp-1">{blog.title}</div>
+                            <div className="text-xs text-gray-600 mt-1 line-clamp-1">/{blog.slug}</div>
                           </div>
-                        </td>
-                        <td className="px-6 py-4">
-                          <span className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium 
+                        </div>
+                      </td>
+                      <td className="px-6 py-4">
+                        <span className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium 
                           ${blog.status === 'published'
-                              ? 'bg-green-100 text-green-800'
-                              : 'bg-yellow-100 text-yellow-800'}`}>
-                            {blog.status}
-                          </span>
-                        </td>
-                        <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                          {formatDate(blog.publishedAt)}
-                        </td>
-                        <td className="px-6 py-4 whitespace-nowrap">
-                          <div className="flex items-center gap-1">
-                            <i className="ri-time-line text-gray-400"></i>
-                            <span className="text-sm text-gray-500">{blog.readingTime} min</span>
-                          </div>
-                        </td>
-                        <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                          <div className="flex justify-end gap-3">
-                            <button
-                              onClick={() => handleEditClick(blog)}
-                              className="text-blue-600 hover:text-blue-900 p-1 rounded-full hover:bg-blue-50 transition-colors"
-                              title="Edit"
-                            >
-                              <i className="ri-pencil-line text-lg"></i>
-                            </button>
-                            <button
-                              onClick={() => handleDeleteClick(blog)}
-                              className="text-red-600 hover:text-red-900 p-1 rounded-full hover:bg-red-50 transition-colors"
-                              title="Delete"
-                            >
-                              <i className="ri-delete-bin-line text-lg"></i>
-                            </button>
-                          </div>
-                        </td>
-                      </tr>
-                    ))}
-                  </tbody>
-                </table>
-              </div>
+                            ? 'bg-green-100 text-green-800'
+                            : 'bg-yellow-100 text-yellow-800'}`}>
+                          {blog.status}
+                        </span>
+                      </td>
+                      <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                        {formatDate(blog.publishedAt)}
+                      </td>
+                      <td className="px-6 py-4 whitespace-nowrap">
+                        <div className="flex items-center gap-1">
+                          <i className="ri-time-line text-gray-400"></i>
+                          <span className="text-sm text-gray-500">{blog.readingTime} min</span>
+                        </div>
+                      </td>
+                      <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                        <div className="flex justify-end gap-3">
+                          <button
+                            onClick={() => handleEditClick(blog)}
+                            className="text-gray-600 hover:text-gray-900 p-1 rounded-full hover:bg-gray-50 transition-colors"
+                            title="Edit"
+                          >
+                            <i className="ri-pencil-line text-lg"></i>
+                          </button>
+                          <button
+                            onClick={() => handleDeleteClick(blog)}
+                            className="text-red-600 hover:text-red-900 p-1 rounded-full hover:bg-red-50 transition-colors"
+                            title="Delete"
+                          >
+                            <i className="ri-delete-bin-line text-lg"></i>
+                          </button>
+                        </div>
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
             </div>
           )}
         </section>
@@ -557,7 +533,7 @@ export default function ManageBlogs() {
                   </button>
                   <button
                     type="submit"
-                    className="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-colors flex items-center gap-2"
+                    className="px-4 py-2 bg-gray-600 text-white rounded-md hover:bg-gray-700 transition-colors flex items-center gap-2"
                   >
                     <i className={modalMode === 'create' ? 'ri-save-line' : 'ri-edit-line'}></i>
                     {modalMode === 'create' ? 'Create Blog' : 'Update Blog'}

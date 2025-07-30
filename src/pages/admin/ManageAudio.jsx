@@ -28,7 +28,7 @@ export default function ManageAudio() {
                 }));
                 setAudios(audioList);
                 setFilteredAudios(audioList);
-                
+
                 // Calculate category counts
                 const counts = { all: audioList.length };
                 audioList.forEach(audio => {
@@ -86,7 +86,7 @@ export default function ManageAudio() {
             }));
             setAudios(audioList);
             applyFilter(activeFilter, audioList);
-            
+
             // Update category counts
             const counts = { all: audioList.length };
             audioList.forEach(audio => {
@@ -133,7 +133,7 @@ export default function ManageAudio() {
                 const updatedAudios = audios.filter(audio => audio.id !== id);
                 setAudios(updatedAudios);
                 applyFilter(activeFilter, updatedAudios);
-                
+
                 // Update category counts
                 const counts = { all: updatedAudios.length };
                 updatedAudios.forEach(audio => {
@@ -166,11 +166,10 @@ export default function ManageAudio() {
             <div className="flex flex-wrap gap-2">
                 <button
                     onClick={() => applyFilter('all')}
-                    className={`px-3 py-1 text-sm font-medium rounded-full transition-colors ${
-                        activeFilter === 'all' 
-                            ? 'bg-gray-800 text-white' 
+                    className={`px-3 py-1 text-sm font-medium rounded-full transition-colors ${activeFilter === 'all'
+                            ? 'bg-gray-800 text-white'
                             : 'bg-gray-100 text-gray-800 hover:bg-gray-200'
-                    }`}
+                        }`}
                 >
                     All: {categoryCounts.all || 0}
                 </button>
@@ -180,11 +179,10 @@ export default function ManageAudio() {
                         <button
                             key={category}
                             onClick={() => applyFilter(category)}
-                            className={`px-3 py-1 text-sm font-medium rounded-full transition-colors ${
-                                activeFilter === category 
-                                    ? 'bg-gray-800 text-white' 
+                            className={`px-3 py-1 text-sm font-medium rounded-full transition-colors ${activeFilter === category
+                                    ? 'bg-gray-800 text-white'
                                     : 'bg-gray-100 text-gray-800 hover:bg-gray-200'
-                            }`}
+                                }`}
                         >
                             {formatCategory(category)}: {count}
                         </button>
@@ -195,23 +193,8 @@ export default function ManageAudio() {
 
     return (
         <Layout>
-            <div className="bg-gray-50 min-h-screen p-4 md:p-8">
-            <div className="max-w-full mx-auto">
-                <div className="flex justify-between items-center mb-8">
-                    <h1 className="text-2xl font-bold text-gray-800">Kelola Audios</h1>
-                    <Link
-                        to="/dashboard"
-                        className="px-4 py-2 bg-gray-800 text-white rounded-lg hover:bg-gray-700 transition-colors"
-                    >
-                        Dashboard
-                    </Link>
-                </div>
-
-                {/* Add/Edit Audio Form */}
-                <div className="bg-white rounded-xl shadow-sm p-6 mb-8 border border-gray-100">
-                    <h2 className="text-xl font-semibold text-gray-800 mb-4">
-                        {editingId ? 'Edit Audio' : 'Add New Audio'}
-                    </h2>
+            <div className="min-h-screen">
+                <div className="max-w-full mx-auto">
                     <form onSubmit={handleSubmit}>
                         <div className="flex flex-wrap items-end gap-4 mb-4">
                             {/* Title */}
@@ -288,9 +271,8 @@ export default function ManageAudio() {
                                 <button
                                     type="submit"
                                     disabled={isSubmitting}
-                                    className={`w-full h-[42px] text-white font-medium rounded-lg focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-70 transition-colors ${
-                                        editingId ? 'bg-gray-600 hover:bg-gray-700 focus:ring-gray-500' : 'bg-gray-600 hover:bg-gray-700 focus:ring-gray-500'
-                                    }`}
+                                    className={`w-full h-[42px] text-white font-medium rounded-lg focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-70 transition-colors ${editingId ? 'bg-gray-600 hover:bg-gray-700 focus:ring-gray-500' : 'bg-gray-600 hover:bg-gray-700 focus:ring-gray-500'
+                                        }`}
                                 >
                                     {isSubmitting ? (
                                         <span className="flex items-center justify-center">
@@ -307,16 +289,11 @@ export default function ManageAudio() {
                             </div>
                         </div>
 
-                        <p className="text-xs text-gray-500">
-                            Paste direct URL to .mp3 audio file
-                        </p>
                     </form>
-                </div>
 
-                {/* Audio List */}
-                <div className="bg-white rounded-xl shadow-sm p-6 border border-gray-100">
+                    {/* Audio List */}
                     <div className="flex justify-between items-center mb-6">
-                        <h2 className="text-xl font-semibold text-gray-800">Audio Library</h2>
+                        <h2 className="text-xl font-semibold text-gray-800">List Audio Library</h2>
                         {renderCategoryCounts()}
                     </div>
 
@@ -393,8 +370,8 @@ export default function ManageAudio() {
                                 <i className="ri-music-2-line text-4xl"></i>
                             </div>
                             <h3 className="text-lg font-medium text-gray-900 mb-1">
-                                {activeFilter === 'all' 
-                                    ? 'No audios found' 
+                                {activeFilter === 'all'
+                                    ? 'No audios found'
                                     : `No audios in ${formatCategory(activeFilter)} category`}
                             </h3>
                             <p className="text-gray-500">Add your first audio using the form above</p>
@@ -402,7 +379,6 @@ export default function ManageAudio() {
                     )}
                 </div>
             </div>
-        </div>
         </Layout>
     );
 }

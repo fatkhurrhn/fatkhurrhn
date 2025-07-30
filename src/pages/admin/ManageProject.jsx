@@ -123,22 +123,9 @@ export default function AdminProjects() {
   return (
     <Layout>
       <div className="min-h-screen bg-gray-50">
-        <div className="max-w-full mx-auto px-4 py-8">
-          <div className="flex justify-between items-center mb-8">
-            <h1 className="text-3xl font-bold text-gray-800">Manage Projects</h1>
-            <Link
-              to="/admin"
-              className="text-indigo-600 hover:text-indigo-800"
-            >
-              Back to Dashboard
-            </Link>
-          </div>
+        <div className="max-w-full mx-auto">
 
           {/* Project Form */}
-          <div className="bg-white rounded-lg shadow-md p-6 mb-8">
-            <h2 className="text-xl font-semibold mb-4">
-              {editId ? "Edit Project" : "Add New Project"}
-            </h2>
             <form onSubmit={handleSubmit}>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
@@ -151,7 +138,7 @@ export default function AdminProjects() {
                     value={formData.title}
                     onChange={handleInputChange}
                     required
-                    className="w-full px-4 py-2 bg-white text-gray-800 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                    className="w-full px-4 py-2 bg-white text-gray-800 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-gray-100"
                   />
                 </div>
 
@@ -164,7 +151,7 @@ export default function AdminProjects() {
                     value={formData.category}
                     onChange={handleInputChange}
                     required
-                    className="w-full px-4 py-2 bg-white text-gray-800 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                    className="w-full px-4 py-2 bg-white text-gray-800 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-gray-100"
                   >
                     <option value="project">Project</option>
                     <option value="template">Template</option>
@@ -182,7 +169,7 @@ export default function AdminProjects() {
                   value={formData.description}
                   onChange={handleInputChange}
                   rows={3}
-                  className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                  className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-gray-100"
                 />
               </div> */}
 
@@ -195,7 +182,7 @@ export default function AdminProjects() {
                     name="thumbnail"
                     value={formData.thumbnail}
                     onChange={handleInputChange}
-                    className="w-full px-4 py-2 border bg-white text-gray-800 border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                    className="w-full px-4 py-2 border bg-white text-gray-800 border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-gray-100"
                   />
                 </div>
 
@@ -208,7 +195,7 @@ export default function AdminProjects() {
                     name="demoUrl"
                     value={formData.demoUrl}
                     onChange={handleInputChange}
-                    className="w-full px-4 py-2 border bg-white text-gray-800 border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                    className="w-full px-4 py-2 border bg-white text-gray-800 border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-gray-100"
                   />
                 </div>
 
@@ -221,7 +208,7 @@ export default function AdminProjects() {
                     name="codeUrl"
                     value={formData.codeUrl}
                     onChange={handleInputChange}
-                    className="w-full px-4 py-2 border bg-white text-gray-800 border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                    className="w-full px-4 py-2 border bg-white text-gray-800 border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-gray-100"
                   />
                 </div>
 
@@ -232,7 +219,7 @@ export default function AdminProjects() {
                     id="featured"
                     checked={formData.featured}
                     onChange={handleInputChange}
-                    className="h-4 w-4 text-indigo-600 bg-white text-gray-800 focus:ring-indigo-500 border-gray-300 rounded"
+                    className="h-4 w-4 text-gray-600 bg-white text-gray-800 focus:ring-gray-100 border-gray-300 rounded"
                   />
                   <label htmlFor="featured" className="ml-2 block text-sm text-gray-700">
                     Featured Project
@@ -253,16 +240,14 @@ export default function AdminProjects() {
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 disabled:opacity-50"
+                  className="px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-gray-600 hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-100 disabled:opacity-50"
                 >
                   {isSubmitting ? "Saving..." : editId ? "Update Project" : "Add Project"}
                 </button>
               </div>
             </form>
-          </div>
 
           {/* Projects List */}
-          <div className="bg-white rounded-lg shadow-md overflow-hidden">
             <div className="px-6 py-4 border-b border-gray-200">
               <h2 className="text-xl font-semibold">All Projects</h2>
             </div>
@@ -329,7 +314,7 @@ export default function AdminProjects() {
                           <td className="px-6 py-4 whitespace-nowrap">
                             <span className={`px-2 inline-flex text-xs leading-5 font-semibold rounded-full 
                     ${project.category === 'project' ? 'bg-green-100 text-green-800' :
-                                project.category === 'template' ? 'bg-blue-100 text-blue-800' :
+                                project.category === 'template' ? 'bg-gray-100 text-gray-800' :
                                   project.category === 'components' ? 'bg-purple-100 text-purple-800' :
                                     'bg-yellow-100 text-yellow-800'
                               }`}>
@@ -341,14 +326,14 @@ export default function AdminProjects() {
                           </td>
                           <td className="px-6 py-4 whitespace-nowrap">
                             <span className={`px-2 inline-flex text-xs leading-5 font-semibold rounded-full 
-                    ${project.featured ? 'bg-indigo-100 text-indigo-800' : 'bg-gray-100 text-gray-800'}`}>
+                    ${project.featured ? 'bg-gray-100 text-gray-800' : 'bg-gray-100 text-gray-800'}`}>
                               {project.featured ? 'Featured' : 'Regular'}
                             </span>
                           </td>
                           <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
                             <button
                               onClick={() => handleEdit(project)}
-                              className="text-indigo-600 hover:text-indigo-900 mr-4"
+                              className="text-gray-600 hover:text-gray-900 mr-4"
                             >
                               Edit
                             </button>
@@ -365,7 +350,6 @@ export default function AdminProjects() {
                 </table>
               </div>
             )}
-          </div>
         </div>
       </div>
     </Layout>

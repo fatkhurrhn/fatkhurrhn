@@ -59,7 +59,7 @@ export default function Certificate() {
   return (
     <div className="bg-white min-h-screen text-gray-900 dark:text-white transition-colors duration-300">
       <NavNavigate />
-      <ChatRoomComponents/>
+      <ChatRoomComponents />
       <section className="max-w-4xl mx-auto px-5 pt-4">
         <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center w-full gap-4 mb-6">
           {/* Search Input - Left Side with Search Icon and Clear Button */}
@@ -156,11 +156,11 @@ export default function Certificate() {
                 </a>
               </div>
             )}
-            <div className="w-full mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            <div className="w-full mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2">
               {filteredCertificates.map((certificate) => (
                 <div
                   key={certificate.id}
-                  className={`w-full bg-white rounded-lg shadow-md overflow-hidden border border-gray-200 ${certificate.category === "badge" ? "border-2 border-gray-200" : ""
+                  className={`w-full bg-white rounded-lg overflow-hidden border border-gray-200 ${certificate.category === "badge" ? "border-2 border-gray-200" : ""
                     }`}
                 >
                   <div
@@ -177,20 +177,9 @@ export default function Certificate() {
                     />
                   </div>
                   <div className="p-4">
-                    <h3 className="text-sm font-medium text-gray-800 text-left mb-2 truncate">
+                    <h3 className="text-sm font-medium text-gray-800 text-left truncate">
                       {certificate.title}
                     </h3>
-                    <a
-                      href={certificate.courseUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className={`mt-2 inline-block w-full text-gray-800 border ${certificate.category === "badge"
-                        ? "border-gray-200 hover:bg-gray-100"
-                        : "border-gray-200 hover:bg-gray-100"
-                        } bg-white font-medium py-2 px-3 rounded-md transition duration-200 text-center text-xs`}
-                    >
-                      View {certificate.category === "badge" ? "Details" : "Course"}
-                    </a>
                   </div>
                 </div>
               ))}
@@ -219,10 +208,17 @@ export default function Certificate() {
                 className="w-full h-auto max-h-[80vh] object-contain"
               />
               <div className="p-4">
-                <h3 className="text-lg font-medium text-gray-800">{selectedImage.title}</h3>
-                {selectedImage.description && (
-                  <p className="text-gray-600 mt-2">{selectedImage.description}</p>
-                )}
+                <h3 className="text-lg font-medium text-gray-800">
+                  {selectedImage.title}{' '}
+                  <a
+                    href={selectedImage.courseUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-blue-600 hover:underline"
+                  >
+                    [view details]
+                  </a>
+                </h3>
               </div>
             </div>
           </div>
