@@ -50,14 +50,6 @@ function App() {
         <Route path="/resume" element={<Resume />} />
         <Route path="/chat" element={<ChatRoom />} />
 
-        {/* ── Tools Routes ──────────────── */}
-        <Route path="/tools" element={<HomePageTools />} />
-        <Route path="/tools/shortlink" element={<ShortlinkPage />} />
-        <Route path="/tools/password-generator" element={<PasswordGenerator />} />
-        <Route path="/tools/text-case-converter" element={<TextCaseConverter />} />
-        <Route path="/tools/whatsapp-text-converter" element={<WhatsAppTextConverter />} />
-        <Route path="/:slug" element={<ShortlinkPage />} />
-
         {/* ── Frontdev Routes ───────────── */}
         <Route path="/frontdev/projects" element={<Project />} />
         <Route path="/frontdev/certificates" element={<Certificate />} />
