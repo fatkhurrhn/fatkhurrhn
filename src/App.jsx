@@ -22,13 +22,6 @@ import OtherFrontDev from './pages/frontdev/OtherFrontDev';
 // ─── Islamic Page ───────────────────────────────────
 import Islamic from './pages/Islamic/Islamic';
 
-// ─── Tools Pages ────────────────────────────────────
-import HomePageTools from './pages/tools/HomePage';
-import ShortlinkPage from './pages/tools/shortlinks/ShortLinks';
-import PasswordGenerator from './pages/tools/PasswordGenerator';
-import TextCaseConverter from './pages/tools/TextCaseConverter';
-import WhatsAppTextConverter from './pages/tools/WhatsAppTextConverter';
-
 // ─── Admin Pages ────────────────────────────────────
 import Login from './pages/admin/Login';
 import Dashboard from './pages/admin/Dashboard';
