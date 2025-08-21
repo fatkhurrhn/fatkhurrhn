@@ -37,15 +37,6 @@ import StoreViu from './pages/creator/detailStore/DetailViu';
 import StoreAM from './pages/creator/detailStore/DetailAlightMotion';
 import StoreYT from './pages/creator/detailStore/DetailYoutube';
 
-// ─── Anime Pages ────────────────────────────────────
-import HomeAnime from './pages/anime/Home';
-import AnimeDetail from './pages/anime/AnimeDetail';
-import EpisodePlayer from './pages/anime/EpisodePlayer';
-import Story from './pages/anime/Story';
-import Genre from './pages/anime/Genre';
-import Status from './pages/anime/Status';
-import More from './pages/anime/More';
-
 // ─── Islamic Page ───────────────────────────────────
 import Islamic from './pages/Islamic/Islamic';
 
@@ -116,16 +107,6 @@ function App() {
 
         {/* ── Islamic Route ─────────────── */}
         <Route path="/islamic" element={<Islamic />} />
-
-        {/* ── Anime Routes ──────────────── */}
-        <Route path="/animes" element={<HomeAnime />} />
-        <Route path="/animes/:id" element={<AnimeDetail />} />
-        <Route path="/animes/:id/episode/:episodeNumber" element={<EpisodePlayer />} />
-        <Route path="/animes/story" element={<Story />} />
-        <Route path="/animes/genre" element={<Genre />} />
-        <Route path="/genres/:genreName" element={<Genre />} />
-        <Route path="/animes/status" element={<Status />} />
-        <Route path="/animes/more" element={<More />} />
 
         {/* Login */}
         <Route path="/login" element={<Login />} />
