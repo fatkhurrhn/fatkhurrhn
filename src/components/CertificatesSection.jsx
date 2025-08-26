@@ -7,7 +7,7 @@ export default function CertificatesSection() {
         <h2 className="text-[18px] font-bold text-gray-800 flex items-center gap-2">
           <i className="ri-award-fill"></i> Certifications
         </h2>
-        <Link to="/frontdev/certificate" className="text-xs text-gray-500 hover:text-gray-700 transition-colors">
+        <Link to="/certificate" className="text-xs text-gray-500 hover:text-gray-700 transition-colors">
           View more
         </Link>
       </div> <br />
