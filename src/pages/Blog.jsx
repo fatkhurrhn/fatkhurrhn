@@ -1,11 +1,11 @@
 // src/pages/frontdev/Blog.jsx
 import React, { useState, useEffect } from "react";
-import NavNavigate from "../../components/frontdev/NavNavigate";
-import Footer from "../../components/frontdev/Footer";
+import NavNavigate from "../components/NavNavigate";
+import Footer from "../components/Footer";
 import { Link } from "react-router-dom";
 import { collection, getDocs, query, orderBy } from "firebase/firestore";
-import { db } from "../../firebase";
-import ChatRoomComponents from "../../components/ChatRoom";
+import { db } from "../firebase";
+import ChatRoomComponents from "../components/ChatRoom";
 
 export default function Page() {
   const [blogs, setBlogs] = useState([]);
@@ -84,7 +84,7 @@ export default function Page() {
   return (
     <div className="bg-white min-h-screen text-gray-900">
       <NavNavigate />
-      <ChatRoomComponents/>
+      <ChatRoomComponents />
       <section className="max-w-4xl mx-auto px-5 pt-4 pb-16">
         {loading ? (
           <div className="flex justify-center items-center h-64">

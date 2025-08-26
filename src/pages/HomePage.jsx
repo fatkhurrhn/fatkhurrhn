@@ -1,17 +1,17 @@
 import React, { useState, useEffect } from "react";
-import NavNavigate from "../../components/frontdev/NavNavigate";
-import Footer from "../../components/frontdev/Footer";
-import ProfileSection from "../../components/frontdev/ProfileSection";
-import SkillsSection from "../../components/frontdev/SkillsSection";
-import ProjectsSection from "../../components/frontdev/ProjectsSection";
-import CertificatesSection from "../../components/frontdev/CertificatesSection";
-import ExperienceSection from "../../components/frontdev/ExperienceSection";
-import BlogSection from "../../components/frontdev/BlogSection";
-import GithubActivity from "../../components/frontdev/GithubActivity";
-import Divider from "../../components/frontdev/Divider";
-import EducationSection from "../../components/frontdev/EducationSection";
+import NavNavigate from "../components/NavNavigate";
+import Footer from "../components/Footer";
+import ProfileSection from "../components/ProfileSection";
+import SkillsSection from "../components/SkillsSection";
+import ProjectsSection from "../components/ProjectsSection";
+import CertificatesSection from "../components/CertificatesSection";
+import ExperienceSection from "../components/ExperienceSection";
+import BlogSection from "../components/BlogSection";
+import GithubActivity from "../components/GithubActivity";
+import Divider from "../components/Divider";
+import EducationSection from "../components/EducationSection";
 
-import ChatRoom from "../../components/ChatRoom";
+import ChatRoom from "../components/ChatRoom";
 
 export default function Page() {
   const [mounted, setMounted] = useState(false);
@@ -27,7 +27,7 @@ export default function Page() {
   return (
     <div className="bg-gray-50 min-h-screen text-gray-800 transition-colors duration-300">
       <NavNavigate />
-      <ChatRoom/>
+      <ChatRoom />
       <section className="max-w-4xl mx-auto px-5 pt-4">
         <ProfileSection />
 
@@ -43,8 +43,8 @@ export default function Page() {
         <Divider />
         <CertificatesSection />
 
-        <Divider/>
-        <EducationSection/>
+        <Divider />
+        <EducationSection />
 
         <Divider />
         <ExperienceSection />

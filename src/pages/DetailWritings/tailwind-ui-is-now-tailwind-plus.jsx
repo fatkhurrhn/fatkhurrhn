@@ -1,6 +1,6 @@
 import React from "react";
-import NavNavigate from "../../../components/frontdev/NavNavigate";
-import Footer from "../../../components/frontdev/Footer";
+import NavNavigate from "../../components/NavNavigate";
+import Footer from "../../components/Footer";
 import { Link } from "react-router-dom";
 
 export default function Page() {

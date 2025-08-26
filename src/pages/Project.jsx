@@ -1,18 +1,18 @@
 import React, { useState, useEffect } from "react";
-import NavNavigate from "../../components/frontdev/NavNavigate";
-import Footer from "../../components/frontdev/Footer";
+import NavNavigate from "../components/NavNavigate";
+import Footer from "../components/Footer";
 import { collection, getDocs, query, orderBy } from "firebase/firestore";
-import { db } from "../../firebase";
-import ChatRoomComponents from "../../components/ChatRoom";
+import { db } from "../firebase";
+import ChatRoomComponents from "../components/ChatRoom";
 
 // Memoized Projects Content Component
-const ProjectsContent = React.memo(({ 
-  loading, 
-  sortedProjects, 
-  activeCategory, 
-  setActiveCategory, 
-  searchTerm, 
-  setSearchTerm, 
+const ProjectsContent = React.memo(({
+  loading,
+  sortedProjects,
+  activeCategory,
+  setActiveCategory,
+  searchTerm,
+  setSearchTerm,
   isMobile,
   categories
 }) => {
@@ -201,8 +201,8 @@ export default function Projects() {
   return (
     <div className="bg-gray-50 min-h-screen text-gray-800">
       <NavNavigate />
-      <ChatRoomComponents/>
-      <ProjectsContent 
+      <ChatRoomComponents />
+      <ProjectsContent
         loading={loading}
         sortedProjects={sortedProjects}
         activeCategory={activeCategory}

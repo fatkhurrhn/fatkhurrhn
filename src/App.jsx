@@ -6,21 +6,18 @@ import ProtectedRoute from './components/common/ProtectedRoute';
 
 // ─── Main Pages ──────────────────────────────────────
 import Resume from './pages/Resume';
-import HomePage from './pages/frontdev/HomePage';
+import HomePage from './pages/HomePage';
 import ChatRoom from './pages/ChatRoom';
 
 // ─── Frontdev Pages ─────────────────────────────────
-import Project from './pages/frontdev/Project';
-import Certificate from './pages/frontdev/Certificate';
-import Guestbook from './pages/frontdev/Guestbook';
-import GithubRepo from './pages/frontdev/GithubRepo';
-import Blogs from './pages/frontdev/Blog';
-import DetailBlog from './pages/frontdev/DetailBlog';
-import Writings01 from './pages/frontdev/DetailWritings/tailwind-ui-is-now-tailwind-plus';
-import OtherFrontDev from './pages/frontdev/OtherFrontDev';
-
-// ─── Islamic Page ───────────────────────────────────
-import Islamic from './pages/Islamic/Islamic';
+import Project from './pages/Project';
+import Certificate from './pages/Certificate';
+import Guestbook from './pages/Guestbook';
+import GithubRepo from './pages/GithubRepo';
+import Blogs from './pages/Blog';
+import DetailBlog from './pages/DetailBlog';
+import Writings01 from './pages/DetailWritings/tailwind-ui-is-now-tailwind-plus';
+import OtherFrontDev from './pages/OtherFrontDev';
 
 // ─── Admin Pages ────────────────────────────────────
 import Login from './pages/admin/Login';
@@ -44,17 +41,14 @@ function App() {
         <Route path="/chat" element={<ChatRoom />} />
 
         {/* ── Frontdev Routes ───────────── */}
-        <Route path="/frontdev/projects" element={<Project />} />
-        <Route path="/frontdev/certificates" element={<Certificate />} />
-        <Route path="/frontdev/guestbook" element={<Guestbook />} />
-        <Route path="/frontdev/github" element={<GithubRepo />} />
-        <Route path="/frontdev/others" element={<OtherFrontDev />} />
-        <Route path="/frontdev/blogs" element={<Blogs />} />
-        <Route path="/frontdev/blogs/:slug" element={<DetailBlog />} />
-        <Route path="/frontdev/writings/tailwind-ui-is-now-tailwind-plus" element={<Writings01 />} />
-
-        {/* ── Islamic Route ─────────────── */}
-        <Route path="/islamic" element={<Islamic />} />
+        <Route path="/projects" element={<Project />} />
+        <Route path="/certificates" element={<Certificate />} />
+        <Route path="/guestbook" element={<Guestbook />} />
+        <Route path="/github" element={<GithubRepo />} />
+        <Route path="/others" element={<OtherFrontDev />} />
+        <Route path="/blogs" element={<Blogs />} />
+        <Route path="/blogs/:slug" element={<DetailBlog />} />
+        <Route path="/writings/tailwind-ui-is-now-tailwind-plus" element={<Writings01 />} />
 
         {/* Login */}
         <Route path="/login" element={<Login />} />

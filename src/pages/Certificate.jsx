@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
-import NavNavigate from "../../components/frontdev/NavNavigate";
-import Footer from "../../components/frontdev/Footer";
+import NavNavigate from "../components/NavNavigate";
+import Footer from "../components/Footer";
 import { collection, getDocs } from "firebase/firestore";
-import { db } from "../../firebase";
+import { db } from "../firebase";
 import { Link } from "react-router-dom";
-import ChatRoomComponents from "../../components/ChatRoom";
+import ChatRoomComponents from "../components/ChatRoom";
 
 export default function Certificate() {
   const [certificates, setCertificates] = useState([]);

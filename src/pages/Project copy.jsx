@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import NavNavigate from "../../components/frontdev/NavNavigate";
 import Footer from "../../components/frontdev/Footer";
 import { collection, getDocs, query, orderBy } from "firebase/firestore";
-import { db } from "../../firebase";
+import { db } from "../firebase";
 
 const categories = ["project", "template", "components", "design"];
 

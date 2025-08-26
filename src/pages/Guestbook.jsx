@@ -1,14 +1,14 @@
 import React from "react";
-import NavNavigate from "../../components/frontdev/NavNavigate";
-import Footer from "../../components/frontdev/Footer";
+import NavNavigate from "../components/NavNavigate";
+import Footer from "../components/Footer";
 import Giscus from '@giscus/react';
-import ChatRoomComponents from "../../components/ChatRoom";
+import ChatRoomComponents from "../components/ChatRoom";
 
 export default function Page() {
     return (
         <div className="bg-white min-h-screen text-gray-300 transition-colors duration-300">
             <NavNavigate />
-            <ChatRoomComponents/>
+            <ChatRoomComponents />
             <section className="max-w-4xl mx-auto px-6 pt-4">
 
                 <div className="flex justify-between items-center w-full">

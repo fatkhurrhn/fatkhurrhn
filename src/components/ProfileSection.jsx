@@ -30,8 +30,8 @@ export default function ProfileSection() {
         <p className="mt-2 text-gray-700 text-justify">
           I'm an Information Systems student with a strong passion for Front-End Development. I specialize in crafting responsive, user-friendly websites using React, Tailwind CSS, and modern tech stacks—combining functionality with clean design.
           <br />
-          Beyond tech, I’m also a content creator with 90K+ followers across Instagram and TikTok. I share motivational quotes and personal stories to inspire and engage audiences—shaping how I communicate, empathize, and build user-focused digital experiences.
-          <Link to="/creator">
+          Beyond tech, I’m also a content creator with 80K+ followers across Instagram. I share motivational quotes and personal stories to inspire and engage audiences—shaping how I communicate, empathize, and build user-focused digital experiences.
+          <Link to="https://creator-fatkhurrhn.vercel.app/">
             <span className="font-bold ml-1 text-blue-600 hover:underline">
               → Check out my creator side
             </span>
