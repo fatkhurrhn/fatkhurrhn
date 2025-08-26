@@ -97,34 +97,24 @@ const ProjectsContent = React.memo(({
                   <img
                     src={project.thumbnail}
                     alt={project.title}
-                    className="w-full h-48 object-cover"
+                    className="w-full h-40 object-cover"
                   />
                 )}
-                <span className="absolute top-2 left-2 bg-indigo-100 text-black text-xs px-2 py-1 rounded-[5px] capitalize">
+                <span className="absolute top-2 right-2 bg-indigo-100 text-black text-xs px-2 py-0.5 rounded-[5px] capitalize">
                   {project.category}
                 </span>
               </div>
-              <div className="p-4">
-                <h3 className="text-xl font-bold mb-4 truncate">{project.title}</h3>
+              <div className="p-3">
+                <h3 className="text-md font-bold mb-3 truncate">{project.title}</h3>
                 <div className="flex gap-3">
-                  {project.demoUrl && (
-                    <a
-                      href={project.demoUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex-1 text-center bg-gray-100 hover:bg-gray-200 border border-gray-200 text-gray-800 font-medium py-2 px-4 rounded-md transition-colors text-sm"
-                    >
-                      View
-                    </a>
-                  )}
                   {project.codeUrl && (
                     <a
                       href={project.codeUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex-1 text-center bg-gray-100 hover:bg-gray-200 border border-gray-200 text-gray-800 font-medium py-2 px-4 rounded-md transition-colors text-sm"
+                      className="flex-1 text-center bg-gray-100 hover:bg-gray-200 border border-gray-200 text-gray-800 font-medium py-2 px-3 rounded-md transition-colors text-sm"
                     >
-                      Source
+                      Source Code
                     </a>
                   )}
                 </div>
