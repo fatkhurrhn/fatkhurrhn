@@ -13,7 +13,7 @@ export default function Page() {
                 <div className="flex justify-between items-center w-full pt-3">
                     <h2 className="text-[15px] text-gray-800 font-sm">
                         <Link to="/">home</Link><i class="ri-arrow-drop-right-line"></i>
-                        <Link to="/frontdev/blogs">blogs</Link><i class="ri-arrow-drop-right-line"></i>
+                        <Link to="/blogs">blogs</Link><i class="ri-arrow-drop-right-line"></i>
                         tailwind ui is now tailwind plus</h2>
                 </div>
 
