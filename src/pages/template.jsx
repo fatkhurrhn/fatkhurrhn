@@ -7,7 +7,7 @@ export default function Template() {
         <div className="bg-gray-50 min-h-screen text-gray-800 transition-colors duration-300">
             <NavNavigate />
             <section className="max-w-4xl mx-auto px-5 pt-[95px]">
-                <div>isi konten disini</div>
+                <div>coba letak kontendsadsajdcsad</div>
             </section>
             <Footer />
         </div>

@@ -24,18 +24,24 @@ export default function ProfileSection() {
         <div className="hidden md:block">
           <h1 className="text-[18px] font-bold text-gray-800">M. Fatkhurrohman</h1>
           <p className="text-sm font-mono text-gray-600">
-            Frontend Developer & Content Creator
+            Frontend Developer
           </p>
         </div>
         <p className="mt-2 text-gray-700 text-justify">
-          I'm an Information Systems student with a strong passion for Front-End Development. I specialize in crafting responsive, user-friendly websites using React, Tailwind CSS, and modern tech stacks—combining functionality with clean design.
+          I am proficient in front-end development, web development, user interface (UI) design, with a
+          strong foundation in programming languages such as JavaScript as well as markup languages such
+          as HTML & CSS. My experience includes leading collaborative projects, developing interactive
+          websites using React.js, and designing user-friendly interfaces for various applications/websites. I
+          am passionate about innovation in technology and thrive in a dynamic environment where I can
+          utilize my technical and creative skills to drive impactful results
+          {/* I'm an Information Systems student with a strong passion for Front-End Development. I specialize in crafting responsive, user-friendly websites using React, Tailwind CSS, and modern tech stacks—combining functionality with clean design.
           <br />
           Beyond tech, I’m also a content creator with 80K+ followers across Instagram. I share motivational quotes and personal stories to inspire and engage audiences—shaping how I communicate, empathize, and build user-focused digital experiences.
           <Link to="https://creator-fatkhurrhn.vercel.app/">
             <span className="font-bold ml-1 text-blue-600 hover:underline">
               → Check out my creator side
             </span>
-          </Link>
+          </Link> */}
         </p>
 
         {/* Social Links */}

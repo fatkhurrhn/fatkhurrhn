@@ -125,114 +125,77 @@ export default function AdminProjects() {
       <div className="min-h-screen bg-gray-50">
         <div className="max-w-full mx-auto">
 
-          {/* Project Form */}
-            <form onSubmit={handleSubmit}>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-1">
-                    Title*
-                  </label>
-                  <input
-                    type="text"
-                    name="title"
-                    value={formData.title}
-                    onChange={handleInputChange}
-                    required
-                    className="w-full px-4 py-2 bg-white text-gray-800 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-gray-100"
-                  />
-                </div>
-
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-1">
-                    Category*
-                  </label>
-                  <select
-                    name="category"
-                    value={formData.category}
-                    onChange={handleInputChange}
-                    required
-                    className="w-full px-4 py-2 bg-white text-gray-800 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-gray-100"
-                  >
-                    <option value="project">Project</option>
-                    <option value="template">Template</option>
-                    <option value="components">Components</option>
-                    <option value="design">Design</option>
-                  </select>
-                </div>
-
-                {/* <div className="md:col-span-2">
+          <form onSubmit={handleSubmit} className="w-full">
+            <div className="flex flex-col md:flex-row md:items-end md:gap-4 flex-wrap">
+              {/* Title */}
+              <div className="w-full md:w-[270px]">
                 <label className="block text-sm font-medium text-gray-700 mb-1">
-                  Description
+                  Title*
                 </label>
-                <textarea
-                  name="description"
-                  value={formData.description}
+                <input
+                  type="text"
+                  name="title"
+                  value={formData.title}
                   onChange={handleInputChange}
-                  rows={3}
-                  className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-gray-100"
+                  required
+                  className="w-full px-4 py-2 bg-white text-gray-800 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-gray-100"
                 />
-              </div> */}
-
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-1">
-                    Thumbnail URL
-                  </label>
-                  <input
-                    type="url"
-                    name="thumbnail"
-                    value={formData.thumbnail}
-                    onChange={handleInputChange}
-                    className="w-full px-4 py-2 border bg-white text-gray-800 border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-gray-100"
-                  />
-                </div>
-
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-1">
-                    Demo URL
-                  </label>
-                  <input
-                    type="url"
-                    name="demoUrl"
-                    value={formData.demoUrl}
-                    onChange={handleInputChange}
-                    className="w-full px-4 py-2 border bg-white text-gray-800 border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-gray-100"
-                  />
-                </div>
-
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-1">
-                    Code URL
-                  </label>
-                  <input
-                    type="url"
-                    name="codeUrl"
-                    value={formData.codeUrl}
-                    onChange={handleInputChange}
-                    className="w-full px-4 py-2 border bg-white text-gray-800 border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-gray-100"
-                  />
-                </div>
-
-                <div className="flex items-center">
-                  <input
-                    type="checkbox"
-                    name="featured"
-                    id="featured"
-                    checked={formData.featured}
-                    onChange={handleInputChange}
-                    className="h-4 w-4 text-gray-600 bg-white text-gray-800 focus:ring-gray-100 border-gray-300 rounded"
-                  />
-                  <label htmlFor="featured" className="ml-2 block text-sm text-gray-700">
-                    Featured Project
-                  </label>
-                </div>
               </div>
 
-              <div className="mt-6 flex justify-end gap-3">
+              {/* Category */}
+              <div className="w-full md:w-[120px]">
+                <label className="block text-sm font-medium text-gray-700 mb-1">
+                  Category*
+                </label>
+                <select
+                  name="category"
+                  value={formData.category}
+                  onChange={handleInputChange}
+                  required
+                  className="w-full px-4 py-2 bg-white text-gray-800 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-gray-100"
+                >
+                  <option value="project">Project</option>
+                  <option value="template">Template</option>
+                  <option value="components">Components</option>
+                  <option value="design">Design</option>
+                </select>
+              </div>
+
+              {/* Thumbnail */}
+              <div className="w-full md:w-[170px]">
+                <label className="block text-sm font-medium text-gray-700 mb-1">
+                  Thumbnail URL
+                </label>
+                <input
+                  type="url"
+                  name="thumbnail"
+                  value={formData.thumbnail}
+                  onChange={handleInputChange}
+                  className="w-full px-4 py-2 border bg-white text-gray-800 border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-gray-100"
+                />
+              </div>
+
+              {/* Github */}
+              <div className="w-full md:w-[170px]">
+                <label className="block text-sm font-medium text-gray-700 mb-1">
+                  Github
+                </label>
+                <input
+                  type="url"
+                  name="codeUrl"
+                  value={formData.codeUrl}
+                  onChange={handleInputChange}
+                  className="w-full px-4 py-2 border bg-white text-gray-800 border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-gray-100"
+                />
+              </div>
+
+              {/* Buttons */}
+              <div className="flex gap-2 mt-4 md:mt-0 md:w-[200px] justify-end">
                 {editId && (
                   <button
                     type="button"
                     onClick={resetForm}
-                    className="px-4 py-2 border border-gray-300 rounded-md text-sm font-medium text-gray-700 hover:bg-gray-50"
+                    className="px-4 py-2 border border-gray-300 rounded-md text-sm font-medium text-gray-700 hover:bg-gray-50 w-full"
                   >
                     Cancel
                   </button>
@@ -240,116 +203,101 @@ export default function AdminProjects() {
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-gray-600 hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-100 disabled:opacity-50"
+                  className="px-4 py-2 rounded-md shadow-sm text-sm font-medium text-white bg-gray-600 hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-100 disabled:opacity-50 w-full"
                 >
                   {isSubmitting ? "Saving..." : editId ? "Update Project" : "Add Project"}
                 </button>
               </div>
-            </form>
+            </div>
+          </form>
 
           {/* Projects List */}
-            <div className="px-6 py-4 border-b border-gray-200">
-              <h2 className="text-xl font-semibold">All Projects</h2>
+          <div className="px-6 py-4 border-b border-gray-200">
+            <h2 className="text-xl font-semibold">All Projects</h2>
+          </div>
+
+          {loading ? (
+            <div className=" text-center">
+              <p>Loading projects...</p>
             </div>
-            {loading ? (
-              <div className="p-6 text-center">
-                <p>Loading projects...</p>
-              </div>
-            ) : projects.length === 0 ? (
-              <div className="p-6 text-center">
-                <p>No projects found. Add your first project!</p>
-              </div>
-            ) : (
-              <div className="overflow-x-auto">
-                <table className="min-w-full divide-y divide-gray-200">
-                  <thead className="bg-gray-50">
-                    <tr>
-                      <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                        Thumbnail
-                      </th>
-                      <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                        Title
-                      </th>
-                      <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                        Category
-                      </th>
-                      <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                        Created
-                      </th>
-                      <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                        Status
-                      </th>
-                      <th scope="col" className="px-6 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">
-                        Actions
-                      </th>
-                    </tr>
-                  </thead>
-                  <tbody className="bg-white divide-y divide-gray-200">
-                    {projects
-                      .sort((a, b) => b.createdAt?.toMillis() - a.createdAt?.toMillis()) // Urutkan terbaru ke atas
-                      .map((project) => (
-                        <tr key={project.id} className="hover:bg-gray-50">
-                          <td className="px-6 py-4 whitespace-nowrap">
-                            {project.thumbnail ? (
-                              <div className="flex-shrink-0 h-10 w-10">
-                                <img
-                                  className="h-10 w-10 rounded-md object-cover"
-                                  src={project.thumbnail}
-                                  alt={project.title}
-                                  onError={(e) => {
-                                    e.target.src = 'https://via.placeholder.com/100';
-                                  }}
-                                />
-                              </div>
-                            ) : (
-                              <div className="flex-shrink-0 h-10 w-10 bg-gray-200 rounded-md flex items-center justify-center">
-                                <span className="text-gray-500 text-xs">No Image</span>
-                              </div>
-                            )}
-                          </td>
-                          <td className="px-6 py-4 whitespace-nowrap">
-                            <div className="text-sm font-medium text-gray-900">{project.title}</div>
-                            <div className="text-sm text-gray-500 line-clamp-1">{project.description}</div>
-                          </td>
-                          <td className="px-6 py-4 whitespace-nowrap">
-                            <span className={`px-2 inline-flex text-xs leading-5 font-semibold rounded-full 
-                    ${project.category === 'project' ? 'bg-green-100 text-green-800' :
-                                project.category === 'template' ? 'bg-gray-100 text-gray-800' :
-                                  project.category === 'components' ? 'bg-purple-100 text-purple-800' :
-                                    'bg-yellow-100 text-yellow-800'
-                              }`}>
-                              {project.category}
-                            </span>
-                          </td>
-                          <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                            {project.createdAt?.toDate().toLocaleDateString()}
-                          </td>
-                          <td className="px-6 py-4 whitespace-nowrap">
-                            <span className={`px-2 inline-flex text-xs leading-5 font-semibold rounded-full 
-                    ${project.featured ? 'bg-gray-100 text-gray-800' : 'bg-gray-100 text-gray-800'}`}>
-                              {project.featured ? 'Featured' : 'Regular'}
-                            </span>
-                          </td>
-                          <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                            <button
-                              onClick={() => handleEdit(project)}
-                              className="text-gray-600 hover:text-gray-900 mr-4"
-                            >
-                              Edit
-                            </button>
-                            <button
-                              onClick={() => handleDelete(project.id)}
-                              className="text-red-600 hover:text-red-900"
-                            >
-                              Delete
-                            </button>
-                          </td>
-                        </tr>
-                      ))}
-                  </tbody>
-                </table>
-              </div>
-            )}
+          ) : projects.length === 0 ? (
+            <div className="p-6 text-center">
+              <p>No projects found. Add your first project!</p>
+            </div>
+          ) : (
+            <div className=" pt-2 grid gap-2 sm:grid-cols-2 lg:grid-cols-4">
+              {projects
+                .sort((a, b) => b.createdAt?.toMillis() - a.createdAt?.toMillis())
+                .map((project) => (
+                  <div
+                    key={project.id}
+                    className="bg-white border border-gray-200 rounded-xl shadow-sm hover:shadow-md transition flex flex-col overflow-hidden"
+                  >
+                    {/* Thumbnail */}
+                    {project.thumbnail ? (
+                      <img
+                        src={project.thumbnail}
+                        alt={project.title}
+                        className="w-full h-40 object-cover" // full, no padding
+                        onError={(e) => {
+                          e.target.src = "https://via.placeholder.com/300";
+                        }}
+                      />
+                    ) : (
+                      <div className="h-40 w-full bg-gray-100 flex items-center justify-center">
+                        <span className="text-gray-400 text-sm">No Image</span>
+                      </div>
+                    )}
+
+                    {/* Content */}
+                    <div className="p-4 flex flex-col flex-1">
+                      {/* Title */}
+                      <h3 className="text-sm font-semibold text-gray-900 truncate">
+                        {project.title}
+                      </h3>
+
+                      {/* Meta Info */}
+                      <div className="mt-1 flex flex-wrap items-center gap-3 text-xs">
+                        <span
+                          className={`px-2 py-0.5 rounded-full font-medium 
+          ${project.category === "project"
+                              ? "bg-green-100 text-green-800"
+                              : project.category === "template"
+                                ? "bg-gray-100 text-gray-800"
+                                : project.category === "components"
+                                  ? "bg-purple-100 text-purple-800"
+                                  : "bg-yellow-100 text-yellow-800"
+                            }`}
+                        >
+                          {project.category}
+                        </span>
+
+                        <span className="text-gray-500">
+                          {project.createdAt?.toDate().toLocaleDateString()}
+                        </span>
+
+                        <div className="ml-auto flex gap-2">
+                          <button
+                            onClick={() => handleEdit(project)}
+                            className="p-1 rounded hover:bg-gray-100 text-gray-600 hover:text-gray-900 transition"
+                          >
+                            <i className="ri-edit-line text-lg"></i>
+                          </button>
+                          <button
+                            onClick={() => handleDelete(project.id)}
+                            className="p-1 rounded hover:bg-red-50 text-red-600 hover:text-red-800 transition"
+                          >
+                            <i className="ri-delete-bin-line text-lg"></i>
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                ))}
+            </div>
+          )}
+
         </div>
       </div>
     </Layout>
