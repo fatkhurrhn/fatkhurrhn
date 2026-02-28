@@ -1,6 +1,12 @@
-<p align="left"> <img src="https://komarev.com/ghpvc/?username=fatkhur03&label=Profile%20views&color=0e75b6&style=flat" alt="" /> </p>
+<p align="left"> 
+ <img src="https://komarev.com/ghpvc/?username=fatkhur03&label=Profile%20views&color=0e75b6&style=flat" alt="" /> 
+ <img src="https://komarev.com/ghpvc/?username=fatkhurrhn&label=Years%20on%20GitHub&color=0e75b6&style=flat" />
+ <img src="https://badges.pufler.dev/repos/fatkhurrhn?style=flat&color=0e75b6" style="margin-bottom: 5px; max-width: 100%;" />
+ <img src="https://badges.pufler.dev/commits/monthly/fatkhurrhn?style=flat&color=0e75b6" style="margin-bottom: 5px; max-width: 100%;" />
+</p>
+ 
 
-# 👋 Hi there! I'm Fathur
+# 👋 Hi there! I'm FaDev
 
 I'm an Information Systems student passionate about Front-End Development, turning ideas into interactive and user-friendly experiences with clean and efficient code. Always exploring new web technologies, I love building innovative projects and crafting seamless user experiences. Check out my repos and let's create something awesome together!😎🔥
  
