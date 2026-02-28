@@ -15,16 +15,25 @@ I'm an Information Systems student passionate about Full-Stack Development, buil
 
 [![Instagram](https://img.shields.io/badge/Instagram-%23E4405F.svg?logo=Instagram&logoColor=white)](https://www.instagram.com/story.thur) [![LinkedIn](https://img.shields.io/badge/LinkedIn-%230077B5.svg?logo=linkedin&logoColor=white)](https://www.linkedin.com/in/fatkhurrhn) [![TikTok](https://img.shields.io/badge/TikTok-%23000000.svg?logo=TikTok&logoColor=white)](https://www.tiktok.com/@fatkhurrhnn)
 
-[![image](https://github.com/fatkhurrhn/fatkhurrhn/blob/main/dino.gif)](https://fatkhurrhn.vercel.app/)
+<!-- [![image](https://github.com/fatkhurrhn/fatkhurrhn/blob/main/dino.gif)](https://fatkhurrhn.vercel.app/) -->
 
-<p align="left">
+<br>
+
+ <a href="https://fatkhurrhn.vercel.app/">
+    <img src="https://github-readme-activity-graph.vercel.app/graph?username=fatkhurrhn&theme=github-compact&radius=16" height="auto" alt="by fatkhurhhn"/>
+</a>
+<br>
+<br>
+<!--
+![](http://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=fatkhurrhn&theme=algolia)-->
+
+<p align="center">
 <a href="https://github.com/fatkhurrhn">
-<img height="180em" src="https://github-readme-stats-eight-theta.vercel.app/api?username=fatkhurrhn&show_icons=true&theme=algolia&include_all_commits=true&count_private=true"/>
-<img height="180em" src="https://github-readme-stats-eight-theta.vercel.app/api/top-langs/?username=kamachiii&layout=compact&theme=algolia"/>
+<img height="216em" src="https://github-readme-stats-eight-theta.vercel.app/api?username=fatkhurrhn&show_icons=true&theme=algolia&include_all_commits=true&count_private=true"/>
+<img height="216em" src="https://github-readme-stats-eight-theta.vercel.app/api/top-langs/?username=kamachiii&layout=compact&theme=algolia"/>
 </a>
 </p>
 
- ## 🏆 GitHub Trophies
 ![](https://github-profile-trophy.vercel.app/?username=fatkhurrhn&theme=onestar&title=MultiLanguage,Stars,Commits,Repositories,Followers,Experience,PullRequest)
 
 <!-- ## 💻 Technical Skills:
@@ -41,11 +50,6 @@ I'm an Information Systems student passionate about Full-Stack Development, buil
 <h4> _generated with [Platane/snk](https://platane.me/snk/)_</h4>
 </div> 
 <br> -->
-<div align="left">
-<!--   <img src="https://github-readme-activity-graph.vercel.app/graph?username=fatkhurrhn&radius=16&theme=react&area=true&order=5" height="auto" alt="by fatkhurhhn"/> -->
-  <a href="https://fatkhurrhn.vercel.app/">
-    <img src="https://github-readme-activity-graph.vercel.app/graph?username=fatkhurrhn&theme=github-compact&radius=16" height="auto" alt="by fatkhurhhn"/>
-</a>
 
 
 
