@@ -32,7 +32,7 @@ I'm an Information Systems student passionate about Full-Stack Development, buil
 - **Frontend Development:** HTML/CSS3, JavaScript, Bootstrap :v
 - **Tools and Design:** VSCode, GitHub and Figma -->
 <!-- snake graph -->
- <div align="center">
+<!-- <div align="center">
   <picture>
     <source media="(prefers-color-scheme: dark)" srcset="https://github.com/fatkhurrhn/fatkhurrhn/blob/main/github-contribution-grid-snake-dark.svg" />
     <source media="(prefers-color-scheme: light), (prefers-color-scheme: no-preference)" srcset="https://github.com/fatkhurrhn/fatkhurrhn/blob/main/github-contribution-grid-snake.svg" />
@@ -40,7 +40,7 @@ I'm an Information Systems student passionate about Full-Stack Development, buil
   </picture>
 <h4> _generated with [Platane/snk](https://platane.me/snk/)_</h4>
 </div> 
-<br>
+<br> -->
 <div align="left">
 <!--   <img src="https://github-readme-activity-graph.vercel.app/graph?username=fatkhurrhn&radius=16&theme=react&area=true&order=5" height="auto" alt="by fatkhurhhn"/> -->
   <a href="https://fatkhurrhn.vercel.app/">
