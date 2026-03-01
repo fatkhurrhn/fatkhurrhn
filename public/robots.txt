@@ -1,5 +1,0 @@
-User-agent: *
-Disallow: /404
-Allow: /
-
-Sitemap: https://fatkhurrhn.vercel.app/sitemap.xml
