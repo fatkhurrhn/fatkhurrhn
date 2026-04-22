@@ -27,10 +27,9 @@ I’m currently an Information Systems student focusing on Full-Stack Developmen
 
 - 🌐 Social media enthusiast with 90K+ followers, sharing tech and coding content
 - 💻 Coding almost every day and consistently building projects to improve my skills
-- 🤖 Enjoy using AI to learn new concepts, solve problems, and explore new possibilities
+- 🤖 Enjoy using AI to learn new concepts  and explore new possibilities
 - ⚙️ Love turning ideas into real applications that are useful and user-friendly
 - 🌱 Growing through hands-on projects, self-learning, and experimentation
-- 🚀 Passionate about creating impactful digital products and continuous improvement
 - 📚 Always learning new tools, frameworks, and best practices in development
 
 <br clear="right" />
