@@ -17,7 +17,7 @@ I’m currently an Information Systems student focusing on Full-Stack Developmen
 
 <p align="center">
   <img src="https://komarev.com/ghpvc/?username=fatkhurrhn&style=for-the-badge&color=6B8E6E&label=Profile+Views" alt="Profile views" />
-  <img src="https://img.shields.io/badge/Social-80K+-6B8E6E?style=for-the-badge&label=Followers ig&color=D9897E&labelColor=3F4F44" />
+  <!-- <img src="https://img.shields.io/badge/Social-80K+-6B8E6E?style=for-the-badge&label=Followers ig&color=D9897E&labelColor=3F4F44" /> -->
    <img src="https://img.shields.io/github/followers/fatkhurrhn?style=for-the-badge&color=D9897E&labelColor=3F4F44&label=Followers" alt="GitHub followers" />
 </p>
 
