@@ -10,16 +10,16 @@ I’m currently an Information Systems student focusing on Full-Stack Developmen
 </p>
 
 <p align="center">
-  <a href="https://portfolio-fadev.vercel.app/"><img src="https://img.shields.io/badge/portofolio-fatkhurrhn-6B8E6E?style=for-the-badge&logo=googlechrome&logoColor=white&labelColor=3F4F44)](https://portfolio-fadev.vercel.app/" alt="Portfolio" /></a>
+  <img src="https://komarev.com/ghpvc/?username=fatkhurrhn&style=for-the-badge&color=6B8E6E&label=Profile+Views" alt="Profile views" />
   <a href="mailto:muhammadthursina123@gmail.com"><img src="https://img.shields.io/badge/Email-Contact-D9897E?style=for-the-badge&logo=gmail&logoColor=white&labelColor=3F4F44" alt="Email" /></a>
   <a href="https://www.linkedin.com/in/fatkhurrhn/"><img src="https://img.shields.io/badge/LinkedIn-Connect-7AA2E3?style=for-the-badge&logo=linkedin&logoColor=white&labelColor=3F4F44" alt="LinkedIn" /></a>
 
 
-<p align="center">
-  <img src="https://komarev.com/ghpvc/?username=fatkhurrhn&style=for-the-badge&color=6B8E6E&label=Profile+Views" alt="Profile views" />
+<!-- <p align="center"> -->
+  <!-- <img src="https://komarev.com/ghpvc/?username=fatkhurrhn&style=for-the-badge&color=6B8E6E&label=Profile+Views" alt="Profile views" /> -->
   <!-- <img src="https://img.shields.io/badge/Social-80K+-6B8E6E?style=for-the-badge&label=Followers ig&color=D9897E&labelColor=3F4F44" /> -->
-   <img src="https://img.shields.io/github/followers/fatkhurrhn?style=for-the-badge&color=D9897E&labelColor=3F4F44&label=Followers" alt="GitHub followers" />
-</p>
+   <!-- <img src="https://img.shields.io/github/followers/fatkhurrhn?style=for-the-badge&color=D9897E&labelColor=3F4F44&label=Followers" alt="GitHub followers" /> -->
+<!-- </p> -->
 
 <br>
 
