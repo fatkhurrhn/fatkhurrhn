@@ -23,24 +23,24 @@ I’m currently an Information Systems student focusing on Full-Stack Developmen
 
 <br>
 
-<h3>📚 About Me</h3>
+<h3>About Me</h3>
 <img align="right" src="https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExejAwNTY2bzBlM2t3ZzhlOWJnMTA1MG1nMTlrcW80NmY4N3p2c2NlMiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/GYtblmdLnemlO/giphy.gif" alt="fatkhurrhn profile side image" width="270" />
 
-- 🌐 Social media enthusiast with 90K+ followers, sharing tech and coding content
-- 💻 Coding almost every day and consistently building projects to improve my skills
-- 🤖 Enjoy using AI to learn new concepts  and explore new possibilities
-- ⚙️ Love turning ideas into real applications that are useful and user-friendly
-- 🌱 Growing through hands-on projects, self-learning, and experimentation
-- 📚 Always learning new tools, frameworks, and best practices in development
+- Social media enthusiast with 90K+ followers, sharing tech and coding content
+- Coding almost every day and consistently building projects to improve my skills
+- Enjoy using AI to learn new concepts  and explore new possibilities
+- Love turning ideas into real applications that are useful and user-friendly
+- Growing through hands-on projects, self-learning, and experimentation
+- Always learning new tools, frameworks, and best practices in development
 
 <br clear="right" />
 
-<h3>🌿 What I'm Building Toward</h3>
+<h3>What I'm Building Toward</h3>
 
 <table>
   <tr>
     <td width="50%" valign="top">
-      <strong>🌱 Direction</strong>
+      <strong>Direction</strong>
       <ul>
         <li>Scalable web and mobile applications with clean UI and solid backend systems</li>
         <li>Cross-platform apps using Flutter for fast and consistent user experiences</li>
@@ -48,7 +48,7 @@ I’m currently an Information Systems student focusing on Full-Stack Developmen
       </ul>
     </td>
     <td width="50%" valign="top">
-      <strong>🔭 Current Focus</strong>
+      <strong>Current Focus</strong>
       <ul>
         <li>Full-stack development (frontend, backend, and API integration)</li>
         <li>Building mini projects with Flutter to strengthen mobile development skills</li>
@@ -90,12 +90,12 @@ I’m currently an Information Systems student focusing on Full-Stack Developmen
   <img src="https://capsule-render.vercel.app/api?type=rect&color=8DBA8E&height=1&section=header" width="100%" alt="Green divider" />
 </div> -->
 
-<h3>📈 Daily Commit</h3>
+<!-- <h3>📈 Daily Commit</h3>
 <p>
 <a href="https://fatkhurrhn.vercel.app/">
     <img src="https://github-readme-activity-graph.vercel.app/graph?username=fatkhurrhn&theme=github-compact&radius=16" height="auto" alt="by fatkhurhhn"/>
 </a>
-</p>
+</p> -->
 
 <h3>🌲 Forest Activity</h3>
 
