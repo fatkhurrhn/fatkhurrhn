@@ -1,4 +1,4 @@
-<img src="./img/banner.jpg" alt="fatkhurrhn banner" width="100%" />
+<!-- <img src="./img/banner.jpg" alt="fatkhurrhn banner" width="100%" /> -->
 
 <div align="center">
   <img src="https://capsule-render.vercel.app/api?type=transparent&height=38&text=Welcome%20to%20My%20GitHub%20Universe&fontSize=31&fontColor=8DBA8E&fontAlignY=70&animation=fadeIn" alt="Welcome to My GitHub Universe" />
@@ -113,4 +113,4 @@ I’m currently an Information Systems student focusing on Full-Stack Developmen
   </tr>
 </table>
 
-<img src="./img/footer.jpg" alt="fatkhurrhn footer" width="100%" />
+<!-- <img src="./img/footer.jpg" alt="fatkhurrhn footer" width="100%" /> -->
