@@ -58,7 +58,7 @@ I’m currently an Information Systems student focusing on Full-Stack Developmen
   </tr>
 </table>
 
-<h3>🧰 Tech Garden</h3>
+<h3>Tech Garden</h3>
 
 <p align="center">
   <img src="https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white" alt="HTML5" />
@@ -90,19 +90,19 @@ I’m currently an Information Systems student focusing on Full-Stack Developmen
   <img src="https://capsule-render.vercel.app/api?type=rect&color=8DBA8E&height=1&section=header" width="100%" alt="Green divider" />
 </div> -->
 
-<!-- <h3>📈 Daily Commit</h3>
+<!-- <h3>Daily Commit</h3>
 <p>
 <a href="https://fatkhurrhn.vercel.app/">
     <img src="https://github-readme-activity-graph.vercel.app/graph?username=fatkhurrhn&theme=github-compact&radius=16" height="auto" alt="by fatkhurhhn"/>
 </a>
 </p> -->
 
-<h3>🌲 Forest Activity</h3>
+<h3>Forest Activity</h3>
 
 <table align="center">
   <tr>
     <td width="49%" valign="top">
-      <img width="100%" src="https://ghstats.dev/api/card?username=fatkhurrhn&bg=0D1117&text=A8B3A9&title_color=8DBA8E&icon_color=D6A85E&hide_border=true&show_icons=true&show_ring=false&hide=grade&custom_title=Forest%20Log" alt="GitHub forest log" />
+      <img width="100%" src="https://ghstats.dev/api/card?username=fatkhurrhn&bg=0D1117&text=A8B3A9&title_color=8DBA8E&icon_color=D6A85E&hide_border=true&show_icons=true&show_ring=false&hide=issues%2Cprs" alt="GitHub forest log" />
     </td>
     <td width="2%"></td>
     <td width="49%" valign="top">
