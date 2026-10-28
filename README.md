@@ -35,7 +35,7 @@ I’m currently an Information Systems student focusing on Full-Stack Developmen
 
 <br clear="right" />
 
-<h3>What I'm Building Toward</h3>
+<!-- <h3>What I'm Building Toward</h3>
 
 <table>
   <tr>
@@ -56,7 +56,7 @@ I’m currently an Information Systems student focusing on Full-Stack Developmen
       </ul>
     </td>
   </tr>
-</table>
+</table> -->
 
 <h3>Tech Garden</h3>
 
