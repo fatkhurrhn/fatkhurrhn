@@ -26,7 +26,7 @@ I’m currently an Information Systems student focusing on Full-Stack Developmen
 <h3>About Me</h3>
 <img align="right" src="https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExejAwNTY2bzBlM2t3ZzhlOWJnMTA1MG1nMTlrcW80NmY4N3p2c2NlMiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/GYtblmdLnemlO/giphy.gif" alt="fatkhurrhn profile side image" width="270" />
 
-- Social media enthusiast with 90K+ followers, sharing tech and coding content
+- Social media enthusiast with 80K+ followers, sharing tech and coding content
 - Coding almost every day and consistently building projects to improve my skills
 - Enjoy using AI to learn new concepts  and explore new possibilities
 - Love turning ideas into real applications that are useful and user-friendly
